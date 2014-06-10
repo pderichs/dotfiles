@@ -35,3 +35,6 @@
 
 ;; For graphical emacs: bigger font
 ;;(set-face-attribute 'default nil :height 180)
+
+;; Suppress emacs startup screen
+(setq inhibit-startup-message t)
