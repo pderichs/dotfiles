@@ -1,5 +1,6 @@
-;; Helm to C-c h
+;; General key bindings
 (global-set-key (kbd "s-h") 'helm-mini)
+(global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
 
 ;; Fiplr to C-c p
 ;(global-set-key (kbd "C-c p") 'fiplr-find-file)
