@@ -1,4 +1,8 @@
 " Use UTF-8 encoding
+
+" fixes weird error messages when using fish shell
+set shell=/bin/bash
+
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
