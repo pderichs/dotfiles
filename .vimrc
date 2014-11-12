@@ -1,14 +1,60 @@
-" Use UTF-8 encoding
+" References:
+" http://www.sitepoint.com/getting-started-vim/
 
-" fixes weird error messages when using fish shell
+" for fish shell
 set shell=/bin/bash
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'wincent/command-t'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+
+" UTF-8 encoding
+set encoding=utf-8
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
 
+" Display incomplete commands
+set showcmd
+
+" load file type plugins + indentation
+filetype plugin indent on
+
+" Tabwidth and insert spaces instead of tabs
+set nowrap                      " don't wrap lines
+set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
+set expandtab                   " use spaces, not tabs (optional)
+set backspace=indent,eol,start  " backspace through everything in insert mode
+
+" Searching
+set hlsearch                    " highlight matches
+set incsearch                   " incremental searching
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+
 " Disable vi compatibility (emulation of old bugs)
 set nocompatible
+
+" Indentation
 set autoindent
 set smartindent
 
