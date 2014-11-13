@@ -31,6 +31,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -44,8 +45,13 @@ set termencoding=utf-8
 " highlight current line
 set cursorline
 
+" default history is 20
+set history=1000
+
 " Display incomplete commands
 set showcmd
+
+set showmode
 
 " load file type plugins + indentation
 filetype plugin indent on
@@ -106,6 +112,9 @@ set wildmenu
 " vim-git plugin
 set laststatus=2
 set statusline=%{GitBranch()}
+
+" status line
+" set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 
 " keyboard mappings
 "
