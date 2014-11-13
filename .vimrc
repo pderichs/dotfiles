@@ -30,6 +30,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'thoughtbot/vim-rspec'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -81,6 +82,10 @@ syntax on
 if has('gui_running')
   colorscheme wombat
   set guifont=Menlo\ Regular:h15
+  if has('gui_macvim')
+    macmenu &File.New\ Tab key=<nop>
+    map <D-t> :CommandT<CR>
+  endif
 else
   colorscheme wombat256
 endif
