@@ -79,7 +79,8 @@ syntax on
 
 " Theme
 if has('gui_running')
-  colorscheme darkblue
+  colorscheme wombat
+  set guifont=Menlo\ Regular:h15
 else
   colorscheme wombat256
 endif
