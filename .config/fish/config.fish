@@ -9,6 +9,7 @@ rbenv rehash >/dev/null ^&1
 
 # Go path
 set -xg GOPATH $HOME/go
+set -xg PATH $GOPATH/bin $PATH
 
 # Aliases
 
