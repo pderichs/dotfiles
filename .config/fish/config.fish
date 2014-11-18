@@ -7,6 +7,9 @@ set -xg PATH $HOME/.rbenv/bin $PATH
 set -xg PATH $HOME/.rbenv/shims $PATH
 rbenv rehash >/dev/null ^&1
 
+# Go path
+set -xg GOPATH $HOME/go
+
 # Aliases
 
 # Pow
