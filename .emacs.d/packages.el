@@ -17,6 +17,7 @@
     magit
     yasnippet
     projectile
+    ruby-end
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
