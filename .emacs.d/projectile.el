@@ -5,5 +5,5 @@
 (setq projectile-require-project-root nil)
 
 ;; Helm-projectile mode
-;; (setq projectile-completion-system 'helm)
-;; (helm-projectile-on)
+(require 'helm-projectile)
+(helm-projectile-on)

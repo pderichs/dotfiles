@@ -22,7 +22,7 @@
 ;(global-set-key (kbd "C-c p") 'fiplr-find-file)
 
 ;; Projectile key bindings
-(global-set-key (kbd "M-1") 'projectile-find-file)
-(global-set-key (kbd "M-2") 'projectile-switch-project)
-(global-set-key (kbd "M-8") 'projectile-grep)
+(global-set-key (kbd "M-1") 'projectile-switch-project)
+(global-set-key (kbd "M-2") 'helm-projectile-grep)
+(global-set-key (kbd "M-3") 'projectile-find-file)
 (global-set-key (kbd "M-9") 'projectile-invalidate-cache)
