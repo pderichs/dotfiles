@@ -14,12 +14,12 @@
 (setq cpp-config        "~/.emacs.d/cpp.el")
 (setq goto-sym-function "~/.emacs.d/goto_symbol.el")
 
+(load packages-config)
 (load edit-config)
 (load interface-config)
 (load ido-mode-config)
 (load ruby-config)
 (load mac-os-config)
-(load packages-config)
 (load projectile-config)
 (load keys-config)
 (load goto-sym-function)
