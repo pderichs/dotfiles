@@ -5,4 +5,5 @@
   (setq mac-option-modifier nil)
   (global-set-key [kp-delete] 'delete-char)
   (setq ns-function-modifier 'control)
-  (setq ns-alternate-modifier 'control))
+  (setq ns-alternate-modifier 'control)
+  (setq ns-right-alternate-modifier nil))
