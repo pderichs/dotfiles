@@ -1,4 +1,6 @@
-;; Enable meta key of mac for brackets
+;; Command is Meta. Enable meta key of mac for brackets
 ;;(setq default-input-method "MacOSX")
-(setq mac-option-key-is-meta t)
-(setq mac-right-option-modifier nil)
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier nil)
+  (global-set-key [kp-delete] 'delete-char))
