@@ -23,6 +23,7 @@
 
 ;; Projectile key bindings
 (global-set-key (kbd "M-1") 'projectile-switch-project)
-(global-set-key (kbd "M-2") 'helm-projectile-grep)
+(global-set-key (kbd "M-2") 'helm-projectile-ag)
 (global-set-key (kbd "M-3") 'projectile-find-file)
+(global-set-key (kbd "M-4") 'helm-projectile-switch-to-buffer)
 (global-set-key (kbd "M-9") 'projectile-invalidate-cache)
