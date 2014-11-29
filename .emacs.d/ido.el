@@ -2,7 +2,12 @@
 (require 'ido)
 (setq ido-everywhere t)
 (setq ido-enable-flex-matching t)
-(ido-mode t)
+(ido-mode 1)
+
+;; Enable flx ido mode (fuzzy matching)
+(flx-ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
 
 ;; Make recent file list available to ido
 (recentf-mode 1)

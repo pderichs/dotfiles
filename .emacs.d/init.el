@@ -24,4 +24,5 @@
                               (load projectile-config)
                               (load keys-config)
                               (load goto-sym-function)
+                              (load "~/.emacs.d/server.el")
                               ))

@@ -10,5 +10,8 @@
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 
+;; No encoding comment
+(setq ruby-insert-encoding-magic-comment nil)
+
 ;; Enabling ruby-end-mode
 (ruby-end-mode 1)

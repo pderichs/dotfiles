@@ -1,4 +1,3 @@
-
 ;; Enable smooth scrolling.
 (setq redisplay-dont-pause t
   scroll-margin 1
@@ -50,3 +49,9 @@
 
 ;; No ~ temp files
 (setq make-backup-files nil)
+
+;; We like brackets auto-paired
+(electric-pair-mode 1)
+
+;; Don't use yes or no, we want y or n
+(defalias 'yes-or-no-p 'y-or-n-p)

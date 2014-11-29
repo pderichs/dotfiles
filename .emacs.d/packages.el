@@ -18,6 +18,11 @@
     yasnippet
     projectile
     ruby-end
+    coffee-mode
+    helm
+    flx-ido
+    smex
+    grizzl
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
