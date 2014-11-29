@@ -3,4 +3,6 @@
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil)
-  (global-set-key [kp-delete] 'delete-char))
+  (global-set-key [kp-delete] 'delete-char)
+  (setq ns-function-modifier 'control)
+  (setq ns-alternate-modifier 'control))
