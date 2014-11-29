@@ -23,6 +23,7 @@
     flx-ido
     smex
     grizzl
+    go-mode
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)

@@ -4,6 +4,11 @@
 (global-set-key (kbd "C-q") 'save-buffers-kill-emacs)
 (global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
 
+;; Moving between windows
+(global-set-key (kbd "M--") 'previous-multiframe-window)
+(global-set-key (kbd "M-+") 'next-multiframe-window)
+
+
 ;; Using helm-M-x instead of the default implementation
 ;(global-set-key (kbd "M-x") 'helm-M-x)
 
@@ -17,10 +22,6 @@
 ;(global-set-key (kbd "C-c p") 'fiplr-find-file)
 
 ;; Projectile key bindings
-;; (define-key projectile-mode-map [?\s-d] 'projectile-find-dir)
-;; (define-key projectile-mode-map [?\s-P] 'projectile-switch-project)
-;; (define-key projectile-mode-map [?\s-f] 'projectile-find-file)
-;; (define-key projectile-mode-map [?\s-g] 'projectile-grep)
 (global-set-key (kbd "M-1") 'projectile-find-file)
 (global-set-key (kbd "M-2") 'projectile-switch-project)
 (global-set-key (kbd "M-8") 'projectile-grep)
