@@ -26,6 +26,7 @@
     go-mode
     helm-projectile
     helm-ag
+    ace-jump-mode
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)

@@ -18,6 +18,9 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+;; Ace jump mode
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
 ;; Fiplr to C-c p
 ;(global-set-key (kbd "C-c p") 'fiplr-find-file)
 
