@@ -15,3 +15,6 @@
 
 ;; Enabling ruby-end-mode
 (ruby-end-mode 1)
+
+;; Enable rbenv
+(global-rbenv-mode)

@@ -28,6 +28,11 @@
     helm-ag
     ace-jump-mode
     auto-complete
+    sass-mode
+    zencoding-mode
+    rbenv
+    inf-ruby
+    rubocop
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
