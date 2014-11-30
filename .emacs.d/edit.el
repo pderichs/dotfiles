@@ -58,3 +58,6 @@
 
 ;; Don't use yes or no, we want y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Enable yasnippets globally
+(yas-global-mode t)

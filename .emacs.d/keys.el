@@ -21,9 +21,10 @@
 ;; Fiplr to C-c p
 ;(global-set-key (kbd "C-c p") 'fiplr-find-file)
 
-;; Projectile key bindings
+;; Major key binding (navigation, project management etc...)
 (global-set-key (kbd "M-1") 'projectile-switch-project)
 (global-set-key (kbd "M-2") 'helm-mini)
+(global-set-key (kbd "M-3") 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-4") 'helm-projectile-switch-to-buffer)
 (global-set-key (kbd "M-8") 'projectile-invalidate-cache)
 (global-set-key (kbd "M-9") 'helm-projectile-grep)
