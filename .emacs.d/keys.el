@@ -28,3 +28,8 @@
 (global-set-key (kbd "M-8") 'projectile-invalidate-cache)
 (global-set-key (kbd "M-9") 'helm-projectile-grep)
 (global-set-key (kbd "M-0") 'projectile-find-file)
+
+;; Macros
+(global-set-key (kbd "M-5") 'kmacro-start-macro)
+(global-set-key (kbd "M-6") 'kmacro-end-macro)
+(global-set-key (kbd "M-7") 'kmacro-end-and-call-macro)
