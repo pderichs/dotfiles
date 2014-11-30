@@ -14,6 +14,7 @@
 (setq cpp-config                "~/.emacs.d/cpp.el")
 (setq goto-sym-function         "~/.emacs.d/goto_symbol.el")
 (setq autocomplete-config       "~/.emacs.d/autocomplete.el")
+(setq environment-config        "~/.emacs.d/env.el")
 
 (load packages-config)
 (add-hook 'after-init-hook '(lambda ()
@@ -26,4 +27,5 @@
                               (load keys-config)
                               ; (load goto-sym-function)
                               (load autocomplete-config)
+                              (load environment-config)
                               (load "~/.emacs.d/server.el")))
