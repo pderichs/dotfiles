@@ -27,6 +27,7 @@
     helm-projectile
     helm-ag
     ace-jump-mode
+    auto-complete
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)

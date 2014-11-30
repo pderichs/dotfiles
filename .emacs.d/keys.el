@@ -6,7 +6,6 @@
 (global-set-key (kbd "M--") 'previous-multiframe-window)
 (global-set-key (kbd "M-+") 'next-multiframe-window)
 
-
 ;; Using helm-M-x instead of the default implementation
 ;(global-set-key (kbd "M-x") 'helm-M-x)
 

@@ -5,7 +5,10 @@
   scroll-conservatively 10000
   scroll-preserve-screen-position 1)
 
-;; I want auto indentation.
+;; Show line numbers.
+(global-linum-mode 1)
+
+;; Auto indentation.
 (global-set-key "\C-m" 'newline-and-indent)
 
 ;; Tab size is 2.
