@@ -1,5 +1,9 @@
 ;; Setting PATH
-(when (or (eq system-type 'darwin) (eq system-type "gnu/linux"))
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+(when (eq system-type "gnu/linux")
   (setq home (getenv "HOME"))
   (setq paths
         (list

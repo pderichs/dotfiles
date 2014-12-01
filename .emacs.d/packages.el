@@ -35,6 +35,7 @@
     rubocop
     rspec-mode
     multiple-cursors
+    exec-path-from-shell
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)

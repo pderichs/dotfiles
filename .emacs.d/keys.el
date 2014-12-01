@@ -1,10 +1,9 @@
 ;; General key bindings
-(global-set-key (kbd "C-q") 'save-buffers-kill-emacs)
-(global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
+(global-set-key (kbd "M-q") 'save-buffers-kill-emacs)
 
 ;; Moving between windows
 (global-set-key (kbd "M--") 'previous-multiframe-window)
-(global-set-key (kbd "M-+") 'next-multiframe-window)
+; (global-set-key (kbd "M-+") 'next-multiframe-window)
 
 ;; using helm-m-x instead of the default implementation
 ;(global-set-key (kbd "M-x") 'helm-M-x)
@@ -32,11 +31,15 @@
 (global-set-key (kbd "M-7") 'kmacro-end-and-call-macro)
 
 (global-set-key (kbd "M-8") 'projectile-invalidate-cache)
-(global-set-key (kbd "M-9") 'helm-projectile-grep)
+(global-set-key (kbd "M-9") 'helm-projectile-ag)
+
 (global-set-key (kbd "M-0") 'projectile-find-file)
+(global-set-key (kbd "M-p") 'projectile-find-file)
 
 (global-set-key (kbd "C-M-0") 'rspec-verify-all)
 
 (global-set-key (kbd "C-7") 'mc/edit-lines)
 (global-set-key (kbd "C-8") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-9") 'mc/mark-all-like-this)
+
+(global-set-key (kbd "M-o") 'ido-find-file)
