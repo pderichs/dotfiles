@@ -61,3 +61,8 @@
 
 ;; Enable yasnippets globally
 (yas-global-mode t)
+
+;; Showing complete file path in title bar
+(setq frame-title-format
+      (list (format "%s %%S: %%j " (system-name))
+            '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))

@@ -42,4 +42,9 @@
 (global-set-key (kbd "C-8") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-9") 'mc/mark-all-like-this)
 
+;; Sublime like key settings
 (global-set-key (kbd "M-o") 'ido-find-file)
+(global-set-key (kbd "M-d") 'mc/mark-next-like-this)
+(global-set-key (kbd "M-s") 'save-buffer)
+(global-set-key (kbd "M-l") 'mc/edit-lines)
+(global-set-key (kbd "M-p") 'projectile-find-file)
