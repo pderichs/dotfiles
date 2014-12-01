@@ -4,6 +4,13 @@
 ;; No toolbar.
 (tool-bar-mode -1)
 
+;; Load wombat theme
+(load-theme 'wombat)
+
+;; Highlight current line
+;(global-hl-line-mode 1)
+;(set-face-background 'hl-line "#223")
+
 ;; Enhance font-size for graphical emacs.
 (set-face-attribute 'default nil :height 150)
 

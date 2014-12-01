@@ -36,6 +36,7 @@
     rspec-mode
     multiple-cursors
     exec-path-from-shell
+    color-theme
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
