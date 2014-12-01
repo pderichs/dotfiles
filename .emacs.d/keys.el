@@ -37,6 +37,6 @@
 
 (global-set-key (kbd "C-M-0") 'rspec-verify-all)
 
-(global-set-key (kbd "C-0") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-7") 'mc/edit-lines)
+(global-set-key (kbd "C-8") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-9") 'mc/mark-all-like-this)
