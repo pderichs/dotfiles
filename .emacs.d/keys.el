@@ -4,7 +4,7 @@
 
 ;; Moving between windows
 (global-set-key (kbd "M--") 'previous-multiframe-window)
-(global-set-key (kbd "m-+") 'next-multiframe-window)
+(global-set-key (kbd "M-+") 'next-multiframe-window)
 
 ;; using helm-m-x instead of the default implementation
 ;(global-set-key (kbd "M-x") 'helm-M-x)
