@@ -12,7 +12,7 @@
 ;; Using smex for command execution
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
+;; This is the original M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; Ace jump mode
@@ -36,3 +36,7 @@
 (global-set-key (kbd "M-0") 'projectile-find-file)
 
 (global-set-key (kbd "C-M-0") 'rspec-verify-all)
+
+(global-set-key (kbd "C-0") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-7") 'mc/edit-lines)
+(global-set-key (kbd "C-9") 'mc/mark-all-like-this)
