@@ -8,11 +8,14 @@
 ;; using helm-m-x instead of the default implementation
 ;(global-set-key (kbd "M-x") 'helm-M-x)
 
-;; Using smex for command execution
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is the original M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; ;; Using smex for command execution
+;; (global-set-key (kbd "M-x") 'smex)
+;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; ;; This is the original M-x.
+;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; Use helm-M-x
+(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; Ace jump mode
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
