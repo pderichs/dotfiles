@@ -37,6 +37,7 @@
     multiple-cursors
     exec-path-from-shell
     color-theme
+    robe
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
