@@ -52,3 +52,7 @@
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-L") 'mc/edit-lines)
 (global-set-key (kbd "M-p") 'projectile-find-file)
+(global-set-key (kbd "M-+") 'projectile-switch-to-buffer)
+
+;; Enable robe jump
+(global-set-key (kbd "M-g") 'robe-jump)
