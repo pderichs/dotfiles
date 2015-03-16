@@ -38,6 +38,8 @@
     exec-path-from-shell
     color-theme
     robe
+    clojure-mode
+    cider
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
