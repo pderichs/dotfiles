@@ -1,9 +1,9 @@
 ;; Enable smooth scrolling.
-(setq redisplay-dont-pause t
-  scroll-margin 1
-  scroll-step 1
-  scroll-conservatively 10000
-  scroll-preserve-screen-position 1)
+;; (setq redisplay-dont-pause t
+;;   scroll-margin 1
+;;   scroll-step 1
+;;   scroll-conservatively 10000
+;;   scroll-preserve-screen-position 1)
 
 ;; Show line numbers.
 (global-linum-mode 1)
@@ -21,7 +21,7 @@
 (setq electric-indent-mode nil)
 
 ;; No line wrap.
-;(setq-default truncate-lines 1)
+(setq-default truncate-lines 1)
 
 ;; Show matching brackets
 (show-paren-mode 1)

@@ -56,3 +56,9 @@
 
 ;; Enable robe jump
 (global-set-key (kbd "M-g") 'robe-jump)
+
+;; Comment region via C-c C-c
+(global-set-key (kbd "C-c C-c") 'comment-region)
+
+;; Easy buffer switch
+(global-set-key (kbd "C-b") 'projectile-switch-to-buffer)
