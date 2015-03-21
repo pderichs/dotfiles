@@ -53,6 +53,9 @@
 ;; No ~ temp files
 (setq make-backup-files nil)
 
+;; No #autosave# files
+(setq auto-save-default nil)
+
 ;; We like brackets auto-paired
 (electric-pair-mode 1)
 
