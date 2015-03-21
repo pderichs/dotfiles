@@ -5,9 +5,9 @@
 (tool-bar-mode -1)
 
 ;; Load wombat theme
-;(load-theme 'wombat)
+(load-theme 'wombat)
 ;; Cyperpunk theme
-(load-theme 'cyberpunk t)
+;(load-theme 'cyberpunk t)
 
 ;; Highlight current line
 ;(global-hl-line-mode 1)
