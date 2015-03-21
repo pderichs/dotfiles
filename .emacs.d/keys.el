@@ -8,20 +8,11 @@
 ;; using helm-m-x instead of the default implementation
 ;(global-set-key (kbd "M-x") 'helm-M-x)
 
-;; ;; Using smex for command execution
-;; (global-set-key (kbd "M-x") 'smex)
-;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; ;; This is the original M-x.
-;; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
 ;; Use helm-M-x
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; Ace jump mode
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
-;; Fiplr to C-c p
-;(global-set-key (kbd "C-c p") 'fiplr-find-file)
 
 ;; Major key binding (navigation, project management etc...)
 (global-set-key (kbd "M-1") 'projectile-switch-project)
@@ -62,3 +53,8 @@
 
 ;; Easy buffer switch
 (global-set-key (kbd "C-b") 'projectile-switch-to-buffer)
+
+;; Search in project
+(global-set-key (kbd "C-F") 'helm-projectile-ag)
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
