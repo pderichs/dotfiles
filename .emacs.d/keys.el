@@ -15,7 +15,6 @@
 ;; Major key binding (navigation, project management etc...)
 (global-set-key (kbd "M-1") 'projectile-switch-project)
 (global-set-key (kbd "M-2") 'helm-mini)
-(global-set-key (kbd "M-3") 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-4") 'helm-projectile-switch-to-buffer)
 
 (global-set-key (kbd "M-5") 'kmacro-start-macro)
@@ -41,6 +40,7 @@
 (global-set-key (kbd "M-s")   'save-buffer)
 (global-set-key (kbd "M-L")   'mc/edit-lines)
 (global-set-key (kbd "M-p")   'projectile-find-file)
+(global-set-key (kbd "M-r")   'helm-semantic-or-imenu)
 
 ;; Enable robe jump
 (global-set-key (kbd "M-g") 'robe-jump)
