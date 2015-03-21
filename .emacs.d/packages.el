@@ -42,6 +42,7 @@
     cider
     cyberpunk-theme
     magit
+    yaml-mode
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
