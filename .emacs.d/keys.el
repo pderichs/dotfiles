@@ -3,13 +3,11 @@
 
 ;; Moving between windows
 (global-set-key (kbd "M--") 'previous-multiframe-window)
-; (global-set-key (kbd "M-+") 'next-multiframe-window)
-
-;; using helm-m-x instead of the default implementation
-;(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; Use helm-M-x
 (global-set-key (kbd "M-x") 'helm-M-x)
+;; using helm-m-x instead of the default implementation
+;(global-set-key (kbd "M-x") 'helm-M-x)
 
 ;; Ace jump mode
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
@@ -25,9 +23,9 @@
 (global-set-key (kbd "M-7") 'kmacro-end-and-call-macro)
 
 (global-set-key (kbd "M-8") 'projectile-invalidate-cache)
-(global-set-key (kbd "M-9") 'helm-projectile-ag)
 
-(global-set-key (kbd "M-0") 'projectile-find-file)
+(global-set-key (kbd "C-F") 'helm-projectile-ag)
+
 (global-set-key (kbd "M-p") 'projectile-find-file)
 
 (global-set-key (kbd "C-M-0") 'rspec-verify-all)
@@ -37,24 +35,21 @@
 (global-set-key (kbd "C-9") 'mc/mark-all-like-this)
 
 ;; Sublime like key settings
-(global-set-key (kbd "M-o") 'ido-find-file)
-(global-set-key (kbd "M-d") 'mc/mark-next-like-this)
+(global-set-key (kbd "M-o")   'ido-find-file)
+(global-set-key (kbd "M-d")   'mc/mark-next-like-this)
 (global-set-key (kbd "C-M-g") 'mc/mark-all-like-this)
-(global-set-key (kbd "M-s") 'save-buffer)
-(global-set-key (kbd "M-L") 'mc/edit-lines)
-(global-set-key (kbd "M-p") 'projectile-find-file)
-(global-set-key (kbd "M-+") 'projectile-switch-to-buffer)
+(global-set-key (kbd "M-s")   'save-buffer)
+(global-set-key (kbd "M-L")   'mc/edit-lines)
+(global-set-key (kbd "M-p")   'projectile-find-file)
 
 ;; Enable robe jump
 (global-set-key (kbd "M-g") 'robe-jump)
 
-;; Comment region via C-c C-c
 (global-set-key (kbd "C-c C-c") 'comment-region)
 
 ;; Easy buffer switch
 (global-set-key (kbd "C-b") 'projectile-switch-to-buffer)
 
-;; Search in project
-(global-set-key (kbd "C-F") 'helm-projectile-ag)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "M-,") 'magit-status)
