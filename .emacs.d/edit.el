@@ -13,6 +13,8 @@
 
 ;; Tab size is 2.
 (setq default-tab-width 2)
+(setq js-indent-level 2)
+(setq css-indent-offset 2)
 
 ;; No tabs (we want spaces instead).
 (setq-default indent-tabs-mode nil)
