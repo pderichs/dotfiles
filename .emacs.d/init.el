@@ -28,4 +28,5 @@
                               ; (load goto-sym-function)
                               (load autocomplete-config)
                               (load environment-config)
-                              (load "~/.emacs.d/server.el")))
+                              (load "~/.emacs.d/server.el")
+                              (load "~/.emacs.d/openurl.el")))
