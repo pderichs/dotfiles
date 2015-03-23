@@ -43,6 +43,7 @@
     cyberpunk-theme
     magit
     yaml-mode
+    minitest
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
