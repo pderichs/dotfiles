@@ -53,3 +53,5 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "M-,") 'magit-status)
+
+(global-set-key (kbd "M-g") 'goto-line)
