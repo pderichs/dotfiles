@@ -93,10 +93,12 @@ syntax on
 if has('gui_running')
   " colorscheme wombat
   colorscheme badwolf
-  set guifont=Ubuntu\ Mono\ 14
   if has('gui_macvim')
+    set guifont=Inconsolata\ for\ Powerline:h18
     macmenu &File.New\ Tab key=<nop>
     map <D-t> :CommandT<CR>
+  else
+    set guifont=Ubuntu\ Mono\ 14
   endif
 else
   " colorscheme wombat256
