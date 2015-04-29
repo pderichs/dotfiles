@@ -7,6 +7,8 @@ set shell=/bin/bash
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set noswapfile                " don't create swp files
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -28,10 +30,10 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'mileszs/ack.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'bling/vim-airline'
+Plugin 'rking/ag.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -89,15 +91,20 @@ syntax on
 
 " Theme
 if has('gui_running')
-  colorscheme wombat
-  set guifont=Ubuntu\ Mono\ 11
+  " colorscheme wombat
+  colorscheme badwolf
+  set guifont=Ubuntu\ Mono\ 14
   if has('gui_macvim')
     macmenu &File.New\ Tab key=<nop>
     map <D-t> :CommandT<CR>
   endif
 else
-  colorscheme wombat256
+  " colorscheme wombat256
+  colorscheme badwolf
 endif
+
+" airline font config
+let g:airline_powerline_fonts = 1
 
 " Line numbers
 set number
