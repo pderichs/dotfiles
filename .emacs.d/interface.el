@@ -5,9 +5,11 @@
 (tool-bar-mode -1)
 
 ;; Load wombat theme
-(load-theme 'wombat)
+;(load-theme 'wombat)
 ;; Cyperpunk theme
 ;(load-theme 'cyberpunk t)
+;; Loading badwolf theme
+(load-file (expand-file-name "themes/badwolf-theme.el" user-emacs-directory))
 
 ;; Highlight current line
 ;(global-hl-line-mode 1)
