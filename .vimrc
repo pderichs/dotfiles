@@ -34,6 +34,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
