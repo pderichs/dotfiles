@@ -24,7 +24,6 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive.git'
-Plugin 'wincent/command-t'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdtree'
@@ -35,6 +34,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -55,6 +55,11 @@ set history=1000
 set showcmd
 
 set showmode
+
+" Turn off bell
+set noerrorbells 
+set novisualbell
+set t_vb=
 
 " load file type plugins + indentation
 filetype plugin indent on
@@ -129,12 +134,6 @@ set statusline=%{GitBranch()}
 " keyboard mappings
 "
 
-" in normal mode F2 will save the file
-nmap <F2> :w<CR>
-
-" in insert mode F2 will exit insert, save, enters insert again
-imap <F2> <ESC>:w<CR>i
-
 " switch between header/source with F4 C
 map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
 
@@ -154,3 +153,13 @@ nmap <F8> @q
 " goto definition with F12
 map <F12> <C-]>
 
+" remap leader
+let mapleader = " "
+
+map <Leader>w :w<CR>
+map <Leader>t :NERDTreeToggle<CR>
+map <Leader>a :Ag! 
+map <Leader>p :CtrlP<CR>
+map <Leader>s :call RunCurrentSpecFile()<CR>
+map <Leader>S :call RunAllSpecs()<CR>
+map <Leader>r :!bundle exec rake<CR>
