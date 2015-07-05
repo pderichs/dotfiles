@@ -36,10 +36,9 @@ Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
-" Track the engine.
 Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plugin 'honza/vim-snippets' " for ultisnips
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -168,9 +167,8 @@ nmap <F8> @q
 " goto definition with F12
 map <F12> <C-]>
 
-" remap leader
+" Leader keystrokes
 let mapleader = " "
-
 map <leader>w :w<cr>
 map <leader>t :NERDTreeToggle<cr>
 map <leader>a :Ag! 
