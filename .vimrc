@@ -35,6 +35,11 @@ Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -126,13 +131,23 @@ set wildmenu
 
 " vim-git plugin
 set laststatus=2
-set statusline=%{GitBranch()}
+" set statusline=%{GitBranch()}
 
 " status line
 " set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 
 " keyboard mappings
 "
+
+" Ultisnips
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " switch between header/source with F4 C
 map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<cr>
