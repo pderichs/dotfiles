@@ -165,3 +165,4 @@ map <leader>S :call RunAllSpecs()<cr>
 map <leader>r :!bundle exec rake<cr>
 map <leader>ev :new ~/.vimrc<cr>
 map <leader>so :source %<cr>
+map <leader>o :e 
