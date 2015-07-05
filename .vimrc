@@ -171,11 +171,11 @@ map <F12> <C-]>
 let mapleader = " "
 map <leader>w :w<cr>
 map <leader>t :NERDTreeToggle<cr>
-map <leader>a :Ag! 
+map <leader>a :Ag!<space>
 map <leader>p :CtrlP<cr>
 map <leader>s :call RunCurrentSpecFile()<cr>
 map <leader>S :call RunAllSpecs()<cr>
 map <leader>r :!bundle exec rake<cr>
 map <leader>ev :new ~/.vimrc<cr>
 map <leader>so :source %<cr>
-map <leader>o :e 
+map <leader>o :e<space>
