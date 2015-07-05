@@ -102,7 +102,7 @@ if has('gui_running')
   if has('gui_macvim')
     set guifont=Inconsolata\ for\ Powerline:h18
     macmenu &File.New\ Tab key=<nop>
-    map <D-t> :CommandT<CR>
+    map <D-t> :CommandT<cr>
   else
     set guifont=Ubuntu\ Mono\ 14
   endif
@@ -135,16 +135,16 @@ set statusline=%{GitBranch()}
 "
 
 " switch between header/source with F4 C
-map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<cr>
 
 " recreate tags file with F5
-map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
 
 " make 
-imap <F7> <ESC>:w<CR>:make<CR>
+imap <F7> <ESC>:w<cr>:make<cr>
 
 " make all
-map <S-F7> :make clean all<CR>
+map <S-F7> :make clean all<cr>
 
 " macro recording
 nmap <S-F8> qq
@@ -156,10 +156,12 @@ map <F12> <C-]>
 " remap leader
 let mapleader = " "
 
-map <Leader>w :w<CR>
-map <Leader>t :NERDTreeToggle<CR>
-map <Leader>a :Ag! 
-map <Leader>p :CtrlP<CR>
-map <Leader>s :call RunCurrentSpecFile()<CR>
-map <Leader>S :call RunAllSpecs()<CR>
-map <Leader>r :!bundle exec rake<CR>
+map <leader>w :w<cr>
+map <leader>t :NERDTreeToggle<cr>
+map <leader>a :Ag! 
+map <leader>p :CtrlP<cr>
+map <leader>s :call RunCurrentSpecFile()<cr>
+map <leader>S :call RunAllSpecs()<cr>
+map <leader>r :!bundle exec rake<cr>
+map <leader>ev :new ~/.vimrc<cr>
+map <leader>so :source %<cr>
