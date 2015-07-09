@@ -118,9 +118,9 @@ endif
 " airline font config
 let g:airline_powerline_fonts = 1
 
-" Line numbers
-" set number
-set relativenumber
+" Line numbers - enable toggle for relative numbers
+set number
+nnoremap <silent><leader>n :set relativenumber!<cr>
 
 " Highlight matching braces
 set showmatch
