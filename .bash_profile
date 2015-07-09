@@ -2,7 +2,7 @@
 
 export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
 
-export EDITOR='subl -w'
+export EDITOR='vim'
 
 export BUNDLER_EDITOR=$EDITOR
 
@@ -25,7 +25,7 @@ export GOPATH=$HOME/Patrick/source/go
 export CLICOLOR=1
 export LSCOLORS=dxfxcxbxegedabagacad
 
-# Patrick
+# Aliases
 alias ..='cd ..'
 alias ls='ls -la'
 alias rep='touch ~/.pow/restart.txt'
@@ -42,10 +42,6 @@ alias gba='git branch -a'
 alias gbr='git branch'
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 alias glg2='git log --date-order --all --graph --name-status --format="%C(green)%H%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
-
-# Grep colors
-#export GREP_OPTIONS='--color=auto'
-#export GREP_COLOR='1;35;40'
 
 # lock computer
 alias lock='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
@@ -73,5 +69,4 @@ alias grep='grep --color=auto'
 alias reload='source ~/.bash_profile'
 
 # Prompt config
-#export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 export PS1='\[\033[0;33m\][\t] \[\033[0m\]\h \w $(__git_ps1 "(%s)")$ '
