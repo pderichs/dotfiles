@@ -118,9 +118,8 @@ endif
 " airline font config
 let g:airline_powerline_fonts = 1
 
-" Line numbers - enable toggle for relative numbers
+" Line numbers 
 set number
-nnoremap <silent><leader>n :set relativenumber!<cr>
 
 " Highlight matching braces
 set showmatch
@@ -176,3 +175,7 @@ map <leader>r :!bundle exec rake<cr>
 map <leader>ev :new ~/.vimrc<cr>
 map <leader>so :source %<cr>
 map <leader>o :e<space>
+
+" Enable toggle for relative numbers
+nnoremap <silent><leader>n :set relativenumber!<cr>
+
