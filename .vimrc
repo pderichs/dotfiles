@@ -119,7 +119,8 @@ endif
 let g:airline_powerline_fonts = 1
 
 " Line numbers
-set number
+" set number
+set relativenumber
 
 " Highlight matching braces
 set showmatch
@@ -130,10 +131,6 @@ set wildmenu
 
 " vim-git plugin
 set laststatus=2
-" set statusline=%{GitBranch()}
-
-" status line
-" set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 
 " keyboard mappings
 "
