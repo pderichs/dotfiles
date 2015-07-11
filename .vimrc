@@ -134,7 +134,7 @@ else
 endif
 "}}}
 
-"{{{plugin airline config
+"{{{plugin config airline
 " airline font config
 let g:airline_powerline_fonts = 1
 "}}}
