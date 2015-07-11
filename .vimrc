@@ -36,6 +36,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' " for ultisnips
 Plugin 'mattn/emmet-vim'
+Plugin 'lambdatoast/elm.vim'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -177,7 +178,6 @@ let mapleader = " "
 nnoremap <leader>w :w<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>a :Ag!<space>
-nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>s :call RunCurrentSpecFile()<cr>
 nnoremap <leader>S :call RunAllSpecs()<cr>
 nnoremap <leader>r :!bundle exec rake<cr>
