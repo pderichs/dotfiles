@@ -108,7 +108,7 @@ set laststatus=2
 
 "}}}
 
-"{{{Theme
+"{{{theme
 if has('gui_running')
   " colorscheme wombat
   colorscheme badwolf
