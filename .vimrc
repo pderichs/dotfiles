@@ -18,6 +18,7 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
+"{{{plugin list
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'kchmck/vim-coffee-script'
@@ -35,15 +36,16 @@ Plugin 'tpope/vim-surround'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' " for ultisnips
 Plugin 'mattn/emmet-vim'
+"}}}
 
 " All of your Plugins must be added before the following line
 call vundle#end()
+
+" load file type plugins + indentation
+filetype plugin indent on
 "}}}
 
-
-
-
-
+"{{{general
 " for fish shell
 set shell=/bin/bash
 
@@ -72,9 +74,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 
-" load file type plugins + indentation
-filetype plugin indent on
-
 " Tabwidth and insert spaces instead of tabs
 set nowrap
 set tabstop=2 shiftwidth=2
@@ -87,26 +86,29 @@ set incsearch
 set ignorecase
 set smartcase
 
-" Disable vi compatibility (emulation of old bugs)
-set nocompatible
-
 " Indentation
 set autoindent
 set smartindent
-
-" Tab width=2 and spaces instead of tabs
-set tabstop=2
-set shiftwidth=2
-set expandtab
-
-" Wrap lines at 80
-set textwidth=80
 
 " Syntax highlighting
 set t_Co=256
 syntax on
 
-" Theme
+" Line numbers 
+set number
+
+" Highlight matching braces
+set showmatch
+
+" Use intelligent file completion like in the bash
+set wildmode=longest:full
+set wildmenu
+
+set laststatus=2
+
+"}}}
+
+"{{{Theme
 if has('gui_running')
   " colorscheme wombat
   colorscheme badwolf
@@ -121,26 +123,14 @@ else
   " colorscheme wombat256
   colorscheme badwolf
 endif
+"}}}
 
+"{{{plugin airline config
 " airline font config
 let g:airline_powerline_fonts = 1
+"}}}
 
-" Line numbers 
-set number
-
-" Highlight matching braces
-set showmatch
-
-" Use intelligent file completion like in the bash
-set wildmode=longest:full
-set wildmenu
-
-" vim-git plugin
-set laststatus=2
-
-" keyboard mappings
-"
-
+"{{{plugin config ultisnips
 " Ultisnips
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
@@ -150,6 +140,9 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+"}}}
+
+"{{{keyboard mappings
 
 " switch between header/source with F4 C
 map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<cr>
@@ -170,19 +163,21 @@ nmap <F8> @q
 " goto definition with F12
 map <F12> <C-]>
 
-" Leader keystrokes
+"{{{leader keys
 let mapleader = " "
-map <leader>w :w<cr>
-map <leader>t :NERDTreeToggle<cr>
-map <leader>a :Ag!<space>
-map <leader>p :CtrlP<cr>
-map <leader>s :call RunCurrentSpecFile()<cr>
-map <leader>S :call RunAllSpecs()<cr>
-map <leader>r :!bundle exec rake<cr>
-map <leader>ev :vsplit ~/.vimrc<cr>
-map <leader>so :source %<cr>
-map <leader>o :e<space>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>a :Ag!<space>
+nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>s :call RunCurrentSpecFile()<cr>
+nnoremap <leader>S :call RunAllSpecs()<cr>
+nnoremap <leader>r :!bundle exec rake<cr>
+nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+nnoremap <leader>so :source %<cr>
+nnoremap <leader>o :e<space>
 
 " Enable toggle for relative numbers
 nnoremap <silent><leader>n :set relativenumber!<cr>
+"}}}
 
+"}}}
