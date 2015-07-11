@@ -176,8 +176,15 @@ nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
 
+"{{{accessing system clipboard
+vnoremap <leader>c "*y
+nnoremap <leader>p "*p
+"}}}
+
 " Enable toggle for relative numbers
 nnoremap <silent><leader>n :set relativenumber!<cr>
+
+nnoremap <leader>xt :q!<cr>
 "}}}
 
 "}}}
