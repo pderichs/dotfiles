@@ -106,6 +106,11 @@ set wildmenu
 
 set laststatus=2
 
+"{{{highlight too long lines
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+"}}}
+
 "}}}
 
 "{{{theme
