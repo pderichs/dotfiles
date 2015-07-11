@@ -1,15 +1,9 @@
 " References:
 " http://www.sitepoint.com/getting-started-vim/
 
-set foldmethod=marker
-
-" for fish shell
-set shell=/bin/bash
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-set noswapfile                " don't create swp files
+"{{{vundle
+set nocompatible
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -44,6 +38,17 @@ Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
+"}}}
+
+
+
+
+
+" for fish shell
+set shell=/bin/bash
+
+set foldmethod=marker
+set noswapfile
 
 " UTF-8 encoding
 set encoding=utf-8
@@ -71,16 +76,16 @@ set t_vb=
 filetype plugin indent on
 
 " Tabwidth and insert spaces instead of tabs
-set nowrap                      " don't wrap lines
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
-set expandtab                   " use spaces, not tabs (optional)
-set backspace=indent,eol,start  " backspace through everything in insert mode
+set nowrap
+set tabstop=2 shiftwidth=2
+set expandtab
+set backspace=indent,eol,start
 
 " Searching
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
-set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 
 " Disable vi compatibility (emulation of old bugs)
 set nocompatible
@@ -90,9 +95,9 @@ set autoindent
 set smartindent
 
 " Tab width=2 and spaces instead of tabs
-set tabstop=2        " tab width is 4 spaces
-set shiftwidth=2     " indent also with 4 spaces
-set expandtab        " expand tabs to spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " Wrap lines at 80
 set textwidth=80
