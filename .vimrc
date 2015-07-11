@@ -1,6 +1,8 @@
 " References:
 " http://www.sitepoint.com/getting-started-vim/
 
+set foldmethod=marker
+
 " for fish shell
 set shell=/bin/bash
 
@@ -172,7 +174,7 @@ map <leader>p :CtrlP<cr>
 map <leader>s :call RunCurrentSpecFile()<cr>
 map <leader>S :call RunAllSpecs()<cr>
 map <leader>r :!bundle exec rake<cr>
-map <leader>ev :new ~/.vimrc<cr>
+map <leader>ev :vsplit ~/.vimrc<cr>
 map <leader>so :source %<cr>
 map <leader>o :e<space>
 
