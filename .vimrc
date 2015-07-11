@@ -70,7 +70,7 @@ set showcmd
 set showmode
 
 " Turn off bell
-set noerrorbells 
+set noerrorbells
 set novisualbell
 set t_vb=
 
@@ -94,7 +94,7 @@ set smartindent
 set t_Co=256
 syntax on
 
-" Line numbers 
+" Line numbers
 set number
 
 " Highlight matching braces
@@ -109,6 +109,10 @@ set laststatus=2
 "{{{highlight too long lines
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+"}}}
+
+"{{{automatically remove trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 "}}}
 
 "}}}
@@ -155,7 +159,7 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<cr>
 " recreate tags file with F5
 map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
 
-" make 
+" make
 imap <F7> <ESC>:w<cr>:make<cr>
 
 " make all
