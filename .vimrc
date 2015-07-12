@@ -37,6 +37,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' " for ultisnips
 Plugin 'mattn/emmet-vim'
 Plugin 'lambdatoast/elm.vim'
+Plugin 'raichoo/purescript-vim'
+Plugin 'ivalkeen/vim-ctrlp-tjump'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -194,6 +196,8 @@ nnoremap <leader>p "*p
 nnoremap <silent><leader>n :set relativenumber!<cr>
 
 nnoremap <leader>xt :q!<cr>
+
+nnoremap <leader>r :CtrlPTag<cr>
 "}}}
 
 "}}}
