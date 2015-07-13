@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/patrick/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -17,10 +17,10 @@ source $ZSH/oh-my-zsh.sh
 #}}}
 
 #{{{general exports
-export PATH="/Users/patrick/.rbenv/shims:/Users/patrick/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/patrick/.rvm/bin"
+export PATH="$HOME.rbenv/shims:$HOME.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME.rvm/bin"
 export EDITOR='vim'
 #{{{go
-export GOPATH=$HOME/Patrick/source/go
+export GOPATH=$HOME/go
 #}}}
 
 #}}}
