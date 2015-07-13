@@ -27,12 +27,18 @@ export GOPATH=$HOME/go
 #{{{aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
+
+if [ "$(uname)" = "Darwin" ]; then
+  alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
+fi
 
 alias reload="source ~/.zshrc"
+alias v="vim"
 #}}}
 
 #{{{rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if which rbenv &> /dev/null; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 #}}}
