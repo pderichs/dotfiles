@@ -11,13 +11,12 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-
 #{{{oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 #}}}
 
 #{{{general exports
-export PATH="$HOME.rbenv/shims:$HOME.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME.rvm/bin"
+export PATH="$HOME.rbenv/shims:$HOME.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME.rvm/bin:$GOPATH/bin"
 export EDITOR='vim'
 #{{{go
 export GOPATH=$HOME/go
