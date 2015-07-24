@@ -34,6 +34,7 @@ fi
 
 alias reload="source ~/.zshrc"
 alias v="vim"
+alias em="emacs"
 #}}}
 
 #{{{rbenv
