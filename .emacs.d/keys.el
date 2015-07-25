@@ -3,6 +3,7 @@
 
 ;; Moving between windows
 (global-set-key (kbd "M--") 'previous-multiframe-window)
+(global-set-key (kbd "C-o") 'previous-multiframe-window)
 
 ;; Use helm-M-x
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -23,7 +24,10 @@
 
 (global-set-key (kbd "M-8") 'projectile-invalidate-cache)
 
-(global-set-key (kbd "C-F") 'helm-projectile-ag)
+;; Search
+(global-set-key (kbd "C-f") 'isearch-forward)
+(define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
+(global-set-key (kbd "C-S-F") 'helm-projectile-ag)
 
 (global-set-key (kbd "M-p") 'projectile-find-file)
 
