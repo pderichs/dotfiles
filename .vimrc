@@ -175,6 +175,9 @@ nmap <F8> @q
 " goto definition with F12
 map <F12> <C-]>
 
+" insert line without entering edit mode
+nmap <CR> o<Esc>
+
 "{{{leader keys
 let mapleader = " "
 nnoremap <leader>w :w<cr>
