@@ -16,10 +16,27 @@ source $ZSH/oh-my-zsh.sh
 #}}}
 
 #{{{general exports
-export PATH="$HOME.rbenv/shims:$HOME.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME.rvm/bin:$GOPATH/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export EDITOR='vim'
+
 #{{{go
-export GOPATH=$HOME/go
+if [ -d "$HOME/go" ]; then
+  export GOPATH="$HOME/go"
+  export PATH="$GOPATH/bin:$PATH"
+fi
+#}}}
+
+#{{{rbenv
+if [ -d "$HOME/.rbenv" ]; then
+  export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+#}}}
+
+#{{{rvm
+if [ -d "$HOME/.rvm" ]; then
+  export PATH="$HOME/.rvm/bin:$PATH"
+fi
 #}}}
 
 #}}}
@@ -37,9 +54,3 @@ alias v="vim"
 alias em="emacs"
 #}}}
 
-#{{{rbenv
-if which rbenv &> /dev/null; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-#}}}
