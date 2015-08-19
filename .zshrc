@@ -41,7 +41,7 @@ fi
 
 #{{{node
 if [ -d "$HOME/tools/node" ]; then
-  export PATH="$HOME/tools/node:$PATH"
+  export PATH="$HOME/tools/node/bin:$PATH"
 fi
 #}}}
 
