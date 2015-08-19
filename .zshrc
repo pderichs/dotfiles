@@ -39,6 +39,12 @@ if [ -d "$HOME/.rvm" ]; then
 fi
 #}}}
 
+#{{{
+if [ -d "$HOME/tools/node" ]; then
+  export PATH="$HOME/tools/node:$PATH"
+fi
+#}}}
+
 #}}}
 
 #{{{aliases
