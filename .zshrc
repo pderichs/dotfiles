@@ -39,9 +39,9 @@ if [ -d "$HOME/.rvm" ]; then
 fi
 #}}}
 
-#{{{node
-if [ -d "$HOME/tools/node" ]; then
-  export PATH="$HOME/tools/node/bin:$PATH"
+#{{{home bin folder
+if [ -d "$HOME/bin" ]; then
+  export PATH="$HOME/bin:$PATH"
 fi
 #}}}
 
