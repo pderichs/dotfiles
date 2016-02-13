@@ -1,0 +1,8 @@
+brew "openssl"
+brew "mc"
+brew "git"
+brew "vim"
+brew "zsh"
+brew "wget"
+brew "curl"
+brew "p7zip"
