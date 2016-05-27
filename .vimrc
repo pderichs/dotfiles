@@ -19,26 +19,22 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 "{{{plugin list
-Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
-Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets' " for ultisnips
-Plugin 'mattn/emmet-vim'
-Plugin 'lambdatoast/elm.vim'
 Plugin 'raichoo/purescript-vim'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
+Plugin 'tpope/vim-fireplace'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'kien/rainbow_parentheses.vim'
 "}}}
 
 " All of your Plugins must be added before the following line
