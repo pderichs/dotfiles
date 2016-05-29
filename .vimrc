@@ -35,6 +35,7 @@ Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'tpope/vim-fireplace'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'mattn/emmet-vim'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -126,8 +127,7 @@ if has('gui_running')
     macmenu &File.New\ Tab key=<nop>
     map <D-t> :CommandT<cr>
   else
-    "set guifont=Ubuntu\ Mono\ 14
-    set guifont=Lucida_Console:h11
+    set guifont=Droid_Sans_Mono_Dotted_for_Powe:h10:cANSI
   endif
 else
   " colorscheme wombat256
