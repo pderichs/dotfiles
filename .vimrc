@@ -69,9 +69,10 @@ set showcmd
 set showmode
 
 " Turn off bell
-set noerrorbells
-set novisualbell
-set t_vb=
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 " Tabwidth and insert spaces instead of tabs
 set nowrap
@@ -125,7 +126,8 @@ if has('gui_running')
     macmenu &File.New\ Tab key=<nop>
     map <D-t> :CommandT<cr>
   else
-    set guifont=Ubuntu\ Mono\ 14
+    "set guifont=Ubuntu\ Mono\ 14
+    set guifont=Lucida_Console:h11
   endif
 else
   " colorscheme wombat256
