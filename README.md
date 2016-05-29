@@ -44,8 +44,6 @@ My dotfiles.
 ```
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
-### Windows
-
 [Vundle for Windows](https://github.com/VundleVim/Vundle.vim/wiki/Vundle-for-Windows)
 
 ## Install vim plugins
