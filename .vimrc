@@ -35,6 +35,7 @@ Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'tpope/vim-fireplace'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'mattn/emmet-vim'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -69,9 +70,10 @@ set showcmd
 set showmode
 
 " Turn off bell
-set noerrorbells
-set novisualbell
-set t_vb=
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 " Tabwidth and insert spaces instead of tabs
 set nowrap
@@ -105,11 +107,6 @@ set wildmenu
 
 set laststatus=2
 
-"{{{highlight too long lines
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
-"}}}
-
 "{{{automatically remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 "}}}
@@ -125,7 +122,7 @@ if has('gui_running')
     macmenu &File.New\ Tab key=<nop>
     map <D-t> :CommandT<cr>
   else
-    set guifont=Ubuntu\ Mono\ 14
+    set guifont=Droid_Sans_Mono_Dotted_for_Powe:h10:cANSI
   endif
 else
   " colorscheme wombat256
