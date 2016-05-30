@@ -179,9 +179,6 @@ let mapleader = " "
 nnoremap <leader>w :w<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>a :Ag!<space>
-nnoremap <leader>s :call RunCurrentSpecFile()<cr>
-nnoremap <leader>S :call RunAllSpecs()<cr>
-nnoremap <leader>r :!bundle exec rake<cr>
 nnoremap <leader>ev :vsplit ~/.vimrc<cr>
 nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
@@ -194,7 +191,9 @@ nnoremap <leader>p "*p
 " Enable toggle for relative numbers
 nnoremap <silent><leader>n :set relativenumber!<cr>
 
-nnoremap <leader>xt :q!<cr>
+nnoremap <leader>X :q!<cr>
+
+nnoremap <leader>x :wq<cr>
 
 nnoremap <leader>r :CtrlPTag<cr>
 "}}}
