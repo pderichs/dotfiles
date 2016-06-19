@@ -103,6 +103,12 @@ set wildmenu
 
 set laststatus=2
 
+" Turn off menubar and toolbar in gui mode
+if has('gui_running')
+  set guioptions -=m
+  set guioptions -=T
+endif
+
 "{{{automatically remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 "}}}
