@@ -165,8 +165,8 @@ nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
 
 "{{{accessing system clipboard
-vnoremap <leader>c "*y
-nnoremap <leader>p "*p
+vnoremap <leader>c "+y
+nnoremap <leader>p "+p
 "}}}
 
 " Enable toggle for relative numbers
@@ -177,6 +177,23 @@ nnoremap <leader>X :q!<cr>
 nnoremap <leader>x :wq<cr>
 
 nnoremap <leader>r :CtrlPTag<cr>
+
+"{{{easy-motion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>s <Plug>(easymotion-bd-w)
+nmap <Leader>S <Plug>(easymotion-overwin-w)
+
 "}}}
 
 "}}}
