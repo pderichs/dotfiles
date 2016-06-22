@@ -137,6 +137,16 @@ endif
 let g:airline_powerline_fonts = 1
 "}}}
 
+"{{{plugin config rainbow parentheses
+
+" always on
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+"}}}
+
 "{{{keyboard mappings
 
 " switch between header/source with F4 C
@@ -157,9 +167,6 @@ nmap <F8> @q
 
 " goto definition with F12
 map <F12> <C-]>
-
-" insert line without entering edit mode
-nmap <CR> o<Esc>
 
 "{{{leader keys
 let mapleader = " "
