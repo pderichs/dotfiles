@@ -20,7 +20,6 @@ Plugin 'gmarik/Vundle.vim'
 
 "{{{plugin list
 Plugin 'tpope/vim-fugitive.git'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
@@ -29,13 +28,10 @@ Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
-Plugin 'honza/vim-snippets' " for ultisnips
-Plugin 'raichoo/purescript-vim'
-Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'tpope/vim-fireplace'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'mattn/emmet-vim'
+Plugin 'scrooloose/nerdcommenter'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -107,6 +103,12 @@ set wildmenu
 
 set laststatus=2
 
+" Turn off menubar and toolbar in gui mode
+if has('gui_running')
+  set guioptions -=m
+  set guioptions -=T
+endif
+
 "{{{automatically remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 "}}}
@@ -133,18 +135,6 @@ endif
 "{{{plugin config airline
 " airline font config
 let g:airline_powerline_fonts = 1
-"}}}
-
-"{{{plugin config ultisnips
-" Ultisnips
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsUsePythonVersion = 2
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 "}}}
 
 "{{{keyboard mappings
@@ -181,8 +171,8 @@ nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
 
 "{{{accessing system clipboard
-vnoremap <leader>c "*y
-nnoremap <leader>p "*p
+vnoremap <leader>c "+y
+nnoremap <leader>p "+p
 "}}}
 
 " Enable toggle for relative numbers
@@ -193,6 +183,23 @@ nnoremap <leader>X :q!<cr>
 nnoremap <leader>x :wq<cr>
 
 nnoremap <leader>r :CtrlPTag<cr>
+
+"{{{easy-motion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>s <Plug>(easymotion-bd-w)
+nmap <Leader>S <Plug>(easymotion-overwin-w)
+
 "}}}
 
 "}}}
