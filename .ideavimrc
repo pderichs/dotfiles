@@ -1,0 +1,14 @@
+﻿set clipboard+=unnamed
+
+"set rnu
+
+let mapleader = " "
+map <leader>s :action SaveAll<CR>
+
+map <leader>c :action $Copy<CR>
+map <leader>v :action $Paste<CR>
+map <leader>x :action $Cut<CR>
+
+map <leader>f :action Find<CR>
+
+map <leader>p :action ParameterInfo<CR>
