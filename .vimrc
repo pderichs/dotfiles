@@ -32,6 +32,8 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tmhedberg/matchit'
+Plugin 'jiangmiao/auto-pairs'
 "}}}
 
 " All of your Plugins must be added before the following line
