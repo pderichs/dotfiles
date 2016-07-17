@@ -1,6 +1,3 @@
-" References:
-" http://www.sitepoint.com/getting-started-vim/
-
 "{{{vundle
 set nocompatible
 filetype off
@@ -34,6 +31,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tmhedberg/matchit'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/goyo.vim'
+Plugin 'maxbrunsfeld/vim-yankstack'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -175,7 +174,7 @@ let mapleader = " "
 nnoremap <leader>w :w<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>a :Ag!<space>
-nnoremap <leader>ev :vsplit ~/.vimrc<cr>
+nnoremap <leader>ev :split ~/.vimrc<cr>
 nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
 
