@@ -150,6 +150,8 @@ au Syntax * RainbowParenthesesLoadBraces
 
 "{{{keyboard mappings
 
+nmap - :tabnext<cr>
+
 " switch between header/source with F4 C
 map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<cr>
 
@@ -174,7 +176,7 @@ let mapleader = " "
 nnoremap <leader>w :w<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
 nnoremap <leader>a :Ag!<space>
-nnoremap <leader>ev :split ~/.vimrc<cr>
+nnoremap <leader>ev :tabedit ~/.vimrc<cr>
 nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
 
