@@ -212,4 +212,13 @@ nmap <Leader>S <Plug>(easymotion-overwin-w)
 
 "}}}
 
+" Bubbling lines
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+
+" Insert current jira ticket to commit message
+nmap <C-j> 4gg5wy3wggp
+
+"}}}
+
 "}}}
