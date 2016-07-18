@@ -217,7 +217,7 @@ nmap <C-Up> ddkP
 nmap <C-Down> ddp
 
 " Insert current jira ticket to commit message
-nmap <C-j> 4gg5wy3wggp
+nmap <C-j> 4gg5wy3wggpA<space>
 
 "}}}
 
