@@ -45,6 +45,7 @@
 (global-set-key (kbd "M-r")   'helm-semantic-or-imenu)
 
 (global-set-key (kbd "C-c C-c") 'comment-region)
+(global-set-key (kbd "C-c C-u") 'uncomment-region)
 
 ;; Easy buffer switch
 (global-set-key (kbd "C-b") 'projectile-switch-to-buffer)
