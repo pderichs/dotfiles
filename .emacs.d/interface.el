@@ -16,7 +16,7 @@
 ;(set-face-background 'hl-line "#223")
 
 ;; Enhance font-size for graphical emacs.
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 120)
 
 ;; Color Theme.
 (custom-set-variables
@@ -34,6 +34,9 @@
 
 ;; Line numbers on
 (line-number-mode 1)
+
+;; Format line numbers
+(setq linum-format "%6d \u2502 ")
 
 ;; Columns on
 (column-number-mode 1)
