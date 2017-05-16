@@ -27,11 +27,9 @@
 ;; Search
 (global-set-key (kbd "C-f") 'isearch-forward)
 (define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
-(global-set-key (kbd "C-S-F") 'helm-projectile-ag)
+(global-set-key (kbd "C-s-f") 'helm-projectile-ag)
 
 (global-set-key (kbd "M-p") 'projectile-find-file)
-
-(global-set-key (kbd "C-M-0") 'rspec-verify-all)
 
 (global-set-key (kbd "C-7") 'mc/edit-lines)
 (global-set-key (kbd "C-8") 'mc/mark-next-like-this)
@@ -45,9 +43,6 @@
 (global-set-key (kbd "M-L")   'mc/edit-lines)
 (global-set-key (kbd "M-p")   'projectile-find-file)
 (global-set-key (kbd "M-r")   'helm-semantic-or-imenu)
-
-;; Enable robe jump
-(global-set-key (kbd "M-g") 'robe-jump)
 
 (global-set-key (kbd "C-c C-c") 'comment-region)
 
