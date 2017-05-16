@@ -41,14 +41,5 @@
 ;; Columns on
 (column-number-mode 1)
 
-;; Enable multiple-cursors keys
-(global-set-key (kbd "C-M-m") 'mc/mark-next-like-this)
-;(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-;(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-;; For graphical emacs: bigger font
-
-;;(set-face-attribute 'default nil :height 180)
-
 ;; Suppress emacs startup screen
 (setq inhibit-startup-message t)
