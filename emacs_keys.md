@@ -1,5 +1,5 @@
-Keys
-====
+Keys (Emacs configuration)
+==========================
 
 Edit
 ----
