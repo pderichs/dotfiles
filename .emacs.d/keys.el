@@ -27,7 +27,7 @@
 ;; Search
 (global-set-key (kbd "C-f") 'isearch-forward)
 (define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
-(global-set-key (kbd "C-s-f") 'helm-projectile-ag)
+(global-set-key (kbd "C-F") 'helm-projectile-ag)
 
 (global-set-key (kbd "M-p") 'projectile-find-file)
 
