@@ -54,3 +54,6 @@ In vim:
   :BundleInstall
 ```
 
+## Install Powerline Fonts
+
+https://github.com/powerline/fonts
