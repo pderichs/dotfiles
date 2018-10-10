@@ -45,6 +45,7 @@
     yaml-mode
     minitest
     neotree
+    editorconfig
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
