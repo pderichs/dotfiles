@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export TODO=$HOME/Dokumente/todo
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="robbyrussell"
@@ -50,6 +52,7 @@ fi
 #{{{aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias nuke="kill -9"
 
 if [ "$(uname)" = "Darwin" ]; then
   alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
@@ -60,3 +63,4 @@ alias v="vim"
 alias em="emacs"
 #}}}
 
+$HOME/todo_file.rb
