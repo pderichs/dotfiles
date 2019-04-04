@@ -149,14 +149,14 @@
 ;; Cyperpunk theme
 ;(load-theme 'cyberpunk t)
 ;; Loading badwolf theme
-;(load-file (expand-file-name "themes/badwolf-theme.el" user-emacs-directory))
+(load-file (expand-file-name "themes/badwolf-theme.el" user-emacs-directory))
 
 ;; Highlight current line
 ;(global-hl-line-mode 1)
 ;(set-face-background 'hl-line "#223")
 
 ;; Enhance font-size for graphical emacs.
-(set-face-attribute 'default nil :height 100)
+(set-face-attribute 'default nil :height 110)
 
 ;; Set initial window size
 (add-hook 'after-init-hook '(lambda ()
