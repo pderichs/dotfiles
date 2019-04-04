@@ -60,7 +60,7 @@ fi
 
 alias reload="source ~/.zshrc"
 alias v="vim"
-alias em="emacs"
+alias em="/usr/bin/env emacs"
 #}}}
 
 $HOME/todo_file.rb

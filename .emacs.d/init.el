@@ -2,17 +2,12 @@
 ;; patderichs@gmail.com
 ;;
 
-;; packages.el
-
 ;; Set the correct environment for bash commands
-(setq shell-file-name "bash")
+(setq shell-file-name "zsh")
 (setq shell-command-switch "-ic")
 
 ;; Repositories to be used
 (require 'package)
-;(add-to-list 'package-archives
-;                 '("marmalade" .
-;                         "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
                '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
@@ -52,6 +47,7 @@
     minitest
     neotree
     editorconfig
+    swoop
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
@@ -72,8 +68,6 @@
   (dolist (p required-packages)
     (when (not (package-installed-p p))
       (package-install p))))
-
-;; edit.el
 
 ;; Enable smooth scrolling.
 ;; (setq redisplay-dont-pause t
@@ -112,12 +106,6 @@
 ;; Line numbers to the left
 ;;(global-linum-mode t)
 
-;; Enable cua-mode by default
-;; (cua-mode t)
-;; (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
-;; (transient-mark-mode 1) ;; No region when it is not highlighted
-;; (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
-
 ;; Selection should be deleted when typing
 (delete-selection-mode 1)
 
@@ -150,18 +138,14 @@
       (list (format "%s %%S: %%j " (system-name))
             '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
-;; interface.el
-
 ;; No menu bar.
 ;;(menu-bar-mode -1)
 
 ;; No toolbar.
 (tool-bar-mode -1)
 
-(split-window-horizontally)
-
 ;; Load wombat theme
-(load-theme 'wombat)
+;(load-theme 'wombat)
 ;; Cyperpunk theme
 ;(load-theme 'cyberpunk t)
 ;; Loading badwolf theme
@@ -172,7 +156,7 @@
 ;(set-face-background 'hl-line "#223")
 
 ;; Enhance font-size for graphical emacs.
-(set-face-attribute 'default nil :height 95)
+(set-face-attribute 'default nil :height 100)
 
 ;; Set initial window size
 (add-hook 'after-init-hook '(lambda ()
@@ -209,8 +193,6 @@
 ;; Suppress emacs startup screen
 (setq inhibit-startup-message t)
 
-;; ido.el
-
 ;; Load extension "ido-mode"
 (require 'ido)
 (setq ido-everywhere t)
@@ -229,9 +211,6 @@
 
 ;; activate Desktop mode to reopen recent files automatically
 ;(desktop-save-mode 1)
-
-
-;; ruby.el
 
 ;; Enable ruby-electric when entering ruby mode
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
@@ -257,8 +236,6 @@
 ;; Enable rbenv
 (global-rbenv-mode)
 
-;; mac.el
-
 ;; Command is Meta. Enable meta key of mac for brackets
 ;;(setq default-input-method "MacOSX")
 (when (eq system-type 'darwin)
@@ -270,8 +247,6 @@
   (setq ns-right-alternate-modifier nil)
   (global-set-key [kp-delete] 'delete-char))
 
-;; projectile.el
-
 ;; Projectile
 (projectile-global-mode)
 (setq projectile-indexing-method 'native)
@@ -282,7 +257,7 @@
 (require 'helm-projectile)
 (helm-projectile-on)
 
-;; keys.el
+; Keys
 
 ;; Set meta key according to environment
 (if (string= (getenv "ENV_CMD_META") "1")
@@ -349,18 +324,11 @@
 
 (global-set-key (kbd "M-g") 'goto-line)
 
-;; file_types.el
-
 ;; These files are HTML
 (add-to-list 'auto-mode-alist '("\\.jst.eco$" . html-mode))
 
-;; cpp.el
-
 ;; C++ Style
 (setq-default c-basic-offset 2 c-default-style "linux")
-
-
-;; autocomplete.el
 
 ;; Auto complete mode
 (global-auto-complete-mode t)
@@ -371,13 +339,10 @@
 ;; (setq ac-show-menu-immediately-on-auto-complete t)
 ;; (setq ac-trigger-key nil)
 
-
-;; env.el
-
 ;; Setting PATH
-
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "TODO"))
 
 (when (eq system-type "gnu/linux")
   (setq home (getenv "HOME"))
@@ -397,7 +362,9 @@
           (mapconcat 'identity
            paths ":")))
 
-;; windows-nt...
-
-
-;; -- next
+; Open current todo file in other window
+(split-window-horizontally)
+(next-multiframe-window)
+(find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.txt")))
+(org-mode)
+(previous-multiframe-window)
