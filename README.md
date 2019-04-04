@@ -63,5 +63,5 @@ https://github.com/powerline/fonts
 I have a TODO file for every day. A simple ruby script takes care of copying the old todo file contents to the todo file of today. The script must be located in the home folder:
 
 ```
-  cp path/to/dotfiles/clone/todo_file.rb ~/todo_file.rb
+  ln -s path/to/dotfiles/clone/todo_file.rb ~/todo_file.rb
 ```

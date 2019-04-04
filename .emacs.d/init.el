@@ -1,53 +1,42 @@
-;; emacs initialization file.
-;; patderichs@gmail.com
-;;
+; emacs initialization file.
+; patderichs@gmail.com
+;
 
-;; Set the correct environment for bash commands
+; Set the correct environment for bash commands
 (setq shell-file-name "zsh")
 (setq shell-command-switch "-ic")
 
-;; Repositories to be used
+; Repositories to be used
 (require 'package)
 (add-to-list 'package-archives
                '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
-;; Install required packages
+; Install required packages
 (defvar required-packages
   '(
+    ag
     magit
     yasnippet
     projectile
     ruby-end
-    coffee-mode
     helm
     flx-ido
-    smex
-    grizzl
     go-mode
     helm-projectile
     helm-ag
     ace-jump-mode
     auto-complete
-    sass-mode
     zencoding-mode
     rbenv
-    inf-ruby
     rubocop
     rspec-mode
     multiple-cursors
     exec-path-from-shell
     color-theme
-    robe
-    clojure-mode
-    cider
-    cyberpunk-theme
-    magit
     yaml-mode
-    minitest
     neotree
     editorconfig
-    swoop
     ) "a list of packages to ensure are installed at launch.")
 
 (require 'cl)
@@ -69,139 +58,139 @@
     (when (not (package-installed-p p))
       (package-install p))))
 
-;; Enable smooth scrolling.
-;; (setq redisplay-dont-pause t
-;;   scroll-margin 1
-;;   scroll-step 1
-;;   scroll-conservatively 10000
-;;   scroll-preserve-screen-position 1)
+; Enable smooth scrolling.
+; (setq redisplay-dont-pause t
+;   scroll-margin 1
+;   scroll-step 1
+;   scroll-conservatively 10000
+;   scroll-preserve-screen-position 1)
 
-;; Show line numbers.
+; Show line numbers.
 (global-linum-mode 1)
 
-;; Auto indentation.
+; Auto indentation.
 (global-set-key "\C-m" 'newline-and-indent)
 
-;; Tab size is 2.
+; Tab size is 2.
 (setq default-tab-width 2)
 (setq js-indent-level 2)
 (setq css-indent-offset 2)
 
-;; No tabs (we want spaces instead).
+; No tabs (we want spaces instead).
 (setq-default indent-tabs-mode nil)
 
-;; No auto-indentation
+; No auto-indentation
 (setq electric-indent-mode nil)
 
-;; No line wrap.
+; No line wrap.
 (setq-default truncate-lines 1)
 
-;; Show matching brackets
+; Show matching brackets
 (show-paren-mode 1)
 
 
-;; Remove trailing whitespaces on save
+; Remove trailing whitespaces on save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Line numbers to the left
-;;(global-linum-mode t)
+; Line numbers to the left
+;(global-linum-mode t)
 
-;; Selection should be deleted when typing
+; Selection should be deleted when typing
 (delete-selection-mode 1)
 
-;; Highlight entire bracket content when cursor is inside
+; Highlight entire bracket content when cursor is inside
 ;(setq show-paren-style 'expression)
 
-;; All files should be reloaded when the content change on disk.
+; All files should be reloaded when the content change on disk.
 (global-auto-revert-mode t)
 
-;; Highlight lines with more than 80 chars
+; Highlight lines with more than 80 chars
 (add-hook 'ruby-mode-hook '(lambda () (highlight-lines-matching-regexp ".\\{81\\}" 'hi-red-b)))
 
-;; No ~ temp files
+; No ~ temp files
 (setq make-backup-files nil)
 
-;; No #autosave# files
+; No #autosave# files
 (setq auto-save-default nil)
 
-;; We like brackets auto-paired
+; We like brackets auto-paired
 (electric-pair-mode 1)
 
-;; Don't use yes or no, we want y or n
+; Don't use yes or no, we want y or n
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Enable yasnippets globally
+; Enable yasnippets globally
 (yas-global-mode t)
 
-;; Showing complete file path in title bar
+; Showing complete file path in title bar
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
             '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
-;; No menu bar.
-;;(menu-bar-mode -1)
+; No menu bar.
+;(menu-bar-mode -1)
 
-;; No toolbar.
+; No toolbar.
 (tool-bar-mode -1)
 
-;; Load wombat theme
+; Load wombat theme
 (load-theme 'wombat)
-;; Cyperpunk theme
+; Cyperpunk theme
 ;(load-theme 'cyberpunk t)
-;; Loading badwolf theme
+; Loading badwolf theme
 ;(load-file (expand-file-name "themes/badwolf-theme.el" user-emacs-directory))
 
-;; Highlight current line
+; Highlight current line
 ;(global-hl-line-mode 1)
 ;(set-face-background 'hl-line "#223")
 
-;; Enhance font-size for graphical emacs.
+; Enhance font-size for graphical emacs.
 (set-face-attribute 'default nil :height 110)
 
-;; Set initial window size
+; Set initial window size
 (add-hook 'after-init-hook '(lambda ()
                               (when window-system (set-frame-size (selected-frame) 180 45))
                               ))
 
-;; Line numbers on
+; Line numbers on
 (line-number-mode 1)
 
-;; Format line numbers
+; Format line numbers
 (setq linum-format "%6d \u2502 ")
 
-;; Columns on
+; Columns on
 (column-number-mode 1)
 
-;; Suppress emacs startup screen
+; Suppress emacs startup screen
 (setq inhibit-startup-message t)
 
-;; Load extension "ido-mode"
+; Load extension "ido-mode"
 (require 'ido)
 (setq ido-everywhere t)
 (setq ido-enable-flex-matching t)
 (ido-mode 1)
 
-;; Enable flx ido mode (fuzzy matching)
+; Enable flx ido mode (fuzzy matching)
 (flx-ido-mode 1)
 (setq ido-enable-flex-matching t)
 (setq ido-use-faces nil)
 
-;; Make recent file list available to ido
+; Make recent file list available to ido
 (recentf-mode 1)
 (setq ido-virtual-buffers t
       recentf-max-saved-items 1000)
 
-;; activate Desktop mode to reopen recent files automatically
+; activate Desktop mode to reopen recent files automatically
 ;(desktop-save-mode 1)
 
-;; Enable ruby-electric when entering ruby mode
+; Enable ruby-electric when entering ruby mode
 (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 
-;; Enable robe mode when entering ruby mode
+; Enable robe mode when entering ruby mode
 (add-hook 'ruby-mode-hook 'robe-mode)
 
-;; Ruby mode for following files
-;; Rake files are ruby, too, as are gemspecs, rackup files, and gemfiles.
+; Ruby mode for following files
+; Rake files are ruby, too, as are gemspecs, rackup files, and gemfiles.
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
@@ -209,59 +198,59 @@
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Guardfile$" . ruby-mode))
 
-;; No encoding comment
+; No encoding comment
 (setq ruby-insert-encoding-magic-comment nil)
 
-;; Enabling ruby-end-mode
+; Enabling ruby-end-mode
 (ruby-end-mode 1)
 
-;; Enable rbenv
+; Enable rbenv
 (global-rbenv-mode)
 
-;; Command is Meta. Enable meta key of mac for brackets
-;;(setq default-input-method "MacOSX")
+; Command is Meta. Enable meta key of mac for brackets
+;(setq default-input-method "MacOSX")
 (when (eq system-type 'darwin)
-  ;; Move modifier and meta keys
+  ; Move modifier and meta keys
   (setq mac-command-modifier 'meta)
-  ;; (setq mac-option-modifier nil)
-  ;; (setq ns-function-modifier 'control)
-  ;; (setq ns-alternate-modifier 'control)
+  ; (setq mac-option-modifier nil)
+  ; (setq ns-function-modifier 'control)
+  ; (setq ns-alternate-modifier 'control)
   (setq ns-right-alternate-modifier nil)
   (global-set-key [kp-delete] 'delete-char))
 
-;; Projectile
+; Projectile
 (projectile-global-mode)
 (setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching t)
 (setq projectile-require-project-root nil)
 
-;; Helm-projectile mode
+; Helm-projectile mode
 (require 'helm-projectile)
 (helm-projectile-on)
 
 ; Keys
 
-;; Set meta key according to environment
+; Set meta key according to environment
 (if (string= (getenv "ENV_CMD_META") "1")
     (defun env-meta () "s")
   (defun env-meta () "M"))
 
-;; General key bindings
+; General key bindings
 (global-set-key (kbd (concat (env-meta) "-q")) 'save-buffers-kill-emacs)
 
-;; Moving between windows
+; Moving between windows
 (global-set-key (kbd (concat (env-meta) "--")) 'previous-multiframe-window)
 (global-set-key (kbd "C-o") 'previous-multiframe-window)
 
-;; Use helm-M-x
+; Use helm-M-x
 (global-set-key (kbd (concat (env-meta) "-x")) 'helm-M-x)
-;; using helm-m-x instead of the default implementation
+; using helm-m-x instead of the default implementation
 ;(global-set-key (kbd (concat (env-meta) "-x")) 'helm-M-x)
 
-;; Ace jump mode
+; Ace jump mode
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
-;; Major key binding (navigation, project management etc...)
+; Major key binding (navigation, project management etc...)
 (global-set-key (kbd (concat (env-meta) "-1")) 'projectile-switch-project)
 (global-set-key (kbd (concat (env-meta) "-2")) 'helm-mini)
 (global-set-key (kbd (concat (env-meta) "-4")) 'helm-projectile-switch-to-buffer)
@@ -272,7 +261,7 @@
 
 (global-set-key (kbd (concat (env-meta) "-8")) 'projectile-invalidate-cache)
 
-;; Search
+; Search
 (global-set-key (kbd "C-f") 'isearch-forward)
 (define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
 (global-set-key (kbd "C-F") 'helm-projectile-ag)
@@ -286,7 +275,7 @@
 (global-set-key (kbd (concat (env-meta) "-o"))   'ido-find-file)
 (global-set-key (kbd (concat (env-meta) "-ö"))   'ido-find-file)
 
-;; Sublime like settings
+; Sublime like settings
 (global-set-key (kbd (concat (env-meta) "-d"))   'mc/mark-next-like-this)
 (global-set-key (kbd "C-M-g") 'mc/mark-all-like-this)
 (global-set-key (kbd (concat (env-meta) "-s"))   'save-buffer)
@@ -297,7 +286,7 @@
 (global-set-key (kbd "C-c C-c") 'comment-region)
 (global-set-key (kbd "C-c C-u") 'uncomment-region)
 
-;; Easy buffer switch
+; Easy buffer switch
 (global-set-key (kbd "C-b") 'projectile-switch-to-buffer)
 
 (global-set-key (kbd "C-+") 'text-scale-increase)
@@ -306,22 +295,22 @@
 
 (global-set-key (kbd "M-g") 'goto-line)
 
-;; These files are HTML
+; These files are HTML
 (add-to-list 'auto-mode-alist '("\\.jst.eco$" . html-mode))
 
-;; C++ Style
+; C++ Style
 (setq-default c-basic-offset 2 c-default-style "linux")
 
-;; Auto complete mode
+; Auto complete mode
 (global-auto-complete-mode t)
 
 (setq ac-auto-start t)
 (setq ac-delay 0.1)
-;; (setq ac-auto-show-menu nil)
-;; (setq ac-show-menu-immediately-on-auto-complete t)
-;; (setq ac-trigger-key nil)
+; (setq ac-auto-show-menu nil)
+; (setq ac-show-menu-immediately-on-auto-complete t)
+; (setq ac-trigger-key nil)
 
-;; Setting PATH
+; Setting PATH
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "TODO"))
@@ -343,6 +332,9 @@
   (setenv "PATH"
           (mapconcat 'identity
            paths ":")))
+
+; Always follow symlinks
+(setq vc-follow-symlinks t)
 
 ; Open current todo file in other window
 (split-window-horizontally)
