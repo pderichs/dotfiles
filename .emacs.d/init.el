@@ -342,3 +342,8 @@
 (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.txt")))
 (org-mode)
 (previous-multiframe-window)
+
+; Stop emacs from writing custom settings to this file
+(setq-default custom-file (expand-file-name ".custom.el" user-emacs-directory))
+;(when (file-exists-p custom-file)
+;  (load custom-file))
