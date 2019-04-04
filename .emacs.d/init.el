@@ -145,11 +145,11 @@
 (tool-bar-mode -1)
 
 ;; Load wombat theme
-;(load-theme 'wombat)
+(load-theme 'wombat)
 ;; Cyperpunk theme
 ;(load-theme 'cyberpunk t)
 ;; Loading badwolf theme
-(load-file (expand-file-name "themes/badwolf-theme.el" user-emacs-directory))
+;(load-file (expand-file-name "themes/badwolf-theme.el" user-emacs-directory))
 
 ;; Highlight current line
 ;(global-hl-line-mode 1)
@@ -162,24 +162,6 @@
 (add-hook 'after-init-hook '(lambda ()
                               (when window-system (set-frame-size (selected-frame) 180 45))
                               ))
-
-
-;; Color Theme.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ecb-options-version "2.40")
- '(package-selected-packages
-   (quote
-    (editorconfig neotree minitest yaml-mode cyberpunk-theme cider clojure-mode robe color-theme exec-path-from-shell multiple-cursors rspec-mode rubocop inf-ruby rbenv zencoding-mode sass-mode auto-complete ace-jump-mode helm-ag helm-projectile go-mode grizzl smex flx-ido helm coffee-mode ruby-end projectile yasnippet magit))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 ;; Line numbers on
 (line-number-mode 1)
@@ -249,7 +231,7 @@
 
 ;; Projectile
 (projectile-global-mode)
-(setq projectile-indexing-method 'native)
+(setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching t)
 (setq projectile-require-project-root nil)
 

@@ -63,4 +63,4 @@ alias v="vim"
 alias em="/usr/bin/env emacs"
 #}}}
 
-$HOME/todo_file.rb
+$HOME/todo_file.rb > /dev/null
