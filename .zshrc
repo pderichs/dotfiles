@@ -60,7 +60,10 @@ fi
 
 alias reload="source ~/.zshrc"
 alias v="vim"
-alias em="/usr/bin/env emacs"
+alias em="/usr/bin/env emacs -nw"
+
+alias ce-run="tmuxinator start gdk-ce"
+alias ee-run="tmuxinator start gdk-ee"
 #}}}
 
 $HOME/todo_file.rb > /dev/null
