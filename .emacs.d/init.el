@@ -33,7 +33,6 @@
     rspec-mode
     multiple-cursors
     exec-path-from-shell
-    color-theme
     yaml-mode
     neotree
     editorconfig
@@ -128,7 +127,7 @@
             '(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 ; No menu bar.
-;(menu-bar-mode -1)
+(menu-bar-mode -1)
 
 ; No toolbar.
 (tool-bar-mode -1)
@@ -262,9 +261,11 @@
 (global-set-key (kbd (concat (env-meta) "-8")) 'projectile-invalidate-cache)
 
 ; Search
-(global-set-key (kbd "C-f") 'isearch-forward)
-(define-key isearch-mode-map "\C-f" 'isearch-repeat-forward)
-(global-set-key (kbd "C-F") 'helm-projectile-ag)
+(global-set-key (kbd "C-f") 'helm-ag-this-file)
+(global-set-key (kbd "C-e") 'helm-ag-buffers)
+(global-set-key (kbd (concat "C-" (env-meta) "-f")) 'helm-ag-project-root)
+(global-set-key (kbd "C-S-s") 'isearch-forward-symbol-at-point)
+(global-set-key (kbd "C-ü") 'highlight-symbol-at-point)
 
 (global-set-key (kbd (concat (env-meta) "-p")) 'projectile-find-file)
 
@@ -289,11 +290,12 @@
 ; Easy buffer switch
 (global-set-key (kbd "C-b") 'projectile-switch-to-buffer)
 
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd (concat (env-meta) "-,")) 'magit-status)
 
 (global-set-key (kbd "M-g") 'goto-line)
+
+; Bring back org-mode shift select
+(setq org-support-shift-select 'always)
 
 ; These files are HTML
 (add-to-list 'auto-mode-alist '("\\.jst.eco$" . html-mode))
