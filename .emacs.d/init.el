@@ -144,7 +144,7 @@
 ;(set-face-background 'hl-line "#223")
 
 ; Enhance font-size for graphical emacs.
-(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :height 120)
 
 ; Set initial window size
 (add-hook 'after-init-hook '(lambda ()
@@ -263,7 +263,8 @@
 ; Search
 (global-set-key (kbd "C-f") 'helm-ag-this-file)
 (global-set-key (kbd "C-e") 'helm-ag-buffers)
-(global-set-key (kbd (concat "C-" (env-meta) "-f")) 'helm-ag-project-root)
+(global-set-key (kbd "C-S-f") 'helm-ag-project-root)
+; (global-set-key (kbd (concat "C-" (env-meta) "-f")) 'helm-ag-project-root)
 (global-set-key (kbd "C-S-s") 'isearch-forward-symbol-at-point)
 (global-set-key (kbd "C-ü") 'highlight-symbol-at-point)
 
