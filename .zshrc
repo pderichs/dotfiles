@@ -64,6 +64,8 @@ alias em="/usr/bin/env emacs -nw"
 
 alias ce-run="tmuxinator start gdk-ce"
 alias ee-run="tmuxinator start gdk-ee"
+
+alias gsrem="git config --get remote.origin.url"
 #}}}
 
 $HOME/todo_file.rb > /dev/null
