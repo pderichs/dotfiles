@@ -216,9 +216,6 @@ nmap <Leader>S <Plug>(easymotion-overwin-w)
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
 
-" Insert current jira ticket to commit message
-nmap <C-j> 4gg5wy3wggpA<space>
-
 "}}}
 
 "}}}
