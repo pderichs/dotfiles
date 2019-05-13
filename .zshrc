@@ -69,3 +69,5 @@ alias gsrem="git config --get remote.origin.url"
 #}}}
 
 $HOME/todo_file.rb > /dev/null
+
+PROMPT='%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M:%S}] '$PROMPT
