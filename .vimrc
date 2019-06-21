@@ -16,23 +16,16 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 "{{{plugin list
-Plugin 'tpope/vim-fugitive.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fireplace'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'tmhedberg/matchit'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'junegunn/goyo.vim'
-Plugin 'maxbrunsfeld/vim-yankstack'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -43,9 +36,6 @@ filetype plugin indent on
 "}}}
 
 "{{{general
-" for fish shell
-set shell=/bin/bash
-
 set foldmethod=marker
 set noswapfile
 
@@ -94,6 +84,7 @@ syntax on
 
 " Line numbers
 set number
+set relativenumber
 
 " Highlight matching braces
 set showmatch
@@ -113,28 +104,30 @@ endif
 " Ctrl+P settings
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough - no caching needed
+  let g:ctrlp_use_caching = 0
+endif
+
+"{{{searching
+let g:ctrlp_use_caching = 0
+if executable('ag')
+      " We extract the column as well as the file and line number
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+    set grepformat=%f:%l:%c%m
+endif
+"}}}
 
 "{{{automatically remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 "}}}
 
-"}}}
+"za}}}
 
 "{{{theme
-if has('gui_running')
-  " colorscheme wombat
-  colorscheme badwolf
-  if has('gui_macvim')
-    set guifont=Inconsolata\ for\ Powerline:h18
-    macmenu &File.New\ Tab key=<nop>
-    map <D-t> :CommandT<cr>
-  else
-    set guifont=Droid_Sans_Mono_Dotted_for_Powe:h10:cANSI
-  endif
-else
-  " colorscheme wombat256
-  colorscheme badwolf
-endif
+colorscheme 1989
 "}}}
 
 "{{{plugin config airline
@@ -175,22 +168,8 @@ nmap <F8> @q
 " goto definition with F12
 map <F12> <C-]>
 
-" Disable cursor keys
-nnoremap <Left> :echo "No left for you!"<CR>
-vnoremap <Left> :<C-u>echo "No left for you!"<CR>
-inoremap <Left> <C-o>:echo "No left for you!"<CR>
-
-nnoremap <Right> :echo "No right for you!"<CR>
-vnoremap <Right> :<C-u>echo "No right for you!"<CR>
-inoremap <Right> <C-o>:echo "No right for you!"<CR>
-
-nnoremap <Up> :echo "No up for you!"<CR>
-vnoremap <Up> :<C-u>echo "No up for you!"<CR>
-inoremap <Up> <C-o>:echo "No up for you!"<CR>
-
-nnoremap <Down> :echo "No down for you!"<CR>
-vnoremap <Down> :<C-u>echo "No down for you!"<CR>
-inoremap <Down> <C-o>:echo "No down for you!"<CR>
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 "{{{leader keys
 let mapleader = " "
