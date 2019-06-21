@@ -1,0 +1,9 @@
+name: dev
+root: ~/work
+
+windows:
+  - development:
+      layout: 726e,272x70,0,0{136x70,0,0,0,135x70,137,0[135x35,137,0,1,135x34,137,36,2]}
+      panes:
+        - vim
+        -
