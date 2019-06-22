@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# Slightly modified version of https://gist.github.com/todgru/6224848 - thanks!
+#
+session="work"
+
+# set up tmux
+tmux start-server
+
+# create a new tmux session, starting vim from a saved session in the new window
+tmux new-session -d -s $session -n vim
+
+# Select pane 1, set dir to api, run vim
+tmux selectp -t 1
+tmux send-keys "cd ~/work/gdk-ce/gitlab;vim" C-m
+
+# Split pane 1 vertically by 80%
+tmux splitw -v -p 10
+
+# Select pane 2
+tmux selectp -t 2
+# Split pane 2 horizontally by 40%
+tmux splitw -h -p 60
+
+# select pane 3
+tmux selectp -t 3
+tmux send-keys "cd ~/work/gdk-ce/gitlab" C-m
+
+# pane 4 setup
+tmux splitw -h -p 50
+tmux selectp -t 4
+tmux send-keys "cd ~/work/gdk-ce/gitlab" C-m
+
+# Select pane 1
+tmux selectp -t 1
+
+# create a new window called scratch
+# tmux new-window -t $session:1 -n scratch
+
+# return to main vim window
+# tmux select-window -t $session:0
+
+# Finished setup, attach to the tmux session!
+tmux attach-session -t $session
