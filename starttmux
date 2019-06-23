@@ -4,6 +4,20 @@
 #
 session="work"
 
+# Set working dir based on first parameter
+work_folder="~/work"
+current_folder=$work_folder
+echo "Current folder: "
+echo $current_folder
+case $1 in
+  ce ) gdk_folder="gdk-ce";;
+  ee ) gdk_folder="gdk-ee";;
+  dce ) gdk_folder="dev-gdk-ce";;
+  dee ) gdk_folder="dev-gdk-ee";;
+esac
+
+current_folder="$work_folder/$gdk_folder/gitlab"
+
 # set up tmux
 tmux start-server
 
@@ -12,7 +26,7 @@ tmux new-session -d -s $session -n vim
 
 # Select pane 1, set dir to api, run vim
 tmux selectp -t 1
-tmux send-keys "cd ~/work/gdk-ce/gitlab;vim" C-m
+tmux send-keys "cd $current_folder;vim" C-m
 
 # Split pane 1 vertically by 80%
 tmux splitw -v -p 10
@@ -24,15 +38,15 @@ tmux splitw -h -p 60
 
 # select pane 3
 tmux selectp -t 3
-tmux send-keys "cd ~/work/gdk-ce/gitlab" C-m
+tmux send-keys "cd $current_folder" C-m
 
 # pane 4 setup
 tmux splitw -h -p 50
 tmux selectp -t 4
-tmux send-keys "cd ~/work/gdk-ce/gitlab" C-m
+tmux send-keys "cd $current_folder" C-m
 
 # Select pane 1
-tmux selectp -t 1
+tmux selectp -t 0
 
 # create a new window called scratch
 # tmux new-window -t $session:1 -n scratch
