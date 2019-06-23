@@ -69,6 +69,7 @@ alias ce-run="tmuxinator start gdk-ce"
 alias ee-run="tmuxinator start gdk-ee"
 
 alias gsrem="git config --get remote.origin.url"
+alias starttmux="~/starttmux"
 # alias bundle="bundle install -j4"
 #}}}
 
