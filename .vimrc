@@ -21,12 +21,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
-Plugin 'rking/ag.vim'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-surround'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'MattesGroeger/vim-bookmarks'
 "}}}
 
 " All of your Plugins must be added before the following line
