@@ -28,22 +28,22 @@ tmux new-session -d -s $session -n vim
 tmux selectp -t 1
 tmux send-keys "cd $current_folder;vim" C-m
 
-# Split pane 1 vertically by 80%
-tmux splitw -v -p 10
+# Split pane 1 vertically
+tmux splitw -h -p 20
 tmux send-keys "cd $current_folder" C-m
 
 # Select pane 2
 tmux selectp -t 2
 # Split pane 2 horizontally by 40%
-tmux splitw -h -p 60
+tmux splitw -v -p 50
 
 # select pane 3
 tmux selectp -t 3
 tmux send-keys "cd $current_folder" C-m
 
 # pane 4 setup
-tmux splitw -h -p 50
-tmux selectp -t 4
+# tmux splitw -h -p 50
+# tmux selectp -t 4
 
 # Select pane 1
 tmux selectp -t 0
