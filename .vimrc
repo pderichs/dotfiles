@@ -112,6 +112,8 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" vsplit
+
 "{{{searching
 let g:ctrlp_use_caching = 0
 if executable('ag')
@@ -128,7 +130,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 "za}}}
 
 "{{{theme
-colorscheme 1989
+colorscheme wombat256i
 "}}}
 
 "{{{plugin config airline
