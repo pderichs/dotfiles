@@ -178,10 +178,12 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 let mapleader = " "
 nnoremap <leader>w :w<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
+nnoremap <leader>r :NERDTreeFind<cr>
 nnoremap <leader>a :Ag!<space>
 nnoremap <leader>ev :tabedit ~/.vimrc<cr>
 nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
+"nnoremap <leader>r :CtrlPTag<cr>
 
 "{{{accessing system clipboard
 vnoremap <leader>c "+y
@@ -194,8 +196,6 @@ nnoremap <silent><leader>n :set relativenumber!<cr>
 nnoremap <leader>X :q!<cr>
 
 nnoremap <leader>x :wq<cr>
-
-nnoremap <leader>r :CtrlPTag<cr>
 
 "{{{easy-motion
 " <Leader>f{char} to move to {char}
