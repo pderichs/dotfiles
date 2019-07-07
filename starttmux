@@ -26,7 +26,7 @@ tmux new-session -d -s $session -n vim
 
 # Select pane 1, set dir to work folder, run vim
 tmux selectp -t 1
-tmux send-keys "cd $current_folder;vim" C-m
+tmux send-keys "cd $current_folder;nvim" C-m
 
 # Split pane 1 vertically
 tmux splitw -h -p 20
