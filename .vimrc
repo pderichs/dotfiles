@@ -115,11 +115,11 @@ endif
 " vsplit
 
 "{{{searching
-let g:ctrlp_use_caching = 0
-if executable('ag')
+if executable('rg')
       " We extract the column as well as the file and line number
-    set grepprg=ag\ --nogroup\ --nocolor\ --column
-    set grepformat=%f:%l:%c%m
+    set grepprg=rg\ --color=never
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 0
 endif
 "}}}
 
