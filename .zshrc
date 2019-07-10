@@ -6,6 +6,18 @@ export TODO=$HOME/Dokumente/todo
 setopt prompt_subst
 setopt extendedglob
 
+#{{{fzf
+# Set fzf installation directory path
+export FZF_BASE=/usr/bin/fzf
+
+# Uncomment the following line to disable fuzzy completion
+# export DISABLE_FZF_AUTO_COMPLETION="true"
+
+# Uncomment the following line to disable key bindings (CTRL-T, CTRL-R, ALT-C)
+# export DISABLE_FZF_KEY_BINDINGS="true"
+
+#}}}
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="robbyrussell"
@@ -14,7 +26,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby)
+plugins=(git ruby fzf)
 
 #{{{oh-my-zsh
 source $ZSH/oh-my-zsh.sh
