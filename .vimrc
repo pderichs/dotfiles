@@ -23,10 +23,10 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-surround'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'junegunn/fzf.vim'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -112,6 +112,9 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" Open quickfix window after any grep invocation
+autocmd QuickFixCmdPost *grep* cwindow
+
 " vsplit
 
 "{{{searching
@@ -183,6 +186,7 @@ nnoremap <leader>a :Ag!<space>
 nnoremap <leader>ev :tabedit ~/.vimrc<cr>
 nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
+nnoremap <leader>f :Rg<space>
 "nnoremap <leader>r :CtrlPTag<cr>
 
 "{{{accessing system clipboard
@@ -192,28 +196,6 @@ nnoremap <leader>p "+p
 
 " Enable toggle for relative numbers
 nnoremap <silent><leader>n :set relativenumber!<cr>
-
-nnoremap <leader>X :q!<cr>
-
-nnoremap <leader>x :wq<cr>
-
-"{{{easy-motion
-" <Leader>f{char} to move to {char}
-map  <Leader>f <Plug>(easymotion-bd-f)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
-
-" s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
-
-" Move to line
-map <Leader>L <Plug>(easymotion-bd-jk)
-nmap <Leader>L <Plug>(easymotion-overwin-line)
-
-" Move to word
-map  <Leader>s <Plug>(easymotion-bd-w)
-nmap <Leader>S <Plug>(easymotion-overwin-w)
-
-"}}}
 
 " Bubbling lines
 nmap <C-Up> ddkP
