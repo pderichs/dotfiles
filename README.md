@@ -29,6 +29,12 @@ My dotfiles.
   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
+## Install fzf
+
+[fzf](https://github.com/junegunn/fzf)
+
+Update the path to fzf in `.zshrc` - see `FZF_BASE`.
+
 ## Install badwolf color scheme
 
 ```
