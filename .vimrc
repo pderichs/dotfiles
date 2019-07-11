@@ -103,15 +103,14 @@ if has('gui_running')
 endif
 
 " Ctrl+P settings
+let g:ctrlp_map = '<c-0>'
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " ag is fast enough - no caching needed
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
   let g:ctrlp_use_caching = 0
 endif
-
 " Open quickfix window after any grep invocation
 autocmd QuickFixCmdPost *grep* cwindow
 
@@ -121,8 +120,6 @@ autocmd QuickFixCmdPost *grep* cwindow
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-    let g:ctrlp_use_caching = 0
 endif
 "}}}
 
@@ -176,6 +173,8 @@ map <F12> <C-]>
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+nnoremap <C-p> :Files<CR>
 
 "{{{leader keys
 let mapleader = " "
