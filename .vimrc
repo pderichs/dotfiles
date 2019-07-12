@@ -27,6 +27,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'junegunn/fzf.vim'
+Plugin 'vim-ruby/vim-ruby'
 "}}}
 
 " All of your Plugins must be added before the following line
@@ -111,6 +112,7 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
   let g:ctrlp_use_caching = 0
 endif
+
 " Open quickfix window after any grep invocation
 autocmd QuickFixCmdPost *grep* cwindow
 
