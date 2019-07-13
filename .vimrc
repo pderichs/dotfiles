@@ -129,6 +129,8 @@ endif
 autocmd BufWritePre * :%s/\s\+$//e
 "}}}
 
+set tags=.tags
+
 "za}}}
 
 "{{{theme
