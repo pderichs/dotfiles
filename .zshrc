@@ -69,10 +69,6 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias nuke="kill -9"
 
-if [ "$(uname)" = "Darwin" ]; then
-  alias ctags="/usr/local/Cellar/ctags/5.8_1/bin/ctags"
-fi
-
 alias reload="source ~/.zshrc"
 alias v="vim"
 alias em="/usr/bin/env emacs -nw"
@@ -82,6 +78,9 @@ alias ee-run="tmuxinator start gdk-ee"
 
 alias gsrem="git config --get remote.origin.url"
 alias starttmux="~/starttmux"
+
+alias updatetags="ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)"
+
 # alias bundle="bundle install -j4"
 #}}}
 
