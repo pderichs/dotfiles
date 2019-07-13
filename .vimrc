@@ -14,7 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-"{{{plugin list
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -27,6 +26,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-commentary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -34,7 +34,7 @@ call vundle#end()
 " load file type plugins + indentation
 filetype plugin indent on
 
-set foldmethod=marker
+" set foldmethod=marker
 set noswapfile
 
 " UTF-8 encoding
