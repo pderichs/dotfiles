@@ -27,6 +27,7 @@ Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-commentary'
+Plugin 'luochen1990/rainbow'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -82,7 +83,7 @@ syntax on
 
 " Line numbers
 set number
-set relativenumber
+" set relativenumber
 
 " Highlight matching braces
 set showmatch
@@ -112,8 +113,6 @@ endif
 " Open quickfix window after any grep invocation
 autocmd QuickFixCmdPost *grep* cwindow
 
-" vsplit
-
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
@@ -128,11 +127,13 @@ colorscheme wombat256i
 " airline font config
 let g:airline_powerline_fonts = 1
 
-" always on
+" Rainbow parentheses always on
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Keyboard
 
 nmap - :tabnext<cr>
 
@@ -169,7 +170,6 @@ nnoremap <leader>ev :tabedit ~/.vimrc<cr>
 nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
 nnoremap <leader>f :Rg<space>
-"nnoremap <leader>r :CtrlPTag<cr>
 
 vnoremap <leader>c "+y
 nnoremap <leader>p "+p
