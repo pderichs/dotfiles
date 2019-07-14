@@ -1,4 +1,3 @@
-"{{{vundle
 set nocompatible
 filetype off
 
@@ -15,7 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 
-"{{{plugin list
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -28,17 +26,15 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-ruby/vim-ruby'
-"}}}
+Plugin 'tpope/vim-commentary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
 
 " load file type plugins + indentation
 filetype plugin indent on
-"}}}
 
-"{{{general
-set foldmethod=marker
+" set foldmethod=marker
 set noswapfile
 
 " UTF-8 encoding
@@ -118,41 +114,25 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 " vsplit
 
-"{{{searching
 if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-"}}}
 
-"{{{automatically remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
-"}}}
 
 set tags=.tags
 
-"za}}}
-
-"{{{theme
 colorscheme wombat256i
-"}}}
 
-"{{{plugin config airline
 " airline font config
 let g:airline_powerline_fonts = 1
-"}}}
-
-"{{{plugin config rainbow parentheses
 
 " always on
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-"}}}
-
-"{{{keyboard mappings
 
 nmap - :tabnext<cr>
 
@@ -180,7 +160,6 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 nnoremap <C-p> :Files<CR>
 
-"{{{leader keys
 let mapleader = " "
 nnoremap <leader>w :w<cr>
 nnoremap <leader>t :NERDTreeToggle<cr>
@@ -192,10 +171,8 @@ nnoremap <leader>o :e<space>
 nnoremap <leader>f :Rg<space>
 "nnoremap <leader>r :CtrlPTag<cr>
 
-"{{{accessing system clipboard
 vnoremap <leader>c "+y
 nnoremap <leader>p "+p
-"}}}
 
 " Enable toggle for relative numbers
 nnoremap <silent><leader>n :set relativenumber!<cr>
@@ -204,6 +181,3 @@ nnoremap <silent><leader>n :set relativenumber!<cr>
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
 
-"}}}
-
-"}}}
