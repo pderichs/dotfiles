@@ -170,6 +170,7 @@ nnoremap <leader>ev :tabedit ~/.vimrc<cr>
 nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
 nnoremap <leader>f :Rg<space>
+nnoremap <leader>b :Gblame<cr>
 
 vnoremap <leader>c "+y
 nnoremap <leader>p "+p
