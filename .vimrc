@@ -141,7 +141,7 @@ nmap - :tabnext<cr>
 map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<cr>
 
 " recreate tags file with F5
-map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
+map <F5> :!ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)<cr>
 
 " make
 imap <F7> <ESC>:w<cr>:make<cr>
@@ -171,6 +171,10 @@ nnoremap <leader>so :source %<cr>
 nnoremap <leader>o :e<space>
 nnoremap <leader>f :Rg<space>
 nnoremap <leader>b :Gblame<cr>
+nnoremap <leader>g :set paste<CR>m`Obinding.pry<Esc>``:set nopaste<CR>
+
+nnoremap Q q
+nnoremap q <Nop>
 
 vnoremap <leader>c "+y
 nnoremap <leader>p "+p
