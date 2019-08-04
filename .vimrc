@@ -28,6 +28,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-commentary'
 Plugin 'luochen1990/rainbow'
+Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
