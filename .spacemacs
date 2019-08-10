@@ -308,7 +308,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
   ; Initial window position and size
-  (setq initial-frame-alist '((top . 10) (left . 10) (width . 212) (height . 78)))
+  (setq initial-frame-alist '((top . 10) (left . 10) (width . 250) (height . 78)))
 
   ; Always follow symlinks
   (setq vc-follow-symlinks t)
