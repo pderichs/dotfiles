@@ -33,7 +33,7 @@ values."
    '(
      yaml
      ruby
-     ruby-on-rails
+     ; ruby-on-rails
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -52,6 +52,7 @@ values."
             shell-default-position 'bottom)
      evil-commentary
      javascript
+     ; vue
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
@@ -345,15 +346,18 @@ you should place your code here."
             (mapconcat 'identity
                        paths ":")))
 
-  ; Open current todo file in other window
-  (split-window-horizontally)
-  (next-multiframe-window)
-  (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.txt")))
-  (org-mode)
-  (previous-multiframe-window)
+  (defun pd/open-today-todo-file ()
+      "Open current todo file in other window."
+      (interactive)
+      (split-window-horizontally)
+      (next-multiframe-window)
+      (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.txt")))
+      (org-mode)
+      (previous-multiframe-window))
+  (pd/open-today-todo-file)
   )
 
-;; Do not write anything past this comment. This is where Emacs will
+;; do not write anything past this comment. this is where emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
