@@ -16,7 +16,7 @@ class TodoFileFactory
   end
 
   def create_todays_todo_file
-    todays_file = "#{todo_folder}/#{today}.txt"
+    todays_file = "#{todo_folder}/#{today}.org"
     puts "Todays file is #{todays_file}"
     if File.file?(todays_file)
       puts 'File exists. Nothing to do.'
@@ -44,7 +44,7 @@ class TodoFileFactory
 
   def available_todo_files
     # Read all files in todo folder and sort them by name descending
-    Dir.entries("#{todo_folder}").select { |f| File.file?("#{todo_folder}/#{f}") && /^(\d{8}).txt$/.match(f) }.sort.reverse
+    Dir.entries("#{todo_folder}").select { |f| File.file?("#{todo_folder}/#{f}") && /^(\d{8}).org$/.match(f) }.sort.reverse
   end
 
   def last_todo_file

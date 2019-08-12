@@ -351,7 +351,7 @@ you should place your code here."
       (interactive)
       (split-window-horizontally)
       (next-multiframe-window)
-      (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.txt")))
+      (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
       (org-mode)
       (previous-multiframe-window))
   (pd/open-today-todo-file)
