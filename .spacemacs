@@ -324,12 +324,12 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-
   ; Initial window position and size
   (setq initial-frame-alist '((top . 10) (left . 10) (width . 195) (height . 55)))
-
   ; Always follow symlinks
   (setq vc-follow-symlinks t)
+  ; Turn off line wrap
+  (spacemacs/toggle-truncate-lines-on)
   )
 
 (defun dotspacemacs/user-config ()
