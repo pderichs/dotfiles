@@ -384,9 +384,9 @@ you should place your code here."
       (split-window-horizontally)
       (next-multiframe-window)
       (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
-      (org-mode)
-      (previous-multiframe-window))
+      (org-mode))
   (pd/open-today-todo-file)
+  (previous-multiframe-window)
   )
 
 ;; do not write anything past this comment. this is where emacs will
