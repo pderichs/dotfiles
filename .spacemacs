@@ -160,7 +160,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -328,7 +328,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ; Initial window position and size
-  (setq initial-frame-alist '((top . 10) (left . 10) (width . 195) (height . 55)))
+  (setq initial-frame-alist '((top . 10) (left . 10) (width . 180) (height . 45)))
   ; Always follow symlinks
   (setq vc-follow-symlinks t)
   ; Turn off line wrap
