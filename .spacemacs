@@ -3,7 +3,7 @@
 ;; It must be stored in your home directory.
 
 ;; Thanks to http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
-(defun my-setup-indent (n)
+(defun pd/my-setup-indent (n)
   ;; java/c/c++
   (setq c-basic-offset n)
   ;; web development
@@ -16,6 +16,31 @@
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
   (setq css-indent-offset n) ; css-mode
   )
+
+(defun pd/open-today-todo-file ()
+  "Open current todo file in other window."
+  (interactive)
+  (split-window-horizontally)
+  (next-multiframe-window)
+  (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
+  (org-mode))
+
+(defun pd/window-sizes-setup (w h font-size)
+  "Resizes the window and font size"
+  (set-face-attribute 'default nil :height (* font-size 10))
+  (set-frame-position (selected-frame) 10 10)
+  (set-frame-size (selected-frame) w h t)
+  )
+
+(defun pd/resize-laptop ()
+  "Resizes the window and font to fit on laptop screen"
+  (interactive)
+  (pd/window-sizes-setup 2500 1500 9))
+
+(defun pd/resize-desktop ()
+  "Resizes the window and font to fit on laptop screen"
+  (interactive)
+  (pd/window-sizes-setup 2500 1500 6))
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -159,8 +184,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+   dotspacemacs-default-font '("Hack"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -328,7 +353,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ; Initial window position and size
-  (setq initial-frame-alist '((top . 10) (left . 10) (width . 180) (height . 45)))
+  (setq initial-frame-alist '((top . 10) (left . 10) (width . 270) (height . 80)))
   ; Always follow symlinks
   (setq vc-follow-symlinks t)
   ; Turn off line wrap
@@ -376,15 +401,8 @@ you should place your code here."
                        paths ":")))
 
   ; Set indentation to 2 for most file types
-  (my-setup-indent 2)
+  (pd/my-setup-indent 2)
 
-  (defun pd/open-today-todo-file ()
-      "Open current todo file in other window."
-      (interactive)
-      (split-window-horizontally)
-      (next-multiframe-window)
-      (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
-      (org-mode))
   (pd/open-today-todo-file)
   (previous-multiframe-window)
   )
