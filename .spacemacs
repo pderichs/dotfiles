@@ -35,12 +35,12 @@
 (defun pd/resize-laptop ()
   "Resizes the window and font to fit on laptop screen"
   (interactive)
-  (pd/window-sizes-setup 2500 1500 9))
+  (pd/window-sizes-setup 2500 1500 10))
 
 (defun pd/resize-desktop ()
   "Resizes the window and font to fit on laptop screen"
   (interactive)
-  (pd/window-sizes-setup 2500 1500 6))
+  (pd/window-sizes-setup 2500 1500 10))
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
