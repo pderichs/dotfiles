@@ -26,19 +26,14 @@
   (org-mode))
 
 (defun pd/window-sizes-setup (w h font-size)
-  "Resizes the window and font size"
+  "Resizes the window and font size by the given parameters"
   (set-face-attribute 'default nil :height (* font-size 10))
   (set-frame-position (selected-frame) 10 10)
   (set-frame-size (selected-frame) w h t)
   )
 
-(defun pd/resize-laptop ()
-  "Resizes the window and font to fit on laptop screen"
-  (interactive)
-  (pd/window-sizes-setup 2500 1500 10))
-
-(defun pd/resize-desktop ()
-  "Resizes the window and font to fit on laptop screen"
+(defun pd/setup-default-frame-and-font-size ()
+  "Uses default sizes for frame and font"
   (interactive)
   (pd/window-sizes-setup 2500 1500 10))
 
@@ -367,6 +362,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; Deactivate coding comment in ruby
+  (setq ruby-insert-encoding-magic-comment nil)
 
   ;; Display Visited File's Path in the Frame Title
   (setq frame-title-format
