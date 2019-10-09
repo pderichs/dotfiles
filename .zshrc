@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-export TODO=$HOME/Dokumente/todo
+export TODO=$HOME/todo
 
 setopt prompt_subst
 setopt extendedglob
@@ -41,6 +41,8 @@ if [ -d "$HOME/go" ]; then
   export GOPATH="$HOME/go"
   export PATH="$GOPATH/bin:$PATH"
 fi
+
+export PATH=$PATH:/usr/local/go/bin
 #}}}
 
 #{{{rbenv
