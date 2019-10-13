@@ -40,7 +40,7 @@
 (defun pd/setup-laptop-frame-and-font-size ()
   "Uses default sizes for frame and font"
   (interactive)
-  (pd/window-sizes-setup 2024 968 12))
+  (pd/window-sizes-setup 2024 968 11))
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
