@@ -71,3 +71,25 @@ I have a TODO file for every day. A simple ruby script takes care of copying the
 ```
   ln -s path/to/dotfiles/clone/todo_file.rb ~/todo_file.rb
 ```
+
+## TAGS file creation
+
+### (spac)emacs
+
+In (ruby) project folder:
+
+```
+ctags -e -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)
+```
+
+This file can be used with e.g.
+
+```
+helm-etags-select
+```
+
+### vim
+
+```
+ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)
+```
