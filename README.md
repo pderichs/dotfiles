@@ -71,7 +71,6 @@ I have a TODO file for every day. A simple ruby script takes care of copying the
 ```
   ln -s path/to/dotfiles/clone/todo_file.rb ~/todo_file.rb
 ```
-
 ## TAGS file creation
 
 ### (spac)emacs
@@ -93,3 +92,8 @@ helm-etags-select
 ```
 ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)
 ```
+## Install dmenu
+
+A pretty good fuzzy app finder for e.g. xfce which can be bind to winkey.
+
+`dmenu_run`
