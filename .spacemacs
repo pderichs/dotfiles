@@ -18,10 +18,8 @@
   )
 
 (defun pd/open-today-todo-file ()
-  "Open current todo file in other window."
+  "Open current todo file"
   (interactive)
-  (split-window-horizontally)
-  (next-multiframe-window)
   (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
   (org-mode))
 
@@ -29,8 +27,7 @@
   "Resizes the window and font size by the given parameters"
   (set-face-attribute 'default nil :height (* font-size 10))
   (set-frame-position (selected-frame) 10 10)
-  (set-frame-size (selected-frame) w h t)
-  )
+  (set-frame-size (selected-frame) w h t))
 
 (defun pd/setup-default-frame-and-font-size ()
   "Uses default sizes for frame and font"
@@ -406,6 +403,8 @@ you should place your code here."
   ; Set indentation to 2 for most file types
   (pd/my-setup-indent 2)
 
+  (split-window-horizontally)
+  (next-multiframe-window)
   (pd/open-today-todo-file)
   (previous-multiframe-window)
   )
