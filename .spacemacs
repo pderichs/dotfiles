@@ -181,8 +181,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Hack"
-                               :size 14
+   dotspacemacs-default-font '("Monospace"
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -353,8 +353,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq initial-frame-alist '((top . 10) (left . 10) (width . 270) (height . 80)))
   ; Always follow symlinks
   (setq vc-follow-symlinks t)
-  ; Turn off line wrap
-  (spacemacs/toggle-truncate-lines-on)
   )
 
 (defun dotspacemacs/user-config ()
