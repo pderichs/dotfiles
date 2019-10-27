@@ -97,3 +97,11 @@ ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list 
 A pretty good fuzzy app finder for e.g. xfce which can be bind to winkey.
 
 `dmenu_run`
+
+## Install i3
+
+https://fedoramagazine.org/getting-started-i3-window-manager/
+
+`ln -s /path/to/dotfiles/i3/config ~/.config/i3/config`
+
+Bind i3-dmenu-desktop to winkey.
