@@ -37,7 +37,7 @@
 (defun pd/setup-laptop-frame-and-font-size ()
   "Uses default sizes for frame and font"
   (interactive)
-  (pd/window-sizes-setup 2024 968 11))
+  (pd/window-sizes-setup 2024 968 10))
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -379,24 +379,6 @@ you should place your code here."
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)
     (exec-path-from-shell-copy-env "TODO"))
-
-  (when (eq system-type "gnu/linux")
-    (setq home (getenv "HOME"))
-    (setq paths
-          (list
-           (concat home "/go/bin")
-           (concat home "/.rbenv/shims")
-           (concat home "/rbenv/bin")
-           "/usr/local/bin"
-           "/usr/bin"
-           "/bin"
-           "/usr/sbin"
-           "/sbin"
-           (getenv "PATH")
-           ))
-    (setenv "PATH"
-            (mapconcat 'identity
-                       paths ":")))
 
   ; Set indentation to 2 for most file types
   (pd/my-setup-indent 2)
