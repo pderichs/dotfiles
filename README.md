@@ -4,10 +4,31 @@ My dotfiles.
 
 # Prerequisites
 
+* emacs
 * vim
-* emacs (>= 24.4.x)
 
 # Installation
+
+## Steps
+
+```
+  git clone ... $HOME/dotfiles
+
+  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+  ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
+  ln -s $HOME/dotfiles/.zshenv $HOME/.zshenv
+  ln -s $HOME/dotfiles/.spacemacs $HOME/.spacemacs
+  ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
+  ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
+  ln -s $HOME/dotfiles/starttmux $HOME/starttmux
+  ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
+  ln -s $HOME/dotfiles/.gitexcludes $HOME/.gitexcludes
+  ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
+  ln -s $HOME/dotfiles/.irbrc $HOME/.irbrc
+  ln -s $HOME/dotfiles/.rspec $HOME/.rspec
+  ln -s $HOME/dotfiles/todo_file.rb $HOME/todo_file.rb
+```
 
 ## Install zsh
 
