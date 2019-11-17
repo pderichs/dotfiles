@@ -331,6 +331,11 @@ you should place your code here."
   (when (file-exists-p "~/custom-functions.el")
     (load-file "~/custom-functions.el"))
 
+  ;; Support rspec output in compilation mode
+  (add-to-list 'compilation-error-regexp-alist-alist
+               '(rspec "\\([0-9A-Za-z_./\:-]+\\.rb\\):\\([0-9]+\\)" 1 2))
+  (add-to-list 'compilation-error-regexp-alist 'rspec)
+
   ;; Deactivate coding comment in ruby
   (setq ruby-insert-encoding-magic-comment nil)
 
