@@ -2,43 +2,6 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-;; Thanks to http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
-(defun pd/my-setup-indent (n)
-  ;; java/c/c++
-  (setq c-basic-offset n)
-  ;; web development
-  (setq coffee-tab-width n) ; coffeescript
-  (setq javascript-indent-level n) ; javascript-mode
-  (setq js-indent-level n) ; js-mode
-  (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
-  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
-  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
-  (setq css-indent-offset n) ; css-mode
-  )
-
-(defun pd/open-today-todo-file ()
-  "Open current todo file"
-  (interactive)
-  (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
-  (org-mode))
-
-(defun pd/window-sizes-setup (w h font-size)
-  "Resizes the window and font size by the given parameters"
-  (set-face-attribute 'default nil :height (* font-size 10))
-  (set-frame-position (selected-frame) 10 10)
-  (set-frame-size (selected-frame) w h t))
-
-(defun pd/setup-default-frame-and-font-size ()
-  "Uses default sizes for frame and font"
-  (interactive)
-  (pd/window-sizes-setup 2500 1500 11))
-
-(defun pd/setup-laptop-frame-and-font-size ()
-  "Uses default sizes for frame and font"
-  (interactive)
-  (pd/window-sizes-setup 2024 968 10))
-
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -68,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     emacs-lisp
      html
      yaml
      ruby
@@ -182,7 +146,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Monospace"
-                               :size 12
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -363,26 +327,29 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; Load extension methods
+  (when (file-exists-p "~/custom-functions.el")
+    (load-file "~/custom-functions.el"))
+
   ;; Deactivate coding comment in ruby
   (setq ruby-insert-encoding-magic-comment nil)
 
-  ;; Display Visited File's Path in the Frame Title
+  ;; Display visited File's Path in the Frame Title
   (setq frame-title-format
         '((:eval (if (buffer-file-name)
                      (abbreviate-file-name (buffer-file-name))
                    "%b"))))
 
-  ; Set javascript mode for vue files
+  ;; Set javascript mode for vue files
   (add-to-list 'auto-mode-alist '("\\.vue$" . javascript-mode))
 
-  ; Setting PATH
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)
     (exec-path-from-shell-copy-env "TODO"))
 
-  ; Set indentation to 2 for most file types
-  (pd/my-setup-indent 2)
+  (pd/setup-indent-level 2)
 
+  ;; Open todays todo file in split window
   (split-window-horizontally)
   (next-multiframe-window)
   (pd/open-today-todo-file)

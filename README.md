@@ -27,6 +27,7 @@ My dotfiles.
   ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
   ln -s $HOME/dotfiles/.irbrc $HOME/.irbrc
   ln -s $HOME/dotfiles/.rspec $HOME/.rspec
+  ln -s $HOME/dotfiles/custom-functions.el $HOME/custom-functions.el
   ln -s $HOME/dotfiles/todo_file.rb $HOME/todo_file.rb
 ```
 
