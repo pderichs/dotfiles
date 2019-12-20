@@ -105,3 +105,42 @@
       (error "You're not into a project"))
     )
   )
+
+(defun pd/run-rails-migration (up-or-down project-folder version rails-env)
+  (let ((cd-command (concat "cd " current-project-folder)))
+    (let ((rails-command (concat "bundle exec rails db:migrate:" up-or-down " VERSION=" version)))
+      (compilation-start (concat cd-command ";" rails-command))
+      )
+    )
+  )
+
+(defun pd/rails-execute-current-migration (up-or-down)
+  (let ((file-name (buffer-file-name)))
+    ;; (message-box file-name)
+    (save-match-data
+      (if (string-match "^.*/db/migrate/\\([[:digit:]]+\\)_.+\\.rb.*$" file-name)
+          (let ((version (match-string 1 file-name)))
+            ;; (message-box version)
+            (let ((current-project-folder (projectile-project-root)))
+              (if current-project-folder
+                  (pd/run-rails-migration up-or-down current-project-folder version "")
+                (error "You're not into a project"))
+              )
+            )
+        (message-box "Unable to get rails migration version!")
+        )
+      )
+    )
+  )
+
+(defun pd/rails-rollback-current-migration ()
+  "If current file is a rails migration, roll it back"
+  (interactive)
+  (pd/rails-execute-current-migration "down")
+  )
+
+(defun pd/rails-run-current-migration ()
+  "If current file is a rails migration, run it"
+  (interactive)
+  (pd/rails-execute-current-migration "up")
+  )
