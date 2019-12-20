@@ -39,9 +39,9 @@ function dev_folder_indicator() {
   local symbol
   local ceoree
 
-  if [[ $PWD =~ '^.*\/work(\/dev-gdk-ce|\/dev-gdk-ee)' ]]; then
+  if [[ $PWD =~ '^.*\/work(\/dev-gdk-ce|\/dev-gdk-ee|\/dev-security)' ]]; then
   color="$fg[red]"
-  symbol="*DEV*"
+  symbol="*SEC*"
   else
   color="$fg[green]"
   symbol="-"
