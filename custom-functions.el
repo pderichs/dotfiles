@@ -144,3 +144,20 @@
   (interactive)
   (pd/rails-execute-current-migration "up")
   )
+
+(defun pd/copy-current-relative-file-name ()
+  "Puts the current file name in the system clipboard"
+  (interactive)
+  (let ((file-name (spacemacs/show-and-copy-buffer-filename)))
+    (let ((current-project-folder (projectile-project-root)))
+      (if current-project-folder
+          (let ((relative-name (file-relative-name file-name current-project-folder)))
+            (message "%s copied" relative-name)
+            (kill-new relative-name)
+            )
+
+        (error "You're not into a project")
+        )
+      )
+    )
+  )
