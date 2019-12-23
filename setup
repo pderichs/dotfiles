@@ -1,0 +1,34 @@
+#!/bin/sh
+
+USER_INPUT=$(whiptail --inputbox "This script will *DELETE* and/or overwrite config files in your HOME directory. Have you read the contents of this setup script and do you want to proceed?\n\n***WARNING***\n\nThis operation cannot be undone - so please make sure you have made a backup of all relevant files.\n\nEnter \"Yes!\" if you want to proceed." 20 60 3>&1 1>&2 2>&3)
+
+exitstatus=$?
+echo "User entered " $USER_INPUT
+
+if [ $exitstatus != 0 ]; then
+    exit 1
+fi
+
+if [ "$USER_INPUT" != "Yes!" ]; then
+    exit 1
+fi
+
+echo "Proceeding..."
+
+{
+    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+    ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
+    ln -s $HOME/dotfiles/.zshenv $HOME/.zshenv
+    ln -s $HOME/dotfiles/.spacemacs $HOME/.spacemacs
+    ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
+    ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
+    ln -s $HOME/dotfiles/starttmux $HOME/starttmux
+    ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
+    ln -s $HOME/dotfiles/.gitexcludes $HOME/.gitexcludes
+    ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
+    ln -s $HOME/dotfiles/.irbrc $HOME/.irbrc
+    ln -s $HOME/dotfiles/.rspec $HOME/.rspec
+    ln -s $HOME/dotfiles/custom-functions.el $HOME/custom-functions.el
+    ln -s $HOME/dotfiles/todo_file.rb $HOME/todo_file.rb
+} |whiptail --title "Installing dotfiles" --gauge "Please wait while installing" 6 60 0
