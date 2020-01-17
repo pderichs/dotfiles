@@ -1,0 +1,16 @@
+#!/bin/sh
+
+FILES=$(git whatchanged --name-only --pretty="" origin..HEAD | xargs ls -d 2>/dev/null | tr '\n' ' ')
+SPEC_FILES=$(git whatchanged --name-only --pretty="" origin..HEAD | xargs ls -d 2>/dev/null | grep _spec\.rb | tr '\n' ' ')
+
+echo "--------------------"
+echo "  RSpec"
+echo "--------------------"
+
+bundle exec rspec $SPEC_FILES
+
+echo "--------------------"
+echo "  RuboCop"
+echo "--------------------"
+
+bundle exec rubocop $FILES
