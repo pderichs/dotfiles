@@ -31,6 +31,11 @@ alias starttmux="~/starttmux"
 alias updatetags="ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)"
 
 alias s1off="xrandr --output eDP-1 --off"
+
+chbr() {
+  gco $(git branch -a | fzf)
+}
+
 #}}}
 
 #{{{prompt
