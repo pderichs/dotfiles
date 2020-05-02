@@ -131,8 +131,10 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # Move one workspace left / right
-bindsym $mod+Left workspace prev
-bindsym $mod+Right workspace next
+# bindsym $mod+Left workspace prev
+# bindsym $mod+Right workspace next
+bindsym Ctrl+Mod1+Left workspace prev
+bindsym Ctrl+Mod1+Right workspace next
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -190,4 +192,3 @@ bar {
 
 # Start Albert
 exec albert
-
