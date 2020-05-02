@@ -73,5 +73,11 @@ set_prompt
 
 #}}}
 
+#{{{rvm
+if [ -d "$HOME/.asdf" ]; then
+    . $HOME/.asdf/asdf.sh
+fi
+#}}}
+
 # Create TODO file
 $HOME/todo_file.rb > /dev/null

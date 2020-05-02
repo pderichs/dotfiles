@@ -63,6 +63,16 @@ Update the path to fzf in `.zshrc` - see `FZF_BASE`.
   mkdir ~/.vim/colors
 ```
 
+## Install [asdf](https://github.com/asdf-vm/asdf)
+
+[https://asdf-vm.com/#/core-manage-asdf-vm](https://asdf-vm.com/#/core-manage-asdf-vm)
+
+```
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+cd ~/.asdf
+git checkout "$(git describe --abbrev=0 --tags)"
+```
+
 [Color scheme raw content](https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim)
 
 ## Install Vundle
