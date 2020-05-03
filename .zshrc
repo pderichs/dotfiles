@@ -32,6 +32,9 @@ alias updatetags="ctags -R --languages=ruby --exclude=.git --exclude=log -f .tag
 
 alias s1off="xrandr --output eDP-1 --off"
 
+alias wifion="nmcli radio wifi on"
+alias wifioff="nmcli radio wifi off"
+
 chbr() {
   gco $(git branch -a | fzf)
 }
