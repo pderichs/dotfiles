@@ -76,7 +76,7 @@ set_prompt
 
 #}}}
 
-#{{{rvm
+#{{{asdf
 if [ -d "$HOME/.asdf" ]; then
     . $HOME/.asdf/asdf.sh
 fi
@@ -84,3 +84,8 @@ fi
 
 # Create TODO file
 $HOME/todo_file.rb > /dev/null
+
+if [ -d "$HOME/.config/broot/launcher/bash" ]; then
+    source $HOME/.config/broot/launcher/bash/br
+fi
+
