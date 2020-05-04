@@ -199,3 +199,10 @@ bar {
 
 # Start Albert
 exec albert
+
+# Define default workspaces for apps
+for_window [class="rubymine"] move to workspace $ws1
+for_window [class="terminal"] move to workspace $ws2
+for_window [class="chrome"] move to workspace $ws3
+for_window [class="Emacs"] move to workspace $ws4
+
