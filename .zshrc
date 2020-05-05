@@ -28,8 +28,6 @@ alias em="/usr/bin/env emacs -nw"
 alias gsrem="git config --get remote.origin.url"
 alias starttmux="~/starttmux"
 
-alias updatetags="ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)"
-
 alias s1off="xrandr --output eDP-1 --off"
 
 alias wifion="nmcli radio wifi on"
