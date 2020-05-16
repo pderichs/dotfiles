@@ -173,6 +173,10 @@ nnoremap <leader>o :e<space>
 nnoremap <leader>f :Rg<space>
 nnoremap <leader>b :Gblame<cr>
 nnoremap <leader>g :set paste<CR>m`Obinding.pry<Esc>``:set nopaste<CR>
+nnoremap <leader>qq :q<CR>
+nnoremap <leader>pf :Files<CR>
+nnoremap <leader>/ :Ag<CR>
+nnoremap <leader>* :Ag! \b<cword>\b<cr>
 
 nnoremap Q q
 nnoremap q <Nop>
