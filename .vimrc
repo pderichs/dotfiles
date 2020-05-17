@@ -187,7 +187,11 @@ nnoremap <leader>p "+p
 " Enable toggle for relative numbers
 nnoremap <silent><leader>n :set relativenumber!<cr>
 
+" Jumping between paragraphs
+nnoremap <C-Up> {
+nnoremap <C-Down> }
+
 " Bubbling lines
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
+nmap <C-A-Down> ddp
+nmap <C-A-Up> ddkP
 
