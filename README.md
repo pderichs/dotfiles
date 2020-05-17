@@ -136,4 +136,3 @@ https://fedoramagazine.org/getting-started-i3-window-manager/
 
 `ln -s /path/to/dotfiles/i3/config ~/.config/i3/config`
 
-Bind i3-dmenu-desktop to winkey.
