@@ -19,26 +19,8 @@ fi
 export PATH=$PATH:/usr/local/go/bin
 #}}}
 
-#{{{rbenv
-if [ -d "$HOME/.rbenv" ]; then
-    export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-fi
-#}}}
-
-#{{{rvm
-if [ -d "$HOME/.rvm" ]; then
-    export PATH="$HOME/.rvm/bin:$PATH"
-fi
-#}}}
-
 #{{{home bin folder
 if [ -d "$HOME/bin" ]; then
     export PATH="$HOME/bin:$PATH"
 fi
 #}}}
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
