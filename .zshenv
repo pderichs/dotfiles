@@ -10,17 +10,16 @@ export FZF_BASE=/usr/bin/fzf
 export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export EDITOR='vim'
 
-#{{{go
 if [ -d "$HOME/go" ]; then
-    # export GOPATH="$HOME/go"
     export PATH="$GOPATH/bin:$PATH"
 fi
 
 export PATH=$PATH:/usr/local/go/bin
-#}}}
 
-#{{{home bin folder
 if [ -d "$HOME/bin" ]; then
     export PATH="$HOME/bin:$PATH"
 fi
-#}}}
+
+if [ -d "$HOME/source/libs/wxWidgets-3.0.5" ]; then
+    export PATH="$HOME/source/libs/wxWidgets-3.0.5:$PATH"
+fi

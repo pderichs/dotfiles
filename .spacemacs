@@ -141,8 +141,12 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
-                         spacemacs-light)
+   dotspacemacs-themes '(
+                         leuven
+                         adwaita
+                         spacemacs-dark
+                         spacemacs-light
+                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -316,7 +320,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ; Initial window position and size
-  (setq initial-frame-alist '((top . 10) (left . 10) (width . 270) (height . 80)))
+  (setq initial-frame-alist '((top . 10) (left . 10) (width . 150) (height . 80)))
   ; Always follow symlinks
   (setq vc-follow-symlinks t)
   )
@@ -357,10 +361,10 @@ you should place your code here."
   (pd/setup-indent-level 2)
 
   ;; Open todays todo file in split window
-  (split-window-horizontally)
-  (next-multiframe-window)
-  (pd/open-today-todo-file)
-  (previous-multiframe-window)
+  ;; (split-window-horizontally)
+  ;; (next-multiframe-window)
+  ;; ;; (pd/open-today-todo-file)
+  ;; (previous-multiframe-window)
   )
 
 ;; do not write anything past this comment. this is where emacs will
