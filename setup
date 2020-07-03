@@ -1,5 +1,35 @@
 #!/bin/sh
 
+install_items=(
+  vim
+  mc
+  fzf
+  zsh
+  jq
+  dmenu
+  emacs
+  git
+  openssh-server
+  curl
+  wget
+)
+
+symlinks=(
+  .zshrc
+  .zshenv
+  .spacemacs
+  .tmux.conf
+  .vimrc
+  starttmux
+  .gitconfig
+  .gitexcludes
+  .gitignore
+  .irbrc
+  .rspec
+  custom-functions.el
+  todo_file.rb
+)
+
 USER_INPUT=$(whiptail --inputbox "This script will *DELETE* and/or overwrite config files in your HOME directory. Have you read the contents of this setup script and do you want to proceed?\n\n***WARNING***\n\nThis operation cannot be undone - so please make sure you have made a backup of all relevant files.\n\nEnter \"Yes!\" if you want to proceed." 20 60 3>&1 1>&2 2>&3)
 
 exitstatus=$?
@@ -13,22 +43,43 @@ if [ "$USER_INPUT" != "Yes!" ]; then
     exit 1
 fi
 
-echo "Proceeding..."
+echo "Installing software..."
+sudo dnf install -y "${install_items[@]/#}"
 
-{
-    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+echo "Changing shell to zsh..."
+chsh -s $(which zsh)
 
-    ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
-    ln -s $HOME/dotfiles/.zshenv $HOME/.zshenv
-    ln -s $HOME/dotfiles/.spacemacs $HOME/.spacemacs
-    ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
-    ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
-    ln -s $HOME/dotfiles/starttmux $HOME/starttmux
-    ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
-    ln -s $HOME/dotfiles/.gitexcludes $HOME/.gitexcludes
-    ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
-    ln -s $HOME/dotfiles/.irbrc $HOME/.irbrc
-    ln -s $HOME/dotfiles/.rspec $HOME/.rspec
-    ln -s $HOME/dotfiles/custom-functions.el $HOME/custom-functions.el
-    ln -s $HOME/dotfiles/todo_file.rb $HOME/todo_file.rb
-} |whiptail --title "Installing dotfiles" --gauge "Please wait while installing" 6 60 0
+echo "Oh-my-zsh..."
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+echo "Vundle..."
+if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+fi
+
+echo "Installing Spacemacs..."
+if [ ! -f "$HOME/.spacemacs" ]; then
+  if [ -d "$HOME/.emacs.d" ]; then
+    echo "Moving existing emacs folder"
+    mv "$HOME/.emacs.d" "$HOME/.emacs.d.__backup"
+  fi
+
+  git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
+else
+  echo "Spacemacs seems to be installed already."
+fi
+
+echo "Installing asdf..."
+if [ ! -d "$HOME/.asdf" ]; then
+  git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf --branch v0.7.8
+fi
+
+echo "Creating symlinks..."
+for i in "${symlinks[@]}"
+do
+  if [ ! -f "$HOME/$i" ]; then
+    ln -s "./$i" "$HOME/$i"
+  fi
+done
+
+echo "Done."
