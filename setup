@@ -19,6 +19,8 @@ install_items=(
     gcc-c++
     kernel-devel
     cmake
+    openssl
+    openssl-devel
 )
 
 symlinks=(
