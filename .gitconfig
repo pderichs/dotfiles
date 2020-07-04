@@ -1,6 +1,7 @@
 [user]
 	name = pderichs
 	email = patrick@derichs.me
+	signingkey = DEE8E26E2D6C181D
 [core]
 	editor = vim
   excludesfile = ~/.gitexcludes
@@ -8,3 +9,5 @@
   mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
