@@ -60,7 +60,7 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      evil-commentary
-     javascript
+     ;; javascript
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
