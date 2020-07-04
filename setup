@@ -10,6 +10,8 @@ install_items=(
   emacs
   git
   openssh-server
+  gnome-shell-extensions
+  gnome-tweaks
   curl
   wget
 )
@@ -29,6 +31,12 @@ symlinks=(
   custom-functions.el
   todo_file.rb
 )
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+echo "Current directory: $DIR"
+
+sudo dnf install -y newt util-linux-user
 
 USER_INPUT=$(whiptail --inputbox "This script will *DELETE* and/or overwrite config files in your HOME directory. Have you read the contents of this setup script and do you want to proceed?\n\n***WARNING***\n\nThis operation cannot be undone - so please make sure you have made a backup of all relevant files.\n\nEnter \"Yes!\" if you want to proceed." 20 60 3>&1 1>&2 2>&3)
 
@@ -60,8 +68,17 @@ fi
 echo "Installing Spacemacs..."
 if [ ! -f "$HOME/.spacemacs" ]; then
   if [ -d "$HOME/.emacs.d" ]; then
-    echo "Moving existing emacs folder"
-    mv "$HOME/.emacs.d" "$HOME/.emacs.d.__backup"
+    USER_INPUT2=$(whiptail --inputbox ".emacs.d folder already exists.\n\nShould it be removed?\n\nEnter \"Yes!\" if it should be removed. (ATTENTION! Operation cannot be undone)\n\nIf you choose to not delete the folder, this script will exit and you must move / backup it by yourself." 20 60 3>&1 1>&2 2>&3)
+
+    exitstatus=$?
+    echo "User entered " $USER_INPUT2
+
+    if [ "$USER_INPUT" != "Yes!" ]; then
+      echo "Please backup / move .emacs.d. Aborting."
+      exit 1
+    fi
+
+    rm -rf $HOME/.emacs.d
   fi
 
   git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
@@ -78,7 +95,7 @@ echo "Creating symlinks..."
 for i in "${symlinks[@]}"
 do
   if [ ! -f "$HOME/$i" ]; then
-    ln -s "./$i" "$HOME/$i"
+    ln -s "$DIR/$i" "$HOME/$i"
   fi
 done
 

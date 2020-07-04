@@ -1,6 +1,6 @@
 [user]
-	name = Patrick Derichs
-	email = pderichs@gitlab.com
+	name = pderichs
+	email = patrick@derichs.me
 [core]
 	editor = vim
   excludesfile = ~/.gitexcludes
