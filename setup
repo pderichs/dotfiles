@@ -23,6 +23,8 @@ install_items=(
     openssl-devel
     zlib
     zlib-devel
+    the_silver_searcher
+    ripgrep
 )
 
 symlinks=(
