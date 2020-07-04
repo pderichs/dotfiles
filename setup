@@ -21,6 +21,8 @@ install_items=(
     cmake
     openssl
     openssl-devel
+    zlib
+    zlib-devel
 )
 
 symlinks=(
