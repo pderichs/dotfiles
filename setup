@@ -25,6 +25,7 @@ install_items=(
     zlib-devel
     the_silver_searcher
     ripgrep
+    xclip
 )
 
 symlinks=(
