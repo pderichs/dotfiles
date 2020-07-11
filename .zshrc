@@ -16,7 +16,6 @@ plugins=(git ruby fzf)
 
 source $ZSH/oh-my-zsh.sh
 
-#{{{aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias nuke="kill -9"
@@ -37,9 +36,6 @@ chbr() {
   gco $(git branch -a | fzf)
 }
 
-#}}}
-
-#{{{prompt
 function dev_folder_indicator() {
   local color
   local symbol
@@ -72,13 +68,10 @@ set_prompt () {
 precmd_functions+=set_prompt
 set_prompt
 
-#}}}
-
-#{{{asdf
 if [ -d "$HOME/.asdf" ]; then
     . $HOME/.asdf/asdf.sh
+    . $HOME/.asdf/completions/asdf.bash
 fi
-#}}}
 
 # Create TODO file
 $HOME/todo_file.rb > /dev/null

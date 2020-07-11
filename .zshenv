@@ -1,7 +1,7 @@
 export TODO=$HOME/todo
 
 # Set fzf installation directory path
-export FZF_BASE=/usr/bin/fzf
+export FZF_BASE=$(which fzf)
 # Uncomment the following line to disable fuzzy completion
 # export DISABLE_FZF_AUTO_COMPLETION="true"
 # Uncomment the following line to disable key bindings (CTRL-T, CTRL-R, ALT-C)

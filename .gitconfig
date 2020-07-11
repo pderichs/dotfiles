@@ -1,7 +1,7 @@
 [user]
 	name = pderichs
 	email = patrick@derichs.me
-	signingkey = DEE8E26E2D6C181D
+	signingkey = A9B44D4F6A3D41D70D81E1AB8DC0CEA4F0623FAC
 [core]
 	editor = vim
   excludesfile = ~/.gitexcludes
