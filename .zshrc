@@ -22,7 +22,7 @@ alias nuke="kill -9"
 
 alias reload="source ~/.zshrc"
 alias v="vim"
-alias em="/usr/bin/env emacs -nw"
+alias em="emacs -nw"
 
 alias gsrem="git config --get remote.origin.url"
 alias starttmux="~/starttmux"
@@ -36,35 +36,12 @@ chbr() {
   gco $(git branch -a | fzf)
 }
 
-function dev_folder_indicator() {
-  local color
-  local symbol
-  local ceoree
-
-  if [[ $PWD =~ '^.*\/work(\/dev-gdk-ce|\/dev-gdk-ee|\/dev-security)' ]]; then
-  color="$fg[red]"
-  symbol="*SEC*"
-  else
-  color="$fg[green]"
-  symbol="-"
-  fi
-
-  if [[ $PWD =~ '^.*\/work\/(gdk-ce|dev-gdk-ce)' ]]; then
-  ceoree=" CE"
-  elif [[ $PWD =~ '^.*\/work\/(gdk-ee|dev-gdk-ee)' ]]; then
-  ceoree=" EE"
-  else
-  ceoree=""
-  fi
-
-  echo -n "%{$color%}$symbol$ceoree"
-}
-
 set_prompt () {
   # echo $PROMPT
-  PROMPT="%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M}] $(dev_folder_indicator) ${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)
+  PROMPT="%{$fg[yellow]%}[%D{%f/%m/%y} %D{%L:%M}] ${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)
 > "
 }
+
 precmd_functions+=set_prompt
 set_prompt
 
@@ -75,8 +52,3 @@ fi
 
 # Create TODO file
 $HOME/todo_file.rb > /dev/null
-
-if [ -d "$HOME/.config/broot/launcher/bash" ]; then
-    source $HOME/.config/broot/launcher/bash/br
-fi
-
