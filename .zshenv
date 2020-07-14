@@ -20,7 +20,7 @@ if [ -d "$HOME/bin" ]; then
     export PATH="$HOME/bin:$PATH"
 fi
 
-export WXWIDGETS_VERSION="3.0.5"
+export WXWIDGETS_VERSION="3.1.3"
 if [ -d "$HOME/source/libs/wxWidgets-$WXWIDGETS_VERSION" ]; then
     export PATH="$HOME/source/libs/wxWidgets-$WXWIDGETS_VERSION:$PATH"
 fi

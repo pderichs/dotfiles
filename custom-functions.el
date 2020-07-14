@@ -38,7 +38,7 @@
 (defun pd/setup-laptop-frame-and-font-size ()
   "Uses default sizes for frame and font"
   (interactive)
-  (pd/window-sizes-setup 2024 968 10))
+  (pd/window-sizes-setup 2024 1050 10))
 
 (defun print-elements-of-list (list)
   "Print each element of LIST on a line of its own."

@@ -37,6 +37,7 @@ values."
      emacs-lisp
      (elfeed :variables rmh-elfeed-org-files (list "~/feeds.org"))
      ruby
+     json
      yaml
      python
      go
