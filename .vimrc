@@ -24,6 +24,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'MattesGroeger/vim-bookmarks'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-commentary'
