@@ -178,6 +178,8 @@ nnoremap <leader>pf :Files<CR>
 nnoremap <leader>/ :Ag<CR>
 nnoremap <leader>* :Ag! <C-R><C-W><CR>
 nnoremap <leader>fs :w<CR>
+nnoremap <leader>bb :Buffers<CR>
+nnoremap <leader>fb :BookmarkShowAll<CR>
 
 nnoremap Q q
 nnoremap q <Nop>
