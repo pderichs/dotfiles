@@ -176,7 +176,7 @@ nnoremap <leader>g :set paste<CR>m`Obinding.pry<Esc>``:set nopaste<CR>
 nnoremap <leader>qq :q<CR>
 nnoremap <leader>pf :Files<CR>
 nnoremap <leader>/ :Ag<CR>
-nnoremap <leader>* :Ag! \b<cword>\b<cr>
+nnoremap <leader>* :Ag! <C-R><C-W><CR>
 
 nnoremap Q q
 nnoremap q <Nop>
