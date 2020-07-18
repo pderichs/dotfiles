@@ -163,20 +163,20 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap <C-p> :Files<CR>
 
 let mapleader = " "
-nnoremap <leader>w :w<cr>
-nnoremap <leader>t :NERDTreeToggle<cr>
-nnoremap <leader>r :NERDTreeFind<cr>
-nnoremap <leader>a :Ag!<space>
-nnoremap <leader>ev :tabedit ~/.vimrc<cr>
-nnoremap <leader>so :source %<cr>
-nnoremap <leader>o :e<space>
-nnoremap <leader>f :Rg<space>
-nnoremap <leader>b :Gblame<cr>
+nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>r :NERDTreeFind<CR>
+nnoremap <leader>a :Ag!<SPACE>
+nnoremap <leader>ev :tabedit ~/.vimrc<CR>
+nnoremap <leader>so :source %<CR>
+nnoremap <leader>o :e<SPACE>
+nnoremap <leader>f :Rg<SPACE>
+nnoremap <leader>b :Gblame<CR>
 nnoremap <leader>g :set paste<CR>m`Obinding.pry<Esc>``:set nopaste<CR>
 nnoremap <leader>qq :q<CR>
 nnoremap <leader>pf :Files<CR>
 nnoremap <leader>/ :Ag<CR>
 nnoremap <leader>* :Ag! <C-R><C-W><CR>
+nnoremap <leader>fs :w<CR>
 
 nnoremap Q q
 nnoremap q <Nop>
