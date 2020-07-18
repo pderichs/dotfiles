@@ -311,6 +311,9 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup 'all
+   ;; Make it possible to start spacemacs without internet connection: spacemacs_do_not_refresh_packages=t emacs
+   ;; Thanks to: https://emacs.stackexchange.com/a/46777
+   configuration-layer--package-archives-refreshed (getenv "spacemacs_do_not_refresh_packages")
    ))
 
 (defun dotspacemacs/user-init ()
