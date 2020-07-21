@@ -30,6 +30,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-commentary'
 Plugin 'luochen1990/rainbow'
 Plugin 'posva/vim-vue'
+Plugin 'pelodelfuego/vim-swoop'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -172,7 +173,6 @@ nnoremap <leader>so :source %<CR>
 nnoremap <leader>o :e<SPACE>
 nnoremap <leader>f :Rg<SPACE>
 nnoremap <leader>b :Gblame<CR>
-nnoremap <leader>g :set paste<CR>m`Obinding.pry<Esc>``:set nopaste<CR>
 nnoremap <leader>qq :q<CR>
 nnoremap <leader>pf :Files<CR>
 nnoremap <leader>/ :Ag<CR>
@@ -180,6 +180,8 @@ nnoremap <leader>* :Ag! <C-R><C-W><CR>
 nnoremap <leader>fs :w<CR>
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>fb :BookmarkShowAll<CR>
+nmap <Leader>ss :call Swoop()<CR>
+vmap <Leader>ss :call SwoopSelection()<CR>
 
 nnoremap Q q
 nnoremap q <Nop>
