@@ -31,7 +31,6 @@ install_items=(
 symlinks=(
     .zshrc
     .zshenv
-    .spacemacs
     .tmux.conf
     .vimrc
     starttmux
@@ -77,26 +76,26 @@ if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
     git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 fi
 
-echo "Installing Spacemacs..."
-if [ ! -f "$HOME/.spacemacs" ]; then
-    if [ -d "$HOME/.emacs.d" ]; then
-        USER_INPUT2=$(whiptail --inputbox ".emacs.d folder already exists.\n\nShould it be removed?\n\nEnter \"Yes!\" if it should be removed. (ATTENTION! Operation cannot be undone)\n\nIf you choose to not delete the folder, this script will exit and you must move / backup it by yourself." 20 60 3>&1 1>&2 2>&3)
-
-        exitstatus=$?
-        echo "User entered " $USER_INPUT2
-
-        if [ "$USER_INPUT" != "Yes!" ]; then
-            echo "Please backup / move .emacs.d. Aborting."
-            exit 1
-        fi
-
-        rm -rf $HOME/.emacs.d
-    fi
-
-    git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
-else
-    echo "Spacemacs seems to be installed already."
+echo "Installing Doom Emacs..."
+if [ -d "$HOME/.emacs.d" ]; then
+    >&2 echo "There is an existing ~/.emacs.d folder in place. Backup / remove it before continuing."
+    exit 1
 fi
+
+if [ -d "$HOME/.doom.d" ]; then
+    >&2 echo "There is an existing ~/.doom.d folder in place. Backup / remove it before continuing."
+    exit 1
+fi
+
+git clone --depth 1 https://github.com/hlissner/doom-emacs "$HOME/.emacs.d"
+"$HOME/.emacs.d/bin/doom" install
+
+rm "$HOME/.doom.d/*"
+
+ln -s "$DIR/doom/init.el" "$HOME/.doom.d/init.el"
+ln -s "$DIR/doom/config.el" "$HOME/.doom.d/config.el"
+ln -s "$DIR/doom/packages.el" "$HOME/.doom.d/packages.el"
+ln -s "$DIR/doom/custom.el" "$HOME/.doom.d/custom.el"
 
 echo "Installing asdf..."
 if [ ! -d "$HOME/.asdf" ]; then
