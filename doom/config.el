@@ -57,7 +57,7 @@
 
 
 ;; Set initial window size
-(setq initial-frame-alist '((top . 150) (left . 370) (width . 190) (height . 70)))
+(setq initial-frame-alist '((top . 90) (left . 490) (width . 190) (height . 70)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
