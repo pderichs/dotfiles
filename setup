@@ -90,12 +90,14 @@ fi
 git clone --depth 1 https://github.com/hlissner/doom-emacs "$HOME/.emacs.d"
 "$HOME/.emacs.d/bin/doom" install
 
-rm "$HOME/.doom.d/*"
+rm $HOME/.doom.d/*.el
 
 ln -s "$DIR/doom/init.el" "$HOME/.doom.d/init.el"
 ln -s "$DIR/doom/config.el" "$HOME/.doom.d/config.el"
 ln -s "$DIR/doom/packages.el" "$HOME/.doom.d/packages.el"
 ln -s "$DIR/doom/custom.el" "$HOME/.doom.d/custom.el"
+
+$HOME/.emacs.d/bin/doom sync
 
 echo "Installing asdf..."
 if [ ! -d "$HOME/.asdf" ]; then
