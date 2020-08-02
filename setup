@@ -26,6 +26,7 @@ install_items=(
     the_silver_searcher
     ripgrep
     xclip
+    pcmanfm
 )
 
 symlinks=(
