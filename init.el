@@ -1,21 +1,60 @@
 ;; Emacs Config 2020.1
 ;;
-;; To use it, simply add these lines to init.el:
-;;   (setq custom-file "~/dotfiles/emacsconfig.el")
-;;        (load custom-file)
 
 ;; Needed by Package.el.
 (package-initialize)
 
-;; To install needed packages in a clean emacs:
-;;   - package-refresh-contents
-;;   - package-install-selected-packages
-(setq package-selected-packages '(magit swiper swiper-helm helm helm-rg iedit dumb-jump))
+;; Thanks to http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
+(defun pd/setup-indent-level (n)
+  ;; java/c/c++
+  (setq c-basic-offset n)
+  ;; web development
+  (setq coffee-tab-width n) ; coffeescript
+  (setq javascript-indent-level n) ; javascript-mode
+  (setq js-indent-level n) ; js-mode
+  (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq css-indent-offset n) ; css-mode
+  )
+
+(defun pd/open-today-todo-file ()
+  "Open current todo file"
+  (interactive)
+  (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
+  (org-mode))
+
+(defvar my-packages '(
+		      magit
+		      swiper
+		      swiper-helm
+		      helm
+		      helm-rg
+		      iedit
+		      dumb-jump
+		      docker
+		      elfeed
+		      elfeed-goodies
+		      ))
+
+;; Install packages - put into function TODO
+(defun pd/install-packages ()
+  "Installs the packages defined in my-packages"
+  (interactive)
+  (dolist (p my-packages)
+    (unless (package-installed-p p)
+      (package-refresh-contents)
+      (package-install p))
+    (add-to-list 'package-selected-packages p)))
 
 ;; Melpa
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/"))
+(setq package-archives '(
+			 ("gnu" . "https://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
+			 ))
 
 ;; Helm config
 (require 'helm-config)
@@ -35,37 +74,21 @@
 ;; Menu bar off
 (menu-bar-mode -1)
 
-;; Save custom changes to another file
+;; Save custom changes to another file - these will be
+;; loaded later
 (setq custom-file "~/.emacs.d/custom.el")
 
 ;; Customize backup file creation
-;; (thanks to https://stackoverflow.com/a/20824625)
-(setq backup-directory-alist `(("." . "~/.emacs-backups")))
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
-(setq version-control t     ;; Use version numbers for backups.
-      kept-new-versions 10  ;; Number of newest versions to keep.
-      kept-old-versions 0   ;; Number of oldest versions to keep.
-      delete-old-versions t ;; Don't ask to delete excess backup versions.
-      backup-by-copying t)  ;; Copy all files, don't rename them.
+;; No backup files
+(setq make-backup-files nil)
 
-;; Backup versioned files as well
-(setq vc-make-backup-files t)
+;; Confirm before closing emacs
+(setq confirm-kill-emacs 'y-or-n-p)
 
-(defun force-backup-of-buffer ()
-  ;; Make a special "per session" backup at the first save of each
-  ;; emacs session.
-  (when (not buffer-backed-up)
-    ;; Override the default parameters for per-session backups.
-    (let ((backup-directory-alist '(("" . "~/.emacs.d/backup/per-session")))
-          (kept-new-versions 3))
-      (backup-buffer)))
-  ;; Make a "per save" backup on each save.  The first save results in
-  ;; both a per-session and a per-save backup, to keep the numbering
-  ;; of per-save backups consistent.
-  (let ((buffer-backed-up nil))
-    (backup-buffer)))
-
-(add-hook 'before-save-hook  'force-backup-of-buffer)
+;; Sentences have one space after the period
+(setq sentence-end-double-space nil)
 
 ;; Line numbers
 (when (version<= "26.0.50" emacs-version )
@@ -74,15 +97,50 @@
 ;; Symlinks
 (setq vc-follow-symlinks nil)
 
+;; Human readable units in dired
+(setq-default dired-listing-switches "-alh")
+
+;; Make recursive copies default in dired
+(setq dired-recursive-copies 'always)
+
+;; Ask for y/n instead of yes/no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Set shell variables
+;;(when (memq window-system '(mac ns x))
+;;  (exec-path-from-shell-initialize))
+
+;; No scroll bars
+(scroll-bar-mode -1)
+
+;; Encrypt gpg files automatically
+(require 'epa-file)
+(epa-file-enable)
+
+;; Set initial window size
+(setq initial-frame-alist '((top . 90) (left . 490) (width . 190) (height . 70)))
+
+;; Show full file path in title bar
+(setq frame-title-format
+        '((:eval (if (buffer-file-name)
+                     (abbreviate-file-name (buffer-file-name))
+                   "%b"))))
+
+;; Display current time
+(display-time-mode t)
+
+;; Show matching parentheses
+(show-paren-mode 1)
+
 ;; Keys
 ;;
 
 ;; - Ctrl+C
 (global-set-key (kbd "C-c") 'kill-ring-save) 
 ;; - Ctrl+X
-(global-set-key (kbd "C-w") 'kill-region) 
+(global-set-key (kbd "C-k") 'kill-region) 
 ;; - Ctrl+Y
-(global-set-key (kbd "C-p") 'yank)
+(global-set-key (kbd "C-v") 'yank)
 ;;      (global-set-key (kbd "s-Insert") 'yank) 
 ;; - Ctrl+S (Speichern)
 (global-set-key (kbd "C-s") 'save-buffer) 
@@ -111,5 +169,17 @@
 ;; Find word under cursor
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
 
+(global-set-key (kbd "M-<down>") 'windmove-down)
+(global-set-key (kbd "M-<up>") 'windmove-up)
+(global-set-key (kbd "M-<left>") 'windmove-left)
+(global-set-key (kbd "M-<right>") 'windmove-right)
+
+(global-set-key (kbd "C-w") 'delete-window)
+
+(global-set-key (kbd "C-2") 'split-window-right)
+
 ;; TODO: Split window?
 ;; TODO: Other window?
+
+;; Load emacs custom settings
+(load custom-file)
