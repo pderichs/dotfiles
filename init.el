@@ -78,6 +78,9 @@
 ;; loaded later
 (setq custom-file "~/.emacs.d/custom.el")
 
+;; Only visible bell
+(setq visible-bell t)
+
 ;; Customize backup file creation
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
@@ -129,6 +132,8 @@
 ;; Display current time
 (display-time-mode t)
 
+(elfeed-goodies/setup)
+
 ;; Show matching parentheses
 (show-paren-mode 1)
 
@@ -168,18 +173,18 @@
 (global-set-key (kbd "<f12>") 'dumb-jump-go)
 ;; Find word under cursor
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
-
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<left>") 'windmove-left)
 (global-set-key (kbd "M-<right>") 'windmove-right)
-
 (global-set-key (kbd "C-w") 'delete-window)
-
 (global-set-key (kbd "C-2") 'split-window-right)
+(global-set-key (kbd "C-x w") 'elfeed)
 
-;; TODO: Split window?
-;; TODO: Other window?
+;; Load feeds
+(setq FEEDS_FILE "~/feeds.el")
+(when (file-exists-p FEEDS_FILE)
+  (load FEEDS_FILE))
 
 ;; Load emacs custom settings
 (load custom-file)
