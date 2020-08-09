@@ -210,5 +210,6 @@
 (global-set-key (kbd "C-<f12>") 'helm-imenu)
 
 ;; Load emacs custom settings
-(load custom-file)
+(when (file-exists-p custom-file)
+  (load custom-file))
 
