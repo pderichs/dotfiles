@@ -52,7 +52,7 @@
 (require 'package)
 (setq package-archives '(
 			 ("gnu" . "https://elpa.gnu.org/packages/")
-                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ;;("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
 			 ))
 
@@ -67,6 +67,9 @@
       helm-echo-input-in-header-line        t)
 
 (helm-mode 1)
+
+;; ido-mode (mostly for default find file functionality)
+(ido-mode 1)
 
 ;; Toolbar off
 (tool-bar-mode -1)
@@ -84,6 +87,10 @@
 ;; Customize backup file creation
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
+;; Font
+;;(set-frame-font "Courier 15" nil t)
+(set-frame-font "Source Code Pro 14" nil t)
+
 ;; No backup files
 (setq make-backup-files nil)
 
@@ -99,6 +106,9 @@
 
 ;; Symlinks
 (setq vc-follow-symlinks nil)
+
+;; Show current line
+;;(global-hl-line-mode 1)
 
 ;; Human readable units in dired
 (setq-default dired-listing-switches "-alh")
@@ -137,6 +147,12 @@
 ;; Show matching parentheses
 (show-paren-mode 1)
 
+;; Load VS Dark Theme
+(setq theme-file "~/themes/emacs/vs-dark-theme.el")
+(when (file-exists-p theme-file)
+  (load theme-file)
+  (vs-dark-theme))
+
 ;; Keys
 ;;
 
@@ -167,10 +183,11 @@
 (global-set-key (kbd "<f12>") 'helm-bookmarks)
 (global-set-key (kbd "<f11>") 'helm-buffers-list)
 (global-set-key (kbd "<f9>") 'helm-recentf)
+(global-set-key (kbd "<f7>") 'helm-mini)
 ;; Magit
 (global-set-key (kbd "<f8>") 'magit)
-;; Find definition(s)
-(global-set-key (kbd "<f12>") 'dumb-jump-go)
+;; Find definition(s) using dumb-jump
+(global-set-key (kbd "<f12>") 'xref-find-definitions)
 ;; Find word under cursor
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
 (global-set-key (kbd "M-<down>") 'windmove-down)
