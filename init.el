@@ -36,9 +36,13 @@
 		      docker
 		      elfeed
 		      elfeed-goodies
+		      humanoid-themes
+		      fzf
+		      helm-ag
 		      ))
 
-;; Install packages - put into function TODO
+;; Install packages - this is in its own function to control
+;; Internet / Proxy access.
 (defun pd/install-packages ()
   "Installs the packages defined in my-packages"
   (interactive)
@@ -142,16 +146,24 @@
 ;; Display current time
 (display-time-mode t)
 
+;; Overwrite marked text
+(delete-selection-mode 1)
+
+;; Setup elfeed
+(setq FEEDS_FILE "~/feeds.el")
+(when (file-exists-p FEEDS_FILE)
+  (load FEEDS_FILE))
 (elfeed-goodies/setup)
 
 ;; Show matching parentheses
 (show-paren-mode 1)
 
-;; Load VS Dark Theme
+;; Load Theme
+;;
 (setq theme-file "~/themes/emacs/vs-dark-theme.el")
-(when (file-exists-p theme-file)
-  (load theme-file)
-  (vs-dark-theme))
+ (when (file-exists-p theme-file)
+   (load theme-file)
+   (vs-dark-theme))
 
 ;; Keys
 ;;
@@ -173,23 +185,20 @@
 (global-set-key (kbd "C-/") 'comment-region)
 ;; Quit
 (global-set-key (kbd "C-q") 'save-buffers-kill-terminal)
-;; M-x
-(global-set-key (kbd "<f5>") 'helm-M-x)
-;; Search in current folder
-(global-set-key (kbd "<f3>") 'helm-rg)
 ;; Find files
 (global-set-key (kbd "C-#") 'helm-find)
-;; Bookmark support
-(global-set-key (kbd "<f12>") 'helm-bookmarks)
-(global-set-key (kbd "<f11>") 'helm-buffers-list)
-(global-set-key (kbd "<f9>") 'helm-recentf)
-(global-set-key (kbd "<f7>") 'helm-mini)
-;; Magit
-(global-set-key (kbd "<f8>") 'magit)
-;; Find definition(s) using dumb-jump
-(global-set-key (kbd "<f12>") 'xref-find-definitions)
+;; Search in current folder
+(global-set-key (kbd "<f3>") 'helm-rg)
+(global-set-key (kbd "<f5>") 'helm-M-x)
 ;; Find word under cursor
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
+;; Bookmark support
+(global-set-key (kbd "<f7>") 'helm-mini)
+(global-set-key (kbd "<f8>") 'magit)
+(global-set-key (kbd "<f9>") 'helm-recentf)
+(global-set-key (kbd "<f11>") 'helm-buffers-list)
+;; Find definition(s) using dumb-jump
+(global-set-key (kbd "<f12>") 'dumb-jump-go)
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<left>") 'windmove-left)
@@ -197,11 +206,9 @@
 (global-set-key (kbd "C-w") 'delete-window)
 (global-set-key (kbd "C-2") 'split-window-right)
 (global-set-key (kbd "C-x w") 'elfeed)
-
-;; Load feeds
-(setq FEEDS_FILE "~/feeds.el")
-(when (file-exists-p FEEDS_FILE)
-  (load FEEDS_FILE))
+(global-set-key (kbd "C-<f11>") 'helm-bookmarks)
+(global-set-key (kbd "C-<f12>") 'helm-imenu)
 
 ;; Load emacs custom settings
 (load custom-file)
+
