@@ -39,6 +39,7 @@
 		      humanoid-themes
 		      fzf
 		      helm-ag
+		      org-bullets
 		      ))
 
 ;; Install packages - this is in its own function to control
@@ -84,6 +85,9 @@
 ;; Save custom changes to another file - these will be
 ;; loaded later
 (setq custom-file "~/.emacs.d/custom.el")
+
+;; Make shift selection work in org-mode
+(setq org-replace-disputed-keys t)
 
 ;; Only visible bell
 (setq visible-bell t)
@@ -160,44 +164,39 @@
 
 ;; Load Theme
 ;;
-(setq theme-file "~/themes/emacs/vs-dark-theme.el")
- (when (file-exists-p theme-file)
-   (load theme-file)
-   (vs-dark-theme))
+;; (setq theme-file "~/themes/emacs/vs-dark-theme.el")
+;;  (when (file-exists-p theme-file)
+;;    (load theme-file)
+;;    (vs-dark-theme))
+
+(setq theme-file "~/themes/emacs/clean-sheet.el")
+  (when (file-exists-p theme-file)
+    (load theme-file))
+
+;; Format bullets in org mode.
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; Keys
 ;;
 
-;; - Ctrl+C
-(global-set-key (kbd "C-c") 'kill-ring-save) 
-;; - Ctrl+X
+(global-set-key (kbd "M-w") 'kill-ring-save) 
 (global-set-key (kbd "C-k") 'kill-region) 
-;; - Ctrl+Y
-(global-set-key (kbd "C-v") 'yank)
-;;      (global-set-key (kbd "s-Insert") 'yank) 
-;; - Ctrl+S (Speichern)
+(global-set-key (kbd "C-y") 'yank)
+;;(global-set-key (kbd "s-Insert") 'yank) 
 (global-set-key (kbd "C-s") 'save-buffer) 
-;; - Ctrl+O (find file)
 (global-set-key (kbd "C-o") 'helm-find-files) 
-;; - Ctrl+F (Swiper)
 (global-set-key (kbd "C-f") 'swiper) 
-;; Comment region
 (global-set-key (kbd "C-/") 'comment-region)
-;; Quit
 (global-set-key (kbd "C-q") 'save-buffers-kill-terminal)
-;; Find files
 (global-set-key (kbd "C-#") 'helm-find)
-;; Search in current folder
 (global-set-key (kbd "<f3>") 'helm-rg)
 (global-set-key (kbd "<f5>") 'helm-M-x)
-;; Find word under cursor
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
-;; Bookmark support
 (global-set-key (kbd "<f7>") 'helm-mini)
 (global-set-key (kbd "<f8>") 'magit)
 (global-set-key (kbd "<f9>") 'helm-recentf)
 (global-set-key (kbd "<f11>") 'helm-buffers-list)
-;; Find definition(s) using dumb-jump
 (global-set-key (kbd "<f12>") 'dumb-jump-go)
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-<up>") 'windmove-up)
