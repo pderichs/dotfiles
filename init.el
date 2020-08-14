@@ -82,6 +82,10 @@
 ;; Menu bar off
 (menu-bar-mode -1)
 
+;; Show current line and column in mode line
+(setq line-number-mode t)
+(setq column-number-mode t)
+
 ;; Save custom changes to another file - these will be
 ;; loaded later
 (setq custom-file "~/.emacs.d/custom.el")
