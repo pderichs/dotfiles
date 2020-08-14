@@ -162,17 +162,6 @@
 ;; Show matching parentheses
 (show-paren-mode 1)
 
-;; Load Theme
-;;
-;; (setq theme-file "~/themes/emacs/vs-dark-theme.el")
-;;  (when (file-exists-p theme-file)
-;;    (load theme-file)
-;;    (vs-dark-theme))
-
-(setq theme-file "~/themes/emacs/clean-sheet.el")
-  (when (file-exists-p theme-file)
-    (load theme-file))
-
 ;; Format bullets in org mode.
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
@@ -212,3 +201,14 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+;; Load Theme
+;;
+;;(setq themes-folder "~/themes/emacs/")
+;;(setq vscode-theme-file (concat themes-folder "vs-dark-theme.el"))
+;;(setq clean-sheet-theme-file (concat themes-folder "clean-sheet.el"))
+;; (if (file-exists-p vscode-theme-file)
+;;     (progn (load vscode-theme-file) (vs-dark-theme))
+;;  (when (file-exists-p clean-sheet-theme-file)
+;;    (load clean-sheet-theme-file))
+;;)
+(load-theme 'humanoid-dark)
