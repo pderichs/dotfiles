@@ -204,6 +204,7 @@
 (global-set-key (kbd "C-x w") 'elfeed)
 (global-set-key (kbd "C-<f11>") 'helm-bookmarks)
 (global-set-key (kbd "C-<f12>") 'helm-imenu)
+(global-set-key (kbd "C-S-s") 'ido-write-file) 
 
 ;; Load emacs custom settings
 (when (file-exists-p custom-file)
