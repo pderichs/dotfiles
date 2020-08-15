@@ -40,6 +40,7 @@
 		      fzf
 		      helm-ag
 		      org-bullets
+		      auto-complete
 		      ))
 
 ;; Install packages - this is in its own function to control
@@ -130,6 +131,9 @@
 
 ;; Ask for y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; Enable auto complete with default settings
+(ac-config-default)
 
 ;; Set shell variables
 ;;(when (memq window-system '(mac ns x))
