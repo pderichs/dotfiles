@@ -41,6 +41,7 @@
 		      helm-ag
 		      org-bullets
 		      auto-complete
+		      multiple-cursors
 		      ))
 
 ;; Install packages - this is in its own function to control
@@ -102,7 +103,8 @@
 
 ;; Font
 ;;(set-frame-font "Courier 15" nil t)
-(set-frame-font "Source Code Pro 14" nil t)
+;;(set-frame-font "Source Code Pro 14" nil t)
+(set-frame-font "More Perfect DOS VGA 15" nil t)
 
 ;; No backup files
 (setq make-backup-files nil)
@@ -204,7 +206,11 @@
 (global-set-key (kbd "C-x w") 'elfeed)
 (global-set-key (kbd "C-<f11>") 'helm-bookmarks)
 (global-set-key (kbd "C-<f12>") 'helm-imenu)
-(global-set-key (kbd "C-S-s") 'ido-write-file) 
+(global-set-key (kbd "C-S-s") 'ido-write-file)
+(global-set-key (kbd "C-d") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-S-d") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-S-l") 'mc/edit-lines)
+
 
 ;; Load emacs custom settings
 (when (file-exists-p custom-file)
