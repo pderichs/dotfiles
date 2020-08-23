@@ -180,7 +180,7 @@
 ;;
 
 (global-set-key (kbd "M-w") 'kill-ring-save) 
-(global-set-key (kbd "C-k") 'kill-region) 
+(global-set-key (kbd "C-w") 'kill-region) 
 (global-set-key (kbd "C-y") 'yank)
 ;;(global-set-key (kbd "s-Insert") 'yank) 
 (global-set-key (kbd "C-s") 'save-buffer) 
@@ -201,7 +201,7 @@
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<left>") 'windmove-left)
 (global-set-key (kbd "M-<right>") 'windmove-right)
-(global-set-key (kbd "C-w") 'delete-window)
+;;(global-set-key (kbd "C-w") 'delete-window)
 (global-set-key (kbd "C-2") 'split-window-right)
 (global-set-key (kbd "C-x w") 'elfeed)
 (global-set-key (kbd "C-<f11>") 'helm-bookmarks)
