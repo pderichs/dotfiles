@@ -211,6 +211,9 @@
 (global-set-key (kbd "C-S-d") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-S-l") 'mc/edit-lines)
 
+;; Make tab key work for helm-find-files
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-z") 'helm-select-action)
 
 ;; Load emacs custom settings
 (when (file-exists-p custom-file)
