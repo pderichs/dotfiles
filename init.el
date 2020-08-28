@@ -2,6 +2,7 @@
 ;;
 
 ;; Needed by Package.el.
+(require 'package)
 (package-initialize)
 
 ;; Thanks to http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
@@ -26,6 +27,8 @@
   (org-mode))
 
 (defvar my-packages '(
+		      ag
+		      rg
 		      magit
 		      swiper
 		      swiper-helm
@@ -42,6 +45,8 @@
 		      org-bullets
 		      auto-complete
 		      multiple-cursors
+		      projectile
+		      helm-projectile
 		      ))
 
 ;; Install packages - this is in its own function to control
@@ -49,14 +54,13 @@
 (defun pd/install-packages ()
   "Installs the packages defined in my-packages"
   (interactive)
+  (package-refresh-contents)
   (dolist (p my-packages)
     (unless (package-installed-p p)
-      (package-refresh-contents)
       (package-install p))
     (add-to-list 'package-selected-packages p)))
 
 ;; Melpa
-(require 'package)
 (setq package-archives '(
 			 ("gnu" . "https://elpa.gnu.org/packages/")
                          ;;("marmalade" . "https://marmalade-repo.org/packages/")
@@ -87,10 +91,6 @@
 ;; Show current line and column in mode line
 (setq line-number-mode t)
 (setq column-number-mode t)
-
-;; Save custom changes to another file - these will be
-;; loaded later
-(setq custom-file "~/.emacs.d/custom.el")
 
 ;; Make shift selection work in org-mode
 (setq org-replace-disputed-keys t)
@@ -177,8 +177,6 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; Keys
-;;
-
 (global-set-key (kbd "M-w") 'kill-ring-save) 
 (global-set-key (kbd "C-w") 'kill-region) 
 (global-set-key (kbd "C-y") 'yank)
@@ -188,10 +186,12 @@
 (global-set-key (kbd "C-f") 'swiper) 
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-q") 'save-buffers-kill-terminal)
-(global-set-key (kbd "C-#") 'helm-find)
-(global-set-key (kbd "<f3>") 'helm-rg)
-(global-set-key (kbd "<f5>") 'helm-M-x)
+;;(global-set-key (kbd "C-#") 'helm-find)
+(global-set-key (kbd "C-#") 'projectile-find-file)
+;;(global-set-key (kbd "<f3>") 'helm-rg)
+(global-set-key (kbd "<f3>") 'projectile-ag)
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
+(global-set-key (kbd "<f5>") 'helm-M-x)
 (global-set-key (kbd "<f7>") 'helm-mini)
 (global-set-key (kbd "<f8>") 'magit)
 (global-set-key (kbd "<f9>") 'helm-recentf)
@@ -210,12 +210,14 @@
 (global-set-key (kbd "C-d") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-S-d") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-S-l") 'mc/edit-lines)
+(global-set-key (kbd "C-+") 'projectile-find-other-file)
 
 ;; Make tab key work for helm-find-files
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
 
 ;; Load emacs custom settings
+(setq custom-file "~/.emacs.d/custom.el")
 (when (file-exists-p custom-file)
   (load custom-file))
 
@@ -230,3 +232,12 @@
 ;;    (load clean-sheet-theme-file))
 ;;)
 (load-theme 'humanoid-dark)
+
+;; Projectile settings
+(projectile-mode +1)
+(setq projectile-enable-caching t)
+(setq projectile-indexing-method 'native)
+
+;; (setq helm-projectile-fuzzy-match nil)
+(require 'helm-projectile)
+(helm-projectile-on)
