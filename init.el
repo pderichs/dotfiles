@@ -109,6 +109,9 @@
 ;; No backup files
 (setq make-backup-files nil)
 
+;; stop creating those #auto-save# files
+(setq auto-save-default nil)
+
 ;; Confirm before closing emacs
 (setq confirm-kill-emacs 'y-or-n-p)
 
