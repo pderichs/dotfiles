@@ -167,9 +167,9 @@
 (delete-selection-mode 1)
 
 ;; Setup elfeed
-(setq FEEDS_FILE "~/feeds.el")
-(when (file-exists-p FEEDS_FILE)
-  (load FEEDS_FILE))
+(setq feeds-file "~/feeds.el")
+(when (file-exists-p feeds-file)
+  (load feeds-file))
 (elfeed-goodies/setup)
 
 ;; Show matching parentheses
