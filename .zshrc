@@ -32,6 +32,9 @@ alias s1off="xrandr --output eDP-1 --off"
 alias wifion="nmcli radio wifi on"
 alias wifioff="nmcli radio wifi off"
 
+# Records from microphone to output.wav
+alias rec1="sox -t alsa default output.wav"
+
 chbr() {
   gco $(git branch -a | fzf)
 }
