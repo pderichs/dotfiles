@@ -100,8 +100,8 @@
 
 ;; Font
 ;;(set-frame-font "Courier 15" nil t)
-;;(set-frame-font "Source Code Pro 14" nil t)
-(set-frame-font "More Perfect DOS VGA 15" nil t)
+(set-frame-font "Source Code Pro 14" nil t)
+;;(set-frame-font "More Perfect DOS VGA 15" nil t)
 
 ;; No backup files
 (setq make-backup-files nil)
