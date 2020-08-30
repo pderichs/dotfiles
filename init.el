@@ -7,21 +7,18 @@
 
 ;; Thanks to http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
 (defun pd/setup-indent-level (n)
-  ;; java/c/c++
-  (setq c-basic-offset n)
-  ;; web development
-  (setq coffee-tab-width n) ; coffeescript
-  (setq javascript-indent-level n) ; javascript-mode
-  (setq js-indent-level n) ; js-mode
-  (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
-  (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-  (setq web-mode-css-indent-offset n) ; web-mode, css in html file
-  (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
-  (setq css-indent-offset n) ; css-mode
-  )
+  (setq c-basic-offset n) ;; java + c/c++
+  (setq coffee-tab-width n)
+  (setq javascript-indent-level n)
+  (setq js-indent-level n)
+  (setq js2-basic-offset n)
+  (setq web-mode-markup-indent-offset n)
+  (setq web-mode-css-indent-offset n)
+  (setq web-mode-code-indent-offset n)
+  (setq css-indent-offset n))
 
 (defun pd/open-today-todo-file ()
-  "Open current todo file"
+  "Open todo file for today"
   (interactive)
   (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
   (org-mode))
@@ -61,10 +58,9 @@
       (package-install p))
     (add-to-list 'package-selected-packages p)))
 
-;; Melpa
+;; Package sources
 (setq package-archives '(
 			 ("gnu" . "https://elpa.gnu.org/packages/")
-                         ;;("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
 			 ))
 
@@ -184,15 +180,12 @@
 (global-set-key (kbd "M-w") 'kill-ring-save) 
 (global-set-key (kbd "C-w") 'kill-region) 
 (global-set-key (kbd "C-y") 'yank)
-;;(global-set-key (kbd "s-Insert") 'yank) 
 (global-set-key (kbd "C-s") 'save-buffer) 
 (global-set-key (kbd "C-o") 'helm-find-files) 
 (global-set-key (kbd "C-f") 'swiper) 
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-q") 'save-buffers-kill-terminal)
-;;(global-set-key (kbd "C-#") 'helm-find)
 (global-set-key (kbd "C-#") 'projectile-find-file)
-;;(global-set-key (kbd "<f3>") 'helm-rg)
 (global-set-key (kbd "<f3>") 'projectile-ag)
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
 (global-set-key (kbd "<f5>") 'helm-M-x)
@@ -205,7 +198,6 @@
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<left>") 'windmove-left)
 (global-set-key (kbd "M-<right>") 'windmove-right)
-;;(global-set-key (kbd "C-w") 'delete-window)
 (global-set-key (kbd "C-2") 'split-window-right)
 (global-set-key (kbd "C-x w") 'elfeed)
 (global-set-key (kbd "C-<f11>") 'helm-bookmarks)
@@ -225,7 +217,7 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; Load Theme
+;; Theme
 ;;
 ;;(setq themes-folder "~/themes/emacs/")
 ;;(setq vscode-theme-file (concat themes-folder "vs-dark-theme.el"))
@@ -242,6 +234,7 @@
 (setq projectile-enable-caching t)
 (setq projectile-indexing-method 'native)
 
-;; (setq helm-projectile-fuzzy-match nil)
 (require 'helm-projectile)
 (helm-projectile-on)
+
+(pd/setup-indent-level 2)
