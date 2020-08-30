@@ -29,6 +29,7 @@
 (defvar my-packages '(
 		      ag
 		      rg
+		      cmake
 		      magit
 		      swiper
 		      swiper-helm
