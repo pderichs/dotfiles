@@ -45,6 +45,7 @@
 		      multiple-cursors
 		      projectile
 		      helm-projectile
+		      which-key
 		      ))
 
 ;; Install packages - this is in its own function to control
@@ -242,3 +243,5 @@
 (helm-projectile-on)
 
 (pd/setup-indent-level 2)
+
+(which-key-mode)
