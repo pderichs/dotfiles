@@ -85,6 +85,10 @@
 ;; Menu bar off
 (menu-bar-mode -1)
 
+;; Set count of recent file list
+(setq recentf-max-menu-items 50)
+(setq recentf-max-saved-items 50)
+
 ;; Show current line and column in mode line
 (setq line-number-mode t)
 (setq column-number-mode t)
