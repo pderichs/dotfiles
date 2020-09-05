@@ -40,7 +40,7 @@
 		      docker
 		      elfeed
 		      elfeed-goodies
-		      humanoid-themes
+		      ;;humanoid-themes
 		      fzf
 		      helm-ag
 		      org-bullets
@@ -235,7 +235,8 @@
 ;;  (when (file-exists-p clean-sheet-theme-file)
 ;;    (load clean-sheet-theme-file))
 ;;)
-(load-theme 'humanoid-dark)
+;;(load-theme 'humanoid-dark)
+(load-theme 'adwaita)
 
 ;; Projectile settings
 (projectile-mode +1)
