@@ -57,12 +57,6 @@ My dotfiles.
 
 Update the path to fzf in `.zshrc` - see `FZF_BASE`.
 
-## Install badwolf color scheme
-
-```
-  mkdir ~/.vim/colors
-```
-
 ## Install [asdf](https://github.com/asdf-vm/asdf)
 
 [https://asdf-vm.com/#/core-manage-asdf-vm](https://asdf-vm.com/#/core-manage-asdf-vm)
@@ -72,8 +66,6 @@ git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 cd ~/.asdf
 git checkout "$(git describe --abbrev=0 --tags)"
 ```
-
-[Color scheme raw content](https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim)
 
 ## Install Vundle
 
@@ -105,25 +97,20 @@ I have a TODO file for every day. A simple ruby script takes care of copying the
 ```
 ## TAGS file creation
 
-### (spac)emacs
+### emacs
 
-In (ruby) project folder:
-
-```
-ctags -e -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)
-```
-
-This file can be used with e.g.
+In (e.g. a ruby) project folder:
 
 ```
-helm-etags-select
+  ctags -e -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)
 ```
 
-### vim
+This file can be used in emacs with e.g.
 
 ```
-ctags -R --languages=ruby --exclude=.git --exclude=log -f .tags . $(bundle list --paths)
+  helm-etags-select
 ```
+
 ## Install dmenu
 
 A pretty good fuzzy app finder for e.g. xfce which can be bind to winkey.
@@ -135,4 +122,3 @@ A pretty good fuzzy app finder for e.g. xfce which can be bind to winkey.
 https://fedoramagazine.org/getting-started-i3-window-manager/
 
 `ln -s /path/to/dotfiles/i3/config ~/.config/i3/config`
-
