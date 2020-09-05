@@ -1,6 +1,9 @@
 ;; Emacs Config 2020.1
 ;;
 
+;; Enable backtrace if something goes wrong
+(setq debug-on-error t)
+
 ;; Needed by Package.el.
 (require 'package)
 (package-initialize)
