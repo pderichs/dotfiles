@@ -35,7 +35,7 @@ class TodoFileFactory
       FileUtils.copy_file(previous_todo_file, todays_file)
     else
       # Create a new file for today
-      puts "No todo file present for today - please create one (#{todays_file})"
+      puts "No todo file present yet - please create one (#{todays_file})"
     end
 
     puts "Done. Have a nice day."
