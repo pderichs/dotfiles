@@ -71,10 +71,10 @@
 ;; Helm config
 (require 'helm-config)
 
-(setq helm-split-window-in-side-p           t 
-      helm-move-to-line-cycle-in-source     t 
-      helm-ff-search-library-in-sexp        t 
-      helm-scroll-amount                    8 
+(setq helm-split-window-in-side-p           t
+      helm-move-to-line-cycle-in-source     t
+      helm-ff-search-library-in-sexp        t
+      helm-scroll-amount                    8
       helm-ff-file-name-history-use-recentf t
       helm-echo-input-in-header-line        t)
 
@@ -185,12 +185,12 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; Keys
-(global-set-key (kbd "M-w") 'kill-ring-save) 
-(global-set-key (kbd "C-w") 'kill-region) 
+(global-set-key (kbd "M-w") 'kill-ring-save)
+(global-set-key (kbd "C-w") 'kill-region)
 (global-set-key (kbd "C-y") 'yank)
-(global-set-key (kbd "C-s") 'save-buffer) 
-(global-set-key (kbd "C-o") 'helm-find-files) 
-(global-set-key (kbd "C-f") 'swiper) 
+(global-set-key (kbd "C-s") 'save-buffer)
+(global-set-key (kbd "C-o") 'helm-find-files)
+(global-set-key (kbd "C-f") 'swiper)
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-q") 'save-buffers-kill-terminal)
 (global-set-key (kbd "C-#") 'projectile-find-file)
@@ -241,6 +241,8 @@
 (projectile-mode +1)
 (setq projectile-enable-caching t)
 (setq projectile-indexing-method 'native)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (require 'helm-projectile)
 (helm-projectile-on)
