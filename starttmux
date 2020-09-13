@@ -9,14 +9,6 @@ work_folder="~/work"
 current_folder=$work_folder
 echo "Current folder: "
 echo $current_folder
-case $1 in
-  ce ) gdk_folder="gdk-ce";;
-  ee ) gdk_folder="gdk-ee";;
-  dce ) gdk_folder="dev-gdk-ce";;
-  dee ) gdk_folder="dev-gdk-ee";;
-esac
-
-current_folder="$work_folder/$gdk_folder/gitlab"
 
 # set up tmux
 tmux start-server
@@ -26,7 +18,7 @@ tmux new-session -d -s $session -n vim
 
 # Select pane 1, set dir to work folder, run vim
 tmux selectp -t 1
-tmux send-keys "cd $current_folder;nvim" C-m
+tmux send-keys "cd $current_folder;vim" C-m
 
 # Split pane 1 vertically
 tmux splitw -h -p 20
