@@ -226,17 +226,11 @@
   (load custom-file))
 
 ;; Theme
-;;
-;;(setq themes-folder "~/themes/emacs/")
-;;(setq vscode-theme-file (concat themes-folder "vs-dark-theme.el"))
-;;(setq clean-sheet-theme-file (concat themes-folder "clean-sheet.el"))
-;; (if (file-exists-p vscode-theme-file)
-;;     (progn (load vscode-theme-file) (vs-dark-theme))
-;;  (when (file-exists-p clean-sheet-theme-file)
-;;    (load clean-sheet-theme-file))
-;;)
-;;(load-theme 'humanoid-dark)
-(load-theme 'adwaita)
+(setq themes-folder "~/themes/emacs/")
+(setq vscode-theme-file (concat themes-folder "vs-dark-theme.el"))
+(if (file-exists-p vscode-theme-file)
+    (progn (load vscode-theme-file) (vs-dark-theme))
+  (load-theme 'wombat))
 
 ;; Projectile settings
 (projectile-mode +1)

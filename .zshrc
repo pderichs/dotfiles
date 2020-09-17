@@ -35,6 +35,10 @@ alias wifioff="nmcli radio wifi off"
 # Records from microphone to output.wav
 alias rec1="sox -t alsa default output.wav"
 
+if [ -f "$HOME/localaliases" ]; then
+    source "$HOME/localaliases"
+fi
+
 chbr() {
   gco $(git branch -a | fzf)
 }
