@@ -40,7 +40,6 @@
 		      docker
 		      elfeed
 		      elfeed-goodies
-		      ;;humanoid-themes
 		      fzf
 		      helm-ag
 		      org-bullets
