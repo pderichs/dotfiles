@@ -231,6 +231,11 @@
     (progn (load vscode-theme-file) (vs-dark-theme))
   (load-theme 'wombat))
 
+;; Highlight current line
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#3e4446")
+(set-face-foreground 'highlight nil)
+
 ;; Projectile settings
 (projectile-mode +1)
 (setq projectile-enable-caching t)
