@@ -107,7 +107,7 @@
 
 ;; Font
 ;;(set-frame-font "Courier 15" nil t)
-(set-frame-font "Monospace 11" nil t)
+(set-frame-font "Monospace 13" nil t)
 ;;(set-frame-font "More Perfect DOS VGA 15" nil t)
 
 ;; No backup files
@@ -128,9 +128,6 @@
 
 ;; Symlinks
 (setq vc-follow-symlinks nil)
-
-;; Show current line
-;;(global-hl-line-mode 1)
 
 ;; Human readable units in dired
 (setq-default dired-listing-switches "-alh")
