@@ -26,6 +26,22 @@
   (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
   (org-mode))
 
+;; Thanks to https://sachachua.com/blog/2006/09/emacs-changing-the-font-size-on-the-fly/
+(defun pd/multiply-font-size (factor)
+    (set-face-attribute 'default
+                      nil
+                      :height
+                      (ceiling (* factor
+                                  (face-attribute 'default :height)))))
+
+(defun pd/increase-font-size ()
+  (interactive)
+  (pd/multiply-font-size 1.10))
+
+(defun pd/decrease-font-size ()
+  (interactive)
+  (pd/multiply-font-size 0.9))
+
 (defvar my-packages '(
 		      ag
 		      rg
@@ -48,6 +64,7 @@
 		      projectile
 		      helm-projectile
 		      which-key
+		      dockerfile-mode
 		      ))
 
 ;; Install packages - this is in its own function to control
@@ -211,6 +228,8 @@
 (global-set-key (kbd "C-S-d") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-S-l") 'mc/edit-lines)
 (global-set-key (kbd "C-+") 'projectile-find-other-file)
+(global-set-key (kbd "C-M-+") 'pd/increase-font-size)
+(global-set-key (kbd "C-M--") 'pd/decrease-font-size)
 
 ;; Make tab key work for helm-find-files
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
