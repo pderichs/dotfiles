@@ -262,6 +262,6 @@
 (require 'helm-projectile)
 (helm-projectile-on)
 
-(pd/setup-indent-level 2)
+(pd/setup-indent-level 4)
 
 (which-key-mode)
