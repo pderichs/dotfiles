@@ -65,6 +65,7 @@
 		      helm-projectile
 		      which-key
 		      dockerfile-mode
+		      mood-one-theme
 		      ))
 
 ;; Install packages - this is in its own function to control
@@ -241,11 +242,12 @@
   (load custom-file))
 
 ;; Theme
-(setq themes-folder "~/themes/emacs/")
-(setq vscode-theme-file (concat themes-folder "vs-dark-theme.el"))
-(if (file-exists-p vscode-theme-file)
-    (progn (load vscode-theme-file) (vs-dark-theme))
-  (load-theme 'wombat))
+;; (setq themes-folder "~/themes/emacs/")
+;; (setq vscode-theme-file (concat themes-folder "vs-dark-theme.el"))
+;; (if (file-exists-p vscode-theme-file)
+;;     (progn (load vscode-theme-file) (vs-dark-theme))
+;;   (load-theme 'wombat))
+(load-theme 'mood-one)
 
 ;; Highlight current line
 (global-hl-line-mode 1)
