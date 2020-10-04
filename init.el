@@ -171,7 +171,7 @@
 (epa-file-enable)
 
 ;; Set initial window size
-(setq initial-frame-alist '((top . 90) (left . 490) (width . 190) (height . 70)))
+(setq initial-frame-alist '((width . 190) (height . 70)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
@@ -251,7 +251,7 @@
 
 ;; Highlight current line
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#3e4446")
+(set-face-background 'hl-line "#111111")
 (set-face-foreground 'highlight nil)
 
 ;; Projectile settings
