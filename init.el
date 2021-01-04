@@ -66,6 +66,11 @@
 		      which-key
 		      dockerfile-mode
 		      mood-one-theme
+		      typescript-mode
+		      vue-mode
+		      company
+		      flycheck
+		      exec-path-from-shell
 		      ))
 
 ;; Install packages - this is in its own function to control
@@ -107,8 +112,8 @@
 (menu-bar-mode -1)
 
 ;; Set count of recent file list
-(setq recentf-max-menu-items 100)
-(setq recentf-max-saved-items 100)
+(setq recentf-max-menu-items 1000)
+(setq recentf-max-saved-items 1000)
 
 ;; Show current line and column in mode line
 (setq line-number-mode t)
@@ -125,7 +130,8 @@
 
 ;; Font
 ;;(set-frame-font "Courier 15" nil t)
-(set-frame-font "Monospace 13" nil t)
+(set-frame-font "Monospace 14" nil t)
+;;(set-frame-font "Nimbus Mono PS 16" nil t)
 ;;(set-frame-font "More Perfect DOS VGA 15" nil t)
 
 ;; No backup files
@@ -159,16 +165,16 @@
 ;; Enable auto complete with default settings
 (ac-config-default)
 
-;; Set shell variables
-;;(when (memq window-system '(mac ns x))
-;;  (exec-path-from-shell-initialize))
-
 ;; No scroll bars
 (scroll-bar-mode -1)
 
 ;; Encrypt gpg files automatically
 (require 'epa-file)
 (epa-file-enable)
+
+;; Only spaces, no tabs
+(setq tab-width 2)
+(setq-default indent-tabs-mode nil)
 
 ;; Set initial window size
 (setq initial-frame-alist '((width . 190) (height . 70)))
@@ -231,6 +237,7 @@
 (global-set-key (kbd "C-+") 'projectile-find-other-file)
 (global-set-key (kbd "C-M-+") 'pd/increase-font-size)
 (global-set-key (kbd "C-M--") 'pd/decrease-font-size)
+(global-set-key (kbd "C-SPC") 'company-complete-selection)
 
 ;; Make tab key work for helm-find-files
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
@@ -259,11 +266,19 @@
 (setq projectile-enable-caching t)
 (setq projectile-indexing-method 'native)
 
+;; Make env available
+(exec-path-from-shell-initialize)
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Company (completion) mode everywhere
+(add-hook 'after-init-hook 'global-company-mode)
+;; Global Syntax checking
+;(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (require 'helm-projectile)
 (helm-projectile-on)
 
-(pd/setup-indent-level 4)
+(pd/setup-indent-level 2)
 
 (which-key-mode)
