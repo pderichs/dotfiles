@@ -42,6 +42,20 @@
   (interactive)
   (pd/multiply-font-size 0.9))
 
+;; Thanks to https://stackoverflow.com/a/25942392 (@itsjeyd)
+(defun org-toggle-todo-and-fold ()
+  (interactive)
+  (save-excursion
+    (org-back-to-heading t) ;; Make sure command works even if point is
+                            ;; below target heading
+    (cond ((looking-at "\*+ TODO")
+           (org-todo "DONE")
+           (hide-subtree))
+          ((looking-at "\*+ DONE")
+           (org-todo "TODO")
+           (hide-subtree))
+          (t (message "Can only toggle between TODO and DONE.")))))
+
 (defvar my-packages '(
 		      ag
 		      rg
@@ -159,6 +173,9 @@
 ;; Make recursive copies default in dired
 (setq dired-recursive-copies 'always)
 
+;; Disable all lock files
+(setq create-lockfiles nil)
+
 ;; Ask for y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -238,6 +255,8 @@
 (global-set-key (kbd "C-M-+") 'pd/increase-font-size)
 (global-set-key (kbd "C-M--") 'pd/decrease-font-size)
 (global-set-key (kbd "C-SPC") 'company-complete-selection)
+
+(define-key org-mode-map (kbd "C-<f12>") 'org-toggle-todo-and-fold)
 
 ;; Make tab key work for helm-find-files
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
