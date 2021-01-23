@@ -37,6 +37,8 @@ alias rec1="sox -t alsa default output.wav"
 
 alias ls="exa --long --header --git"
 
+alias xo="xdg-open"
+
 if [ -f "$HOME/localaliases" ]; then
     source "$HOME/localaliases"
 fi
