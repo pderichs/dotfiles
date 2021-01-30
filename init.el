@@ -5,41 +5,41 @@
 
 ;; Required packages (used by pd/install-packages)
 (defvar my-packages '(
-		      ag
-		      rg
-		      cmake-mode
-		      magit
-		      swiper
-		      swiper-helm
-		      helm
-		      helm-rg
-		      iedit
-		      dumb-jump
-		      docker
-		      elfeed
-		      elfeed-goodies
-		      fzf
-		      helm-ag
-		      org-bullets
-		      auto-complete
-		      multiple-cursors
-		      projectile
-		      helm-projectile
-		      which-key
-		      dockerfile-mode
-		      mood-one-theme
-		      typescript-mode
-		      vue-mode
-		      company
-		      flycheck
-		      exec-path-from-shell
+                      ag
+                      rg
+                      cmake-mode
+                      magit
+                      swiper
+                      swiper-helm
+                      helm
+                      helm-rg
+                      iedit
+                      dumb-jump
+                      docker
+                      elfeed
+                      elfeed-goodies
+                      fzf
+                      helm-ag
+                      org-bullets
+                      auto-complete
+                      multiple-cursors
+                      projectile
+                      helm-projectile
+                      which-key
+                      dockerfile-mode
+                      mood-one-theme
+                      typescript-mode
+                      vue-mode
+                      company
+                      flycheck
+                      exec-path-from-shell
                       rubocop
                       yaml-mode
                       cider
                       crux
                       deadgrep
                       key-chord
-		      ))
+                      ))
 
 ;; Required by package.el.
 (require 'package)
