@@ -270,6 +270,7 @@
 (global-set-key (kbd "M-k") 'crux-kill-whole-line)
 
 (key-chord-define-global "kk"     'kill-current-buffer)
+(key-chord-define-global "kw"     'delete-window)
 
 (define-key org-mode-map (kbd "C-<f12>") 'org-toggle-todo-and-fold)
 
