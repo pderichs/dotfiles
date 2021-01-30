@@ -38,6 +38,7 @@
                       cider
                       crux
                       deadgrep
+                      key-chord
 		      ))
 
 ;; Required by package.el.
@@ -268,6 +269,8 @@
 (global-set-key (kbd "C-<insert>") 'crux-smart-open-line-above)
 (global-set-key (kbd "M-k") 'crux-kill-whole-line)
 
+(key-chord-define-global "kk"     'kill-current-buffer)
+
 (define-key org-mode-map (kbd "C-<f12>") 'org-toggle-todo-and-fold)
 
 ;; Make tab key work for helm-find-files
@@ -309,3 +312,5 @@
 (pd/setup-indent-level 2)
 
 (which-key-mode)
+
+(key-chord-mode 1)
