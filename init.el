@@ -79,6 +79,12 @@
   (interactive)
   (pd/multiply-font-size 0.9))
 
+(defun pd/create-empty-buffer ()
+  (interactive)
+  (let ((buffer (generate-new-buffer "untitled")))
+    (set-buffer-major-mode buffer)
+    (switch-to-buffer buffer)))
+
 ;; Thanks to https://stackoverflow.com/a/25942392 (@itsjeyd)
 (defun org-toggle-todo-and-fold ()
   (interactive)
@@ -263,11 +269,13 @@
 (global-set-key (kbd "C-M-+") 'pd/increase-font-size)
 (global-set-key (kbd "C-M--") 'pd/decrease-font-size)
 (global-set-key (kbd "C-SPC") 'company-complete-selection)
-(global-set-key (kbd "M-<up>") 'crux-switch-to-previous-buffer)
-(global-set-key (kbd "M-<down>") 'next-buffer)
+(global-set-key (kbd "M-S-<up>") 'crux-switch-to-previous-buffer)
+(global-set-key (kbd "M-S-<down>") 'next-buffer)
 (global-set-key (kbd "C-c o") 'crux-open-with)
 (global-set-key (kbd "C-<insert>") 'crux-smart-open-line-above)
 (global-set-key (kbd "M-k") 'crux-kill-whole-line)
+(global-set-key (kbd "<f10>") 'pd/open-today-todo-file)
+(global-set-key (kbd "C-n") 'pd/create-empty-buffer)
 
 (key-chord-define-global "kk"     'kill-current-buffer)
 (key-chord-define-global "kw"     'delete-window)
