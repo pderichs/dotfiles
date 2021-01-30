@@ -1,4 +1,4 @@
-export TODO=$HOME/todo
+export TODO="$HOME/todo"
 
 # Set fzf installation directory path
 export FZF_BASE=$(which fzf)

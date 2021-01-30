@@ -1,10 +1,46 @@
-;; Emacs Config 2020.1
-;;
+;; Emacs Config 2021.1
 
 ;; Enable backtrace if something goes wrong
 (setq debug-on-error t)
 
-;; Needed by Package.el.
+;; Required packages (used by pd/install-packages)
+(defvar my-packages '(
+		      ag
+		      rg
+		      cmake-mode
+		      magit
+		      swiper
+		      swiper-helm
+		      helm
+		      helm-rg
+		      iedit
+		      dumb-jump
+		      docker
+		      elfeed
+		      elfeed-goodies
+		      fzf
+		      helm-ag
+		      org-bullets
+		      auto-complete
+		      multiple-cursors
+		      projectile
+		      helm-projectile
+		      which-key
+		      dockerfile-mode
+		      mood-one-theme
+		      typescript-mode
+		      vue-mode
+		      company
+		      flycheck
+		      exec-path-from-shell
+                      rubocop
+                      yaml-mode
+                      cider
+                      crux
+                      deadgrep
+		      ))
+
+;; Required by package.el.
 (require 'package)
 (package-initialize)
 
@@ -23,7 +59,7 @@
 (defun pd/open-today-todo-file ()
   "Open todo file for today"
   (interactive)
-  (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org")))
+  (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org.gpg")))
   (org-mode))
 
 ;; Thanks to https://sachachua.com/blog/2006/09/emacs-changing-the-font-size-on-the-fly/
@@ -55,37 +91,6 @@
            (org-todo "TODO")
            (hide-subtree))
           (t (message "Can only toggle between TODO and DONE.")))))
-
-(defvar my-packages '(
-		      ag
-		      rg
-		      cmake-mode
-		      magit
-		      swiper
-		      swiper-helm
-		      helm
-		      helm-rg
-		      iedit
-		      dumb-jump
-		      docker
-		      elfeed
-		      elfeed-goodies
-		      fzf
-		      helm-ag
-		      org-bullets
-		      auto-complete
-		      multiple-cursors
-		      projectile
-		      helm-projectile
-		      which-key
-		      dockerfile-mode
-		      mood-one-theme
-		      typescript-mode
-		      vue-mode
-		      company
-		      flycheck
-		      exec-path-from-shell
-		      ))
 
 ;; Install packages - this is in its own function to control
 ;; Internet / Proxy access.
@@ -144,8 +149,8 @@
 
 ;; Font
 ;;(set-frame-font "Courier 15" nil t)
-(set-frame-font "Monospace 14" nil t)
-;;(set-frame-font "Nimbus Mono PS 16" nil t)
+;;(set-frame-font "Monospace 14" nil t)
+(set-frame-font "Nimbus Mono PS 15" nil t)
 ;;(set-frame-font "More Perfect DOS VGA 15" nil t)
 
 ;; No backup files
@@ -194,7 +199,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Set initial window size
-(setq initial-frame-alist '((width . 190) (height . 70)))
+(setq initial-frame-alist '((width . 108) (height . 60)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
@@ -231,7 +236,8 @@
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-q") 'save-buffers-kill-terminal)
 (global-set-key (kbd "C-#") 'projectile-find-file)
-(global-set-key (kbd "<f3>") 'projectile-ag)
+(global-set-key (kbd "<f3>") 'deadgrep)
+(global-set-key (kbd "S-<f3>") 'projectile-ag)
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
 (global-set-key (kbd "<f5>") 'helm-M-x)
 (global-set-key (kbd "<f7>") 'helm-mini)
@@ -255,6 +261,11 @@
 (global-set-key (kbd "C-M-+") 'pd/increase-font-size)
 (global-set-key (kbd "C-M--") 'pd/decrease-font-size)
 (global-set-key (kbd "C-SPC") 'company-complete-selection)
+(global-set-key (kbd "M-<up>") 'crux-switch-to-previous-buffer)
+(global-set-key (kbd "M-<down>") 'next-buffer)
+(global-set-key (kbd "C-c o") 'crux-open-with)
+(global-set-key (kbd "C-<insert>") 'crux-smart-open-line-above)
+(global-set-key (kbd "M-k") 'crux-kill-whole-line)
 
 (define-key org-mode-map (kbd "C-<f12>") 'org-toggle-todo-and-fold)
 
@@ -267,17 +278,12 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; Theme
-;; (setq themes-folder "~/themes/emacs/")
-;; (setq vscode-theme-file (concat themes-folder "vs-dark-theme.el"))
-;; (if (file-exists-p vscode-theme-file)
-;;     (progn (load vscode-theme-file) (vs-dark-theme))
-;;   (load-theme 'wombat))
-(load-theme 'mood-one)
+;;(load-theme 'mood-one)
+(load-theme 'adwaita)
 
 ;; Highlight current line
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#111111")
+(set-face-background 'hl-line "#BBBBBB")
 (set-face-foreground 'highlight nil)
 
 ;; Projectile settings
@@ -286,6 +292,7 @@
 (setq projectile-indexing-method 'native)
 
 ;; Make env available
+(exec-path-from-shell-copy-env "TODO")
 (exec-path-from-shell-initialize)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
