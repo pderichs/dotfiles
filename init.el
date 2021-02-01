@@ -124,7 +124,8 @@
       helm-ff-search-library-in-sexp        t
       helm-scroll-amount                    8
       helm-ff-file-name-history-use-recentf t
-      helm-echo-input-in-header-line        t)
+      helm-echo-input-in-header-line        t
+      helm-move-to-line-cycle-in-source     nil)
 
 (helm-mode 1)
 
@@ -239,7 +240,7 @@
 (global-set-key (kbd "C-y") 'yank)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-o") 'helm-find-files)
-(global-set-key (kbd "C-f") 'swiper)
+(global-set-key (kbd "C-f") 'swiper-helm)
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)
 (global-set-key (kbd "C-q") 'save-buffers-kill-terminal)
 (global-set-key (kbd "C-#") 'fzf)
