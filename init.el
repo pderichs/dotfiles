@@ -40,6 +40,8 @@
                       crux
                       deadgrep
                       key-chord
+                      protobuf-mode
+                      go-mode
                       ))
 
 ;; Required by package.el.
@@ -279,6 +281,7 @@
 (global-set-key (kbd "M-k") 'crux-kill-whole-line)
 (global-set-key (kbd "<f10>") 'pd/open-today-todo-file)
 (global-set-key (kbd "C-n") 'pd/create-empty-buffer)
+(global-set-key (kbd "C-<f10>") 'helm-rhythmbox)
 
 (key-chord-define-global "kk"     'kill-current-buffer)
 (key-chord-define-global "kw"     'delete-window)
