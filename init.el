@@ -158,8 +158,9 @@
 ;; Font
 ;;(set-frame-font "Courier 15" nil t)
 ;;(set-frame-font "Monospace 14" nil t)
-(set-frame-font "Nimbus Mono PS 15" nil t)
+;;(set-frame-font "Nimbus Mono PS 15" nil t)
 ;;(set-frame-font "More Perfect DOS VGA 15" nil t)
+(set-frame-font "Fira Code 17" nil t)
 
 ;; No backup files
 (setq make-backup-files nil)
