@@ -13,6 +13,7 @@
                       swiper-helm
                       helm
                       helm-rg
+                      helm-rhythmbox
                       iedit
                       dumb-jump
                       docker
