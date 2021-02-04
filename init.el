@@ -282,9 +282,13 @@
 (global-set-key (kbd "<f10>") 'pd/open-today-todo-file)
 (global-set-key (kbd "C-n") 'pd/create-empty-buffer)
 (global-set-key (kbd "C-<f10>") 'helm-rhythmbox)
+(global-set-key (kbd "C-1") 'helm-calcul-expression)
+(global-set-key (kbd "C-2") 'helm-top)
+(global-set-key (kbd "C-3") 'helm-man-woman)
 
-(key-chord-define-global "kk"     'kill-current-buffer)
-(key-chord-define-global "kw"     'delete-window)
+(key-chord-define-global "kk" 'kill-current-buffer)
+(key-chord-define-global "kw" 'delete-window)
+(key-chord-define-global "sk" 'helm-show-kill-ring)
 
 (define-key org-mode-map (kbd "C-<f12>") 'org-toggle-todo-and-fold)
 
