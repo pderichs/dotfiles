@@ -164,7 +164,7 @@
 ;;(set-frame-font "Monospace 14" nil t)
 ;;(set-frame-font "Nimbus Mono PS 15" nil t)
 ;;(set-frame-font "More Perfect DOS VGA 15" nil t)
-(set-frame-font "Fira Code 17" nil t)
+(set-frame-font "Fira Code 15" nil t)
 
 ;; No backup files
 (setq make-backup-files nil)
@@ -212,7 +212,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Set initial window size
-(setq initial-frame-alist '((width . 108) (height . 60)))
+(setq initial-frame-alist '((width . 130) (height . 40)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
@@ -263,7 +263,6 @@
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<left>") 'windmove-left)
 (global-set-key (kbd "M-<right>") 'windmove-right)
-(global-set-key (kbd "C-2") 'split-window-right)
 (global-set-key (kbd "C-x w") 'elfeed)
 (global-set-key (kbd "C-<f11>") 'helm-bookmarks)
 (global-set-key (kbd "C-<f12>") 'helm-imenu)
@@ -283,13 +282,15 @@
 (global-set-key (kbd "<f10>") 'pd/open-today-todo-file)
 (global-set-key (kbd "C-n") 'pd/create-empty-buffer)
 (global-set-key (kbd "C-<f10>") 'helm-rhythmbox)
+(global-set-key (kbd "C-0") 'helm-show-kill-ring)
 (global-set-key (kbd "C-1") 'helm-calcul-expression)
-(global-set-key (kbd "C-2") 'helm-top)
+(global-set-key (kbd "C-2") 'split-window-right)
 (global-set-key (kbd "C-3") 'helm-man-woman)
+(global-set-key (kbd "C-4") 'helm-top)
 
 (key-chord-define-global "kk" 'kill-current-buffer)
 (key-chord-define-global "kw" 'delete-window)
-(key-chord-define-global "sk" 'helm-show-kill-ring)
+;;(key-chord-define-global "sk" )
 
 (define-key org-mode-map (kbd "C-<f12>") 'org-toggle-todo-and-fold)
 
@@ -334,3 +335,6 @@
 (which-key-mode)
 
 (key-chord-mode 1)
+
+;; No startup screen
+(setq inhibit-startup-screen t)
