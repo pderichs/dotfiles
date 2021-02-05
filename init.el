@@ -42,6 +42,7 @@
                       key-chord
                       protobuf-mode
                       go-mode
+                      tide
                       ))
 
 ;; Required by package.el.
@@ -323,7 +324,7 @@
 ;; Company (completion) mode everywhere
 (add-hook 'after-init-hook 'global-company-mode)
 ;; Global Syntax checking
-;(add-hook 'after-init-hook #'global-flycheck-mode)
+;;(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (require 'helm-projectile)
 (helm-projectile-on)
