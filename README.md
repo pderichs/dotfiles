@@ -2,11 +2,6 @@
 
 My dotfiles.
 
-# Prerequisites
-
-* emacs
-* vim
-
 # Installation
 
 ## Steps
@@ -14,11 +9,9 @@ My dotfiles.
 ```
   git clone ... $HOME/dotfiles
 
-  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
   ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
   ln -s $HOME/dotfiles/.zshenv $HOME/.zshenv
-  ln -s $HOME/dotfiles/.spacemacs $HOME/.spacemacs
+  ln -s $HOME/dotfiles/init.el $HOME/.emacs.d/init.el
   ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
   ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
   ln -s $HOME/dotfiles/starttmux $HOME/starttmux
@@ -31,29 +24,25 @@ My dotfiles.
   ln -s $HOME/dotfiles/todo_file.rb $HOME/todo_file.rb
 ```
 
-## Install zsh
+## Install ZSH
 
 ```
-  sudo apt-get install zsh
+  sudo dnf install zsh
 ```
 
-## Make zsh the default shell
+## Make ZSH the default shell
 
 ```
   chsh -s $(which zsh)
 ```
 
-## Install oh-my-zsh
-
-[ohmyzsh](https://github.com/robbyrussell/oh-my-zsh).
+## Install [ohmyzsh](https://github.com/robbyrussell/oh-my-zsh)
 
 ```
   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-## Install fzf
-
-[fzf](https://github.com/junegunn/fzf)
+## Install [fzf](https://github.com/junegunn/fzf)
 
 Update the path to fzf in `.zshrc` - see `FZF_BASE`.
 
@@ -67,16 +56,14 @@ cd ~/.asdf
 git checkout "$(git describe --abbrev=0 --tags)"
 ```
 
-## Install Vundle
-
-[Vundle](https://github.com/VundleVim/Vundle.vim).
+## Install [Vundle](https://github.com/VundleVim/Vundle.vim)
 
 ```
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 [Vundle for Windows](https://github.com/VundleVim/Vundle.vim/wiki/Vundle-for-Windows)
 
-## Install vim plugins
+## Install Vim Plugins
 
 In vim:
 
@@ -88,7 +75,7 @@ In vim:
 
 https://github.com/powerline/fonts
 
-## TODO file script
+## TODO File Script
 
 I have a TODO file for every day. A simple ruby script takes care of copying the old todo file contents to the todo file of today. The script must be located in the home folder:
 
@@ -97,7 +84,7 @@ I have a TODO file for every day. A simple ruby script takes care of copying the
 ```
 ## TAGS file creation
 
-### emacs
+### Emacs
 
 In (e.g. a ruby) project folder:
 
