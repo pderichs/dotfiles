@@ -114,6 +114,12 @@
       (package-install p))
     (add-to-list 'package-selected-packages p)))
 
+(defun pd/start-terminal-in-current-folder ()
+  "Starts a terminal in the current file's folder."
+  (interactive)
+  (setq default-directory (file-name-directory buffer-file-name))
+  (start-process "gnome-terminal" nil "gnome-terminal"))
+
 ;; Package sources
 (setq package-archives '(
 			 ("gnu" . "https://elpa.gnu.org/packages/")
@@ -258,7 +264,7 @@
 (global-set-key (kbd "<f8>") 'magit)
 (global-set-key (kbd "<f9>") 'helm-recentf)
 (global-set-key (kbd "<f11>") 'helm-buffers-list)
-(global-set-key (kbd "<f12>") 'dumb-jump-go)
+(global-set-key (kbd "<f12>") 'dumb-jump-go-other-window)
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<left>") 'windmove-left)
@@ -287,6 +293,7 @@
 (global-set-key (kbd "C-2") 'split-window-right)
 (global-set-key (kbd "C-3") 'helm-man-woman)
 (global-set-key (kbd "C-4") 'helm-top)
+(global-set-key (kbd "C-<f5>") 'pd/start-terminal-in-current-folder)
 
 (key-chord-define-global "kk" 'kill-current-buffer)
 (key-chord-define-global "kw" 'delete-window)
