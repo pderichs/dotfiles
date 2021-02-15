@@ -170,7 +170,7 @@
 ;;(set-frame-font "Monospace 14" nil t)
 ;;(set-frame-font "Nimbus Mono PS 15" nil t)
 ;;(set-frame-font "More Perfect DOS VGA 15" nil t)
-(set-frame-font "Fira Code 15" nil t)
+(set-frame-font "Fira Code 13" nil t)
 
 ;; No backup files
 (setq make-backup-files nil)
@@ -218,7 +218,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Set initial window size
-(setq initial-frame-alist '((width . 130) (height . 50)))
+(setq initial-frame-alist '((width . 130) (height . 70)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
@@ -264,7 +264,7 @@
 (global-set-key (kbd "<f8>") 'magit)
 (global-set-key (kbd "<f9>") 'helm-recentf)
 (global-set-key (kbd "<f11>") 'helm-buffers-list)
-(global-set-key (kbd "<f12>") 'dumb-jump-go-other-window)
+(global-set-key (kbd "<f12>") 'dumb-jump-go)
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<left>") 'windmove-left)
@@ -310,12 +310,12 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;;(load-theme 'mood-one)
-(load-theme 'adwaita)
+(load-theme 'mood-one)
+;;(load-theme 'adwaita)
 
 ;; Highlight current line
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#BBBBBB")
+;;(set-face-background 'hl-line "#BBBBBB") ;; for adwaita theme
 (set-face-foreground 'highlight nil)
 
 ;; Projectile settings
