@@ -218,7 +218,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Set initial window size
-(setq initial-frame-alist '((width . 130) (height . 70)))
+(setq initial-frame-alist '((width . 130) (height . 80)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
