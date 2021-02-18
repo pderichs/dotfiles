@@ -294,10 +294,13 @@
 (global-set-key (kbd "C-3") 'helm-man-woman)
 (global-set-key (kbd "C-4") 'helm-top)
 (global-set-key (kbd "C-<f5>") 'pd/start-terminal-in-current-folder)
+(global-set-key (kbd "C-<down>") 'forward-paragraph)
+(global-set-key (kbd "C-<up>") 'backward-paragraph)
+(global-set-key (kbd "C-<home>") 'beginning-of-buffer)
+(global-set-key (kbd "C-<end>") 'end-of-buffer)
 
 (key-chord-define-global "kk" 'kill-current-buffer)
 (key-chord-define-global "kw" 'delete-window)
-;;(key-chord-define-global "sk" )
 
 (define-key org-mode-map (kbd "C-<f12>") 'org-toggle-todo-and-fold)
 
