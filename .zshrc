@@ -68,3 +68,9 @@ $HOME/todo_file.rb > /dev/null
 if [ -d "$HOME/.local/bin" ]; then
     export PATH=$PATH:$HOME/.local/bin
 fi
+
+# Add npm binary path
+export NODEBIN=$(npm config get prefix)/bin
+if [ -d $NODEBIN ]; then
+    export PATH=$PATH:$NODEBIN
+fi
