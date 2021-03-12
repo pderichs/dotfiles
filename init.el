@@ -43,6 +43,10 @@
                       protobuf-mode
                       go-mode
                       tide
+                      lsp-mode
+                      lsp-ui
+                      helm-lsp
+                      dap-mode
                       ))
 
 ;; Required by package.el.
@@ -170,7 +174,7 @@
 ;;(set-frame-font "Monospace 14" nil t)
 ;;(set-frame-font "Nimbus Mono PS 15" nil t)
 ;;(set-frame-font "More Perfect DOS VGA 15" nil t)
-(set-frame-font "Fira Code 13" nil t)
+(set-frame-font "Fira Code 10" nil t)
 
 ;; No backup files
 (setq make-backup-files nil)
@@ -218,7 +222,7 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Set initial window size
-(setq initial-frame-alist '((width . 130) (height . 80)))
+(setq initial-frame-alist '((width . 130) (height . 60)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
@@ -345,6 +349,11 @@
 (which-key-mode)
 
 (key-chord-mode 1)
+
+;; LSP
+(setq lsp-keymap-prefix "C-c l")
+(require 'lsp-mode)
+(add-hook 'prog-mode-hook #'lsp)
 
 ;; No startup screen
 (setq inhibit-startup-screen t)
