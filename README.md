@@ -109,3 +109,15 @@ A pretty good fuzzy app finder for e.g. xfce which can be bind to winkey.
 https://fedoramagazine.org/getting-started-i3-window-manager/
 
 `ln -s /path/to/dotfiles/i3/config ~/.config/i3/config`
+
+## Emacs key configuration interferes with Xfce4 default settings
+
+Xfce has some default key bindings which interfere with the emacs config in this repo (namely `C+<f11>` and `C+<f12>`).
+
+**Solution** Comment out the relevant configuration entries for the switch workspace keys in `~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml`:
+
+```xml
+      <!-- <property name="&lt;Primary&gt;F11" type="string" value="workspace_11_key"/> -->
+[...]
+      <!-- <property name="&lt;Primary&gt;F12" type="string" value="workspace_12_key"/> -->
+```
