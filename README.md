@@ -110,7 +110,9 @@ https://fedoramagazine.org/getting-started-i3-window-manager/
 
 `ln -s /path/to/dotfiles/i3/config ~/.config/i3/config`
 
-## Emacs key configuration interferes with Xfce4 default settings
+## Known issues
+
+### Emacs key configuration interferes with Xfce4 default settings
 
 Xfce has some default key bindings which interfere with the emacs config in this repo (namely `C+<f11>` and `C+<f12>`).
 
