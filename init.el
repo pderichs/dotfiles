@@ -47,6 +47,8 @@
                       lsp-ui
                       helm-lsp
                       dap-mode
+                      cobol-mode
+                      helm-rails
                       ))
 
 ;; Required by package.el.
@@ -264,9 +266,11 @@
 (global-set-key (kbd "S-<f3>") 'projectile-ag)
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
 (global-set-key (kbd "<f5>") 'helm-M-x)
-(global-set-key (kbd "<f7>") 'helm-mini)
+(global-set-key (kbd "<f6>") 'helm-mini)
+(global-set-key (kbd "<f7>") 'compile)
 (global-set-key (kbd "<f8>") 'magit)
 (global-set-key (kbd "<f9>") 'helm-recentf)
+(global-set-key (kbd "<f10>") 'pd/open-today-todo-file)
 (global-set-key (kbd "<f11>") 'helm-buffers-list)
 (global-set-key (kbd "<f12>") 'dumb-jump-go)
 (global-set-key (kbd "M-<down>") 'windmove-down)
@@ -289,7 +293,6 @@
 (global-set-key (kbd "C-c o") 'crux-open-with)
 (global-set-key (kbd "C-<insert>") 'crux-smart-open-line-above)
 (global-set-key (kbd "M-k") 'crux-kill-whole-line)
-(global-set-key (kbd "<f10>") 'pd/open-today-todo-file)
 (global-set-key (kbd "C-n") 'pd/create-empty-buffer)
 (global-set-key (kbd "C-<f10>") 'helm-rhythmbox)
 (global-set-key (kbd "C-0") 'helm-show-kill-ring)
@@ -353,7 +356,7 @@
 ;; LSP
 (setq lsp-keymap-prefix "C-c l")
 (require 'lsp-mode)
-(add-hook 'prog-mode-hook #'lsp)
+;;(add-hook 'prog-mode-hook #'lsp)
 
 ;; No startup screen
 (setq inhibit-startup-screen t)
