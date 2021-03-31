@@ -315,6 +315,9 @@
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
 
+;; C-d was overwritten in this mode map
+(define-key c++-mode-map (kbd "C-d") 'mc/mark-next-like-this)
+
 ;; Load emacs custom settings
 (setq custom-file "~/.emacs.d/custom.el")
 (when (file-exists-p custom-file)
