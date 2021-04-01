@@ -119,7 +119,8 @@ Xfce has some default key bindings which interfere with the emacs config in this
 **Solution** Comment out the relevant configuration entries for the switch workspace keys in `~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml`:
 
 ```xml
+      <!-- <property name="&lt;Primary&gt;F5" type="string" value="workspace_5_key"/> -->
+      <!-- <property name="&lt;Primary&gt;F10" type="string" value="workspace_10_key"/> -->
       <!-- <property name="&lt;Primary&gt;F11" type="string" value="workspace_11_key"/> -->
-[...]
       <!-- <property name="&lt;Primary&gt;F12" type="string" value="workspace_12_key"/> -->
 ```
