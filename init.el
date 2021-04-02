@@ -315,20 +315,17 @@
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
 
-;; C-d was overwritten in this mode map
-(define-key c++-mode-map (kbd "C-d") 'mc/mark-next-like-this)
-
 ;; Load emacs custom settings
 (setq custom-file "~/.emacs.d/custom.el")
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(load-theme 'mood-one)
-;;(load-theme 'adwaita)
+;;(load-theme 'mood-one)
+(load-theme 'adwaita)
 
 ;; Highlight current line
 (global-hl-line-mode 1)
-;;(set-face-background 'hl-line "#BBBBBB") ;; for adwaita theme
+(set-face-background 'hl-line "#BBBBBB") ;; for adwaita theme
 (set-face-foreground 'highlight nil)
 
 ;; Projectile settings
@@ -363,3 +360,8 @@
 
 ;; No startup screen
 (setq inhibit-startup-screen t)
+
+(defun my-c++-mode-hook ()
+  ;; C-d was overwritten in this mode map
+  (define-key c++-mode-map (kbd "C-d") 'mc/mark-next-like-this))
+(add-hook 'c++-mode-hook 'my-c++-mode-hook)
