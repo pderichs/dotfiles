@@ -67,6 +67,12 @@
   (setq web-mode-code-indent-offset n)
   (setq css-indent-offset n))
 
+(defun pd/clean-up-windows ()
+  (interactive)
+  (let (previous-frame-buffer (window-buffer))
+        (delete-other-windows)
+        (split-window-right)))
+
 (defun pd/open-today-todo-file ()
   "Open todo file for today"
   (interactive)
@@ -305,6 +311,7 @@
 (global-set-key (kbd "C-<up>") 'backward-paragraph)
 (global-set-key (kbd "C-<home>") 'beginning-of-buffer)
 (global-set-key (kbd "C-<end>") 'end-of-buffer)
+(global-set-key (kbd "C-.") 'pd/clean-up-windows)
 
 (key-chord-define-global "kk" 'kill-current-buffer)
 (key-chord-define-global "kw" 'delete-window)
@@ -320,12 +327,12 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;;(load-theme 'mood-one)
-(load-theme 'adwaita)
+(load-theme 'mood-one)
+;;(load-theme 'adwaita)
 
 ;; Highlight current line
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#BBBBBB") ;; for adwaita theme
+;;(set-face-background 'hl-line "#BBBBBB") ;; for adwaita theme
 (set-face-foreground 'highlight nil)
 
 ;; Projectile settings
@@ -365,3 +372,5 @@
   ;; C-d was overwritten in this mode map
   (define-key c++-mode-map (kbd "C-d") 'mc/mark-next-like-this))
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
+
+(blink-cursor-mode 0)
