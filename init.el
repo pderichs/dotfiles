@@ -73,6 +73,19 @@
         (delete-other-windows)
         (split-window-right)))
 
+;; https://www.emacswiki.org/emacs/SwitchingBuffers
+(defun transpose-buffers (arg)
+  "Transpose the buffers shown in two windows."
+  (interactive "p")
+  (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
+    (while (/= arg 0)
+      (let ((this-win (window-buffer))
+            (next-win (window-buffer (funcall selector))))
+        (set-window-buffer (selected-window) next-win)
+        (set-window-buffer (funcall selector) this-win)
+        (select-window (funcall selector)))
+      (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
+
 (defun pd/open-today-todo-file ()
   "Open todo file for today"
   (interactive)
@@ -312,9 +325,11 @@
 (global-set-key (kbd "C-<home>") 'beginning-of-buffer)
 (global-set-key (kbd "C-<end>") 'end-of-buffer)
 (global-set-key (kbd "C-.") 'pd/clean-up-windows)
+(global-set-key (kbd "C-<") 'transpose-buffers)
 
 (key-chord-define-global "kk" 'kill-current-buffer)
 (key-chord-define-global "kw" 'delete-window)
+(key-chord-define-global "kf" 'delete-other-windows-vertically)
 
 (define-key org-mode-map (kbd "C-<f12>") 'org-toggle-todo-and-fold)
 
