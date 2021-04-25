@@ -49,6 +49,7 @@
                       dap-mode
                       cobol-mode
                       helm-rails
+                      rust-mode
                       ))
 
 ;; Required by package.el.
@@ -66,6 +67,11 @@
   (setq web-mode-css-indent-offset n)
   (setq web-mode-code-indent-offset n)
   (setq css-indent-offset n))
+
+;; https://www.reddit.com/r/emacs/comments/1xe7vr/check_if_font_is_available_before_setting
+(defun font-exists-p (font)
+  "check if font exists"
+  (if (null (x-list-fonts font)) nil t))
 
 (defun pd/clean-up-windows ()
   (interactive)
@@ -195,7 +201,12 @@
 ;;(set-frame-font "Monospace 14" nil t)
 ;;(set-frame-font "Nimbus Mono PS 15" nil t)
 ;;(set-frame-font "More Perfect DOS VGA 15" nil t)
-(set-frame-font "Fira Code 10" nil t)
+
+;; (setq dos-font "More Perfect DOS VGA 11")
+;; (if (font-exists-p dos-font)
+;;     (set-frame-font dos-font nil t)
+   (set-frame-font "Fira Code 9" nil t)
+;;  )
 
 ;; No backup files
 (setq make-backup-files nil)
@@ -242,8 +253,12 @@
 (setq tab-width 2)
 (setq-default indent-tabs-mode nil)
 
-;; Set initial window size
-(setq initial-frame-alist '((width . 130) (height . 60)))
+;; Maximize emacs on startup
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
+;; Split screen on startup
+(split-window-right)
 
 ;; Show full file path in title bar
 (setq frame-title-format
@@ -343,11 +358,10 @@
   (load custom-file))
 
 (load-theme 'mood-one)
-;;(load-theme 'adwaita)
 
 ;; Highlight current line
 (global-hl-line-mode 1)
-;;(set-face-background 'hl-line "#BBBBBB") ;; for adwaita theme
+;; (set-face-background 'hl-line "#DFDFDF")
 (set-face-foreground 'highlight nil)
 
 ;; Projectile settings
