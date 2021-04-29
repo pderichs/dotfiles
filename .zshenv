@@ -24,3 +24,5 @@ export WXWIDGETS_VERSION="3.1.3"
 if [ -d "$HOME/source/libs/wxWidgets-$WXWIDGETS_VERSION" ]; then
     export PATH="$HOME/source/libs/wxWidgets-$WXWIDGETS_VERSION:$PATH"
 fi
+
+export BOOST_DIR="$HOME/source/libs/boost_1_75_0"
