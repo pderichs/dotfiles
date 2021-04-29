@@ -11,3 +11,5 @@
 	rebase = true
 [commit]
 	gpgsign = true
+[init]
+	defaultBranch = master
