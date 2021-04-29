@@ -396,4 +396,8 @@
   (define-key c++-mode-map (kbd "C-d") 'mc/mark-next-like-this))
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
+(defun my-c-mode-hook ()
+  (define-key c-mode-map (kbd "C-d") 'mc/mark-next-like-this))
+(add-hook 'c-mode-hook 'my-c-mode-hook)
+
 (blink-cursor-mode 0)
