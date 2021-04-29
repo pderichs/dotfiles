@@ -197,16 +197,10 @@
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
 ;; Font
-;;(set-frame-font "Courier 15" nil t)
-;;(set-frame-font "Monospace 14" nil t)
-;;(set-frame-font "Nimbus Mono PS 15" nil t)
-;;(set-frame-font "More Perfect DOS VGA 15" nil t)
-
-;; (setq dos-font "More Perfect DOS VGA 11")
-;; (if (font-exists-p dos-font)
-;;     (set-frame-font dos-font nil t)
-   (set-frame-font "Fira Code 9" nil t)
-;;  )
+(setq my-font "Fira Code 9")
+ (if (font-exists-p my-font)
+     (set-frame-font my-font nil t)
+   (set-frame-font "Monospace 10" nil t))
 
 ;; No backup files
 (setq make-backup-files nil)
