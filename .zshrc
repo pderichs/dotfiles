@@ -35,8 +35,6 @@ alias wifioff="nmcli radio wifi off"
 # Records from microphone to output.wav
 alias rec1="sox -t alsa default output.wav"
 
-alias ls="exa --long --header --git"
-
 alias xo="xdg-open"
 
 if [ -f "$HOME/localaliases" ]; then
@@ -74,3 +72,4 @@ export NODEBIN=$(npm config get prefix)/bin
 if [ -d $NODEBIN ]; then
     export PATH=$PATH:$NODEBIN
 fi
+setxkbmap -option ctrl:nocaps
