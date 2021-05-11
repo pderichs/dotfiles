@@ -1,4 +1,4 @@
-;; Emacs Config 2021.1
+;; Emacs Config 2021.5
 
 ;; Enable backtrace if something goes wrong
 (setq debug-on-error t)
@@ -28,7 +28,6 @@
                       helm-projectile
                       which-key
                       dockerfile-mode
-                      mood-one-theme
                       typescript-mode
                       vue-mode
                       company
@@ -50,6 +49,7 @@
                       cobol-mode
                       helm-rails
                       rust-mode
+                      color-theme-sanityinc-tomorrow
                       ))
 
 ;; Required by package.el.
@@ -157,9 +157,6 @@
                          ("melpa" . "https://melpa.org/packages/")
 			 ))
 
-;; Helm config
-(require 'helm-config)
-
 (setq helm-split-window-in-side-p           t
       helm-move-to-line-cycle-in-source     t
       helm-ff-search-library-in-sexp        t
@@ -197,7 +194,7 @@
 (setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
 
 ;; Font
-(setq my-font "Fira Code 9")
+(setq my-font "Fira Code 11")
  (if (font-exists-p my-font)
      (set-frame-font my-font nil t)
    (set-frame-font "Monospace 10" nil t))
@@ -300,7 +297,7 @@
 (global-set-key (kbd "<f9>") 'helm-recentf)
 (global-set-key (kbd "<f10>") 'pd/open-today-todo-file)
 (global-set-key (kbd "<f11>") 'helm-buffers-list)
-(global-set-key (kbd "<f12>") 'dumb-jump-go)
+(global-set-key (kbd "<f12>") 'xref-find-definitions)
 (global-set-key (kbd "M-<down>") 'windmove-down)
 (global-set-key (kbd "M-<up>") 'windmove-up)
 (global-set-key (kbd "M-<left>") 'windmove-left)
@@ -335,6 +332,7 @@
 (global-set-key (kbd "C-<end>") 'end-of-buffer)
 (global-set-key (kbd "C-.") 'pd/clean-up-windows)
 (global-set-key (kbd "C-<") 'transpose-buffers)
+(global-set-key (kbd "M-S-<left>") 'xref-pop-marker-stack)
 
 (key-chord-define-global "kk" 'kill-current-buffer)
 (key-chord-define-global "kw" 'delete-window)
@@ -351,11 +349,11 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(load-theme 'mood-one)
+(load-theme 'sanityinc-tomorrow-eighties)
 
 ;; Highlight current line
 (global-hl-line-mode 1)
-;; (set-face-background 'hl-line "#DFDFDF")
+;;(set-face-background 'hl-line "#DFDFDF")
 (set-face-foreground 'highlight nil)
 
 ;; Projectile settings
@@ -369,11 +367,6 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Company (completion) mode everywhere
-(add-hook 'after-init-hook 'global-company-mode)
-;; Global Syntax checking
-;;(add-hook 'after-init-hook #'global-flycheck-mode)
-
 (require 'helm-projectile)
 (helm-projectile-on)
 
@@ -383,21 +376,20 @@
 
 (key-chord-mode 1)
 
-;; LSP
 (setq lsp-keymap-prefix "C-c l")
 (require 'lsp-mode)
-;;(add-hook 'prog-mode-hook #'lsp)
 
 ;; No startup screen
 (setq inhibit-startup-screen t)
 
+;; C-d was overwritten in these mode maps - so re-enable it again
 (defun my-c++-mode-hook ()
-  ;; C-d was overwritten in this mode map
   (define-key c++-mode-map (kbd "C-d") 'mc/mark-next-like-this))
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
-
 (defun my-c-mode-hook ()
   (define-key c-mode-map (kbd "C-d") 'mc/mark-next-like-this))
 (add-hook 'c-mode-hook 'my-c-mode-hook)
+
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 (blink-cursor-mode 0)
