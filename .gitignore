@@ -1,4 +1,4 @@
-# Ignore everything
+# Ignore everything in emacs folder...
 emacs/.emacs.d/*
 
 # ... except init.el
