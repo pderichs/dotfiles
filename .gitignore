@@ -1,3 +1,5 @@
-.DS_Store
-\#.*
-*~
+# Ignore everything
+emacs/.emacs.d/*
+
+# ... except init.el
+emacs/.emacs.d/!init.el
