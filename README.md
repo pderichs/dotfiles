@@ -6,27 +6,22 @@ My dotfiles.
 
 ## Steps
 
-```
+```bash
   git clone ... $HOME/dotfiles
+```
 
-  ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
-  ln -s $HOME/dotfiles/.zshenv $HOME/.zshenv
-  ln -s $HOME/dotfiles/init.el $HOME/.emacs.d/init.el
-  ln -s $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
-  ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
-  ln -s $HOME/dotfiles/starttmux $HOME/starttmux
-  ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
-  ln -s $HOME/dotfiles/.gitexcludes $HOME/.gitexcludes
-  ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
-  ln -s $HOME/dotfiles/.irbrc $HOME/.irbrc
-  ln -s $HOME/dotfiles/.rspec $HOME/.rspec
-  ln -s $HOME/dotfiles/custom-functions.el $HOME/custom-functions.el
-  ln -s $HOME/dotfiles/todo_file.rb $HOME/todo_file.rb
+You can then use [`stow`](http://www.gnu.org/software/stow/) to link the config files as needed:
+
+```bash
+  stow emacs
+  stow zsh
+  stow git
+  # ...
 ```
 
 ## Install ZSH
 
-```
+```bash
   sudo dnf install zsh
 ```
 
