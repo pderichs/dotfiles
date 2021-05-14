@@ -120,6 +120,10 @@
     (set-buffer-major-mode buffer)
     (switch-to-buffer buffer)))
 
+(defun pd/is-day ()
+  (let ((hour (third (decode-time (current-time)))))
+    (and (>= hour 8) (<= hour 20))))
+
 ;; Thanks to https://stackoverflow.com/a/25942392 (@itsjeyd)
 (defun org-toggle-todo-and-fold ()
   (interactive)
@@ -349,11 +353,16 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(load-theme 'sanityinc-tomorrow-eighties)
-
 ;; Highlight current line
 (global-hl-line-mode 1)
-;;(set-face-background 'hl-line "#DFDFDF")
+
+(if (pd/is-day)
+    (progn
+      (load-theme 'adwaita)
+      (set-face-background 'hl-line "#DFDFDF"))
+  (load-theme 'sanityinc-tomorrow-eighties))
+
+;; Make syntax highlighting work in current line
 (set-face-foreground 'highlight nil)
 
 ;; Projectile settings
