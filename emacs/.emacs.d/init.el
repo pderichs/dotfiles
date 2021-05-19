@@ -56,6 +56,31 @@
 (require 'package)
 (package-initialize)
 
+;; Thanks to https://emacs.stackexchange.com/a/21906
+(defun string-trim-final-newline (string)
+  (let ((len (length string)))
+    (cond
+      ((and (> len 0) (eql (aref string (- len 1)) ?\n))
+       (substring string 0 (- len 1)))
+      (t string))))
+
+(defun pd/light-theme ()
+  "Enables light theme"
+  (interactive)
+  (load-theme 'adwaita)
+  (set-face-background 'hl-line "#DFDFDF"))
+
+(defun pd/dark-theme ()
+  "Enables light theme"
+  (interactive)
+  (load-theme 'sanityinc-tomorrow-eighties)
+  (set-face-background 'hl-line "#333333"))
+
+(defun pd/compile-from-root-folder ()
+  (interactive)
+  (setq default-directory (string-trim-final-newline (shell-command-to-string "git rev-parse --show-toplevel")))
+  (compile "make -k"))
+
 ;; Thanks to http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
 (defun pd/setup-indent-level (n)
   (setq c-basic-offset n) ;; java + c/c++
@@ -122,7 +147,7 @@
 
 (defun pd/is-day ()
   (let ((hour (third (decode-time (current-time)))))
-    (and (>= hour 8) (<= hour 20))))
+    (and (>= hour 8) (<= hour 19))))
 
 ;; Thanks to https://stackoverflow.com/a/25942392 (@itsjeyd)
 (defun org-toggle-todo-and-fold ()
@@ -296,7 +321,7 @@
 (global-set-key (kbd "<f4>") 'swiper-thing-at-point)
 (global-set-key (kbd "<f5>") 'helm-M-x)
 (global-set-key (kbd "<f6>") 'helm-mini)
-(global-set-key (kbd "<f7>") 'compile)
+(global-set-key (kbd "<f7>") 'pd/compile-from-root-folder)
 (global-set-key (kbd "<f8>") 'magit)
 (global-set-key (kbd "<f9>") 'helm-recentf)
 (global-set-key (kbd "<f10>") 'pd/open-today-todo-file)
@@ -337,6 +362,7 @@
 (global-set-key (kbd "C-.") 'pd/clean-up-windows)
 (global-set-key (kbd "C-<") 'transpose-buffers)
 (global-set-key (kbd "M-S-<left>") 'xref-pop-marker-stack)
+(global-set-key (kbd "S-<f5>") 'eval-region)
 
 (key-chord-define-global "kk" 'kill-current-buffer)
 (key-chord-define-global "kw" 'delete-window)
@@ -357,10 +383,8 @@
 (global-hl-line-mode 1)
 
 (if (pd/is-day)
-    (progn
-      (load-theme 'adwaita)
-      (set-face-background 'hl-line "#DFDFDF"))
-  (load-theme 'sanityinc-tomorrow-eighties))
+    (pd/light-theme)
+  (pd/dark-theme))
 
 ;; Make syntax highlighting work in current line
 (set-face-foreground 'highlight nil)
@@ -402,3 +426,5 @@
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 (blink-cursor-mode 0)
+
+;;(treemacs)
