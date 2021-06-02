@@ -56,6 +56,10 @@
 (require 'package)
 (package-initialize)
 
+;; Make it possible to force dark theme independent of time
+(setq pd/force-dark-theme (member "--force-dark-theme" command-line-args))
+(setq command-line-args (delete "--force-dark-theme" command-line-args))
+
 ;; Thanks to https://emacs.stackexchange.com/a/21906
 (defun string-trim-final-newline (string)
   (let ((len (length string)))
@@ -383,7 +387,7 @@
 ;; Highlight current line
 (global-hl-line-mode 1)
 
-(if (pd/is-day)
+(if (and (eq pd/force-dark-theme nil) (pd/is-day))
     (pd/light-theme)
   (pd/dark-theme))
 
