@@ -75,7 +75,7 @@
   (set-face-background 'hl-line "#DFDFDF"))
 
 (defun pd/dark-theme ()
-  "Enables light theme"
+  "Enables dark theme"
   (interactive)
   (load-theme 'sanityinc-tomorrow-eighties)
   (set-face-background 'hl-line "#333333"))
