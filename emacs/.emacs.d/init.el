@@ -431,5 +431,3 @@
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 (blink-cursor-mode 0)
-
-;;(treemacs)
