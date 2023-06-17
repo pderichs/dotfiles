@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Slightly modified version of https://gist.github.com/todgru/6224848 - thanks!
+
+session="pat42"
+
+# set up tmux
+tmux start-server
+
+# create a new tmux session, starting editor from
+# a saved session in the new window
+tmux new-session -d -s $session:1 -n nvim
+tmux send-keys "vim" C-m
+
+tmux new-window -t $session:2 -n terminal
+
+# return to main vim window
+tmux select-window -t $session:1
+
+# Finished setup, attach to the tmux session!
+tmux attach-session -t $session

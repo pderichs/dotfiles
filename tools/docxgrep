@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Thanks to https://unix.stackexchange.com/a/743302
+keyword="$1"
+
+fd -t f -e docx . | while read -r arg; do
+    if unzip -p "$arg" 2>/dev/null | rg -q  --ignore-case --fixed-strings "$keyword"; then
+        echo "$arg"
+    fi
+done

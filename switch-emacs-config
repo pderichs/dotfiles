@@ -1,0 +1,46 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use Cwd qw();
+
+my $config=$ARGV[0];
+
+if(not defined $config) {
+  die "No config to switch to provided. Exiting.\n";
+}
+
+
+my $path = Cwd::cwd();
+print("Current path: $path\n");
+
+my $configs_path = "$path/emacs/emacs_configs";
+
+opendir my $dh, $configs_path
+  or die "$0: opendir: $!";
+
+while (defined(my $name = readdir $dh)) {
+  next unless -d "$configs_path/$name";
+  next if $name eq ".";
+  next if $name eq "..";
+  # print("$name\n");
+
+  if($name eq $config) {
+    my $emacs_config_home_symlink = $ENV{"HOME"} . "/.emacs.d";
+
+    if (-e $emacs_config_home_symlink) {
+      # delete existing symlink
+      unlink $emacs_config_home_symlink;
+    }
+
+    # symlink new folder
+    my $source_path = "$configs_path/$name";
+    if (symlink($source_path, $emacs_config_home_symlink)) {
+      print ("  Created.\n");
+    } else {
+      print ("  Not created.\n");
+    }
+
+    last;
+  }
+}

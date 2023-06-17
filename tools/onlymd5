@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Thanks to https://stackoverflow.com/a/3679803
+md5sum "$1" | awk '{ print $1 }'

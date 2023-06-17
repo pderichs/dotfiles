@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find "$1" -type f ! -name "*__checksums.md5" -exec onlymd5 {} \; | sort | tee -a __checksums.md5

@@ -1,0 +1,28 @@
+[global_config]
+  cell_height = 1.3
+[keybindings]
+  go_next = ""
+  copy = <Alt>w
+  paste = <Primary>y
+  new_window = <Primary><Shift>n
+[profiles]
+  [[default]]
+    background_color = "#002b36"
+    background_darkness = 0.92
+    font = Monospace 12
+    foreground_color = "#839496"
+    show_titlebar = False
+    scrollback_lines = 1000
+    scrollback_infinite = True
+    login_shell = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+      size = 900, 800
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]
