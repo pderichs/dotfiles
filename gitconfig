@@ -3,7 +3,7 @@
 	email = derichs@posteo.de
 	signingkey = A9B44D4F6A3D41D70D81E1AB8DC0CEA4F0623FAC
 [gpg]
-  program = qubes-gpg-client-wrapper
+	program = qubes-gpg-client-wrapper
 [core]
 	editor = nvim
 	excludesfile = ~/.gitexcludes
