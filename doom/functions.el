@@ -15,6 +15,19 @@
   (if (null (x-list-fonts font))
       nil t))
 
+;; Thanks to http://blog.binchen.org/posts/easy-indentation-setup-in-emacs-for-web-development.html
+(defun pd/setup-indent-level (n)
+  "Sets the indent level for multiple languages to n."
+  (setq c-basic-offset n) ;; java + c/c++
+  (setq coffee-tab-width n)
+  (setq javascript-indent-level n)
+  (setq js-indent-level n)
+  (setq js2-basic-offset n)
+  (setq web-mode-markup-indent-offset n)
+  (setq web-mode-css-indent-offset n)
+  (setq web-mode-code-indent-offset n)
+  (setq css-indent-offset n))
+
 (defun pd/open-today-todo-file ()
   "Open todo file for today"
   (interactive)

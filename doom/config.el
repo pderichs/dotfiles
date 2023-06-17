@@ -97,5 +97,7 @@
 ;; Enable back button mode
 (back-button-mode 1)
 
-(load! "nim.el")
+;; Default indent level to 2
+(pd/setup-indent-level 2)
 
+(load! "nim.el")
