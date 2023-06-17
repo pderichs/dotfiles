@@ -25,6 +25,9 @@ fi
 
 unset rc
 
+# Uncomment this for laptop environments
+# export PD_LAPTOP="1"
+
 if [ -d "$HOME/.config/emacs" ]; then
     export PATH=$HOME/.config/emacs/bin:$PATH
 fi
