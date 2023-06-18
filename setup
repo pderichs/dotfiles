@@ -45,7 +45,7 @@ my %links = (
   "tools/docxgrep" => "$ENV{HOME}/bin/docxgrep",
   "tools/onlymd5" => "$ENV{HOME}/bin/onlymd5",
   "tools/md5allfiles" => "$ENV{HOME}/bin/md5allfiles",
-  # "neovim/data/nvim" => "$ENV{HOME}/.local/share/nvim"
+  "ripgreprc" => "$ENV{HOME}/.ripgreprc",
 );
 
 my @sources = keys %links;

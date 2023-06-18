@@ -81,3 +81,4 @@ export TODO="$HOME/todo"
 export EDITOR='nvim'
 export TERMINAL="terminator"
 export TERM=xterm-256color
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
