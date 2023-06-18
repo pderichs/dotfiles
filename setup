@@ -43,9 +43,9 @@ my %links = (
   "shell.exports" => "$ENV{HOME}/shell.exports",
   "bashrc" => "$ENV{HOME}/.bashrc",
   "neovim/init.lua" => "$ENV{HOME}/.config/nvim/init.lua",
-  "tools/docxgrep" => "$ENV{HOME}/bin/docxgrep",
-  "tools/onlymd5" => "$ENV{HOME}/bin/onlymd5",
-  "tools/md5allfiles" => "$ENV{HOME}/bin/md5allfiles",
+  "bin/docxgrep" => "$ENV{HOME}/bin/docxgrep",
+  "bin/onlymd5" => "$ENV{HOME}/bin/onlymd5",
+  "bin/md5allfiles" => "$ENV{HOME}/bin/md5allfiles",
   "ripgreprc" => "$ENV{HOME}/.ripgreprc",
 );
 
