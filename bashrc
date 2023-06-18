@@ -66,8 +66,4 @@ eval "$(zoxide init bash)"
 source "$HOME/shell.aliases"
 
 # exports
-export TODO="$HOME/todo"
-export EDITOR='nvim'
-export TERMINAL="terminator"
-export TERM=xterm-256color
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+source "$HOME/shell.exports"
