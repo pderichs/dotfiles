@@ -104,7 +104,7 @@ if($op eq "install") {
     }
   }
 } elsif($op eq "status") {
-  print("Status...\n");
+  print("Status check...\n");
 
   my $status_ok = 1;
   my $sources_size = @sources;
@@ -125,12 +125,18 @@ if($op eq "install") {
         $source_ok_count++;
       }
 
+      if ($status_ok == 0) {
+        print color('red');
+      } else {
+        print color('green');
+      }
       print("$dest_path -> $actual_link_goal\n");
     } else {
       print color('red');
       print("$dest_path -> (not a symlink)\n");
-      print color('reset');
     }
+
+    print color('reset');
   }
 
   print("\n");
