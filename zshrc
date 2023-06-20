@@ -2,13 +2,6 @@
 
 setopt extendedglob
 
-# Set fzf installation directory path
-export FZF_BASE=$(which fzf)
-
-if [ -d "$HOME/bin" ]; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
 # Needed for (vim-)gpg
 export GPG_TTY=`tty`
 
@@ -36,39 +29,13 @@ chbr() {
   gco $(git branch -a | fzf)
 }
 
-if [ -d "$HOME/.config/emacs" ]; then
-    export PATH=$HOME/.config/emacs/bin:$PATH
-fi
-
-if [ -d "$HOME/.asdf" ]; then
-    . $HOME/.asdf/asdf.sh
-fi
-
-# Set JAVA_HOME for asdf installed java
-if [ -e "$HOME/.asdf/shims/java" ]; then
-    . $HOME/.asdf/plugins/java/set-java-home.zsh
-fi
-
 # Create TODO file
 if [ -e "$HOME/todofile.pl" ]; then
     $HOME/todofile.pl > /dev/null
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if [ -f "$HOME/zshrc.local" ]; then
-    source "$HOME/zshrc.local"
-fi
-
-# enables Alt+C etc
-if [ -e /usr/share/doc/fzf/examples/key-bindings.bash ]; then
-  source /usr/share/doc/fzf/examples/key-bindings.bash
-fi
-
-# enables "**" etc
-if [ -e /usr/share/doc/fzf/examples/completion.bash ]; then
-  source /usr/share/doc/fzf/examples/completion.bash
-fi
+# fzf related setup
+source "$HOME/shell.fzf"
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -78,3 +45,11 @@ source "$HOME/shell.aliases"
 
 # exports
 source "$HOME/shell.exports"
+
+# asdf
+source "$HOME/shell.asdf"
+
+# Local customizations
+if [ -f "$HOME/shell.local" ]; then
+    source "$HOME/shell.local"
+fi

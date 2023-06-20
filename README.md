@@ -4,7 +4,7 @@ My dotfiles.
 
 ## Prerequisites
 
-Make sure [perl](https://www.perl.org/) is installed:
+Make sure [Perl](https://www.perl.org/) is installed:
 
 ```sh
 perl -v

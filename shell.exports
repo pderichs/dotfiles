@@ -3,3 +3,11 @@ export EDITOR='nvim'
 export TERMINAL="terminator"
 export TERM=xterm-256color
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+if [ -d "$HOME/.config/emacs" ]; then
+    export PATH=$HOME/.config/emacs/bin:$PATH
+fi
+
+if [ -d "$HOME/bin" ]; then
+    export PATH="$HOME/bin:$PATH"
+fi
