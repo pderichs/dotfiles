@@ -14,7 +14,7 @@ perl -v
 
 #### Prerequisites
 
-Enable rpmfusion repositories.
+Enable rpmfusion repositories. See https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/
 
 ``` sh
 sudo dnf install \
@@ -27,6 +27,18 @@ sudo dnf install \
 
 ```sh
 sudo dnf install p7zip p7zip-plugins unrar xclip mc git neovim fdupes meld fd-find ripgrep doublecmd-gtk weechat fzf wget curl emacs vim zsh fish firejail abiword gnumeric thunderbird gpg rsync gimp ffmpeg youtube-dl brasero sound-juicer perl-Env perl-File-Copy zeal ranger htop fortune-mod perl-Image-ExifTool editorconfig sbcl glslang discount ShellCheck inkscape clamav clamav-update pandoc uuid texlive-scheme-medium autoconf automake gcc libpng-devel make poppler-devel poppler-glib-devel zlib-devel pkgconf macchanger rhythmbox libreoffice mpv util-linux-user terminator audacity fira-code-fonts zstd net-tools nethogs tcpdump iftop xfburn
+```
+
+#### Install Multimedia Libraries
+
+See https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/
+
+``` sh
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+
+sudo dnf install lame\* --exclude=lame-devel
+
+sudo dnf group upgrade --with-optional Multimedia
 ```
 
 #### Development tools
