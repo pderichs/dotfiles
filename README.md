@@ -15,36 +15,13 @@ perl -v
 #### General packages
 
 ```sh
-sudo dnf install p7zip p7zip-plugins unrar xclip mc git neovim fdupes meld fd-find ripgrep doublecmd-gtk weechat fzf wget curl emacs vim zsh fish firejail abiword gnumeric thunderbird gpg rsync gimp ffmpeg youtube-dl brasero sound-juicer perl-Env perl-File-Copy zeal ranger htop fortune-mod perl-Image-ExifTool editorconfig sbcl glslang discount ShellCheck inkscape clamav clamav-update pandoc uuid texlive-scheme-medium autoconf automake gcc libpng-devel make poppler-devel poppler-glib-devel zlib-devel pkgconf macchanger rhythmbox libreoffice mpv util-linux-user terminator audacity fira-code-fonts zstd net-tools nethogs tcpdump iftop xfburn
+sudo dnf install p7zip p7zip-plugins unrar xclip mc git neovim fdupes meld fd-find ripgrep doublecmd-gtk weechat fzf wget curl emacs vim zsh fish firejail abiword gnumeric thunderbird gpg rsync gimp ffmpeg-free youtube-dl brasero sound-juicer perl-Env perl-File-Copy zeal ranger htop fortune-mod perl-Image-ExifTool editorconfig sbcl glslang discount ShellCheck inkscape clamav clamav-update pandoc uuid texlive-scheme-medium autoconf automake gcc libpng-devel make poppler-devel poppler-glib-devel zlib-devel pkgconf macchanger rhythmbox libreoffice mpv util-linux-user terminator audacity fira-code-fonts zstd net-tools nethogs tcpdump iftop xfburn zoxide
 ```
 
 #### Development tools
 
 ```sh
 sudo dnf install gcc g++ cmake valgrind clang tmux ddd kcachegrind patch zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel xz-devel libuuid-devel gdbm-devel libnsl2-devel boost-devel
-```
-
-#### If required: Enable rmpfusion repositiories
-
-Enable rpmfusion repositories. See https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/
-
-``` sh
-sudo dnf install \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-```
-
-#### If required: Install Multimedia Libraries
-
-See https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/
-
-``` sh
-sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
-
-sudo dnf install lame\* --exclude=lame-devel
-
-sudo dnf group upgrade --with-optional Multimedia
 ```
 
 #### Install Doom Emacs
@@ -191,6 +168,31 @@ https://github.com/tonsky/FiraCode
 ### Hack
 
 https://github.com/source-foundry/Hack#quick-installation
+
+## How to enable rmpfusion repositiories
+
+See https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/
+
+``` sh
+sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+```
+
+## Only if required: Install Multimedia Libraries
+
+**Attention!** This might break / block updates of other packages. Consider alternatives, e.g. `mpv` and `vlc` already support a lot of formats OOTB.
+
+See https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/
+
+``` sh
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+
+sudo dnf install lame\* --exclude=lame-devel
+
+sudo dnf group upgrade --with-optional Multimedia
+```
 
 # License
 
