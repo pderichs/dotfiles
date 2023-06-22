@@ -149,7 +149,7 @@ if($op eq "install") {
     print("Something is off...");
   }
 
-  print("\n");
+  print("\n\n");
 } else {
   die "Please provide a valid command.\n";
 }
