@@ -4,4 +4,4 @@ emacs/*
 emacs/!init.el
 
 tmux.core
-
+shell/local

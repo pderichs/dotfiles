@@ -35,21 +35,21 @@ if [ -e "$HOME/todofile.pl" ]; then
 fi
 
 # fzf related setup
-source "$HOME/shell.fzf"
+source "$HOME/.shell/fzf"
 
 # zoxide
 eval "$(zoxide init zsh)"
 
 # aliases
-source "$HOME/shell.aliases"
+source "$HOME/.shell/aliases"
 
 # exports
-source "$HOME/shell.exports"
+source "$HOME/.shell/exports"
 
 # asdf
-source "$HOME/shell.asdf"
+source "$HOME/.shell/asdf"
 
 # Local customizations
-if [ -f "$HOME/shell.local" ]; then
-    source "$HOME/shell.local"
+if [ -f "$HOME/.shell/local" ]; then
+    source "$HOME/.shell/local"
 fi
