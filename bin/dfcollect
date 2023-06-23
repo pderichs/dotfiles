@@ -1,0 +1,13 @@
+#!/bin/sh
+
+date=$(date '+%Y-%m-%d')
+
+declare -a folders=("dotfiles"
+                    ".config/emacs"
+                    ".config/nvim"
+                    ".local/share/nvim")
+
+for f in "${folders[@]}"
+do
+    zip -ur "$HOME/dotfiles_backup_$date.zip" "$HOME/$f"
+done
