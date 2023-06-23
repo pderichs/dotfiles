@@ -23,7 +23,6 @@ Plug 'zah/nim.vim'
 Plug 'wuelnerdotexe/vim-enfocado'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -174,6 +173,10 @@ nnoremap <leader>p "+p
 
 " TODO
 xnoremap p pgvy
+
+nnoremap <Bslash> V
+
+"nnoremap M <Plug>(expand_region_expand)
 
 " toggle relative line numbers
 nnoremap <silent><leader>n :set relativenumber!<CR>
