@@ -29,16 +29,11 @@ chbr() {
   gco $(git branch -a | fzf)
 }
 
-# Create TODO file
-if [ -e "$HOME/todofile.pl" ]; then
-    $HOME/todofile.pl > /dev/null
-fi
+# zoxide
+eval "$(zoxide init zsh)"
 
 # fzf related setup
 source "$HOME/.shell/fzf"
-
-# zoxide
-eval "$(zoxide init zsh)"
 
 # aliases
 source "$HOME/.shell/aliases"
@@ -52,4 +47,9 @@ source "$HOME/.shell/asdf"
 # Local customizations
 if [ -f "$HOME/.shell/local" ]; then
     source "$HOME/.shell/local"
+fi
+
+# Create TODO file
+if [ -e "$HOME/todofile.pl" ]; then
+    $HOME/todofile.pl > /dev/null
 fi

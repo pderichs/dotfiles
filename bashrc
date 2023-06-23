@@ -22,16 +22,11 @@ unset rc
 # Uncomment this for laptop environments
 # export PD_LAPTOP="1"
 
-# Create TODO file
-if [ -e "$HOME/todofile.pl" ]; then
-    $HOME/todofile.pl > /dev/null
-fi
+# zoxide
+eval "$(zoxide init bash)"
 
 # fzf related setup
 source "$HOME/.shell/fzf"
-
-# zoxide
-eval "$(zoxide init bash)"
 
 # aliases
 source "$HOME/.shell/aliases"
@@ -42,4 +37,9 @@ source "$HOME/.shell/exports"
 # Local customizations
 if [ -f "$HOME/.shell/local" ]; then
     source "$HOME/.shell/local"
+fi
+
+# Create TODO file
+if [ -e "$HOME/todofile.pl" ]; then
+    $HOME/todofile.pl > /dev/null
 fi

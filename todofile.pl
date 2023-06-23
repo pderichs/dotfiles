@@ -7,6 +7,10 @@ use Env;
 use File::Spec::Functions 'catfile';
 use File::Copy;
 
+if ($ENV{'PD_SKIP_TODO_FILE'} eq '1') {
+    exit;
+}
+
 my $todo_folder = $ENV{TODO};
 
 my @months = qw( Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec );
