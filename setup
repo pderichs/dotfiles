@@ -31,7 +31,6 @@ my %links = (
   "gitexcludes" => "$ENV{HOME}/.gitexcludes",
   "rspec" => "$ENV{HOME}/.rspec",
   "gemrc" => "$ENV{HOME}/.gemrc",
-  "todofile.pl" => "$ENV{HOME}/todofile.pl",
   "i3_config" => "$ENV{HOME}/.config/i3/config",
   "terminator_config" => "$ENV{HOME}/.config/terminator/config",
   "lynxrc" => "$ENV{HOME}/.lynxrc",
@@ -40,6 +39,7 @@ my %links = (
   "shell" => "$ENV{HOME}/.shell",
   "bashrc" => "$ENV{HOME}/.bashrc",
   "neovim/init.lua" => "$ENV{HOME}/.config/nvim/init.lua",
+  "bin/todofile" => "$ENV{HOME}/bin/todofile",
   "bin/docxgrep" => "$ENV{HOME}/bin/docxgrep",
   "bin/onlymd5" => "$ENV{HOME}/bin/onlymd5",
   "bin/md5allfiles" => "$ENV{HOME}/bin/md5allfiles",
@@ -66,11 +66,11 @@ if($op eq "install") {
     if(-e $source_path) {
       if(symlink($source_path, $dest_path)) {
         print color('green');
-        print("  created.");
+        print("    created.");
         print color('reset');
       } else {
         print color('red');
-        print("  not created.");
+        print("    not created.");
         print color('reset');
       }
     } else {
