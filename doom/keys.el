@@ -31,6 +31,7 @@
 (map! :leader :desc "Jump to workspace symbol" "jj" #'consult-lsp-symbols)
 (map! :leader :desc "Jump to workspace symbol" "jd" #'consult-lsp-diagnostics)
 (map! :leader :desc "Open Zettelkasten search" "ze" (lambda () (interactive) (consult-ripgrep (concat user-personal-zettelkasten-folder))))
+(map! :leader :desc "Open current folder in file manager" "cd" (lambda () (interactive) (call-process "xdg-open" nil 0 nil ".")))
 
 ;; Switch view of workspace buffers with all buffers
 (map! :leader :desc "Quick jump to all buffers" "bb" #'consult-buffer)
