@@ -20,7 +20,6 @@ if(not defined $op) {
 my $path = Cwd::cwd();
 
 my %links = (
-  "alacritty.yml" => "$ENV{HOME}/.alacritty.yml",
   "doom" => "$ENV{HOME}/.doom.d",
   "tool-versions" => "$ENV{HOME}/.tool-versions",
   "zshrc" => "$ENV{HOME}/.zshrc",
