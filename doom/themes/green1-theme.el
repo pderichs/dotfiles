@@ -12,7 +12,7 @@
 ;;; Code:
 
 (deftheme green1
-  "Just a theme with a light green background.")
+  "A theme with a light green background.")
 
 (custom-theme-set-faces
  'green1
