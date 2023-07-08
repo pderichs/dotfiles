@@ -35,7 +35,8 @@
 (if (string= (getenv "PD_LAPTOP") "1")
     (setq doom-theme 'doom-solarized-dark-high-contrast)
   (if (string= (system-name) "development")
-      (setq doom-theme 'doom-acario-light)
+      (setq doom-theme 'doom-Iosvkem)
+      ;;(setq doom-theme 'doom-acario-light)
     (setq doom-theme 'doom-opera-light)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line

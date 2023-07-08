@@ -94,6 +94,19 @@
 (add-hook 'c-mode-hook 'pd/setup-c-cpp-mode)
 (add-hook 'cpp-mode-hook 'pd/setup-c-cpp-mode)
 
+;; Set docsets according to file type
+(add-hook 'rust-mode-hook
+          (lambda () (setq zeal-at-point-docset "rust")))
+(add-hook 'c-mode-hook
+          (lambda () (setq zeal-at-point-docset '("c" "cpp"))))
+(add-hook 'cpp-mode-hook
+          (lambda () (setq zeal-at-point-docset '("c" "cpp"))))
+(add-hook 'html-mode-hook
+          (lambda () (setq zeal-at-point-docset "html")))
+(add-hook 'css-mode-hook
+          (lambda () (setq zeal-at-point-docset "css")))
+;; TODO Add more
+
 ;; Enable back button mode
 (back-button-mode 1)
 
@@ -101,3 +114,5 @@
 (pd/setup-indent-level 2)
 
 (load! "nim.el")
+
+(load! "debug.el")

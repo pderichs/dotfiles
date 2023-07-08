@@ -58,6 +58,7 @@
 (package! fzf)
 (package! zoxide)
 (package! xkcd)
+(package! zeal-at-point)
 
 ;; Additional themes
 (package! zeno-theme)
@@ -80,3 +81,6 @@
 ;; See:
 ;; https://discourse.doomemacs.org/t/typing-jk-deletes-j-and-returns-to-normal-mode/59
 (package! evil-escape :disable t)
+
+;; Debugging support rust
+(package! dap-mode)
