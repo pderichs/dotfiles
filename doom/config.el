@@ -95,8 +95,6 @@
 (add-hook 'cpp-mode-hook 'pd/setup-c-cpp-mode)
 
 ;; Set docsets according to file type
-(add-hook 'rust-mode-hook
-          (lambda () (setq zeal-at-point-docset "rust")))
 (add-hook 'c-mode-hook
           (lambda () (setq zeal-at-point-docset '("c" "cpp"))))
 (add-hook 'cpp-mode-hook
@@ -105,6 +103,8 @@
           (lambda () (setq zeal-at-point-docset "html")))
 (add-hook 'css-mode-hook
           (lambda () (setq zeal-at-point-docset "css")))
+(add-hook 'rust-mode-hook
+          (lambda () (setq zeal-at-point-docset "rust")))
 ;; TODO Add more
 
 ;; Enable back button mode

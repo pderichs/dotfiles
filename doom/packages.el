@@ -82,5 +82,5 @@
 ;; https://discourse.doomemacs.org/t/typing-jk-deletes-j-and-returns-to-normal-mode/59
 (package! evil-escape :disable t)
 
-;; Debugging support rust
+;; Debugging support
 (package! dap-mode)
