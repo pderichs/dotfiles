@@ -113,6 +113,9 @@
 ;; Default indent level to 2
 (pd/setup-indent-level 2)
 
+;; Emacs should respect editorconfig
+(editorconfig-mode 1)
+
 (load! "nim.el")
 
 (load! "debug.el")
