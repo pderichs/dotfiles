@@ -70,6 +70,11 @@
 (define-key evil-normal-state-map (kbd "C-w") #'kill-region)
 (define-key evil-normal-state-map (kbd "M-w") #'kill-ring-save)
 
+;; org-mode: Shift-up should move to parent item
+(add-hook 'org-mode-hook
+          (lambda ()
+            (define-key! org-mode-map "S-<up>" #'outline-up-heading))) ;; replaces org-shiftup
+
 ;; ----------------------------------------------------------------------------------------------------
 ;; LSP Configuration (hook)
 ;; ----------------------------------------------------------------------------------------------------
