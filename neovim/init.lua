@@ -184,6 +184,7 @@ keymap.set('n', 'gb', '<C-o>') -- go back (<C-i> to go forward)
 keymap.set('n', 'gss', ':HopChar2<CR>') -- Jump to char
 
 keymap.set('n', '\\', 'V') 
+keymap.set('n', '-', 'V') 
 
 -- thanks to https://www.youtube.com/watch?v=w7i4amO_zaE
 --   https://github.com/ThePrimeagen/init.lua
