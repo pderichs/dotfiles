@@ -14,7 +14,9 @@
 ;;(setq used-font "More Perfect DOS VGA")
 ;;(setq used-font "Hack")
 ;;(setq used-font "ProggyVector")
-(setq used-font "Courier 10 Pitch")
+;;(setq used-font "Courier 10 Pitch")
+;;(setq used-font "Courier Code")
+(setq used-font "JetBrains Mono")
 (if (string= (getenv "PD_LAPTOP") "1")
     (setq used-font-size 25)
   (setq used-font-size 16))
@@ -35,8 +37,8 @@
 (if (string= (getenv "PD_LAPTOP") "1")
     (setq doom-theme 'doom-solarized-dark-high-contrast)
   (if (string= (system-name) "development")
-      (setq doom-theme 'doom-tokyo-night)
-      ;;(setq doom-theme 'doom-acario-light)
+      (setq doom-theme 'doom-solarized-dark-high-contrast)
+    ;;(setq doom-theme 'doom-acario-light)
     (setq doom-theme 'doom-opera-light)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line

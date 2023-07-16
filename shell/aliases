@@ -34,3 +34,5 @@ alias ...="cd ../.."
 
 alias ls="ls --color=auto"
 alias ll="ls -lisa"
+
+alias fm="clear && make clean && make -j 5"
