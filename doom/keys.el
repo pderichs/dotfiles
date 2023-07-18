@@ -22,6 +22,7 @@
 (map! :leader :desc "Search for a file in a specific folder" "ä" #'pd/search-file-in-folder)
 (map! :leader :desc "Delete current buffer" "kk" #'kill-current-buffer)
 (map! :leader :desc "Compiles current project by calling make in root folder" "cc" (lambda () (interactive) (pd/compile-from-vc-root-folder "make -k")))
+;;(map! :leader :desc "Compiles current project by calling make in root folder" "cc" #'compile) ;; old version - does not work all the time
 (map! :leader :desc "Mark whole buffer" "hh" #'mark-whole-buffer)
 ;;(map! :leader :desc "Compile project" "cc" #'+make/run)
 ;;(map! :leader :desc "Compile project" "cc" #'compile)
