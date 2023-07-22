@@ -7,6 +7,9 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitexcludes
+[credential]
+	helper = cache --timeout=3600
+	username = pderichs
 [pull]
 	rebase = true
 [commit]
