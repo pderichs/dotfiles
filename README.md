@@ -21,7 +21,7 @@ sudo dnf install p7zip p7zip-plugins unrar xclip mc git neovim fdupes meld fd-fi
 #### Development tools
 
 ```sh
-sudo dnf install gcc g++ cmake valgrind clang tmux ddd kcachegrind patch zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel xz-devel libuuid-devel gdbm-devel libnsl2-devel boost-devel gtk3-devel
+sudo dnf install gcc g++ cmake valgrind clang tmux ddd kcachegrind patch zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel xz-devel libuuid-devel gdbm-devel libnsl2-devel boost-devel gtk3-devel clang-tools-extra
 ```
 
 #### Install Doom Emacs
