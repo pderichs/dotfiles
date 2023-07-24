@@ -71,6 +71,10 @@
 (define-key evil-normal-state-map (kbd "C-w") #'kill-region)
 (define-key evil-normal-state-map (kbd "M-w") #'kill-ring-save)
 
+(define-key evil-normal-state-map (kbd "M-n") #'next-error)
+(define-key evil-normal-state-map (kbd "M-p") #'previous-error)
+
+
 ;; org-mode: Shift-up should move to parent item
 (add-hook 'org-mode-hook
           (lambda ()
