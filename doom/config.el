@@ -119,3 +119,5 @@
 (load! "nim.el")
 
 (load! "debug.el")
+
+(pd/create-todays-todo-file (pd/todo-file-name))

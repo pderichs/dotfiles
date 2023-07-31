@@ -18,7 +18,7 @@
 ;;(setq used-font "Courier Code")
 (setq used-font "JetBrains Mono")
 (if (string= (getenv "PD_LAPTOP") "1")
-    (setq used-font-size 25)
+    (setq used-font-size 24) ;; temp
   (setq used-font-size 16))
 (setq doom-font (font-spec :family used-font :size used-font-size :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family used-font :size used-font-size))
@@ -35,7 +35,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (if (string= (getenv "PD_LAPTOP") "1")
-    (setq doom-theme 'doom-solarized-dark-high-contrast)
+    (setq doom-theme 'tron-legacy)
   (if (string= (system-name) "development")
       (setq doom-theme 'doom-solarized-dark-high-contrast)
     ;;(setq doom-theme 'doom-acario-light)

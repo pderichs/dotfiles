@@ -28,10 +28,14 @@
   (setq web-mode-code-indent-offset n)
   (setq css-indent-offset n))
 
+(defun pd/todo-file-name ()
+  "Returns the name of today's todo file"
+  (format-time-string "%Y%m%d.org.gpg"))
+
 (defun pd/open-today-todo-file ()
   "Open todo file for today"
   (interactive)
-  (find-file (concat  (getenv "TODO") "/" (format-time-string "%Y%m%d.org.gpg")))
+  (find-file (concat  (getenv "TODO") "/" (pd/todo-file-name)))
   (org-mode))
 
 (defun pd/open-notes-file ()
@@ -119,6 +123,7 @@
   (let* ((system-includes
           '(
             ("vector" . t)
+            ("any" . t)
             ("list" . t)
             ("deque" . t)
             ("limits" . t)
