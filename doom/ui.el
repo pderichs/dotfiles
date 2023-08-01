@@ -37,7 +37,7 @@
 (if (string= (getenv "PD_LAPTOP") "1")
     (setq doom-theme 'tron-legacy)
   (if (string= (system-name) "development")
-      (setq doom-theme 'doom-solarized-dark-high-contrast)
+      (setq doom-theme 'tron-legacy)
     ;;(setq doom-theme 'doom-acario-light)
     (setq doom-theme 'doom-opera-light)))
 
