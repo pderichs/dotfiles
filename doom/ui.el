@@ -18,7 +18,7 @@
 ;;(setq used-font "Courier Code")
 (setq used-font "JetBrains Mono")
 (if (string= (getenv "PD_LAPTOP") "1")
-    (setq used-font-size 24) ;; temp
+    (setq used-font-size 24)
   (setq used-font-size 16))
 (setq doom-font (font-spec :family used-font :size used-font-size :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family used-font :size used-font-size))
@@ -35,11 +35,10 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (if (string= (getenv "PD_LAPTOP") "1")
-    (setq doom-theme 'tron-legacy)
+    (setq doom-theme 'doom-acario-light)
   (if (string= (system-name) "development")
       (setq doom-theme 'tron-legacy)
-    ;;(setq doom-theme 'doom-acario-light)
-    (setq doom-theme 'doom-opera-light)))
+    (setq doom-theme 'zeno)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
