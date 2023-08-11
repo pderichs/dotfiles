@@ -38,7 +38,7 @@
     (setq doom-theme 'doom-acario-light)
   (if (string= (system-name) "development")
       (setq doom-theme 'tron-legacy)
-    (setq doom-theme 'zeno)))
+    (setq doom-theme 'doom-acario-light)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -48,7 +48,7 @@
 (if (window-system)
     (if (string= (getenv "PD_LAPTOP") "1")
         (add-to-list 'default-frame-alist '(fullscreen . maximized))
-      (set-frame-size (selected-frame) 190 80)))
+      (set-frame-size (selected-frame) 150 80)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
