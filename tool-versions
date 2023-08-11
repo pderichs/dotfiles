@@ -1,10 +1,11 @@
 java openjdk-20
-nodejs 19.9.0
+nodejs 20.5.1
 
 maven 3.9.1
 ruby 3.1.2
-nim 1.6.12
+nim 2.0.0
 ocaml 4.14.0
 python 3.11.3
 zig master
 rust 1.70.0
+golang 1.21.0
