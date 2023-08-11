@@ -5,24 +5,15 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
-Plug 'flazz/vim-colorschemes'
-Plug 'bling/vim-airline'
-Plug 'fatih/vim-go'
 Plug 'tpope/vim-surround'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'luochen1990/rainbow'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'wellle/targets.vim'
 Plug 'jamessan/vim-gnupg'
-Plug 'zah/nim.vim'
 Plug 'wuelnerdotexe/vim-enfocado'
 Plug 'francoiscabrol/ranger.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " All of your Plugins must be added before the following line
 call plug#end()
 
@@ -174,7 +165,7 @@ nnoremap <leader>p "+p
 " TODO
 xnoremap p pgvy
 
-nnoremap <Bslash> V
+nnoremap - V
 
 "nnoremap M <Plug>(expand_region_expand)
 
