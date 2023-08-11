@@ -4,9 +4,9 @@ export FZF_BASE=$(which fzf)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # enables Alt+C etc
-if [ -e /usr/share/doc/fzf/examples/key-bindings.bash ]; then
-  source /usr/share/doc/fzf/examples/key-bindings.bash
-fi
+# if [ -e /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+#   source /usr/share/doc/fzf/examples/key-bindings.bash
+# fi
 
 # enables "**" etc
 if [ -e /usr/share/doc/fzf/examples/completion.bash ]; then
