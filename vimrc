@@ -2,7 +2,6 @@ set nocompatible
 filetype off
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
@@ -59,7 +58,7 @@ set autoindent
 set smartindent
 
 set termguicolors
-set background=dark
+set background=light
 set t_Co=256
 syntax on
 
@@ -70,6 +69,7 @@ set showmatch
 set wildmode=longest:full
 set wildmenu
 set laststatus=2
+set relativenumber
 
 " Turn off menubar and toolbar in gui mode
 if has('gui_running')
@@ -87,11 +87,10 @@ if executable('rg')
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+" Remove superfluous whitespace on write
 if has('autocmd')
   autocmd BufWritePre * :%s/\s\+$//e
 endif
-
-let g:airline_powerline_fonts = 1
 
 " Tags (generate with "ctags -R")
 set autochdir
@@ -102,19 +101,12 @@ let g:ranger_map_keys = 0
 let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 
 " Keys
-nmap - :tabnext<CR>
-
-" switch between header/source with F4 C
-map <F4> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
 
 " recreate tags file with F5
 map <F5> :!ctags -R --exclude=.git --exclude=log .<CR>
 
 " make
 imap <F7> <ESC>:w<CR>:make<CR>
-
-" make all
-map <S-F7> :make clean all<CR>
 
 " macro recording
 nmap <S-F8> qq
@@ -155,6 +147,9 @@ nnoremap <leader>ff :Ranger<CR>
 nnoremap <leader>tt :NERDTreeToggle<CR>
 nnoremap <leader>bn :ene<CR>
 nnoremap <leader>ot :shell<CR>
+nnoremap <leader>of :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
+nnoremap <leader>cc :w<CR>:make<CR>
+nnoremap <leader>, v$
 
 nnoremap Q q
 nnoremap q <Nop>
@@ -162,12 +157,7 @@ nnoremap q <Nop>
 vnoremap <leader>c "+y
 nnoremap <leader>p "+p
 
-" TODO
-xnoremap p pgvy
-
 nnoremap - V
-
-"nnoremap M <Plug>(expand_region_expand)
 
 " toggle relative line numbers
 nnoremap <silent><leader>n :set relativenumber!<CR>
@@ -181,3 +171,4 @@ nnoremap <C-j> }
 colorscheme enfocado
 let g:enfocado_style = 'neon' " Available: `nature` or `neon`.
 let g:airline_theme='enfocado'
+
