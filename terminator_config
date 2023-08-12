@@ -7,10 +7,9 @@
   new_window = <Primary><Shift>n
 [profiles]
   [[default]]
-    background_color = "#ffffdd"
     background_darkness = 0.92
     font = Monospace 12
-    foreground_color = "#000000"
+    foreground_color = "#00ff00"
     show_titlebar = False
     scrollback_lines = 1000
     scrollback_infinite = True
