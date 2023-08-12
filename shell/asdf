@@ -4,5 +4,9 @@ fi
 
 # Set JAVA_HOME for asdf installed java
 if [ -e "$HOME/.asdf/shims/java" ]; then
-    . $HOME/.asdf/plugins/java/set-java-home.zsh
+   . $HOME/.asdf/plugins/java/set-java-home.zsh
+fi
+
+if [ -e "$HOME/.asdf/shims/go" ]; then
+   . ~/.asdf/plugins/golang/set-env.zsh
 fi
