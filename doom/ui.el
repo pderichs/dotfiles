@@ -10,16 +10,10 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 
-;;(setq used-font "Fira Code")
-;;(setq used-font "More Perfect DOS VGA")
-;;(setq used-font "Hack")
-;;(setq used-font "ProggyVector")
-;;(setq used-font "Courier 10 Pitch")
-;;(setq used-font "Courier Code")
 (setq used-font "JetBrains Mono")
 (if (string= (getenv "PD_LAPTOP") "1")
     (setq used-font-size 24)
-  (setq used-font-size 16))
+  (setq used-font-size 14))
 (setq doom-font (font-spec :family used-font :size used-font-size :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family used-font :size used-font-size))
 
