@@ -105,6 +105,8 @@
           (lambda () (setq zeal-at-point-docset "css")))
 (add-hook 'rust-mode-hook
           (lambda () (setq zeal-at-point-docset "rust")))
+(add-hook 'go-mode-hook
+          (lambda () (setq zeal-at-point-docset "go")))
 ;; TODO Add more
 
 ;; Enable back button mode
@@ -117,6 +119,7 @@
 (editorconfig-mode 1)
 
 (load! "nim.el")
+(load! "go.el")
 
 (load! "debug.el")
 
