@@ -23,6 +23,7 @@
 (map! :leader :desc "Delete current buffer" "kk" #'kill-current-buffer)
 (map! :leader :desc "Compiles current project by calling make in root folder" "cc" (lambda () (interactive) (pd/compile-from-vc-root-folder "make -k")))
 (map! :leader :desc "Calling run make target in vc root folder" "cr" (lambda () (interactive) (pd/compile-from-vc-root-folder "make run")))
+(map! :leader :desc "Calling debug make target in vc root folder" "cg" (lambda () (interactive) (pd/compile-from-vc-root-folder "make debug")))
 (map! :leader :desc "Calling unittests make target in vc root folder" "cu" (lambda () (interactive) (pd/compile-from-vc-root-folder "make unittests")))
 (map! :leader :desc "Executing make and build make targets in vc root folder" "ca" (lambda () (interactive) (pd/compile-from-vc-root-folder "make clean && make -k -j 6")))
 ;;(map! :leader :desc "Compiles current project by calling make in root folder" "cc" #'compile) ;; old version - does not work all the time

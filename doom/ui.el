@@ -30,9 +30,7 @@
 ;; `load-theme' function. This is the default:
 (if (string= (getenv "PD_LAPTOP") "1")
     (setq doom-theme 'doom-acario-light)
-  (if (string= (system-name) "development")
-      (setq doom-theme 'tron-legacy)
-    (setq doom-theme 'doom-acario-light)))
+  (setq doom-theme 'doom-acario-light))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.

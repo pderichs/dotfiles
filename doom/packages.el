@@ -72,6 +72,8 @@
 (package! reykjavik-theme)
 (package! cyberpunk-theme)
 (package! humanoid-themes)
+(package! afternoon-theme)
+(package! color-theme-sanityinc-tomorrow)
 
 ;; Disable evil-escape minor mode
 ;; Fastly typing j and k is a shortcut for Esc. This causes

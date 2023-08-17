@@ -139,6 +139,7 @@
             ("optional" . t)
             ("queue" . t)
             ("ostream" . t)
+            ("chrono" . t)
             ("iterator" . t)
             ("stdexcept" . t)
             ("regex" . t)
