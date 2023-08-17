@@ -18,7 +18,7 @@
       doom-variable-pitch-font (font-spec :family used-font :size used-font-size))
 
 ;; Creates some space between lines
-(setq-default line-spacing 5)
+(setq-default line-spacing 6)
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -29,8 +29,8 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (if (string= (getenv "PD_LAPTOP") "1")
-    (setq doom-theme 'doom-acario-light)
-  (setq doom-theme 'doom-acario-light))
+    (setq doom-theme 'doom-solarized-dark-high-contrast)
+  (setq doom-theme 'doom-solarized-dark-high-contrast))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
