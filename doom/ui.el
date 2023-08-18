@@ -12,7 +12,7 @@
 
 (setq used-font "JetBrains Mono")
 (if (string= (getenv "PD_LAPTOP") "1")
-    (setq used-font-size 24)
+    (setq used-font-size 21)
   (setq used-font-size 14))
 (setq doom-font (font-spec :family used-font :size used-font-size :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family used-font :size used-font-size))
