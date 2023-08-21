@@ -174,7 +174,7 @@ nnoremap <C-Down> }
 nnoremap <C-k> {
 nnoremap <C-j> }
 
-" colorscheme enfocado
-" let g:enfocado_style = 'neon' " Available: `nature` or `neon`.
-" let g:airline_theme='enfocado'
+colorscheme enfocado
+let g:enfocado_style = 'neon' " Available: `nature` or `neon`.
+let g:airline_theme='enfocado'
 
