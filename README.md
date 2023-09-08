@@ -161,6 +161,34 @@ dnf install python-vlc (optional)
 
 ## Fonts
 
+### Doom Emacs
+
+Sometimes the modeline icons and general icons cannot be loaded correctly causing nasty placeholder icons in the UI.
+
+There are some font packages needed which can be installed from within emacs:
+
+```
+  M-x all-the-icons-install-fonts
+```
+
+and
+
+```
+  M-x nerd-icons-install-fonts
+```
+
+Following fonts should be installed on the system as well:
+
+``` sh
+  apt install fonts-firacode fonts-dejavu fonts-hack
+```
+
+**Important** Update the font cache afterwards:
+
+``` sh
+  fc-cache -f -v
+```
+
 ### Fira Code
 
 https://github.com/tonsky/FiraCode
