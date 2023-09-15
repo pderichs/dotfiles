@@ -18,7 +18,7 @@
       doom-variable-pitch-font (font-spec :family used-font :size used-font-size))
 
 ;; Creates some space between lines
-(setq-default line-spacing 6)
+(setq-default line-spacing 7)
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
