@@ -33,7 +33,7 @@
   (format-time-string "%Y%m%d.org.gpg"))
 
 (defun pd/insert-gpl-header ()
-  "Inserts a file header in a C/C++ comment at the current cursor position"
+  "Inserts a GPLv3 file header in a C/C++ comment at the current cursor position"
   (interactive)
   (insert "/**")
   (newline)
