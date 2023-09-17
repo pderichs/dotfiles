@@ -70,8 +70,9 @@
 ;; they are implemented.
 
 ;; Configure fortune (https://www.emacswiki.org/emacs/Fortune)
-(setq fortune-dir "/usr/share/games/fortune")
-(setq fortune-file "/usr/share/games/fortune/bofh-excuses")
+(setq fortune-dir "/usr/share/games/fortunes")
+(setq fortune-file "/usr/share/games/fortunes")
+(setq fortune-program "/usr/games/fortune")
 
 ;; Increase kill ring max
 (setq kill-ring-max 100)

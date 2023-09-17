@@ -157,6 +157,20 @@
   (evil-first-non-blank-of-visual-line)
   (forward-evil-word 4))
 
+(defun pd/cpp-delete-copy-constructor-and-assignment-operator ()
+  "Queries user for class name and inserts delete statements
+for copy constructor and assignment operator."
+  (interactive)
+  (let ((class-name (read-string "Class identifier: ")))
+  (newline)
+  (insert "// Delete copy constructor and assignment operator")
+  (newline)
+  (insert class-name "(const " class-name " &other) = delete;")
+  (newline)
+  (insert class-name "&operator=(const " class-name " &other) = delete;")
+  (newline)
+  (lsp-format-buffer)))
+
 (defun pd/cpp-include-file-candidates (dir)
   "Returns a list which combines default and local include files"
   (let* ((system-includes
