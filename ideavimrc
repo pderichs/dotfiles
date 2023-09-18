@@ -28,7 +28,8 @@ nnoremap <leader>fb :action ShowTypeBookmarks<CR>
 nnoremap <leader>sc :action EditorScrollToCenter<CR>
 nnoremap <leader>ww :action NextSplitter<CR>
 nnoremap <leader>w/ :action SplitVertically<CR>
-nnoremap <leader>wd :action CloseContent<CR>
+nnoremap <leader>w- :action SplitHorizontally<CR>
+nnoremap <leader>wd :action Unsplit<CR>
 nnoremap <leader>rr :action RenameElement<cr>
 
 nnoremap <leader>, v$h
@@ -73,8 +74,16 @@ vnoremap <leader>ma :action SelectAllOccurrences<CR>
 nnoremap <leader>mu :action UnselectPreviousOccurrence<CR>
 vnoremap <leader>mu :action UnselectPreviousOccurrence<CR>
 
+nnoremap <leader>hh :action $SelectAll<CR>
+nnoremap <leader>cf :action ReformatCode<CR>
+nnoremap <leader>ca :action CMake.CompileCurrentFile<CR>
+nnoremap <leader>cc :action CidrBuildRunToolbar<CR>
+nnoremap <leader>cr :action Run<CR>
+
 nnoremap <leader>of :action CIDR.Lang.SwitchHeaderSource<CR>
 
 " Jumping between paragraphs
 nnoremap <C-Up> {
 nnoremap <C-Down> }
+
+nnoremap - V
