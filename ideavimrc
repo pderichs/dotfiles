@@ -2,7 +2,7 @@ let mapleader = " "
 
 set ideajoin
 set hlsearch
-set scrolloff=3
+set scrolloff=10
 set ignorecase smartcase
 set showmode
 set history=1000
