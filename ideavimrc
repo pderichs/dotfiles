@@ -84,6 +84,9 @@ nnoremap <leader>* viw:action FindInPath<CR>
 nnoremap <leader>of :action CIDR.Lang.SwitchHeaderSource<CR>
 nnoremap <leader>gg :action CheckinProject<CR>
 
+nnoremap <leader><return> :action ToggleBookmarkWithMnemonic<CR>
+nnoremap <leader>lb :action ShowBookmarks<CR>
+
 " Jumping between paragraphs
 nnoremap <C-Up> {
 nnoremap <C-Down> }
