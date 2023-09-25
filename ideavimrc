@@ -91,6 +91,8 @@ nnoremap <leader>nt :action ActivateProjectToolWindow<CR>
 
 nnoremap <leader>jj :action GotoSymbol<CR>
 
+nnoremap <leader><leader> :action GotoAction<CR>
+
 " Jumping between paragraphs
 nnoremap <C-Up> {
 nnoremap <C-Down> }
