@@ -87,6 +87,10 @@ nnoremap <leader>gg :action CheckinProject<CR>
 nnoremap <leader><return> :action ToggleBookmarkWithMnemonic<CR>
 nnoremap <leader>lb :action ShowBookmarks<CR>
 
+nnoremap <leader>nt :action ActivateProjectToolWindow<CR>
+
+nnoremap <leader>jj :action GotoSymbol<CR>
+
 " Jumping between paragraphs
 nnoremap <C-Up> {
 nnoremap <C-Down> }
