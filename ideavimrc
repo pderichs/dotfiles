@@ -14,8 +14,8 @@ set multiple-cursors
 " selected in visual mode for some reason (bug?)
 " set clipboard+=unnamed
 
-nnoremap <leader>y :action $Copy<CR>
-nnoremap <leader>p :action $Paste<CR>
+vnoremap <leader>y :action $Copy<CR>
+vnoremap <leader>p :action $Paste<CR>
 
 nnoremap <leader>qq :action Exit<CR>
 nnoremap <leader>bd :close<CR>
