@@ -1,5 +1,7 @@
 let mapleader = " "
 
+set nu
+set relativenumber
 set ideajoin
 set hlsearch
 set scrolloff=10
