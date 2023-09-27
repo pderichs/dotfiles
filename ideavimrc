@@ -2,10 +2,10 @@ let mapleader = " "
 
 set nu
 set relativenumber
-set ideajoin
 set hlsearch
 set scrolloff=10
-set ignorecase smartcase
+set ignorecase
+set smartcase
 set showmode
 set history=1000
 set multiple-cursors
