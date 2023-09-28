@@ -9,6 +9,7 @@ set smartcase
 set showmode
 set history=1000
 set multiple-cursors
+set ideajoin
 
 " Use system clipboard - disabled for now: copies every text
 " selected in visual mode for some reason (bug?)
