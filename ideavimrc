@@ -19,91 +19,72 @@ vnoremap <leader>y :action $Copy<CR>
 vnoremap <leader>p :action $Paste<CR>
 vnoremap <leader>d :action $Cut<CR>
 vnoremap <leader>x :action $Cut<CR>
-
 nnoremap <leader>qq :action Exit<CR>
 nnoremap <leader>bd :close<CR>
-
 nnoremap <leader>fr :action RecentFiles<CR>
-
 nnoremap <leader>pf :action SearchEverywhere<CR>
 nnoremap <leader>/ :action FindInPath<CR>
 vnoremap <leader>/ :action FindInPath<CR>
 nnoremap <leader>ji :action FileStructurePopup<CR>
 nnoremap <leader>ff :action GotoFile<CR>
-
 nnoremap <leader>sb :action ToggleBookmarkWithMnemonic<CR>
 nnoremap <leader>fb :action ShowTypeBookmarks<CR>
-
 nnoremap <leader>sc :action EditorScrollToCenter<CR>
 nnoremap <leader>ww :action NextSplitter<CR>
 nnoremap <leader>w/ :action SplitVertically<CR>
 nnoremap <leader>w- :action SplitHorizontally<CR>
 nnoremap <leader>wd :action Unsplit<CR>
 nnoremap <leader>rr :action RenameElement<cr>
-
 nnoremap <leader>, v$h
-
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gs :action GotoSuperMethod<CR>
-nnoremap gi :action GotoImplementation<CR>
-nnoremap lc :action JumpToLastChange<CR>
-
 nnoremap <leader>fl :action RecentLocations<CR>
 nnoremap <leader>sm :action AceAction<CR>
-
-nnoremap gc :action CommentByLineComment<CR>
-vnoremap gc :action CommentByLineComment<CR>
-
-nnoremap gb :action Back<CR>
-vnoremap gb :action Back<CR>
-nnoremap gf :action Forward<CR>
-vnoremap gf :action Forward<CR>
-
-nnoremap U :action FindUsages<CR>
-nnoremap R :action RenameElement<CR>
 nnoremap <leader>cd :action FindUsages<CR>
-
-nnoremap == :action ReformatCode<CR>
-vnoremap == :action ReformatCode<CR>
-
 nnoremap <leader>ia :action ShowIntentionActions<CR>
-
 nnoremap <leader>fs :action SaveAll<CR>
-
 nnoremap <leader>ss :action Find<CR>
-
 nnoremap <leader>ot :action Terminal.OpenInTerminal<CR>
 nnoremap <leader>ex :action Run<CR>
 nnoremap <leader>qr :action RestartIde<CR>
-
 nnoremap <leader>mn :action SelectNextOccurrence<CR>
 vnoremap <leader>mn :action SelectNextOccurrence<CR>
 nnoremap <leader>ma :action SelectAllOccurrences<CR>
 vnoremap <leader>ma :action SelectAllOccurrences<CR>
 nnoremap <leader>mu :action UnselectPreviousOccurrence<CR>
 vnoremap <leader>mu :action UnselectPreviousOccurrence<CR>
-
 nnoremap <leader>hh :action $SelectAll<CR>
 nnoremap <leader>cf :action ReformatCode<CR>
 nnoremap <leader>ca :action RebuildProject<CR>
 nnoremap <leader>cc :action CidrBuildRunToolbar<CR>
 nnoremap <leader>cr :action Run<CR>
 nnoremap <leader>* viw:action FindInPath<CR>
-
 nnoremap <leader>of :action CIDR.Lang.SwitchHeaderSource<CR>
 nnoremap <leader>gg :action CheckinProject<CR>
-
 nnoremap <leader><return> :action ToggleBookmarkWithMnemonic<CR>
 nnoremap <leader>lb :action ShowBookmarks<CR>
-
 nnoremap <leader>nt :action ActivateProjectToolWindow<CR>
-
 nnoremap <leader>jj :action GotoSymbol<CR>
-
 nnoremap <leader><leader> :action GotoAction<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap lc :action JumpToLastChange<CR>
+nnoremap gc :action CommentByLineComment<CR>
+vnoremap gc :action CommentByLineComment<CR>
+nnoremap gb :action Back<CR>
+vnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+vnoremap gf :action Forward<CR>
+nnoremap U :action FindUsages<CR>
+nnoremap R :action RenameElement<CR>
+nnoremap == :action ReformatCode<CR>
+vnoremap == :action ReformatCode<CR>
 
 " Jumping between paragraphs
 nnoremap <C-Up> {
 nnoremap <C-Down> }
 
 nnoremap - V
+
+nnoremap M :action EditorSelectWord<CR>
+vnoremap M :action EditorSelectWord<CR>
