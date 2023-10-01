@@ -17,6 +17,8 @@ set ideajoin
 
 vnoremap <leader>y :action $Copy<CR>
 vnoremap <leader>p :action $Paste<CR>
+vnoremap <leader>d :action $Cut<CR>
+vnoremap <leader>x :action $Cut<CR>
 
 nnoremap <leader>qq :action Exit<CR>
 nnoremap <leader>bd :close<CR>
