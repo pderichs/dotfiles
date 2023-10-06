@@ -197,7 +197,7 @@ https://github.com/tonsky/FiraCode
 
 https://github.com/source-foundry/Hack#quick-installation
 
-## How to enable rmpfusion repositiories
+## How to enable rpmfusion repositiories
 
 See https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/
 
