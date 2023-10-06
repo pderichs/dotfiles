@@ -98,12 +98,6 @@ For additional C++ support run
 :TSInstallSync cpp
 ```
 
-#### Additional information
-
-If the data folder in neovim folder is available, make sure the folder in .local/share/nvim ($XDG_DATA_HOME) is not existing, since it will be replaced by a symlink to the existing data folder.
-
-See `:h standard-path` for further information on paths used by neovim.
-
 ### vim: Install vim plug
 
 ```sh
@@ -197,7 +191,7 @@ https://github.com/tonsky/FiraCode
 
 https://github.com/source-foundry/Hack#quick-installation
 
-## How to enable rpmfusion repositiories
+## How to enable rpmfusion repositories
 
 See https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/
 
