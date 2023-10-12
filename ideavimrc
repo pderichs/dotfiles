@@ -22,7 +22,8 @@ vnoremap <leader>x :action $Cut<CR>
 nnoremap <leader>qq :action Exit<CR>
 nnoremap <leader>bd :close<CR>
 nnoremap <leader>fr :action RecentFiles<CR>
-nnoremap <leader>pf :action SearchEverywhere<CR>
+nnoremap <leader>pf :action GotoFile<CR>
+nnoremap <leader>pa :action SearchEverywhere<CR>
 nnoremap <leader>/ :action FindInPath<CR>
 vnoremap <leader>/ :action FindInPath<CR>
 nnoremap <leader>ji :action FileStructurePopup<CR>
