@@ -65,6 +65,7 @@ nnoremap <leader>lb :action ShowBookmarks<CR>
 nnoremap <leader>nt :action ActivateProjectToolWindow<CR>
 nnoremap <leader>jj :action GotoSymbol<CR>
 nnoremap <leader><leader> :action GotoAction<CR>
+nnoremap <leader>ht :action ChangeLaf<CR>
 
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gs :action GotoSuperMethod<CR>
