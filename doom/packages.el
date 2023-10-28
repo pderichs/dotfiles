@@ -83,3 +83,5 @@
 
 ;; Debugging support
 (package! dap-mode)
+
+(package! eradio)

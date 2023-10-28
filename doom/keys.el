@@ -51,6 +51,11 @@
 (map! :leader :desc "Mark this and next occurrence" "mn" #'evil-multiedit-match-and-next) ;; or M-d / M-D
 (map! :leader :desc "Mark this and all other occurrences" "ma" #'evil-multiedit-match-all)
 
+;; eradio
+(map! :leader (:prefix ("r" . "eradio") :desc "Play a radio channel" "p" 'eradio-play))
+(map! :leader (:prefix ("r" . "eradio") :desc "Stop the radio player" "s" 'eradio-stop))
+(map! :leader (:prefix ("r" . "eradio") :desc "Toggle the radio player" "t" 'eradio-toggle))
+
 ;; --- non leader keys
 ;; (define-key evil-normal-state-map "gb" #'xref-pop-marker-stack)
 (define-key evil-normal-state-map "gb" #'back-button-global-backward)

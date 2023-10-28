@@ -124,4 +124,6 @@
 
 (load! "debug.el")
 
+(load! "eradio.el")
+
 (pd/create-todays-todo-file (pd/todo-file-name))
