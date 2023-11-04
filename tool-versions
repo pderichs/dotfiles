@@ -6,6 +6,6 @@ ruby 3.1.2
 nim 2.0.0
 ocaml 4.14.0
 python 3.11.3
-zig master
+zig 0.11.0
 rust 1.73.0
 golang 1.21.0
