@@ -2,6 +2,7 @@ alias nuke="kill -9"
 
 alias v="nvim"
 alias nv="nvim"
+alias vim="nvim"
 
 alias 7zenc="7z -mhc=on -mhe=on -p a"
 alias 7zenc4fat="7z -mhc=on -mhe=on -v1800m -p a"
