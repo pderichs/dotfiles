@@ -12,7 +12,7 @@ function open_todays_todo_file()
   vim.cmd(cmd)
 end
 
---base
+-- Base setup
 vim.cmd("autocmd!")
 
 vim.scriptencoding = 'utf-8'
@@ -135,7 +135,6 @@ keymap.set('n', '<leader>w-', ':sp<CR>')
 keymap.set('n', '<leader>r', ':set relativenumber!<CR>')
 keymap.set('n', '<leader>pf', ':Telescope find_files<CR>')
 -- keymap.set('n', '<leader>pf', ':Telescope git_files<CR>')
--- keymap.set('n', '<leader>ff', ':Telescope file_browser<CR>')
 keymap.set('n', '<leader>ff', ':Ranger<CR>')
 keymap.set('n', '<leader>w-', ':split<Return><C-w>w')
 keymap.set('n', '<leader>w/', ':vsplit<Return><C-w>w')
@@ -221,13 +220,6 @@ else
   print('Unable to load nvim_comment')
 end
 
-local status_ok, telescope = pcall(require, 'telescope')
-if status_ok then
-  telescope.load_extension('file_browser')
-else
-  print('Unable to load telescope')
-end
-
 -- Neogit
 local status_ok, neogit = pcall(require, 'neogit')
 if status_ok then
@@ -235,12 +227,10 @@ if status_ok then
 end
 
 -- RANGER 
---
 -- show hidden files by default
 vim.g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 
 -- HOP 
-
 local status_ok, hop = pcall(require, 'hop')
 if status_ok then
   hop.setup { keys = 'etovxqpdygfblzhckisuran' }
@@ -249,7 +239,6 @@ else
 end
 
 -- PACKER
-
 vim.g.ranger_map_keys = 0 -- prevent ranger plugin from updating keys
 
 local packer = require('packer')
