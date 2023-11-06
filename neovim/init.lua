@@ -230,14 +230,6 @@ end
 -- show hidden files by default
 vim.g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 
--- HOP 
-local status_ok, hop = pcall(require, 'hop')
-if status_ok then
-  hop.setup { keys = 'etovxqpdygfblzhckisuran' }
-else
-  print('Unable to load hop')
-end
-
 -- PACKER
 vim.g.ranger_map_keys = 0 -- prevent ranger plugin from updating keys
 
@@ -248,10 +240,9 @@ packer.startup(function(use)
   -- Packer can manage itself
   use('wbthomason/packer.nvim')
   use({
-    'nvim-telescope/telescope.nvim', tag = '0.1.4',
+    'nvim-telescope/telescope.nvim', tag = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   })
-  use('nvim-telescope/telescope-file-browser.nvim')
   use('folke/zen-mode.nvim')
   use('terrortylor/nvim-comment')
   use('nvim-lua/plenary.nvim')
@@ -263,10 +254,6 @@ packer.startup(function(use)
   use('preservim/nerdtree')
   use('rainglow/vim')
   use('jamessan/vim-gnupg')
-  use({
-    'phaazon/hop.nvim',
-    branch = 'v2' -- optional but strongly recommended
-  })
   use('francoiscabrol/ranger.vim')
   use('rbgrouleff/bclose.vim') -- needed by ranger
 end)
