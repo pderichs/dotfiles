@@ -155,8 +155,6 @@ keymap.set('n', '<leader>rr', ":Telescope resume<CR>")
 keymap.set('n', '<leader>lic', ":Telescope lsp_incoming_calls<CR>")
 keymap.set('n', '<leader>loc', ":Telescope lsp_outgoing_calls<CR>")
 keymap.set('n', '<leader>lws', ":Telescope lsp_workspace_symbols<CR>")
-keymap.set('n', '<leader>hl', ":HopLineMW<CR>")
-keymap.set('n', '<leader>hw', ":HopWordMW<CR>")
 keymap.set('n', '<leader>fb', ":BookmarkShowAll<CR>")
 keymap.set('n', '<leader>sb', ":BookmarkAnnotate<CR>")
 keymap.set('n', '<leader>wr', ":set wrap!<CR>")
@@ -180,7 +178,7 @@ keymap.set('n', '<C-j>', '}')
 keymap.set('n', 'U', ':Telescope lsp_references<CR>')
 keymap.set('n', 'gc', ':CommentToggle<CR>')
 keymap.set('n', 'gb', '<C-o>') -- go back (<C-i> to go forward)
-keymap.set('n', 'gss', ':HopChar2<CR>') -- Jump to char
+-- keymap.set('n', 'gss', ':HopChar2<CR>') -- Jump to char
 
 keymap.set('n', '\\', 'V') 
 keymap.set('n', '-', 'V') 
@@ -207,9 +205,6 @@ keymap.set('n', 'L', '<nop>')
 -- thanks to https://www.reddit.com/r/neovim/comments/okbag3/comment/h58k9p7/?utm_source=reddit&utm_medium=web2x&context=3
 keymap.set('i', '<C-H>', '<C-W>', {noremap = true})
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
-
 -- thanks to https://github.com/LunarVim/Neovim-from-scratch
 -- We use a protected require so we don't end up in an error on 
 -- a fresh neovim installation
@@ -229,35 +224,37 @@ end
 -- RANGER 
 -- show hidden files by default
 vim.g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
-
--- PACKER
 vim.g.ranger_map_keys = 0 -- prevent ranger plugin from updating keys
 
-local packer = require('packer')
-local packer_util = require('packer.util')
+-- PACKER
+local status_ok, packer = pcall(require, 'packer')
+if status_ok then
+  local packer_util = require('packer.util')
 
-packer.startup(function(use)
-  -- Packer can manage itself
-  use('wbthomason/packer.nvim')
-  use({
-    'nvim-telescope/telescope.nvim', tag = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  })
-  use('folke/zen-mode.nvim')
-  use('terrortylor/nvim-comment')
-  use('nvim-lua/plenary.nvim')
-  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'} )
-  use('mbbill/undotree')
-  use('ziglang/zig.vim')
-  use('MattesGroeger/vim-bookmarks')
-  use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
-  use('preservim/nerdtree')
-  use('rainglow/vim')
-  use('jamessan/vim-gnupg')
-  use('francoiscabrol/ranger.vim')
-  use('rbgrouleff/bclose.vim') -- needed by ranger
-end)
+  packer.startup(function(use)
+    -- Packer can manage itself
+    use('wbthomason/packer.nvim')
+    use({
+      'nvim-telescope/telescope.nvim', tag = '0.1.x',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    })
+    use('folke/zen-mode.nvim')
+    use('terrortylor/nvim-comment')
+    use('nvim-lua/plenary.nvim')
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'} )
+    use('mbbill/undotree')
+    use('ziglang/zig.vim')
+    use('MattesGroeger/vim-bookmarks')
+    use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
+    use('preservim/nerdtree')
+    use('rainglow/vim')
+    use('jamessan/vim-gnupg')
+    use('francoiscabrol/ranger.vim')
+    use('rbgrouleff/bclose.vim') -- needed by ranger
+  end)
 
--- vim.opt.background = 'dark'
-vim.cmd.colorscheme('allure-contrast') -- brave-contrast
-
+  -- vim.opt.background = 'dark'
+  vim.cmd.colorscheme('allure-contrast')
+else
+  print('Packer is not installed.')
+end
