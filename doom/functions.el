@@ -86,8 +86,10 @@
 (defun pd/start-terminal-in-current-folder ()
   "Starts a terminal in the current file's folder."
   (interactive)
-  (setq default-directory (file-name-directory buffer-file-name))
-  (start-process (getenv "TERMINAL") nil (getenv "TERMINAL")))
+  (let ((file-name-dir (if buffer-file-name (file-name-directory buffer-file-name) nil)))
+    (if file-name-dir
+        (setq default-directory file-name-dir))
+    (start-process (getenv "TERMINAL") nil (getenv "TERMINAL"))))
 
 (defun pd/create-todays-todo-file (todo-file-name)
   "Checks / create todo file for today"
