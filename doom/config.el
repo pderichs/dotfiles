@@ -34,6 +34,9 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; All org files should be opened folded
+(setq org-startup-folded t)
+
 ;; Make avy work across all visible windows
 (setq avy-all-windows t)
 
