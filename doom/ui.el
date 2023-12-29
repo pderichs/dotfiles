@@ -27,13 +27,20 @@
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-(setq pd/ui-theme 'pd-adwaita)
-(if (string= (getenv "PD_LAPTOP") "1")
-    (setq doom-theme pd/ui-theme)
-  (setq doom-theme pd/ui-theme))
+;; `load-theme' function.
+;;
+;; The following sets the theme according to the current hour.
+(setq pd/current-hour (nth 2 (decode-time)))
+(if (>= pd/current-hour 20)
+    (setq pd/ui-theme 'doom-city-lights)
+  (setq pd/ui-theme 'pd-adwaita))
 
-;; adwaita: enable syntax highlighting in current line
+;; (if (string= (getenv "PD_LAPTOP") "1")
+;;     (setq doom-theme pd/ui-theme)
+;;   (setq doom-theme pd/ui-theme))
+(setq doom-theme pd/ui-theme)
+
+;; (pd-)adwaita: enable syntax highlighting in current line
 (set-face-foreground 'highlight nil)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
