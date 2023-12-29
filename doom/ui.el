@@ -33,7 +33,7 @@
     (setq doom-theme pd/ui-theme)
   (setq doom-theme pd/ui-theme))
 
-;; ;; adwaita: enable syntax highlighting in current line
+;; adwaita: enable syntax highlighting in current line
 (set-face-foreground 'highlight nil)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
