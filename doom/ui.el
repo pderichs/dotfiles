@@ -31,7 +31,7 @@
 ;;
 ;; The following sets the theme according to the current hour.
 (setq pd/current-hour (nth 2 (decode-time)))
-(if (>= pd/current-hour 20)
+(if (>= pd/current-hour 18)
     (setq pd/ui-theme 'doom-city-lights)
   (setq pd/ui-theme 'pd-adwaita))
 
