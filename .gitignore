@@ -1,7 +1,2 @@
-# Ignore everything in emacs folder...
-emacs/*
-# ... except init.el
-emacs/!init.el
-
 tmux.core
 shell/local
