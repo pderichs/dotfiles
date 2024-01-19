@@ -62,7 +62,6 @@
 
 ;; Additional themes
 (package! zeno-theme)
-(package! base16-theme)
 (package! laguna-theme)
 (package! tron-legacy-theme)
 (package! weyland-yutani-theme)
