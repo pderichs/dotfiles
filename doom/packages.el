@@ -84,3 +84,5 @@
 (package! dap-mode)
 
 (package! eradio)
+
+(package! autothemer)
