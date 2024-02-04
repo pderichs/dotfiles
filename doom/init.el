@@ -17,8 +17,10 @@
 ;;
 ;; Template for this file can be found at:
 ;; https://github.com/doomemacs/doomemacs/blob/master/templates/init.example.el
+;; (last checked commit: 9245a34)
 
 (doom! :input
+       ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
        ;;chinese
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
@@ -104,13 +106,13 @@
        pass                ; password manager for nerds
        pdf                 ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
-       ;;rgb               ; creating color strings
+       rgb                 ; creating color strings
        ;;taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       ;;tree-sitter       ; syntax and parsing, sitting in a tree...
+       tree-sitter         ; syntax and parsing, sitting in a tree...
        ;;tmux              ; an API for interacting with tmux
-       ;;upload            ; map local to remote projects via ssh/ftp
+       upload              ; map local to remote projects via ssh/ftp
 
        :os
        ;;(:if IS-MAC macos); improve compatibility with macOS
@@ -152,9 +154,9 @@
        latex               ; writing papers in Emacs has never been so fun
        ;;lean              ; for folks with too much to prove
        ;;ledger            ; be audit you can be
-       ;;lua               ; one-based indices? one-based indices
+       lua                 ; one-based indices? one-based indices
        markdown            ; writing docs for people to ignore
-       ;;nim               ; python + lisp at the speed of c
+       nim                 ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
        org                 ; organize your plain life in plain text
@@ -167,7 +169,7 @@
        ;;raku              ; the artist formerly known as perl6
        rest                ; Emacs as a REST client
        ;;rst               ; ReST in peace
-       ;;(ruby +rails +lsp); 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       (ruby +rails +lsp)  ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;(rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
@@ -176,7 +178,7 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       ;;web               ; the tubes
+       web                 ; the tubes
        yaml                ; JSON, but readable
        (zig +lsp)          ; C, but simpler
 
