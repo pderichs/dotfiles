@@ -60,8 +60,8 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-                              pattern = '*',
-                              command = "set nopaste"
+  pattern = '*',
+  command = "set nopaste"
 })
 
 -- Add asterisks in block comments
@@ -166,7 +166,7 @@ keymap.set('n', '<leader>jj', ":Telescope lsp_workspace_symbols<CR>")
 keymap.set('n', '<leader>jd', ":Telescope diagnostics<CR>")
 
 vim.keymap.set('n', '<leader>gr', function()
-                 require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
+  require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
 end)
 
 keymap.set('n', '<C-Up>', '{')
@@ -212,12 +212,12 @@ keymap.set('i', '<C-H>', '<C-W>', {noremap = true})
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
-      "git",
-      "clone",
-      "--filter=blob:none",
-      "https://github.com/folke/lazy.nvim.git",
-      "--branch=stable", -- latest stable release
-      lazypath,
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
@@ -225,20 +225,21 @@ vim.opt.rtp:prepend(lazypath)
 local status_ok, lazy = pcall(require, "lazy")
 if status_ok then
   lazy.setup({
-      'folke/which-key.nvim',
-      'nvim-lua/plenary.nvim',
-      'terrortylor/nvim-comment',
-      'nvim-telescope/telescope.nvim',
-      'folke/zen-mode.nvim',
-      'folke/neodev.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'MattesGroeger/vim-bookmarks',
-      'TimUntersberger/neogit',
-      'preservim/nerdtree',
-      'jamessan/vim-gnupg',
-      'francoiscabrol/ranger.vim',
-      'rainglow/vim',
-      'rbgrouleff/bclose.vim' -- required by ranger
+    'folke/which-key.nvim',
+    'aymericbeaumet/vim-symlink',
+    'nvim-lua/plenary.nvim',
+    'terrortylor/nvim-comment',
+    { 'nvim-telescope/telescope.nvim', tag = '0.1.5' },
+    'folke/zen-mode.nvim',
+    'folke/neodev.nvim',
+    'nvim-treesitter/nvim-treesitter',
+    'MattesGroeger/vim-bookmarks',
+    'TimUntersberger/neogit',
+    'preservim/nerdtree',
+    'jamessan/vim-gnupg',
+    'francoiscabrol/ranger.vim',
+    'rainglow/vim', -- themes
+    'rbgrouleff/bclose.vim' -- required by ranger
   })
 else
   print("Unable to load lazy.nvim")
