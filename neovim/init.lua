@@ -13,7 +13,7 @@ function open_todays_todo_file()
 end
 
 -- Base setup
-vim.cmd("autocmd!")
+vim.cmd("autocmd!") -- wtf
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
@@ -60,8 +60,8 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = '*',
-  command = "set nopaste"
+                              pattern = '*',
+                              command = "set nopaste"
 })
 
 -- Add asterisks in block comments
@@ -76,6 +76,7 @@ vim.opt.pumblend = 5
 -- vim.opt.background = 'dark'
 -- vim.cmd.colorscheme('quiet')
 
+-- ***********************************************************
 -- KEYS
 vim.g.mapleader = " "
 
@@ -165,7 +166,7 @@ keymap.set('n', '<leader>jj', ":Telescope lsp_workspace_symbols<CR>")
 keymap.set('n', '<leader>jd', ":Telescope diagnostics<CR>")
 
 vim.keymap.set('n', '<leader>gr', function()
-  require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
+                 require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
 end)
 
 keymap.set('n', '<C-Up>', '{')
@@ -205,6 +206,44 @@ keymap.set('n', 'L', '<nop>')
 -- thanks to https://www.reddit.com/r/neovim/comments/okbag3/comment/h58k9p7/?utm_source=reddit&utm_medium=web2x&context=3
 keymap.set('i', '<C-H>', '<C-W>', {noremap = true})
 
+-- ***********************************************************
+
+-- load lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable", -- latest stable release
+      lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+local status_ok, lazy = pcall(require, "lazy")
+if status_ok then
+  lazy.setup({
+      'folke/which-key.nvim',
+      'nvim-lua/plenary.nvim',
+      'terrortylor/nvim-comment',
+      'nvim-telescope/telescope.nvim',
+      'folke/zen-mode.nvim',
+      'folke/neodev.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'MattesGroeger/vim-bookmarks',
+      'TimUntersberger/neogit',
+      'preservim/nerdtree',
+      'jamessan/vim-gnupg',
+      'francoiscabrol/ranger.vim',
+      'rainglow/vim',
+      'rbgrouleff/bclose.vim' -- required by ranger
+  })
+else
+  print("Unable to load lazy.nvim")
+end
+
 -- thanks to https://github.com/LunarVim/Neovim-from-scratch
 -- We use a protected require so we don't end up in an error on 
 -- a fresh neovim installation
@@ -226,35 +265,5 @@ end
 vim.g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 vim.g.ranger_map_keys = 0 -- prevent ranger plugin from updating keys
 
--- PACKER
-local status_ok, packer = pcall(require, 'packer')
-if status_ok then
-  local packer_util = require('packer.util')
-
-  packer.startup(function(use)
-    -- Packer can manage itself
-    use('wbthomason/packer.nvim')
-    use({
-      'nvim-telescope/telescope.nvim', tag = '0.1.x',
-      requires = { {'nvim-lua/plenary.nvim'} }
-    })
-    use('folke/zen-mode.nvim')
-    use('terrortylor/nvim-comment')
-    use('nvim-lua/plenary.nvim')
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'} )
-    use('mbbill/undotree')
-    use('ziglang/zig.vim')
-    use('MattesGroeger/vim-bookmarks')
-    use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
-    use('preservim/nerdtree')
-    use('rainglow/vim')
-    use('jamessan/vim-gnupg')
-    use('francoiscabrol/ranger.vim')
-    use('rbgrouleff/bclose.vim') -- needed by ranger
-  end)
-
-  -- vim.opt.background = 'dark'
-  vim.cmd.colorscheme('allure-contrast')
-else
-  print('Packer is not installed.')
-end
+-- vim.opt.background = 'dark'
+vim.cmd.colorscheme('allure-contrast')
