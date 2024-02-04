@@ -12,8 +12,21 @@ function open_todays_todo_file()
   vim.cmd(cmd)
 end
 
+function insert_text(text) 
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { text })
+end
+
+function insert_date()
+  insert_text(os.date("%Y%m%d"))
+end
+
+function insert_line()
+  insert_text('***************************************************')
+end
+
 -- Base setup
-vim.cmd("autocmd!") -- wtf
+vim.cmd('autocmd!') -- Remove all vimrc autocommands
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
@@ -137,6 +150,8 @@ keymap.set('n', '<leader>r', ':set relativenumber!<CR>')
 keymap.set('n', '<leader>pf', ':Telescope find_files<CR>')
 -- keymap.set('n', '<leader>pf', ':Telescope git_files<CR>')
 keymap.set('n', '<leader>ff', ':Ranger<CR>')
+keymap.set('n', '<leader>id', insert_date)
+keymap.set('n', '<leader>il', insert_line)
 keymap.set('n', '<leader>w-', ':split<Return><C-w>w')
 keymap.set('n', '<leader>w/', ':vsplit<Return><C-w>w')
 keymap.set('n', '<leader>ww', '<C-w>w')
