@@ -131,7 +131,8 @@ keymap.set('n', '<leader>bb', ':Telescope buffers<CR>')
 keymap.set('n', '<leader>s*', ':Telescope grep_string<CR>')
 keymap.set('n', '<leader>ss', ':Telescope current_buffer_fuzzy_find<CR>')
 keymap.set('n', '<leader>/', ':Telescope live_grep<CR>')
-keymap.set('n', '<leader>*', ':Telescope grep_string search=<C-R><C-W><CR>')
+--keymap.set('n', '<leader>*', ':Telescope grep_string search=<C-R><C-W><CR>')
+keymap.set('n', '<leader>*', ':Rg <C-R><C-W><CR>')
 keymap.set('n', '<leader>fr', ':Telescope oldfiles<CR>')
 keymap.set('n', '<leader>ji', ':Telescope treesitter<CR>')
 keymap.set('n', '<leader>pl', ':Telescope registers<CR>')
@@ -253,9 +254,12 @@ if status_ok then
     'preservim/nerdtree',
     'jamessan/vim-gnupg',
     'francoiscabrol/ranger.vim',
+    'mbbill/undotree',
+    'junegunn/fzf',
+    'junegunn/fzf.vim',
     'rainglow/vim', -- themes
-    'rbgrouleff/bclose.vim' -- required by ranger
-  })
+    'rbgrouleff/bclose.vim', -- required by ranger
+})
 else
   print("Unable to load lazy.nvim")
 end
