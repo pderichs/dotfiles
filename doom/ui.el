@@ -13,7 +13,7 @@
 (setq used-font "JetBrains Mono")
 (if (string= (getenv "PD_LAPTOP") "1")
     (setq used-font-size 15)
-  (setq used-font-size 14))
+  (setq used-font-size 15))
 (setq doom-font (font-spec :family used-font :size used-font-size :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family used-font :size used-font-size))
 
@@ -34,7 +34,7 @@
 ;; (if (>= pd/current-hour 18)
 ;;     (setq pd/ui-theme 'doom-city-lights)
 ;;   (setq pd/ui-theme 'pd-adwaita))
-(setq pd/ui-theme 'doom-bluloco-light)
+(setq pd/ui-theme 'doom-dracula)
 
 ;; (if (string= (getenv "PD_LAPTOP") "1")
 ;;     (setq doom-theme pd/ui-theme)
