@@ -45,6 +45,7 @@ my %links = (
   "bin/starttmux" => "$ENV{HOME}/bin/starttmux",
   "bin/dfcollect" => "$ENV{HOME}/bin/dfcollect",
   "ripgreprc" => "$ENV{HOME}/.ripgreprc",
+  "rofi" => "$ENV{HOME}/.config/rofi/config.rasi",
     );
 
 my @sources = keys %links;

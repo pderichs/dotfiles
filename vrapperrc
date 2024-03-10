@@ -1,0 +1,87 @@
+# .vrapperrc
+# https://github.com/vrapper/vrapper/issues/788
+# https://github.com/vrapper/vrapper/issues/265
+# https://github.com/pellaton/eclipse-cheatsheet/blob/master/eclipse4.17/shortcut-export-eclipse-win-4.17-sorted.csv
+#
+# Thanks to https://github.com/justinmk/config/blob/master/.vrapperrc
+
+vnoremap <SPACE> <Nop>
+nnoremap <SPACE> <Nop>
+" does not seem to work (20240303)
+" let mapleader=<SPACE>
+" let mapleader=" "
+
+" General settings
+set nu
+set relativenumber
+set hlsearch
+set scrolloff=10
+set ignorecase
+set smartcase
+set showmode
+set history=1000
+set autochdir
+set cleanindent
+set contentassistmode
+set gvimpath=/usr/local/bin/nvim
+
+" Key configuration
+eclipseaction eclipse_quicksearch org.eclipse.text.quicksearch.commands.quicksearchCommand
+eclipseaction eclipse_copy org.eclipse.ui.edit.copy
+eclipseaction eclipse_cut org.eclipse.ui.edit.cut
+eclipseaction eclipse_paste org.eclipse.ui.edit.paste
+eclipseaction eclipse_quit org.eclipse.ui.file.exit
+" eclipseaction eclipse_recentfiles org.eclipse.ui.file.recentfiles
+eclipseaction eclipse_restart org.eclipse.ui.file.restartWorkbench
+eclipseaction eclipse_openresource org.eclipse.ui.navigate.openResource
+eclipseaction eclipse_quickaccess org.eclipse.ui.window.quickAccess
+eclipseaction eclipse_findanywhere org.eclipse.search.ui.performTextSearchWorkspace
+eclipseaction eclipse_searchcurrentfile org.eclipse.jdt.ui.edit.text.java.search.occurrences.in.file.quickMenu
+eclipseaction eclipse_format org.eclipse.jdt.ui.edit.text.java.format
+eclipseaction eclipse_togglebookmark org.eclipse.jdt.ui.edit.addBookmark
+
+nnoremap <SPACE>y :eclipse_copy<cr>
+vnoremap <SPACE>y :eclipse_copy<cr>
+
+nnoremap <SPACE>x :eclipse_cut<cr>
+vnoremap <SPACE>x :eclipse_cut<cr>
+
+nnoremap <SPACE>p :eclipse_paste<cr>
+vnoremap <SPACE>p :eclipse_paste<cr>
+
+nnoremap <SPACE>qq :eclipse_quit<cr>
+vnoremap <SPACE>qq :eclipse_quit<cr>
+
+nnoremap <SPACE>qr :eclipse_restart<cr>
+vnoremap <SPACE>qr :eclipse_restart<cr>
+
+nnoremap <SPACE>ss :eclipse_quicksearch<cr>
+vnoremap <SPACE>ss :eclipse_quicksearch<cr>
+
+nnoremap <SPACE>bd :q<CR>
+vnoremap <SPACE>bd :q<CR>
+
+" TODO
+" nnoremap <SPACE>fr eclipse_recentfiles<cr>
+" vnoremap <SPACE>fr eclipse_recentfiles<cr>
+
+nnoremap <SPACE>pf :eclipse_openresource<cr>
+vnoremap <SPACE>pf :eclipse_openresource<cr>
+
+nnoremap <SPACE><SPACE> :eclipse_quickaccess<cr>
+vnoremap <SPACE><SPACE> :eclipse_quickaccess<cr>
+
+nnoremap <SPACE>/ :eclipse_quicksearch<cr>
+vnoremap <SPACE>/ :eclipse_quicksearch<cr>
+
+nnoremap <SPACE>* :eclipse_findanywhere<cr>
+vnoremap <SPACE>* :eclipse_findanywhere<cr>
+
+nnoremap <SPACE>cf :eclipse_format<cr>
+vnoremap <SPACE>cf :eclipse_format<cr>
+
+nnoremap <SPACE><ENTER> :eclipse_togglebookmark<cr>
+vnoremap <SPACE><ENTER> :eclipse_togglebookmark<cr>
+
+" nnoremap <SPACE>lb :eclipse_listbookmark<cr>
+" vnoremap <SPACE>lb :eclipse_listbookmark<cr>
