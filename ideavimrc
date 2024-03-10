@@ -66,6 +66,7 @@ nnoremap <leader>nt :action ActivateProjectToolWindow<CR>
 nnoremap <leader>jj :action GotoSymbol<CR>
 nnoremap <leader><leader> :action GotoAction<CR>
 nnoremap <leader>ht :action ChangeLaf<CR>
+nnoremap <leader>ge :action Generate<CR>
 
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gs :action GotoSuperMethod<CR>
@@ -85,6 +86,9 @@ vnoremap == :action ReformatCode<CR>
 " Jumping between paragraphs
 nnoremap <C-Up> {
 nnoremap <C-Down> }
+
+nnoremap <C-p> :action ParameterInfo<CR>
+vnoremap <C-p> :action ParameterInfo<CR>
 
 nnoremap - V
 
