@@ -46,6 +46,7 @@ my %links = (
   "bin/dfcollect" => "$ENV{HOME}/bin/dfcollect",
   "ripgreprc" => "$ENV{HOME}/.ripgreprc",
   "rofi" => "$ENV{HOME}/.config/rofi/config.rasi",
+  "kitty" => "$ENV{HOME}/.config/kitty/kitty.conf",
     );
 
 my @sources = keys %links;
