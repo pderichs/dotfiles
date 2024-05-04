@@ -220,7 +220,7 @@ keymap.set('n', 'L', '<nop>')
 
 -- Make C-BS in insert mode work (delete previous word)
 -- thanks to https://www.reddit.com/r/neovim/comments/okbag3/comment/h58k9p7/?utm_source=reddit&utm_medium=web2x&context=3
-keymap.set('i', '<C-H>', '<C-W>', {noremap = true})
+keymap.set('i', '<C-BS>', '<C-W>', {noremap = true})
 
 -- ***********************************************************
 
