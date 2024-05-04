@@ -45,8 +45,8 @@ source "$HOME/.shell/exports"
 source "$HOME/.shell/asdf"
 
 # Local customizations
-if [ -f "$HOME/.shell/local" ]; then
-    source "$HOME/.shell/local"
+if [ -f "$HOME/rc.local" ]; then
+    source "$HOME/rc.local"
 fi
 
 # Create TODO file
