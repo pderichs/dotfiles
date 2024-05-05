@@ -17,7 +17,7 @@
 ;;
 ;; Template for this file can be found at:
 ;; https://github.com/doomemacs/doomemacs/blob/master/templates/init.example.el
-;; (last checked commit: 9245a34)
+;; (last checked commit: 6949451, date: 2024.05.05)
 
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
@@ -36,7 +36,7 @@
        ;;deft              ; notational velocity for Emacs
        doom                ; what makes DOOM look the way it does
        doom-dashboard      ; a nifty splash screen for Emacs
-       doom-quit           ; DOOM quit-message prompts when you quit Emacs
+       ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
        (emoji +unicode)    ; 🙂
        hl-todo             ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
@@ -92,13 +92,13 @@
        :tools
        ;;ansible
        ;;biblio            ; Writes a PhD for you (citation needed)
+       ;;collab            ; buffers with friends
        debugger            ; FIXME stepping through code, to help you add bugs
        direnv
        docker
        editorconfig        ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
-       ;;gist              ; interacting with github gists
        (lookup +dictionary +docsets); navigate your code and its documentation
        lsp                 ; M-x vscode
        magit               ; a git porcelain for Emacs
@@ -115,14 +115,14 @@
        upload              ; map local to remote projects via ssh/ftp
 
        :os
-       ;;(:if IS-MAC macos); improve compatibility with macOS
+       (:if (featurep :system 'macos) macos)  ; improve compatibility with macOS
        tty                 ; improve the terminal Emacs experience
 
        :lang
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
        (cc +lsp)           ; C > C++ == 1
-       ;;clojure           ; java with a lisp
+       clojure             ; java with a lisp
        common-lisp         ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
