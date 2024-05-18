@@ -6,6 +6,7 @@
 	editor = nvim
 	excludesfile = ~/.gitexcludes
 	autocrlf = input
+	safecrlf = false
 [credential]
 	helper = cache --timeout=3600
 	username = pderichs
