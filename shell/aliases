@@ -37,3 +37,7 @@ alias ls="ls --color=auto"
 alias ll="ls -lisa"
 
 alias fm="clear && make clean && make -j 5"
+
+# JAVA
+alias mcp="mvn clean package"
+alias mce="mvn clean package exec:java"
