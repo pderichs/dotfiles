@@ -87,6 +87,7 @@ vnoremap == :action ReformatCode<CR>
 nnoremap <C-Up> {
 nnoremap <C-Down> }
 
+inoremap <C-p> :action ParameterInfo<CR>
 nnoremap <C-p> :action ParameterInfo<CR>
 vnoremap <C-p> :action ParameterInfo<CR>
 
