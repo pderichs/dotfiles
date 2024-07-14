@@ -86,3 +86,5 @@
 (package! eradio)
 
 (package! autothemer)
+
+(package! nyan-mode)
