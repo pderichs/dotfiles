@@ -2,8 +2,8 @@
 
 setopt extendedglob
 
-# Needed for (vim-)gpg
-export GPG_TTY=`tty`
+# gpg
+export GPG_TTY=$(tty)
 
 # Uncomment this for laptop environments
 # export PD_LAPTOP="1"
@@ -53,3 +53,4 @@ fi
 if [ -e "$HOME/todofile.pl" ]; then
     $HOME/todofile.pl > /dev/null
 fi
+
