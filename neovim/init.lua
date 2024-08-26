@@ -257,6 +257,8 @@ if status_ok then
     'mbbill/undotree',
     'junegunn/fzf',
     'junegunn/fzf.vim',
+    'alaviss/nim.nvim',
+    'projekt0n/github-nvim-theme',
     'rainglow/vim', -- themes
     'rbgrouleff/bclose.vim', -- required by ranger
     {
@@ -298,4 +300,4 @@ vim.g.ranger_map_keys = 0 -- prevent ranger plugin from updating keys
 
 -- vim.opt.background = 'dark'
 -- vim.cmd.colorscheme('allure-contrast')
-vim.cmd.colorscheme('banner')
+vim.cmd.colorscheme('github_dark_default')
