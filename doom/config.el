@@ -16,7 +16,7 @@
 (load! "user-env.el")
 
 ;; GPG related configuration
-;;(load! "gpg.el")
+(load! "gpg.el")
 
 (load! "functions.el")
 
