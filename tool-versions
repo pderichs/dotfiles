@@ -9,5 +9,4 @@ python 3.11.3
 zig 0.12.0
 rust 1.78.0
 golang 1.22.3
-cmake 3.29.0
 gradle 8.7
