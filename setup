@@ -20,7 +20,7 @@ if(not defined $op) {
 my $path = Cwd::cwd();
 
 my %links = (
-  "doom" => "$ENV{HOME}/.doom.d",
+  "doom" => "$ENV{HOME}/.config/doom",
   "tool-versions" => "$ENV{HOME}/.tool-versions",
   "zshrc" => "$ENV{HOME}/.zshrc",
   "ideavimrc" => "$ENV{HOME}/.ideavimrc",
