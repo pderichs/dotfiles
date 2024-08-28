@@ -139,7 +139,8 @@ https://github.com/tonsky/FiraCode
 https://github.com/source-foundry/Hack#quick-installation
 
 ## How to enable rpmfusion repositories
-See https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/
+
+See https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/
 
 ``` sh
 sudo dnf install \
