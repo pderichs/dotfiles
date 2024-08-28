@@ -272,6 +272,12 @@ for copy constructor and assignment operator."
   ;; source / header.
   (map! :leader :desc "Find other file" "of" #'lsp-clangd-find-other-file))
 
+(defun pd/insert-mode-indicator ()
+  "Inserts a mode spec at the current line"
+  (interactive)
+  (insert "-*- mode: MODE -*-")
+  (call-interactively (key-binding (kbd "FMviw"))))
+
 ;; TODO
 ;; (defun pd/git-grep-find-string-in-all-commit-content ()
 ;;   "Executes git grep to find string in all available git commits"

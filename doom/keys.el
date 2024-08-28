@@ -8,6 +8,7 @@
 (map! :leader :desc "Select rest of line" "," (edmacro-parse-keys "v$h" t))
 (map! :leader :desc "Open terminal in current folder" "ot" #'pd/start-terminal-in-current-folder) ;; "open terminal"
 (map! :leader :desc "Open todo file of today" "to" #'pd/open-today-todo-file)
+(map! :leader :desc "Open file in project" "pf" #'projectile-find-file)
 (map! :leader :desc "Open notes file" "no" #'pd/open-notes-file)
 (map! :leader :desc "Open bookmark list for editing" "lb" #'list-bookmarks)
 (map! :leader :desc "M-x" "SPC" #'execute-extended-command)
