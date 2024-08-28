@@ -88,7 +88,7 @@ Create a `bin` script for easy access if needed.
 
 ### Remove links in HOME folder
 
-##Attention!## This is a ##destructive## operation! Check the files in HOME and the code of the `setup` script before executing this!
+**Attention!** This is a **destructive** operation! Check the files in HOME and the code of the `setup` script before executing this!
 
 ```sh
 ./setup uninstall
@@ -124,7 +124,7 @@ Following fonts should be installed on the system as well:
   apt install fonts-firacode fonts-dejavu fonts-hack
 ```
 
-##Important## Update the font cache afterwards:
+**Important** Update the font cache afterwards:
 
 ``` sh
   fc-cache -f -v
