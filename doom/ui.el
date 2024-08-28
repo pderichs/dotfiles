@@ -52,7 +52,7 @@
 (if (window-system)
     (if (string= (getenv "PD_LAPTOP") "1")
         (add-to-list 'default-frame-alist '(fullscreen . maximized))
-      (set-frame-size (selected-frame) 120 60)))
+      (set-frame-size (selected-frame) 170 110)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
