@@ -2,7 +2,7 @@
 
 My dotfiles.
 
-Installation notes can be found at [INSTALL.org](https://github.com/pderichs/dotfiles/blob/main/INSTALL.md).
+Installation notes can be found [here](https://github.com/pderichs/dotfiles/blob/main/INSTALL.md).
 
 # General notes
 

@@ -36,7 +36,7 @@
 ;;(map! :leader :desc "Formats the whole file" "cf" (edmacro-parse-keys "ggVG=``" t))
 (map! :leader :desc "Formats the whole file" "cf" #'lsp-format-buffer)
 (map! :leader :desc "Inserts the current date" "id" #'pd/insert-date)
-(map! :leader :desc "Inserts the current date" "il" #'pd/insert-line)
+(map! :leader :desc "Inserts a line" "il" #'pd/insert-line)
 (map! :leader :desc "Jump to workspace symbol" "jj" #'consult-lsp-symbols)
 (map! :leader :desc "Jump to workspace symbol" "jd" #'consult-lsp-diagnostics)
 (map! :leader :desc "Open Zettelkasten search" "ze" (lambda () (interactive) (consult-ripgrep (concat user-personal-zettelkasten-folder))))
