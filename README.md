@@ -50,6 +50,7 @@ Here you can find a list of keybindings which are used across some apps (mostly 
 | `SPC l c`          | Jump to last change                                     | Emacs        |
 | `SPC m n`          | Mark this and next occurrence                           | Emacs        |
 | `SPC m a`          | Mark all occurrences                                    | Emacs        |
+| `SPC h t`          | Change theme                                            | all          |
 | `M`                | Enter expand region mode                                | all          |
 | `m`                | Expand region                                           | all          |
 
