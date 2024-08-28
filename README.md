@@ -12,13 +12,14 @@ Here you can find a list of keybindings which are used across some apps (mostly 
 
 | Keybinding         | Description                                             | Available on |
 |--------------------|---------------------------------------------------------|--------------|
-| `SPC p f`          | Open file in project                                    | all          |
+| `SPC f f`          | Open file                                               | all          |
+| `SPC p f`          | Find file in project                                    | all          |
 | `SPC SPC`          | Execute command                                         | all          |
 | `SPC j i`          | Jump to function / symbol                               | all          |
 | `SPC g g`          | Version control                                         | all          |
 | `SPC /`            | Search across files                                     | all          |
 | `SPC s s`          | Search in current file                                  | all          |
-| `SPC c c`          | Compile                                                 | all          |
+| `SPC c c`          | Compile / Build                                         | all          |
 | `SPC ,`            | Select from current position til EOL                    | all          |
 | `g d`              | Go to definition                                        | all          |
 | `g b`              | Go back                                                 | all          |
