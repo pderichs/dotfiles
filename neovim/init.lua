@@ -57,7 +57,7 @@ vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-vim.opt.wrap = false -- No Wrap lines
+vim.opt.wrap = false -- do not wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
@@ -241,6 +241,7 @@ vim.opt.rtp:prepend(lazypath)
 local status_ok, lazy = pcall(require, "lazy")
 if status_ok then
   lazy.setup({
+    'neovim/nvim-lspconfig',
     'folke/which-key.nvim',
     'aymericbeaumet/vim-symlink',
     'nvim-lua/plenary.nvim',
@@ -297,6 +298,17 @@ end
 -- show hidden files by default
 vim.g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 vim.g.ranger_map_keys = 0 -- prevent ranger plugin from updating keys
+
+-- LSP
+local status_ok, lspconfig = pcall(require, 'lspconfig')
+if status_ok then
+  -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+
+  -- C/C++
+  lspconfig.clangd.setup({})
+else
+  print("Unable to load lspconfig")
+end
 
 -- vim.opt.background = 'dark'
 -- vim.cmd.colorscheme('allure-contrast')
