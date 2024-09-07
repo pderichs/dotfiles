@@ -1669,7 +1669,7 @@ shell_integration no-cursor
 #: Paste from selection
 
 # map kitty_mod+s  paste_from_selection
-map shift+insert paste_from_selection
+map shift+insert paste_from_clipboard
 
 #: Pass selection to program
 
