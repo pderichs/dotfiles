@@ -8,11 +8,14 @@ Installation notes can be found [here](https://github.com/pderichs/dotfiles/blob
 
 These dotfiles are configured to provide (nearly) the same environment for all editors / ides (keybinding wise).
 
+Emacs is based on Doom Emacs.
+
 Here you can find a list of keybindings which are used across some apps (mostly speaking of emacs, vim, jetbrains ides). This might not be up to date though - refer to the respective config files for more up to date information.
 
 | Keybinding         | Description                                             | Available on |
 |--------------------|---------------------------------------------------------|--------------|
 | `SPC f f`          | Open file                                               | all          |
+| `SPC f s`          | Save file                                               | all          |
 | `SPC p f`          | Find file in project                                    | all          |
 | `SPC SPC`          | Execute command                                         | all          |
 | `SPC j i`          | Jump to function / symbol                               | all          |
