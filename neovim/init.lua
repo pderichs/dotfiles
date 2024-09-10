@@ -18,11 +18,11 @@ function insert_text(text)
 end
 
 function insert_date()
-  insert_text(os.date("%Y%m%d"))
+  insert_text(os.date("%Y.%m.%d"))
 end
 
 function insert_line()
-  insert_text('***************************************************')
+  insert_text('--------------------------------------------------------------------------------------')
 end
 
 -- Base setup
@@ -299,15 +299,22 @@ end
 vim.g.ranger_command_override = 'ranger --cmd "set show_hidden=true"'
 vim.g.ranger_map_keys = 0 -- prevent ranger plugin from updating keys
 
--- LSP
-local status_ok, lspconfig = pcall(require, 'lspconfig')
+-- Incremental selection
+local status_ok, treesitter_config = pcall(require, 'nvim-treesitter.configs')
 if status_ok then
-  -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-
-  -- C/C++
-  lspconfig.clangd.setup({})
+  treesitter_config.setup {
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "M",
+        node_incremental = "m",
+        --scope_incremental = "",
+        node_decremental = "<M-BS>",
+      },
+    },
+  }
 else
-  print("Unable to load lspconfig")
+  print("Unable to local treesitter config.")
 end
 
 -- vim.opt.background = 'dark'
