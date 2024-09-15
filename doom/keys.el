@@ -43,6 +43,7 @@
 (map! :leader :desc "Open current folder in file manager" "cd" (lambda () (interactive) (call-process "xdg-open" nil 0 nil ".")))
 (map! :leader :desc "Search for definition in another window" "gow" #'xref-find-definitions-other-window)
 (map! :leader :desc "Toggle neotree" "nt" #'neotree-toggle)
+(map! :leader :desc "Open dired in current file folder" "#" (lambda () (interactive) (dired ".")))
 
 ;; Switch view of workspace buffers with all buffers
 (map! :leader :desc "Quick jump to all buffers" "bb" #'consult-buffer)
