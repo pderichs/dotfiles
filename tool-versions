@@ -10,3 +10,4 @@ zig 0.12.0
 rust 1.80.1
 golang 1.22.3
 gradle 8.7
+yarn 1.22.22
