@@ -278,6 +278,17 @@ for copy constructor and assignment operator."
   (insert "-*- mode: MODE -*-")
   (call-interactively (key-binding (kbd "FMviw"))))
 
+(defun pd/git-update-commit ()
+  "Creates a fast update commit for the current repository."
+  (interactive)
+  (save-some-buffers t)
+  (let ((root-dir (pd/my-root-dir)))
+    (if (eq root-dir nil)
+        (message "*** Root dir is nil! Aborting.")
+      (progn
+        (setq default-directory root-dir)
+        (shell-command "git add .; git commit -am \"Update\"")))))
+
 ;; TODO
 ;; (defun pd/git-grep-find-string-in-all-commit-content ()
 ;;   "Executes git grep to find string in all available git commits"

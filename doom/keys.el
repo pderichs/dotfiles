@@ -44,6 +44,7 @@
 (map! :leader :desc "Search for definition in another window" "gow" #'xref-find-definitions-other-window)
 (map! :leader :desc "Toggle neotree" "nt" #'neotree-toggle)
 (map! :leader :desc "Open dired in current file folder" "#" (lambda () (interactive) (dired ".")))
+(map! :leader :desc "Creates an update commit" "gu" #'pd/git-update-commit)
 
 ;; Switch view of workspace buffers with all buffers
 (map! :leader :desc "Quick jump to all buffers" "bb" #'consult-buffer)
