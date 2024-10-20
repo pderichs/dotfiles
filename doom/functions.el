@@ -252,7 +252,7 @@ for copy constructor and assignment operator."
 (defun pd/insert-line ()
   "Inserts a line"
   (interactive)
-  (insert (make-string 60 ?-))
+  (insert (make-string 90 ?-))
   (newline))
 
 (defun pd/lookup-definition-and-center-cursor ()
