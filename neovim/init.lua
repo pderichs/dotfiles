@@ -297,7 +297,7 @@ end
 --------------------------------------------------------------------------------------
 -- LSP Setup
 
-local language_servers = { "pyright", "ts_ls" }
+local language_servers = { "pyright", "ts_ls", "perlnavigator" }
 
 local status_ok, mason = pcall(require, 'mason')
 if status_ok then
