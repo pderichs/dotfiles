@@ -41,3 +41,5 @@ alias fm="clear && make clean && make -j 5"
 # JAVA
 alias mcp="mvn clean package"
 alias mce="mvn clean package exec:java"
+
+alias gup="git commit -am \"Update\""
