@@ -15,11 +15,8 @@
 ;; user-env.el.template.
 (load! "user-env.el")
 
-;; GPG related configuration
 (load! "gpg.el")
-
 (load! "functions.el")
-
 (load! "ui.el")
 
 ;; Make evil undo more feingranular.
@@ -81,7 +78,6 @@
 (setq kill-ring-max 100)
 
 (load! "dashboard.el")
-
 (load! "keys.el")
 
 ;; ----------------------------------------------------------------------------------------------------
@@ -124,10 +120,10 @@
 
 (load! "nim.el")
 (load! "go.el")
-
 (load! "debug.el")
-
 (load! "eradio.el")
+
+(load! "prodigy-definitions.el")
 
 (pd/create-todays-todo-file (pd/todo-file-name))
 
