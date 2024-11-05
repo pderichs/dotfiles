@@ -90,3 +90,5 @@
 (package! nyan-mode)
 
 (package! ellama)
+
+(package! multi-vterm)
