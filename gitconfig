@@ -7,6 +7,7 @@
 	excludesfile = ~/.gitexcludes
 	autocrlf = input
 	safecrlf = false
+	pager = delta
 [credential]
 	helper = cache --timeout=3600
 	username = pderichs
@@ -18,3 +19,9 @@
 	defaultBranch = main
 [gc]
 	autoDetach = false
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictstyle = zdiff3
