@@ -43,3 +43,5 @@ alias mcp="mvn clean package"
 alias mce="mvn clean package exec:java"
 
 alias gup="git commit -am \"Update\""
+
+alias cbr="gco \$(git branch -a | fzf)"
