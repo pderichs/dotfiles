@@ -16,7 +16,7 @@
 ;;
 ;;
 ;; Template for this file can be found at:
-;; https://github.com/doomemacs/doomemacs/blob/master/templates/init.example.el
+;; https://github.com/doomemacs/doomemacs/blob/master/static/init.example.el
 ;; (last checked commit: f27a85e, date: 2024.09.28)
 
 (doom! :input
