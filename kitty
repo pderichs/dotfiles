@@ -2015,6 +2015,7 @@ map shift+insert paste_from_clipboard
 # map cmd+plus         change_font_size all +2.0
 # map cmd+equal        change_font_size all +2.0
 # map shift+cmd+equal  change_font_size all +2.0
+map ctrl+plus   change_font_size all +2.0
 
 #: Decrease font size
 
@@ -2022,11 +2023,13 @@ map shift+insert paste_from_clipboard
 # map kitty_mod+kp_subtract change_font_size all -2.0
 # map cmd+minus             change_font_size all -2.0
 # map shift+cmd+minus       change_font_size all -2.0
+map ctrl+minus       change_font_size all -2.0
 
 #: Reset font size
 
 # map kitty_mod+backspace change_font_size all 0
 # map cmd+0               change_font_size all 0
+map ctrl+0               change_font_size all 0
 
 
 #: To setup shortcuts for specific font sizes::
