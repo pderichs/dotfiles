@@ -88,6 +88,9 @@
 (define-key evil-normal-state-map (kbd "M-n") #'next-error)
 (define-key evil-normal-state-map (kbd "M-p") #'previous-error)
 
+(define-key evil-normal-state-map (kbd "C-+") (lambda () (interactive) (text-scale-increase 1)))
+(define-key evil-normal-state-map (kbd "C--") (lambda () (interactive) (text-scale-decrease 1)))
+(define-key evil-normal-state-map (kbd "C-0") (lambda () (interactive) (text-scale-increase 0)))
 
 ;; org-mode: Shift-up should move to parent item
 (add-hook 'org-mode-hook
