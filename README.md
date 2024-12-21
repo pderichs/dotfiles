@@ -56,6 +56,7 @@ Here you can find a list of keybindings which are used across some apps (mostly 
 | `SPC h t`          | Change theme                                            | all          |
 | `M`                | Enter expand region mode                                | all          |
 | `m`                | Expand region                                           | all          |
+| `g s s`            | Jump to char (evil-avy-goto-char)                       | Emacs        |
 
 # License
 
