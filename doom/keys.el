@@ -5,6 +5,7 @@
 ;; --- leader keys
 (map! :leader :desc "Split window vertically" "w/" #'split-window-horizontally)
 (map! :leader :desc "Split window vertically" "w-" #'split-window-vertically)
+(map! :leader :desc "Word wrap toggle" "wr" #'+word-wrap-mode)
 (map! :leader :desc "Select rest of line" "," (edmacro-parse-keys "v$h" t))
 (map! :leader :desc "Open terminal in current folder" "ot" #'pd/start-terminal-in-current-folder) ;; "open terminal"
 (map! :leader :desc "Open todo file of today" "to" #'pd/open-today-todo-file)
