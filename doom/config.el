@@ -128,3 +128,7 @@
 (pd/create-todays-todo-file (pd/todo-file-name))
 
 (nyan-mode)
+
+;; Enable tree-sitter
+(global-tree-sitter-mode)
+(add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)

@@ -89,7 +89,7 @@
 (define-key evil-normal-state-map (kbd "M-n") #'next-error)
 (define-key evil-normal-state-map (kbd "M-p") #'previous-error)
 
-(define-key evil-normal-state-map (kbd "g s s") #'evil-avy-goto-char)
+(define-key evil-normal-state-map (kbd "g s s") #'evil-avy-goto-char-2)
 
 (define-key evil-normal-state-map (kbd "C-+") (lambda () (interactive) (text-scale-increase 1)))
 (define-key evil-normal-state-map (kbd "C--") (lambda () (interactive) (text-scale-decrease 1)))
