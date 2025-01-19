@@ -10,7 +10,7 @@ tmux start-server
 # create a new tmux session, starting editor from
 # a saved session in the new window
 tmux new-session -d -s $session:1 -n nvim
-tmux send-keys "vim" C-m
+tmux send-keys "nvim" C-m
 
 tmux new-window -t $session:2 -n terminal
 

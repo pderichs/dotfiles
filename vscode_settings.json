@@ -1,0 +1,351 @@
+{
+    "telemetry.telemetryLevel": "off",
+    "files.insertFinalNewline": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.quoteStyle": "double",
+    "javascript.preferences.quoteStyle": "double",
+    "javascript.format.semicolons": "insert",
+    "typescript.format.semicolons": "insert",
+    "typescript.suggest.paths": false,
+    "javascript.suggest.paths": false,
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.highlightedyank.enable": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                "<C-up>"
+            ],
+            "after": [
+                "{"
+            ]
+        },
+        {
+            "before": [
+                "<C-down>"
+            ],
+            "after": [
+                "}"
+            ]
+        },
+        {
+            "before": ["m"],
+            "commands": [
+                "editor.action.smartSelect.grow"
+            ]
+        },
+        {
+            "before": ["<leader>", "m", "n"],
+            "commands": [
+                "editor.action.addSelectionToNextFindMatch"
+            ]
+        },
+        {
+            "before": ["g", "c"],
+            "commands": [
+                "editor.action.addCommentLine"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "*"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        },
+        {
+            "before": ["g", "d"],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "h",
+                "h"
+            ],
+            "after": ["g", "g", "V", "G"]
+            // "commands": [
+            //     "editor.action.selectAll"
+            // ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "-"
+            ],
+            "commands": [
+                "workbench.action.splitEditorDown"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "/"
+            ],
+            "commands": [
+                "workbench.action.splitEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "R"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "f"
+            ],
+            "commands": [
+                "editor.action.format"
+            ]
+        },
+        {
+            "before": [
+                "<C-p>"
+            ],
+            "commands": [
+                "editor.action.showHover"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "c",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "/"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "a",
+                "f"
+            ],
+            "commands": [
+                "editor.action.autoFix"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "<space>"
+            ],
+            "commands": [
+                "workbench.action.showCommands",
+            ],
+            "silent": true
+        },
+        {
+            "before": [
+                "<leader>",
+                "l",
+                "b"
+            ],
+            "commands": [
+                "bookmarks.list"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "<return>"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": [
+                "<C-up>"
+            ],
+            "after": [
+                "{"
+            ]
+        },
+        {
+            "before": [
+                "<C-down>"
+            ],
+            "after": [
+                "}"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                ","
+            ],
+            "after": [
+                "v",
+                "$",
+                "h"
+            ]
+        },
+        {
+            "before": [
+                "-"
+            ],
+            "after": [
+                "V",
+            ]
+        },
+        {
+            "before": ["M"],
+            "commands": [
+                "editor.action.smartSelect.grow"
+            ]
+        },
+        {
+            "before": ["<leader>", "m", "a"],
+            "commands": [
+                "editor.action.selectHighlights"
+            ]
+        },
+        {
+            "before": ["<leader>", "m", "n"],
+            "commands": [
+                "editor.action.addSelectionToNextFindMatch"
+            ]
+        },
+        {
+            "before": ["<leader>", "o", "t"],
+            "commands": [
+                "workbench.action.terminal.new"
+            ]
+        },
+        {
+            "before": ["g", "b"],
+            "commands": [
+                "workbench.action.navigateBack"
+            ]
+        },
+        {
+            "before": ["g", "f"],
+            "commands": [
+                "workbench.action.navigateForward"
+            ]
+        },
+        {
+            "before": ["<leader>", "q", "q"],
+            "commands": [
+                "workbench.action.quit"
+            ]
+        },
+        {
+            "before": ["g", "c"],
+            "commands": [
+                "editor.action.addCommentLine"
+            ]
+        },
+        {
+            "before": ["<leader>", "n", "t"],
+            "commands": [
+                "workbench.files.action.focusFilesExplorer"
+            ]
+        },
+        {
+            "before": ["<leader>", "g", "g"],
+            "commands": [
+                "workbench.view.scm"
+            ]
+        },
+        {
+            "before": ["g", "d"],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": ["U"],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
+        },
+        {
+            "before": ["<leader>", "j", "i"],
+            "commands": [
+                "workbench.action.gotoSymbol"
+            ]
+        },
+        {
+            "before": ["<leader>", "j", "s"],
+            "commands": [
+                "workbench.action.showAllSymbols"
+            ]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    "chat.commandCenter.enabled": false
+}

@@ -144,7 +144,7 @@ keymap.set('n', '<leader>ht', ':Telescope colorscheme<CR>')
 keymap.set('n', '<leader>gg', ':Neogit<CR>')
 keymap.set('n', '<leader><leader>', ':Telescope commands<CR>')
 keymap.set('n', '<leader>cd', ':cd %:p:h<CR>') -- make file folder current folder
-keymap.set('n', '<leader>nt', ':NERDTreeToggle<CR>')
+keymap.set('n', '<leader>nt', ':NvimTreeToggle<CR>')
 keymap.set('n', '<leader>qq', ':qa<CR>')
 keymap.set('n', '<leader>gb', ':GitBlameToggle<CR>')
 keymap.set('n', '<leader>to', open_todays_todo_file)
@@ -268,7 +268,6 @@ if status_ok then
     'nvim-treesitter/nvim-treesitter',
     'MattesGroeger/vim-bookmarks',
     'TimUntersberger/neogit',
-    'preservim/nerdtree',
     'jamessan/vim-gnupg',
     'francoiscabrol/ranger.vim',
     'mbbill/undotree',
@@ -278,6 +277,18 @@ if status_ok then
     'projekt0n/github-nvim-theme',
     'rainglow/vim', -- themes
     'rbgrouleff/bclose.vim', -- required by ranger
+    { "nvim-tree/nvim-web-devicons", opts = {} }, -- for nvim-tree
+    {
+      "nvim-tree/nvim-tree.lua",
+      version = "*",
+      lazy = false,
+      dependencies = {
+        "nvim-tree/nvim-web-devicons",
+      },
+      config = function()
+        require("nvim-tree").setup {}
+      end,
+    },
     {
       'nvim-orgmode/orgmode',
       event = 'VeryLazy',

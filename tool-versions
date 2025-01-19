@@ -7,7 +7,7 @@ nim 2.2.0
 ocaml 4.14.0
 python 3.11.3
 zig 0.13.0
-rust 1.80.1
+rust 1.84.0
 golang 1.23.4
 gradle 8.10.2
 yarn 1.22.22

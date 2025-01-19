@@ -10,10 +10,11 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 
-(setq used-font "JetBrains Mono")
+;;(setq used-font "JetBrains Mono")
+(setq used-font "Courier 10 Pitch")
 (if (string= (getenv "PD_LAPTOP") "1")
     (setq used-font-size 15)
-  (setq used-font-size 18))
+  (setq used-font-size 22))
 (setq doom-font (font-spec :family used-font :size used-font-size :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family used-font :size used-font-size))
 
@@ -34,7 +35,7 @@
 ;; (if (>= pd/current-hour 18)
 ;;     (setq pd/ui-theme 'doom-city-lights)
 ;;   (setq pd/ui-theme 'pd-adwaita))
-(setq pd/ui-theme 'doom-challenger-deep)
+(setq pd/ui-theme 'doom-solarized-dark-high-contrast)
 
 ;; (if (string= (getenv "PD_LAPTOP") "1")
 ;;     (setq doom-theme pd/ui-theme)

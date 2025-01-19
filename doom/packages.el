@@ -87,7 +87,7 @@
 
 (package! autothemer)
 
-(package! nyan-mode)
+;;(package! nyan-mode)
 
 (package! ellama)
 
