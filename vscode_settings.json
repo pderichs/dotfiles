@@ -339,6 +339,18 @@
                 "workbench.action.showAllSymbols"
             ]
         },
+        {
+            "before": ["<leader>", "f", "r"],
+            "commands": [
+                "workbench.action.quickOpenPreviousRecentlyUsedEditor"
+            ]
+        },
+        {
+            "before": ["<leader>", "b", "b"],
+            "commands": [
+                "workbench.action.switchWindow"
+            ]
+        },
     ],
     "vim.handleKeys": {
         "<C-a>": false,
