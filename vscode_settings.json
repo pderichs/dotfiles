@@ -61,21 +61,31 @@
             ]
         },
         {
-            "before": ["m"],
+            "before": [
+                "m"
+            ],
             "commands": [
                 "editor.action.smartSelect.grow"
             ]
         },
         {
-            "before": ["<leader>", "m", "n"],
+            "before": [
+                "<leader>",
+                "m",
+                "n"
+            ],
             "commands": [
                 "editor.action.addSelectionToNextFindMatch"
             ]
         },
         {
-            "before": ["g", "c"],
+            "before": [
+                "g",
+                "c"
+            ],
             "commands": [
-                "editor.action.addCommentLine"
+                "editor.action.addCommentLine",
+                "extension.vim_escape"
             ]
         },
         {
@@ -88,7 +98,10 @@
             ]
         },
         {
-            "before": ["g", "d"],
+            "before": [
+                "g",
+                "d"
+            ],
             "commands": [
                 "editor.action.revealDefinition"
             ]
@@ -101,7 +114,12 @@
                 "h",
                 "h"
             ],
-            "after": ["g", "g", "V", "G"]
+            "after": [
+                "g",
+                "g",
+                "V",
+                "G"
+            ]
             // "commands": [
             //     "editor.action.selectAll"
             // ]
@@ -256,99 +274,175 @@
             ]
         },
         {
-            "before": ["M"],
+            "before": [
+                "M"
+            ],
             "commands": [
                 "editor.action.smartSelect.grow"
             ]
         },
         {
-            "before": ["<leader>", "m", "a"],
+            "before": [
+                "<leader>",
+                "m",
+                "a"
+            ],
             "commands": [
                 "editor.action.selectHighlights"
             ]
         },
         {
-            "before": ["<leader>", "m", "n"],
+            "before": [
+                "<leader>",
+                "m",
+                "n"
+            ],
             "commands": [
                 "editor.action.addSelectionToNextFindMatch"
             ]
         },
         {
-            "before": ["<leader>", "o", "t"],
+            "before": [
+                "<leader>",
+                "o",
+                "t"
+            ],
             "commands": [
                 "workbench.action.terminal.new"
             ]
         },
         {
-            "before": ["g", "b"],
+            "before": [
+                "g",
+                "b"
+            ],
             "commands": [
                 "workbench.action.navigateBack"
             ]
         },
         {
-            "before": ["g", "f"],
+            "before": [
+                "g",
+                "f"
+            ],
             "commands": [
                 "workbench.action.navigateForward"
             ]
         },
         {
-            "before": ["<leader>", "q", "q"],
+            "before": [
+                "<leader>",
+                "q",
+                "q"
+            ],
             "commands": [
                 "workbench.action.quit"
             ]
         },
         {
-            "before": ["g", "c"],
+            "before": [
+                "g",
+                "c"
+            ],
             "commands": [
                 "editor.action.addCommentLine"
             ]
         },
         {
-            "before": ["<leader>", "n", "t"],
+            "before": [
+                "<leader>",
+                "n",
+                "t"
+            ],
             "commands": [
                 "workbench.files.action.focusFilesExplorer"
             ]
         },
         {
-            "before": ["<leader>", "g", "g"],
+            "before": [
+                "<leader>",
+                "g",
+                "g"
+            ],
             "commands": [
                 "workbench.view.scm"
             ]
         },
         {
-            "before": ["g", "d"],
+            "before": [
+                "g",
+                "d"
+            ],
             "commands": [
                 "editor.action.revealDefinition"
             ]
         },
         {
-            "before": ["U"],
+            "before": [
+                "U"
+            ],
             "commands": [
                 "editor.action.referenceSearch.trigger"
             ]
         },
         {
-            "before": ["<leader>", "j", "i"],
+            "before": [
+                "<leader>",
+                "j",
+                "i"
+            ],
             "commands": [
                 "workbench.action.gotoSymbol"
             ]
         },
         {
-            "before": ["<leader>", "j", "s"],
+            "before": [
+                "<leader>",
+                "j",
+                "s"
+            ],
             "commands": [
                 "workbench.action.showAllSymbols"
             ]
         },
         {
-            "before": ["<leader>", "f", "r"],
+            "before": [
+                "<leader>",
+                "f",
+                "r"
+            ],
             "commands": [
                 "workbench.action.quickOpenPreviousRecentlyUsedEditor"
             ]
         },
         {
-            "before": ["<leader>", "b", "b"],
+            "before": [
+                "<leader>",
+                "b",
+                "b"
+            ],
             "commands": [
                 "workbench.action.switchWindow"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "q",
+                "f"
+            ],
+            "commands": [
+                "editor.action.quickFix"
             ]
         },
     ],
@@ -360,5 +454,6 @@
         "vscodevim.vim": 1
     },
     "chat.commandCenter.enabled": false,
-    "zig.zls.enabled": "on"
+    "zig.zls.enabled": "on",
+    "workbench.colorTheme": "Catppuccin Macchiato"
 }
