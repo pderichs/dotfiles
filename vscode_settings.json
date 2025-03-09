@@ -359,5 +359,6 @@
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
-    "chat.commandCenter.enabled": false
+    "chat.commandCenter.enabled": false,
+    "zig.zls.enabled": "on"
 }
