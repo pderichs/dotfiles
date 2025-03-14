@@ -44,7 +44,8 @@ my %links = (
   "ripgreprc" => "$ENV{HOME}/.ripgreprc",
   "rofi" => "$ENV{HOME}/.config/rofi/config.rasi",
   "kitty" => "$ENV{HOME}/.config/kitty/kitty.conf",
-  "vscode_settings.json" => "$ENV{HOME}/.config/Code/User/settings.json",
+  "vscode/settings.json" => "$ENV{HOME}/.config/Code/User/settings.json",
+  "vscode/keybindings.json" => "$ENV{HOME}/.config/Code/User/keybindings.json",
 );
 
 my @sources = keys %links;
