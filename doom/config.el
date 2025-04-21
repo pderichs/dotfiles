@@ -123,7 +123,7 @@
 (load! "debug.el")
 (load! "eradio.el")
 
-(load! "prodigy-definitions.el")
+;;(load! "prodigy-definitions.el")
 
 (pd/create-todays-todo-file (pd/todo-file-name))
 
