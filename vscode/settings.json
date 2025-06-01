@@ -486,7 +486,7 @@
     },
     "chat.commandCenter.enabled": false,
     "zig.zls.enabled": "on",
-    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.colorTheme": "Catppuccin Latte",
     "git.autofetch": true,
     "git.blame.editorDecoration.enabled": true,
     "window.zoomLevel": 2
