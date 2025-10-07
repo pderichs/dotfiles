@@ -35,7 +35,7 @@
 ;; (if (>= pd/current-hour 18)
 ;;     (setq pd/ui-theme 'doom-city-lights)
 ;;   (setq pd/ui-theme 'pd-adwaita))
-(setq pd/ui-theme 'doom-xcode)
+(setq pd/ui-theme 'doom-winter-is-coming-light)
 
 ;; (if (string= (getenv "PD_LAPTOP") "1")
 ;;     (setq doom-theme pd/ui-theme)
