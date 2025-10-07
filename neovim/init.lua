@@ -308,6 +308,8 @@ end
 --------------------------------------------------------------------------------------
 -- LSP Setup
 
+local lspconfig = vim.lsp.config
+
 local language_servers = { "pyright", "ts_ls", "perlnavigator" }
 
 local status_ok, mason = pcall(require, 'mason')
@@ -324,13 +326,6 @@ if status_ok then
   })
 else
   print('Unable to load mason-lspconfig')
-end
-
-local status_ok, lspconfig = pcall(require, 'lspconfig')
-if status_ok then
-  lspconfig.pyright.setup({})
-else
-  print('Unable to load lspconfig')
 end
 
 local cmp = require'cmp'
@@ -403,9 +398,11 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Set capabilities for each installed language server
 for i, value in ipairs(language_servers) do
-  require('lspconfig')[value].setup {
-    capabilities = capabilities
-  }
+  if (lspconfig ~= nil) and (lspconfig[value] ~= nil) and (lspconfig[value].setup ~= nil) then
+    lspconfig[value].setup {
+      capabilities = capabilities
+    }
+  end
 end
 
 --------------------------------------------------------------------------------------
@@ -450,5 +447,4 @@ else
 end
 
 -- vim.opt.background = 'dark'
--- vim.cmd.colorscheme('allure-contrast')
-vim.cmd.colorscheme('github_dark_default')
+vim.cmd.colorscheme('github_light')
