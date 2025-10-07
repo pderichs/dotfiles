@@ -989,27 +989,51 @@ scrollback_lines 10000
 #: Color scheme {{{
 
 # https://github.com/dexpota/kitty-themes/blob/master/themes/Alucard.conf
-background #222330
-foreground #cef3ff
-# cursor #ffffff
-selection_background #44475a
-color0 #000000
-color8 #545454
-color1 #ff5555
-color9 #ff5454
-color2 #fa0074
-color10 #50fa7b
-color3 #7f0a1f
-color11 #f0fa8b
-color4 #3282ff
-color12 #1200f8
-color5 #1b3cff
-color13 #ff78c5
-color6 #0037fc
-color14 #8ae9fc
-color7 #bbbbbb
-color15 #ffffff
-selection_foreground #222330
+# background #222330
+# foreground #cef3ff
+# # cursor #ffffff
+# selection_background #44475a
+# color0 #000000
+# color8 #545454
+# color1 #ff5555
+# color9 #ff5454
+# color2 #fa0074
+# color10 #50fa7b
+# color3 #7f0a1f
+# color11 #f0fa8b
+# color4 #3282ff
+# color12 #1200f8
+# color5 #1b3cff
+# color13 #ff78c5
+# color6 #0037fc
+# color14 #8ae9fc
+# color7 #bbbbbb
+# color15 #ffffff
+# selection_foreground #222330
+
+# Theme: PencilLight
+# https://github.com/dexpota/kitty-themes/blob/master/themes/PencilLight.conf
+background #f0f0f0
+foreground #414141
+cursor #20bafb
+selection_background #b6d6fc
+color0 #202020
+color8 #414141
+color1 #c30670
+color9 #fb0079
+color2 #10a778
+color10 #5ed6ae
+color3 #a79c14
+color11 #f3e42f
+color4 #008ec4
+color12 #20bafb
+color5 #523b78
+color13 #6854de
+color6 #20a4b9
+color14 #4fb8cc
+color7 #d9d9d9
+color15 #f0f0f0
+selection_foreground #f0f0f0
 
 # foreground #dddddd
 # background #000000
