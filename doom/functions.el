@@ -289,6 +289,25 @@ for copy constructor and assignment operator."
         (setq default-directory root-dir)
         (shell-command "git add .; git commit -am \"Update\"")))))
 
+
+(defun pd/open-org-mirror-points ()
+  "Opens each point on top hierarchy in an org document in a new buffer"
+  (interactive)
+  (let ((file-name (buffer-file-name)))  ;; Get current org buffer name
+    (when file-name
+      (with-temp-buffer
+        (insert-file-contents file-name)
+        (org-mode)
+        (org-map-entries
+         (lambda ()
+           (let ((headline (org-get-heading t t t t))
+                 (content (org-get-entry)))
+             (when headline
+               (let ((new-buffer (generate-new-buffer (concat "*Mirror: " headline "*"))))
+                 (with-current-buffer new-buffer
+                   (insert content))  ;; Content of org point
+                 (display-buffer new-buffer))))))))))
+
 ;; TODO
 ;; (defun pd/git-grep-find-string-in-all-commit-content ()
 ;;   "Executes git grep to find string in all available git commits"
