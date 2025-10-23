@@ -293,20 +293,37 @@ for copy constructor and assignment operator."
 (defun pd/open-org-mirror-points ()
   "Opens each point on top hierarchy in an org document in a new buffer"
   (interactive)
-  (let ((file-name (buffer-file-name)))  ;; Get current org buffer name
-    (when file-name
-      (with-temp-buffer
-        (insert-file-contents file-name)
-        (org-mode)
-        (org-map-entries
-         (lambda ()
-           (let ((headline (org-get-heading t t t t))
-                 (content (org-get-entry)))
-             (when headline
-               (let ((new-buffer (generate-new-buffer (concat "*Mirror: " headline "*"))))
-                 (with-current-buffer new-buffer
-                   (insert content))  ;; Content of org point
-                 (display-buffer new-buffer))))))))))
+  (let ((temp-dir (read-directory-name "Output folder:")))
+    (let ((file-name (buffer-file-name)))  ;; Get current org buffer name
+      (when file-name
+        (with-temp-buffer
+          (insert-file-contents file-name)
+          (org-mode)
+          (org-map-entries
+           (lambda ()
+             (let* ((headline (org-get-heading t t t t))
+                    (content (org-get-entry))
+                    ;; Create safe filename from headline
+                    (safe-filename (replace-regexp-in-string
+                                    "[^[:alnum:]-]" "_"
+                                    headline))
+                    (truncated-filename (substring safe-filename 0 
+                                                   (min 100 (length safe-filename))))
+                    (file-path (expand-file-name
+                                (concat truncated-filename ".org")
+                                temp-dir)))
+               (when headline
+                 ;; Write file content
+                 (with-temp-file file-path
+                   (insert content))
+                 ;; Open file in buffer
+                 (find-file-other-window file-path))))))))))
+
+(defun pd/open-current-file-folder ()
+  "Opens the current file folder"
+  (interactive)
+  (let ((folder ())) )
+  )
 
 ;; TODO
 ;; (defun pd/git-grep-find-string-in-all-commit-content ()

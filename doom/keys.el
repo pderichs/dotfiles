@@ -46,6 +46,7 @@
 (map! :leader :desc "Toggle neotree" "nt" #'neotree-toggle)
 (map! :leader :desc "Open dired in current file folder" "#" (lambda () (interactive) (dired ".")))
 (map! :leader :desc "Creates an update commit" "gu" #'pd/git-update-commit)
+(map! :leader :desc "Opens folder of current file" "oe" #'pd/open-current-file-folder)
 
 ;; Switch view of workspace buffers with all buffers
 (map! :leader :desc "Quick jump to all buffers" "bb" #'consult-buffer)

@@ -23,5 +23,14 @@
 	diffFilter = delta --color-only
 [delta]
 	navigate = true
+[diff]
+    tool = bc
+[difftool "bc"]
+    cmd = bcomp "$LOCAL" "$REMOTE"
+    prompt = false
 [merge]
-	conflictstyle = zdiff3
+    tool = bc
+[mergetool "bc"]
+    cmd = bcomp "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+    trustExitCode = true
+    prompt = false
