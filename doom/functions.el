@@ -319,11 +319,39 @@ for copy constructor and assignment operator."
                  ;; Open file in buffer
                  (find-file-other-window file-path))))))))))
 
-(defun pd/open-current-file-folder ()
-  "Opens the current file folder"
-  (interactive)
-  (let ((folder ())) )
-  )
+(defun pd/open-current-buffer-folder-in-file-manager (&optional arg)
+  "Opens the folder of the current buffer in the system file manager.
+With Prefix-Argument ARG (\\[universal-argument]) it tries to mark the file in
+the explorer."
+  (interactive "P")
+  (let* ((file (buffer-file-name))
+         (target (cond
+                  ;; With prefix: File, otherwise folder
+                  ((and arg file) (expand-file-name file))
+                  (file (file-name-directory (expand-file-name file)))
+                  (t (expand-file-name default-directory))))
+         (dir (if (file-directory-p target)
+                  target
+                (file-name-directory target))))
+    (cond
+     ;; macOS (Finder)
+     ((eq system-type 'darwin)
+      (if (and arg file)
+          (call-process "open" nil 0 nil "-R" target) ; reveal file
+        (call-process "open" nil 0 nil dir)))
+     ;; Windows (Explorer)
+     ((eq system-type 'windows-nt)
+      (if (and arg file)
+          (w32-shell-execute "open" "explorer.exe"
+                             (concat "/select,"
+                                     (subst-char-in-string ?/ ?\\ target)))
+        (w32-shell-execute "open" "explorer.exe"
+                           (subst-char-in-string ?/ ?\\ dir))))
+     ((memq system-type '(gnu/linux gnu kfreebsd berkeley-unix))
+      ;; For most systems xdg-open suffices
+      (call-process "xdg-open" nil 0 nil dir))
+     (t
+      (user-error "Nicht unterstütztes system-type: %s" system-type)))))
 
 ;; TODO
 ;; (defun pd/git-grep-find-string-in-all-commit-content ()
