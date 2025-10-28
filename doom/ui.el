@@ -10,6 +10,9 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 
+(setq pd/window-height 85)
+(setq pd/window-width 150)
+
 ;;(setq used-font "JetBrains Mono")
 (setq used-font "Courier 10 Pitch")
 (if (string= (getenv "PD_LAPTOP") "1")
@@ -53,7 +56,7 @@
 (if (window-system)
     (if (string= (getenv "PD_LAPTOP") "1")
         (add-to-list 'default-frame-alist '(fullscreen . maximized))
-      (set-frame-size (selected-frame) 120 50)))
+      (set-frame-size (selected-frame) pd/window-width pd/window-height)))
 
 ;; Show full file path in title bar
 (setq frame-title-format
