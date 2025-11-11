@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 2 ]; then
+  echo "Usage: $0 <filename_pattern> <search_string>"
+  exit 1
+fi
+
+filename_pattern="$1"
+search_string="$2"
+
+find . -type f -name "$filename_pattern" -exec grep -Hn "$search_string" {} +
