@@ -3,7 +3,7 @@ let mapleader = " "
 set nu
 set relativenumber
 set hlsearch
-set scrolloff=10
+set scrolloff=3
 set ignorecase
 set smartcase
 set showmode
@@ -41,7 +41,7 @@ nnoremap <leader>cd :action FindUsages<CR>
 nnoremap <leader>ia :action ShowIntentionActions<CR>
 nnoremap <leader>fs :action SaveAll<CR>
 nnoremap <leader>ss :action Find<CR>
-nnoremap <leader>ot :action Terminal.OpenInTerminal<CR>
+nnoremap <leader>ot :action Terminal.OpenInReworkedTerminal<CR>
 nnoremap <leader>ex :action Run<CR>
 nnoremap <leader>qr :action RestartIde<CR>
 nnoremap <leader>mn :action SelectNextOccurrence<CR>
