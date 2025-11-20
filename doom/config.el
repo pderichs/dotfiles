@@ -122,6 +122,7 @@
 (load! "go.el")
 (load! "debug.el")
 (load! "eradio.el")
+(load! "roam.el")
 
 ;;(load! "prodigy-definitions.el")
 

@@ -1011,30 +1011,53 @@ scrollback_lines 10000
 # color15 #ffffff
 # selection_foreground #222330
 
-# Theme: PencilLight
-# https://github.com/dexpota/kitty-themes/blob/master/themes/PencilLight.conf
-background #f0f0f0
-foreground #414141
-cursor #20bafb
-selection_background #b6d6fc
-color0 #202020
-color8 #414141
-color1 #c30670
-color9 #fb0079
-color2 #10a778
-color10 #5ed6ae
-color3 #a79c14
-color11 #f3e42f
-color4 #008ec4
-color12 #20bafb
-color5 #523b78
-color13 #6854de
-color6 #20a4b9
-color14 #4fb8cc
-color7 #d9d9d9
-color15 #f0f0f0
-selection_foreground #f0f0f0
+# Theme: Slate
+background #212121
+foreground #34b0d2
+cursor #87d2c3
+selection_background #0f3754
+color0 #212121
+color8 #ffffff
+color1 #e1a7bf
+color9 #ffccd8
+color2 #80d778
+color10 #bdffa8
+color3 #c4c9bf
+color11 #d0cbc9
+color4 #254a49
+color12 #79afd2
+color5 #a380d3
+color13 #c4a7d8
+color6 #14ab9c
+color14 #8bdee0
+color7 #02c4e0
+color15 #e0e0e0
+selection_foreground #212121
 
+# # Theme: PencilLight
+# # https://github.com/dexpota/kitty-themes/blob/master/themes/PencilLight.conf
+# background #f0f0f0
+# foreground #414141
+# cursor #20bafb
+# selection_background #b6d6fc
+# color0 #202020
+# color8 #414141
+# color1 #c30670
+# color9 #fb0079
+# color2 #10a778
+# color10 #5ed6ae
+# color3 #a79c14
+# color11 #f3e42f
+# color4 #008ec4
+# color12 #20bafb
+# color5 #523b78
+# color13 #6854de
+# color6 #20a4b9
+# color14 #4fb8cc
+# color7 #d9d9d9
+# color15 #f0f0f0
+# selection_foreground #f0f0f0
+#
 # foreground #dddddd
 # background #000000
 
