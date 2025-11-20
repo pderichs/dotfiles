@@ -50,3 +50,4 @@ if [ -e "$HOME/todofile.pl" ]; then
     $HOME/todofile.pl > /dev/null
 fi
 
+eval $(keychain --eval --agents ssh id_ed25519)
