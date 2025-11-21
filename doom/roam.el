@@ -9,3 +9,9 @@
   (org-roam-db-autosync-mode)
   ;; If using org-roam-protocol
   (require 'org-roam-protocol))
+
+;; Add prefix for book isbns
+(org-link-set-parameters "book"
+                         :follow (lambda (isbn)
+                                   (browse-url 
+                                    (concat "https://www.google.com/search?q=ISBN+" isbn))))
