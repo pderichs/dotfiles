@@ -10,7 +10,6 @@
 (map! :leader :desc "Open terminal in current folder" "ot" #'pd/start-terminal-in-current-folder) ;; "open terminal"
 (map! :leader :desc "Open todo file of today" "to" #'pd/open-today-todo-file)
 (map! :leader :desc "Open file in project" "pf" #'projectile-find-file)
-(map! :leader :desc "Open notes file" "no" #'pd/open-notes-file)
 (map! :leader :desc "Open bookmark list for editing" "lb" #'list-bookmarks)
 (map! :leader :desc "M-x" "SPC" #'execute-extended-command)
 (map! :leader :desc "List functions / symbols of current file" "ji" #'consult-imenu)
@@ -40,7 +39,9 @@
 (map! :leader :desc "Inserts a line" "il" #'pd/insert-line)
 (map! :leader :desc "Jump to workspace symbol" "jj" #'consult-lsp-symbols)
 (map! :leader :desc "Jump to workspace symbol" "jd" #'consult-lsp-diagnostics)
-(map! :leader :desc "Open Zettelkasten search" "ze" (lambda () (interactive) (consult-ripgrep (concat user-personal-zettelkasten-folder))))
+(map! :leader :desc "Open Zettelkasten text search in org-roam folder" "ze" (lambda () (interactive) (consult-ripgrep (concat user-personal-zettelkasten-folder))))
+(map! :leader :desc "Open new Zettel in org-roam" "nz" #'org-roam-node-find) ;; "Neuer Zettel"
+(map! :leader :desc "Find a Zettel by name" "fz" #'org-roam-node-find) ;; "Finde Zettel"
 (map! :leader :desc "Open current folder in file manager" "cd" (lambda () (interactive) (call-process "xdg-open" nil 0 nil ".")))
 (map! :leader :desc "Search for definition in another window" "gow" #'xref-find-definitions-other-window)
 (map! :leader :desc "Toggle neotree" "nt" #'neotree-toggle)

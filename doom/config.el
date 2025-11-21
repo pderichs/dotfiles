@@ -3,18 +3,6 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-;; This file sets the environment specific variables
-;;   - user-full-name
-;;   - user-mail-address
-;;   - user-personal-data-folder
-;;   - user-personal-documents-folder
-;;   - user-personal-notes-folder
-;;   - user-personal-zettelkasten-folder
-;;
-;; You can find a template for the required variables in
-;; user-env.el.template.
-(load! "user-env.el")
-
 (load! "gpg.el")
 (load! "functions.el")
 (load! "ui.el")
@@ -123,6 +111,7 @@
 (load! "debug.el")
 (load! "eradio.el")
 (load! "roam.el")
+(load! "latex.el")
 
 ;;(load! "prodigy-definitions.el")
 
@@ -133,3 +122,17 @@
 ;; Enable tree-sitter
 ;; (global-tree-sitter-mode)
 ;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+
+;; This file sets the environment specific variables
+;;   - user-full-name
+;;   - user-mail-address
+;;   - user-personal-data-folder
+;;   - user-personal-documents-folder
+;;   - user-personal-zettelkasten-folder
+;;
+;; You can find a template for the required variables in
+;; user-env.el.template.
+;; 
+;; Please note: Since it makes use of e.g. configured roam folder
+;; it must be loaded at the end.
+(load! "user-env.el")

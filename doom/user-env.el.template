@@ -5,5 +5,4 @@
 
       user-personal-data-folder (concat (getenv "HOME") "/<DATAFOLDER>")
       user-personal-documents-folder (concat user-personal-data-folder "/<DOCUMENTSFOLDER>")
-      user-personal-notes-folder (concat user-personal-documents-folder "/<NOTESFOLDER>")
-      user-personal-zettelkasten-folder (concat user-personal-documents-folder "/<ZETTELKASTENFOLDER>"))
+      user-personal-zettelkasten-folder (file-truename org-roam-directory))

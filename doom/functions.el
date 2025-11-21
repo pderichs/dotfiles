@@ -77,12 +77,6 @@
   (find-file (concat  (getenv "TODO") "/" (pd/todo-file-name)))
   (org-mode))
 
-(defun pd/open-notes-file ()
-  "Open todo file for today"
-  (interactive)
-  (find-file (concat user-personal-notes-folder "/notizen.org.gpg"))
-  (org-mode))
-
 (defun pd/start-terminal-in-current-folder ()
   "Starts a terminal in the current file's folder."
   (interactive)
