@@ -347,6 +347,78 @@ the explorer."
      (t
       (user-error "Nicht unterstütztes system-type: %s" system-type)))))
 
+(defun org--sanitize-filename (s)
+  "Konvertiere Überschrift S in einen Dateinamen ohne problematische Zeichen
+und schneide ihn auf maximal 120 Zeichen zu."
+  (let* (;; Umlaute ersetzen
+         (s (replace-regexp-in-string "ä" "ae" s t))
+         (s (replace-regexp-in-string "ö" "oe" s t))
+         (s (replace-regexp-in-string "ü" "ue" s t))
+         (s (replace-regexp-in-string "Ä" "Ae" s t))
+         (s (replace-regexp-in-string "Ö" "Oe" s t))
+         (s (replace-regexp-in-string "Ü" "Ue" s t))
+         (s (replace-regexp-in-string "ß" "ss" s t))
+         ;; Leerzeichen → Bindestriche
+         (s (replace-regexp-in-string "[ \t]+" "-" s t))
+         ;; Nicht-filename-kompatible Zeichen entfernen
+         (s (replace-regexp-in-string "[^A-Za-z0-9._-]" "" s t))
+         ;; Alles klein
+         (s (downcase s)))
+    ;; Längenlimit
+    (if (> (length s) 90)
+        (substring s 0 90)
+      s)))
+
+(defun pd/open-org-mirror-points-to-dir ()
+  "Extrahiere jede Überschrift der obersten Ebene aus einem Org-Dokument
+und speichere ihren Inhalt in einer Datei im vom Benutzer gewählten Verzeichnis.
+
+Jede erzeugte Datei:
+- hat die Endung .org
+- enthält einen org-roam-fähigen Header mit:
+    #+title: <Original-Überschrift>
+    :PROPERTIES:
+    :ID: <org-id>
+    :END:"
+  (interactive)
+  (let* ((src-file   (buffer-file-name))
+         (target-dir (read-directory-name "Zielverzeichnis wählen: ")))
+    (unless src-file
+      (error "Dieser Buffer ist nicht an eine Datei gebunden."))
+
+    (with-temp-buffer
+      (insert-file-contents src-file)
+      (org-mode)
+
+      (org-map-entries
+       (lambda ()
+         (let* ((headline (org-get-heading t t t t))
+                (content  (org-get-entry)))
+           (when headline
+             (let* ((fname-base (org--sanitize-filename headline))
+                    (base-path  (expand-file-name (concat fname-base ".org")
+                                                  target-dir))
+                    (outfile    base-path)
+                    (n          1))
+               ;; Falls der Dateiname schon existiert, hänge -1, -2, ... an
+               (while (file-exists-p outfile)
+                 (setq outfile (expand-file-name
+                                (format "%s-%d.org" fname-base n)
+                                target-dir))
+                 (setq n (1+ n)))
+               (let ((buf (generate-new-buffer (concat "*Mirror: " headline "*"))))
+                 (with-current-buffer buf
+                   ;; org-roam Header
+                   (insert "#+title: " headline "\n")
+                   (let ((id (org-id-new)))
+                     (insert ":PROPERTIES:\n:ID: " id "\n:END:\n\n"))
+                   ;; Inhalt aus dem ursprünglichen Spiegelpunkt
+                   (insert content)
+                   ;; Datei schreiben
+                   (write-file outfile))
+                 (display-buffer buf))))))
+       "LEVEL=1"))))
+
 ;; TODO
 ;; (defun pd/git-grep-find-string-in-all-commit-content ()
 ;;   "Executes git grep to find string in all available git commits"
