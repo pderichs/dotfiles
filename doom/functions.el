@@ -376,10 +376,10 @@ und speichere ihren Inhalt in einer Datei im vom Benutzer gewählten Verzeichnis
 Jede erzeugte Datei:
 - hat die Endung .org
 - enthält einen org-roam-fähigen Header mit:
-    #+title: <Original-Überschrift>
     :PROPERTIES:
     :ID: <org-id>
-    :END:"
+    :END:
+    #+title: <Original-Überschrift>"
   (interactive)
   (let* ((src-file   (buffer-file-name))
          (target-dir (read-directory-name "Zielverzeichnis wählen: ")))
@@ -409,14 +409,14 @@ Jede erzeugte Datei:
                (let ((buf (generate-new-buffer (concat "*Mirror: " headline "*"))))
                  (with-current-buffer buf
                    ;; org-roam Header
-                   (insert "#+title: " headline "\n")
                    (let ((id (org-id-new)))
                      (insert ":PROPERTIES:\n:ID: " id "\n:END:\n\n"))
+                   (insert "#+title: " headline "\n\n\n")
                    ;; Inhalt aus dem ursprünglichen Spiegelpunkt
                    (insert content)
                    ;; Datei schreiben
                    (write-file outfile))
-                 (display-buffer buf))))))
+                 (kill-buffer buf))))))
        "LEVEL=1"))))
 
 ;; TODO
