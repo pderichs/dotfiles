@@ -1,6 +1,6 @@
 [user]
 	name = pderichs
-	email = derichs@posteo.de
+	email = patrick@derichs.me
 	signingkey = A9B44D4F6A3D41D70D81E1AB8DC0CEA4F0623FAC
 [core]
 	editor = nvim
