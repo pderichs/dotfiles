@@ -30,7 +30,7 @@
 
 (defun pd/todo-file-name ()
   "Returns the name of today's todo file"
-  (format-time-string "%Y%m%d.org.gpg"))
+  (format-time-string "%Y%m%d.org"))
 
 (defun pd/insert-gpl-header ()
   "Inserts a GPLv3 file header in a C/C++ comment at the current cursor position"
@@ -89,7 +89,7 @@
   "Checks / create todo file for today"
   (let ((today-todo-file-path (concat  (getenv "TODO") "/" todo-file-name)))
     (if (not (file-exists-p today-todo-file-path))
-        (let ((existing-todo-files (directory-files (getenv "TODO") nil "\.org.gpg$" nil)))
+        (let ((existing-todo-files (directory-files (getenv "TODO") nil "\.org$" nil)))
           (if existing-todo-files
               (copy-file (concat (getenv "TODO") "/" (car (last existing-todo-files))) today-todo-file-path))))))
 
