@@ -15,3 +15,8 @@
                          :follow (lambda (isbn)
                                    (browse-url 
                                     (concat "https://www.google.com/search?q=ISBN+" isbn))))
+
+;; Some settings for org-agenda
+(setq org-agenda-files '(
+                         "~/roam/daily/"
+                         ))
