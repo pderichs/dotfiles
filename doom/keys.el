@@ -18,9 +18,9 @@
 (map! :leader :desc "Find other file" "of" #'pd/cpp-open-corresponding-file)
 (map! :leader :desc "Create a new buffer" "bn" #'evil-buffer-new) ;; normally bound to next-buffer
 (map! :leader :desc "Select item from kill buffer to paste" "pl" #'consult-yank-from-kill-ring) ;; "paste from list"
-(map! :leader :desc "Search for a string in a specific folder" "[" #'pd/search-string-in-folder)
+(map! :leader :desc "Search for a string in a specific folder" "[" #'pd/search-string-in-folder) ;; English keyboard
 (map! :leader :desc "Search for a string in a specific folder" "ö" #'pd/search-string-in-folder)
-(map! :leader :desc "Search for a file in a specific folder" "]" #'pd/search-file-in-folder)
+(map! :leader :desc "Search for a file in a specific folder" "]" #'pd/search-file-in-folder) ;; English keyboard
 (map! :leader :desc "Search for a file in a specific folder" "ä" #'pd/search-file-in-folder)
 (map! :leader :desc "Delete current buffer" "kk" #'kill-current-buffer)
 (map! :leader :desc "Compiles current project by calling make in root folder" "cc" (lambda () (interactive) (pd/compile-from-vc-root-folder "make -k")))
