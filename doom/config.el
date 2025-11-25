@@ -115,7 +115,7 @@
 
 ;;(load! "prodigy-definitions.el")
 
-(pd/create-todays-todo-file (pd/todo-file-name))
+;;(pd/create-todays-todo-file (pd/todo-file-name))
 
 ;;(nyan-mode)
 
