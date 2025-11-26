@@ -45,9 +45,9 @@ if [ -f "$HOME/rc.local" ]; then
     source "$HOME/rc.local"
 fi
 
-# Create TODO file
-if [ -e "$HOME/todofile.pl" ]; then
-    $HOME/todofile.pl > /dev/null
+# Disable caps lock on linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    setxkbmap -option caps:none 2>/dev/null
 fi
 
 eval $(keychain --eval --agents ssh id_ed25519)
