@@ -112,6 +112,7 @@
 (load! "eradio.el")
 (load! "roam.el")
 (load! "latex.el")
+(load! "autocompletion.el")
 
 ;;(load! "prodigy-definitions.el")
 

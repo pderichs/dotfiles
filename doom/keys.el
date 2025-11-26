@@ -77,7 +77,8 @@
 (define-key evil-normal-state-map (kbd "<f11>") #'consult-bookmark)
 (define-key evil-normal-state-map (kbd "C-j") #'evil-forward-paragraph)
 (define-key evil-normal-state-map (kbd "C-k") #'evil-backward-paragraph)
-(define-key evil-normal-state-map (kbd "C-<SPC>") #'+company/complete)
+(define-key evil-normal-state-map (kbd "C-<SPC>") #'corfu-complete)
+(define-key evil-insert-state-map (kbd "C-<SPC>") #'corfu-complete)
 (define-key evil-normal-state-map "gd" #'pd/lookup-definition-and-center-cursor)
 (define-key evil-normal-state-map "L" (lambda () (interactive) (message "nop")))
 (define-key evil-normal-state-map "M" #'er/expand-region) ;; overrides evil-window-middle
