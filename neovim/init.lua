@@ -310,7 +310,7 @@ end
 
 local lspconfig = vim.lsp.config
 
-local language_servers = { "pyright", "ts_ls", "perlnavigator" }
+local language_servers = {}
 
 local status_ok, mason = pcall(require, 'mason')
 if status_ok then
