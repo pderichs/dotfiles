@@ -10,5 +10,5 @@ export FZF_BASE=$(which fzf)
 
 # enables "**" etc
 if [ -e /usr/share/doc/fzf/examples/completion.bash ]; then
-  source /usr/share/doc/fzf/examples/completion.bash
+  source /usr/share/doc/fzf/examples/completion.zsh
 fi
