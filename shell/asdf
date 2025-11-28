@@ -1,3 +1,5 @@
+export PATH=$HOME/.asdf/shims:$PATH
+#
 # Set JAVA_HOME for asdf installed java
 if [ -e "$HOME/.asdf/shims/java" ]; then
    . $HOME/.asdf/plugins/java/set-java-home.zsh
