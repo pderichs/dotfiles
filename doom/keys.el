@@ -2,6 +2,9 @@
 ;; Keys
 ;; ----------------------------------------------------------------------------------------------------
 
+;; Do not overwrite the copy buffer with overwritten content by a "p" action
+(setq evil-kill-on-visual-paste nil)
+
 ;; --- leader keys
 (map! :leader :desc "Split window vertically" "w/" #'split-window-horizontally)
 (map! :leader :desc "Split window vertically" "w-" #'split-window-vertically)

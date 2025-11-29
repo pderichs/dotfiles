@@ -98,6 +98,10 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap
 
+-- Do not store the overwritten text by "p" in a way, it overwrites the old
+-- content of a copy operation
+keymap.set('x', 'p', '"_dP')
+
 -- keymap.set('n', 'x', '"_x')
 
 -- Mark until end of line
