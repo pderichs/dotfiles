@@ -40,14 +40,16 @@ source "$HOME/.shell/exports"
 # asdf
 source "$HOME/.shell/asdf"
 
-# Local customizations
-if [ -f "$HOME/rc.local" ]; then
-    source "$HOME/rc.local"
-fi
-
 # Disable caps lock on linux
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     setxkbmap -option caps:none 2>/dev/null
 fi
 
-eval $(keychain --eval --agents ssh id_ed25519)
+# Can be used on systems which do not support storing of keys (xfce)
+# eval $(keychain --eval --agents ssh id_ed25519)
+
+# Local customizations
+if [ -f "$HOME/rc.local" ]; then
+    source "$HOME/rc.local"
+fi
+
