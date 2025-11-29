@@ -79,17 +79,11 @@
 ;; See:
 ;; https://discourse.doomemacs.org/t/typing-jk-deletes-j-and-returns-to-normal-mode/59
 (package! evil-escape :disable t)
-
 ;; Debugging support
 (package! dap-mode)
-
 (package! eradio)
-
 (package! autothemer)
-
 ;;(package! nyan-mode)
-
 (package! ellama)
-
 (package! multi-vterm)
-
+(package! magit-delta)
