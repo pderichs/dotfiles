@@ -93,3 +93,7 @@ nnoremap - V
 
 nnoremap M :action EditorSelectWord<CR>
 vnoremap M :action EditorSelectWord<CR>
+
+" Do not overwrite copy buffer on paste over existing text
+vnoremap p "_dP
+
