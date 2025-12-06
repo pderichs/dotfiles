@@ -134,19 +134,18 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 
 keymap.set('n', '<leader>fs', ':w<CR>')
 keymap.set('n', '<leader>bd', ':bd<CR>')
-keymap.set('n', '<leader>bb', ':Telescope buffers<CR>')
-keymap.set('n', '<leader>s*', ':Telescope grep_string<CR>')
-keymap.set('n', '<leader>ss', ':Telescope current_buffer_fuzzy_find<CR>')
-keymap.set('n', '<leader>/', ':Telescope live_grep<CR>')
---keymap.set('n', '<leader>*', ':Telescope grep_string search=<C-R><C-W><CR>')
+keymap.set('n', '<leader>bb', ':FzfLua buffers<CR>')
+keymap.set('n', '<leader>s*', ':FzfLua grep_cword<CR>')
+keymap.set('n', '<leader>ss', ':FzfLua grep_curbuf<CR>')
+keymap.set('n', '<leader>/', ':FzfLua grep_project<CR>')
 keymap.set('n', '<leader>*', ':Rg <C-R><C-W><CR>')
-keymap.set('n', '<leader>fr', ':Telescope oldfiles<CR>')
-keymap.set('n', '<leader>ji', ':Telescope treesitter<CR>')
-keymap.set('n', '<leader>pl', ':Telescope registers<CR>')
-keymap.set('v', '<leader>pl', ':Telescope registers<CR>')
-keymap.set('n', '<leader>ht', ':Telescope colorscheme<CR>')
+keymap.set('n', '<leader>fr', ':FzfLua oldfiles<CR>')
+keymap.set('n', '<leader>ji', ':FzfLua treesitter<CR>')
+keymap.set('n', '<leader>pl', ':FzfLua registers<CR>')
+keymap.set('v', '<leader>pl', ':FzfLua registers<CR>')
+keymap.set('n', '<leader>ht', ':FzfLua colorschemes<CR>')
 keymap.set('n', '<leader>gg', ':Neogit<CR>')
-keymap.set('n', '<leader><leader>', ':Telescope commands<CR>')
+keymap.set('n', '<leader><leader>', ':FzfLua commands<CR>')
 keymap.set('n', '<leader>cd', ':cd %:p:h<CR>') -- make file folder current folder
 keymap.set('n', '<leader>nt', ':NvimTreeToggle<CR>')
 keymap.set('n', '<leader>qq', ':qa<CR>')
@@ -155,8 +154,7 @@ keymap.set('n', '<leader>to', open_todays_todo_file)
 keymap.set('n', '<leader>w/', ':vsp<CR>')
 keymap.set('n', '<leader>w-', ':sp<CR>')
 keymap.set('n', '<leader>r', ':set relativenumber!<CR>')
-keymap.set('n', '<leader>pf', ':Telescope find_files<CR>')
--- keymap.set('n', '<leader>pf', ':Telescope git_files<CR>')
+keymap.set('n', '<leader>pf', ':FzfLua files<CR>')
 keymap.set('n', '<leader>ff', ':Ranger<CR>')
 keymap.set('n', '<leader>id', insert_date)
 keymap.set('n', '<leader>il', insert_line)
@@ -166,7 +164,7 @@ keymap.set('n', '<leader>ww', '<C-w>w')
 keymap.set('n', '<leader>wd', ':close<CR>')
 keymap.set('n', '<leader>hh', 'gg<S-v>G')
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
-keymap.set('n', '<leader>fh', ":Telescope help_tags<CR>")
+keymap.set('n', '<leader>fh', ":FzfLua helptags<CR>")
 keymap.set('n', '<leader>ev', ":e $MYVIMRC<CR>")
 keymap.set('n', '<leader>sv', ":source $MYVIMRC<CR>")
 keymap.set('n', '<leader>so', ":so<CR>")
@@ -174,19 +172,18 @@ keymap.set('n', '<leader>cf', "ggVG=``")
 keymap.set('n', '<leader>bn', ":ene<CR>")
 keymap.set('n', '<leader>of', ":e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>")
 keymap.set('n', '<leader>cc', ":make ")
-keymap.set('n', '<leader>pl', ":Telescope registers<CR>")
-keymap.set('n', '<leader>rr', ":Telescope resume<CR>")
-keymap.set('n', '<leader>lic', ":Telescope lsp_incoming_calls<CR>")
-keymap.set('n', '<leader>loc', ":Telescope lsp_outgoing_calls<CR>")
-keymap.set('n', '<leader>lws', ":Telescope lsp_workspace_symbols<CR>")
+keymap.set('n', '<leader>rr', ":FzfLua resume<CR>")
+keymap.set('n', '<leader>lic', ":FzfLua lsp_incoming_calls<CR>")
+keymap.set('n', '<leader>loc', ":FzfLua lsp_outgoing_calls<CR>")
+keymap.set('n', '<leader>lws', ":FzfLua lsp_workspace_symbols<CR>")
 keymap.set('n', '<leader>lb', ":BookmarkShowAll<CR>")
 keymap.set('n', '<leader><CR>', ":BookmarkAnnotate<CR>")
 keymap.set('n', '<leader>wr', ":set wrap!<CR>")
 keymap.set('n', '<leader>ot', ":term<CR>")
-keymap.set('n', '<leader>tt', ":Telescope tags<CR>")
+keymap.set('n', '<leader>tt', ":FzfLua tags<CR>")
 keymap.set('n', '<leader>tz', ":ZenMode<CR>")
-keymap.set('n', '<leader>jj', ":Telescope lsp_workspace_symbols<CR>")
-keymap.set('n', '<leader>jd', ":Telescope diagnostics<CR>")
+keymap.set('n', '<leader>jj', ":FzfLua lsp_workspace_symbols<CR>")
+keymap.set('n', '<leader>jd', ":FzfLua diagnostics_workspace<CR>")
 
 vim.keymap.set('n', '<leader>gr', function()
   require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
@@ -199,7 +196,7 @@ keymap.set('n', '<C-Right>', 'w')
 keymap.set('n', '<C-k>', '{')
 keymap.set('n', '<C-j>', '}')
 
-keymap.set('n', 'U', ':Telescope lsp_references<CR>')
+keymap.set('n', 'U', ':FzfLua lsp_references<CR>')
 keymap.set('n', 'gc', ':CommentToggle<CR>')
 keymap.set('n', 'gb', '<C-o>') -- go back (<C-i> to go forward)
 -- keymap.set('n', 'gss', ':HopChar2<CR>') -- Jump to char
@@ -252,7 +249,18 @@ if status_ok then
     'aymericbeaumet/vim-symlink',
     'nvim-lua/plenary.nvim',
     'terrortylor/nvim-comment',
-    { 'nvim-telescope/telescope.nvim', tag = '0.1.5' },
+    {
+      "ibhagwan/fzf-lua",
+      -- optional for icon support
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      -- or if using mini.icons/mini.nvim
+      -- dependencies = { "nvim-mini/mini.icons" },
+      ---@module "fzf-lua"
+      ---@type fzf-lua.Config|{}
+      ---@diagnostics disable: missing-fields
+      opts = {}
+      ---@diagnostics enable: missing-fields
+    },
     -- LSP START
     'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
