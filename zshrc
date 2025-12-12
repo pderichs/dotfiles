@@ -53,3 +53,4 @@ if [ -f "$HOME/rc.local" ]; then
     source "$HOME/rc.local"
 fi
 
+export PATH="$HOME/.local/bin:$PATH"
