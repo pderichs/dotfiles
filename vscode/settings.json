@@ -29,6 +29,11 @@
     ],
     "vim.visualModeKeyBindings": [
         {
+            "before": ["p"],
+            "commands": ["editor.action.clipboardPasteAction"],
+            "after": []
+        },
+        {
             "before": [
                 ">"
             ],
@@ -108,6 +113,10 @@
         }
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "q", "r"],
+            "commands": ["workbench.action.reloadWindow"]
+        },
         {
             "before": [
                 "<leader>",
