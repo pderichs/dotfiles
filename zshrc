@@ -54,3 +54,14 @@ if [ -f "$HOME/rc.local" ]; then
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# bun completions
+[ -s "/home/pderichs/.bun/_bun" ] && source "/home/pderichs/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
