@@ -46,3 +46,5 @@ alias mci="mvn clean install"
 alias gup="git commit -am \"Update\""
 
 alias cbr="gco \$(git branch -a | fzf)"
+
+alias asdf_install_plugins="cat tool-versions | cut -d' ' -f1 | grep \"^[^\#]\" | xargs -i asdf plugin add  {}"
