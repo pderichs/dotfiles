@@ -46,6 +46,8 @@ my %links = (
   "kitty" => "$ENV{HOME}/.config/kitty/kitty.conf",
   "vscode/settings.json" => "$ENV{HOME}/.config/Code/User/settings.json",
   "vscode/keybindings.json" => "$ENV{HOME}/.config/Code/User/keybindings.json",
+  "fish/aliases.fish" => "$ENV{HOME}/.config/fish/conf.d/aliases.fish",
+  "fish/config.fish" => "$ENV{HOME}/.config/fish/conf.d/config.fish",
 );
 
 my @sources = keys %links;

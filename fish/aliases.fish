@@ -1,0 +1,50 @@
+alias nuke="kill -9"
+
+alias v="nvim"
+alias nv="nvim"
+alias vim="nvim"
+
+alias 7zenc="7z -mhc=on -mhe=on -p a"
+alias 7zenc4fat="7z -mhc=on -mhe=on -v1800m -p a"
+
+alias gsrem="git config --get remote.origin.url"
+
+alias s1off="xrandr --output eDP-1 --off"
+
+alias wifion="nmcli radio wifi on"
+alias wifioff="nmcli radio wifi off"
+
+# Records from microphone to output.wav
+alias rec1="sox -t alsa default output.wav"
+
+alias xo="xdg-open"
+alias smu="starttmux"
+
+# Screen brightness (screens can be identified with "xrandr -q")
+alias dispxhalf="xrandr --output eDP-1 --brightness 0.5"
+alias dispxfull="xrandr --output eDP-1 --brightness 1"
+alias dispxburn="xrandr --output eDP-1 --brightness 2"
+
+alias ytdl-audio="youtube-dl --extract-audio --audio-format mp3"
+
+alias gst="git status"
+alias gco="git checkout"
+
+alias ..="cd .."
+alias ...="cd ../.."
+
+alias ls="ls --color=auto"
+alias ll="ls -lisa"
+
+alias fm="clear && make clean && make -j 5"
+
+# JAVA
+alias mcp="mvn clean package"
+alias mce="mvn clean package exec:java"
+alias mci="mvn clean install"
+
+alias gup="git commit -am \"Update\""
+
+alias cbr="gco \$(git branch -a | fzf)"
+
+alias asdf_install_plugins="cat tool-versions | cut -d' ' -f1 | grep \"^[^\#]\" | xargs -i asdf plugin add  {}"
