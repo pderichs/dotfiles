@@ -56,7 +56,7 @@ nnoremap <leader>ca :action RebuildProject<CR>
 nnoremap <leader>cc :action CidrBuildRunToolbar<CR>
 nnoremap <leader>cr :action Run<CR>
 nnoremap <leader>* viw:action FindInPath<CR>
-nnoremap <leader>of :action CIDR.Lang.SwitchHeaderSource<CR>
+nnoremap <leader>of :action SwitchHeaderSource<CR>
 nnoremap <leader>gg :action CheckinProject<CR>
 nnoremap <leader><return> :action ToggleBookmarkWithMnemonic<CR>
 nnoremap <leader>lb :action ShowBookmarks<CR>
