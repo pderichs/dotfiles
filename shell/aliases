@@ -19,6 +19,7 @@ alias rec1="sox -t alsa default output.wav"
 
 alias xo="xdg-open"
 alias smu="starttmux"
+alias kmu="tmux kill-server"
 
 # Screen brightness (screens can be identified with "xrandr -q")
 alias dispxhalf="xrandr --output eDP-1 --brightness 0.5"
