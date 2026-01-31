@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+# We expect two parameters
 if [ $# -ne 2 ]; then
   echo "Usage: $0 <filename_pattern> <search_string>"
   exit 1
 fi
 
+# Name parameters
 filename_pattern="$1"
 search_string="$2"
 
+# find + grep
 find . -type f -name "$filename_pattern" -exec grep -Hn "$search_string" {} +
