@@ -4,6 +4,11 @@
 
 session="pat42"
 
+# Attach to session if already present
+if tmux has-session -t "$session" 2>/dev/null; then
+  tmux attach -t "$session"; exit 0
+fi
+
 # set up tmux
 tmux start-server
 
