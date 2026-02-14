@@ -37,9 +37,6 @@ source "$HOME/.shell/aliases"
 # exports
 source "$HOME/.shell/exports"
 
-# asdf
-source "$HOME/.shell/asdf"
-
 # Disable caps lock on linux
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     setxkbmap -option caps:none 2>/dev/null
@@ -55,9 +52,8 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+# mise
+eval "$(mise activate zsh)"
 
 # bun completions
 [ -s "/home/pderichs/.bun/_bun" ] && source "/home/pderichs/.bun/_bun"
