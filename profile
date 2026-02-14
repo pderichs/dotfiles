@@ -26,8 +26,3 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Activate mise environment for Desktop apps.
-# Note: "bash" parameter is correct here
-if [ -x "/usr/bin/mise" ]; then
-    eval "$(/usr/bin/mise env -s bash)"
-fi

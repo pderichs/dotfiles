@@ -9,6 +9,16 @@ if [ -d "$HOME/.config/emacs" ]; then
     export PATH=$HOME/.config/emacs/bin:$PATH
 fi
 
-if [ -d "$HOME/bin" ]; then
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

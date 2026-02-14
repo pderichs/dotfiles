@@ -459,4 +459,4 @@ else
 end
 
 vim.opt.background = 'dark'
-vim.cmd.colorscheme('slate-contrast')
+vim.cmd.colorscheme('absent-contrast')

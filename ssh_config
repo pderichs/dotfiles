@@ -1,0 +1,9 @@
+# Machine specific settings
+Include ~/.ssh/config.local.d/*
+
+# General settings
+Host *
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_ed25519
+    ServerAliveInterval 60

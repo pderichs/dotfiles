@@ -25,6 +25,7 @@ my %links = (
   "zshrc" => "$ENV{HOME}/.zshrc",
   "profile" => "$ENV{HOME}/.profile",
   "xsessionrc" => "$ENV{HOME}/.xsessionrc",
+  "ssh_config" => "$ENV{HOME}/.ssh/config",
   "ideavimrc" => "$ENV{HOME}/.ideavimrc",
   "tmux.conf" => "$ENV{HOME}/.tmux.conf",
   "gitconfig" => "$ENV{HOME}/.gitconfig",

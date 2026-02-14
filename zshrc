@@ -43,7 +43,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 # Can be used on systems which do not support storing of keys (xfce)
-# eval $(keychain --eval --agents ssh id_ed25519)
+eval $(keychain --eval --agents ssh id_ed25519)
 
 # Local customizations
 if [ -f "$HOME/rc.local" ]; then
@@ -58,6 +58,3 @@ eval "$(mise activate zsh)"
 # bun completions
 [ -s "/home/pderichs/.bun/_bun" ] && source "/home/pderichs/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
