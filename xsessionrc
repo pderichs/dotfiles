@@ -1,0 +1,4 @@
+# ~/.xprofile
+if [ -x "/usr/bin/mise" ]; then
+    eval "$(/usr/bin/mise env -s bash)"
+fi
