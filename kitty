@@ -1506,7 +1506,7 @@ shell_integration no-cursor
 #: This option must be a comma separated list of the above values.
 #: This only source the first valid one in the above order.
 
-# term xterm-kitty
+#term xterm-kitty
 
 #: The value of the TERM environment variable to set. Changing this
 #: can break many terminal programs, only change it if you know what
@@ -2105,24 +2105,25 @@ map shift+insert paste_from_clipboard
 #: Increase font size
 
 # map kitty_mod+equal  change_font_size all +2.0
-# map kitty_mod+plus   change_font_size all +2.0
+map kitty_mod+plus   change_font_size all +2.0
 # map kitty_mod+kp_add change_font_size all +2.0
 # map cmd+plus         change_font_size all +2.0
 # map cmd+equal        change_font_size all +2.0
 # map shift+cmd+equal  change_font_size all +2.0
-map ctrl+plus   change_font_size all +2.0
+map ctrl+plus         change_font_size all +2.0
 
 #: Decrease font size
 
-# map kitty_mod+minus       change_font_size all -2.0
+map kitty_mod+minus       change_font_size all -2.0
 # map kitty_mod+kp_subtract change_font_size all -2.0
 # map cmd+minus             change_font_size all -2.0
 # map shift+cmd+minus       change_font_size all -2.0
-map ctrl+minus       change_font_size all -2.0
+map ctrl+minus             change_font_size all -2.0
 
 #: Reset font size
 
 # map kitty_mod+backspace change_font_size all 0
+map kitty_mod+0       change_font_size all 0
 # map cmd+0               change_font_size all 0
 map ctrl+0               change_font_size all 0
 

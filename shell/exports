@@ -1,7 +1,7 @@
 export TODO="$HOME/todo"
 export EDITOR='nvim'
 export TERMINAL="kitty"
-export TERM=xterm-256color
+#export TERM=xterm-256color
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export GPGKEY=A9B44D4F6A3D41D70D81E1AB8DC0CEA4F0623FAC
 

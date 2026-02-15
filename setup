@@ -44,6 +44,7 @@ my %links = (
   "bin/md5allfiles" => "$ENV{HOME}/bin/md5allfiles",
   "bin/starttmux" => "$ENV{HOME}/bin/starttmux",
   "bin/dfcollect" => "$ENV{HOME}/bin/dfcollect",
+  "bin/fif" => "$ENV{HOME}/bin/fif",
   "ripgreprc" => "$ENV{HOME}/.ripgreprc",
   "rofi" => "$ENV{HOME}/.config/rofi/config.rasi",
   "kitty" => "$ENV{HOME}/.config/kitty/kitty.conf",

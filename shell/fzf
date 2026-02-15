@@ -9,6 +9,6 @@ export FZF_BASE=$(which fzf)
 # fi
 
 # enables "**" etc
-if [ -e /usr/share/doc/fzf/examples/completion.bash ]; then
+if [ -e /usr/share/doc/fzf/examples/completion.zsh ]; then
   source /usr/share/doc/fzf/examples/completion.zsh
 fi
