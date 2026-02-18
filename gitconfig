@@ -34,3 +34,5 @@
     cmd = bcomp "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
     trustExitCode = true
     prompt = false
+[difftool]
+	prompt = false

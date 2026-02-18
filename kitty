@@ -1003,7 +1003,8 @@ color2 #80d778
 color10 #bdffa8
 color3 #c4c9bf
 color11 #d0cbc9
-color4 #254a49
+#color4 #254a49
+color4 #3d8a88
 color12 #79afd2
 color5 #a380d3
 color13 #c4a7d8
