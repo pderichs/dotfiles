@@ -1,3 +1,0 @@
---langdef=nim
---map-nim=+.nim
---regex-nim=/^[ \t]*proc[ \t]*([a-zA-Z0-9_]+).*/\1/d,definition/

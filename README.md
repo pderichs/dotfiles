@@ -1,14 +1,62 @@
 # dotfiles
 
-My dotfiles.
+My dotfiles. 
 
-Installation notes can be found [here](https://github.com/pderichs/dotfiles/blob/main/INSTALL.md).
+A Rakefile is used to create the relevant symlinks in the HOME folder.
+
+# Prerequisites
+
+## Debian
+
+System setup for Debian:
+
+```bash
+sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev libyaml-dev libffi-dev
+```
+
+## Mac OS
+
+```bash
+brew install mise
+```
+
+# Installation
+
+Install ruby (and rake):
+
+```bash
+mise install
+```
+
+Make sure rake is functional:
+
+```bash
+rake --version
+```
+
+## Dry Run
+
+Perform a dry run of the rake task to see what will be updated in your HOME folder:
+
+```bash
+DRY_RUN=1 rake
+```
+
+Examine the output carefully.
+
+## Install dot files
+
+```bash
+rake
+```
 
 # General notes
 
+## Editor setup
+
 These dotfiles are configured to provide (nearly) the same environment for all editors / ides (keybinding wise).
 
-Emacs is based on Doom Emacs.
+Emacs is based on [Doom Emacs](https://github.com/doomemacs/doomemacs).
 
 Here you can find a list of keybindings which are used across some apps (mostly speaking of emacs, vim, jetbrains ides). This might not be up to date though - refer to the respective config files for more up to date information.
 
