@@ -1,3 +1,5 @@
+;;; eradio.el -*- lexical-binding: t; -*-
+
 ;; https://github.com/olavfosse/eradio
 
 (setq eradio-player '("mpv" "--no-video" "--no-terminal"))

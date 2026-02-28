@@ -1,3 +1,5 @@
+;;; roam.el -*- lexical-binding: t; -*-
+
 (use-package org-roam
   :ensure t
   :custom

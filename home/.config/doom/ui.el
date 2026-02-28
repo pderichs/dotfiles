@@ -1,3 +1,5 @@
+;;; ui.el -*- lexical-binding: t; -*-
+;; 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
@@ -38,7 +40,7 @@
 ;; (if (>= pd/current-hour 18)
 ;;     (setq pd/ui-theme 'doom-city-lights)
 ;;   (setq pd/ui-theme 'pd-adwaita))
-(setq pd/ui-theme 'doom-moonlight)
+(setq pd/ui-theme 'sanityinc-tomorrow-blue)
 
 ;; (if (string= (getenv "PD_LAPTOP") "1")
 ;;     (setq doom-theme pd/ui-theme)
