@@ -1,34 +1,33 @@
-function get_todays_todo_file_name() 
+local function get_todays_todo_file_name() 
   local d = os.date("%Y%m%d")
   local todo_folder = os.getenv("TODO")
 
   return string.format("%s/%s.org.gpg", todo_folder, d)
 end
 
-function open_todays_todo_file()
+local function open_todays_todo_file()
   local path = get_todays_todo_file_name()
   local cmd = string.format(":e %s", path)
 
   vim.cmd(cmd)
 end
 
-function insert_text(text) 
+local function insert_text(text) 
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
   vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { text })
 end
 
-function insert_date()
+local function insert_date()
   insert_text(os.date("%Y.%m.%d"))
 end
 
-function insert_line()
+local function insert_line()
   insert_text('--------------------------------------------------------------------------------------')
 end
 
 -- Base setup
 vim.cmd('autocmd!') -- Remove all vimrc autocommands
 
-vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
@@ -47,7 +46,7 @@ vim.opt.laststatus = 2
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
 vim.opt.shell = 'zsh'
-vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
+vim.opt.backupskip = { '/tmp/*' }
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 vim.opt.swapfile = false
@@ -151,8 +150,6 @@ keymap.set('n', '<leader>nt', ':NvimTreeToggle<CR>')
 keymap.set('n', '<leader>qq', ':qa<CR>')
 keymap.set('n', '<leader>gb', ':GitBlameToggle<CR>')
 keymap.set('n', '<leader>to', open_todays_todo_file)
-keymap.set('n', '<leader>w/', ':vsp<CR>')
-keymap.set('n', '<leader>w-', ':sp<CR>')
 keymap.set('n', '<leader>r', ':set relativenumber!<CR>')
 keymap.set('n', '<leader>pf', ':FzfLua files<CR>')
 keymap.set('n', '<leader>ff', ':Ranger<CR>')
@@ -185,8 +182,8 @@ keymap.set('n', '<leader>tz', ":ZenMode<CR>")
 keymap.set('n', '<leader>jj', ":FzfLua lsp_workspace_symbols<CR>")
 keymap.set('n', '<leader>jd', ":FzfLua diagnostics_workspace<CR>")
 
-vim.keymap.set('n', '<leader>gr', function()
-  require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
+keymap.set('n', '<leader>gr', function()
+  require('fzf-lua').grep({ search = vim.fn.input("Grep > ") })
 end)
 
 keymap.set('n', '<C-Up>', '{')
@@ -230,7 +227,7 @@ keymap.set('i', '<C-BS>', '<C-W>', {noremap = true})
 
 -- load lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -262,7 +259,6 @@ if status_ok then
       ---@diagnostics enable: missing-fields
     },
     -- LSP START
-    'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
 
@@ -276,7 +272,7 @@ if status_ok then
 
     -- LSP END
     'folke/zen-mode.nvim',
-    'folke/neodev.nvim',
+    { 'folke/lazydev.nvim', ft = 'lua' },
     'nvim-treesitter/nvim-treesitter',
     'MattesGroeger/vim-bookmarks',
     'TimUntersberger/neogit',
@@ -322,7 +318,7 @@ end
 
 local lspconfig = vim.lsp.config
 
-local language_servers = {}
+local language_servers = { 'clangd', 'kotlin_language_server', 'lua_ls', 'yamlls', 'ts_ls' }
 
 local status_ok, mason = pcall(require, 'mason')
 if status_ok then
@@ -334,14 +330,34 @@ end
 local status_ok, mason_lspconfig = pcall(require, 'mason-lspconfig')
 if status_ok then
   mason_lspconfig.setup({
-    ensure_installed = language_servers
+      ensure_installed = language_servers,
+      automatic_installation = true,        -- auch Server, die du später per lspconfig einrichtest
   })
 else
   print('Unable to load mason-lspconfig')
 end
 
-local cmp = require'cmp'
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+-- Set capabilities for each installed language server
+for _, server in ipairs(language_servers) do
+  vim.lsp.config(server, { capabilities = capabilities })
+  vim.lsp.enable(server)
+end
+
+-- Special schema support for yaml
+vim.lsp.config('yamlls', {
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+      }
+    }
+  }
+})
+
+local cmp = require('cmp')
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
@@ -405,18 +421,6 @@ cmp.setup.cmdline(':', {
   matching = { disallow_symbol_nonprefix_matching = false }
 })
 
--- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
--- Set capabilities for each installed language server
-for i, value in ipairs(language_servers) do
-  if (lspconfig ~= nil) and (lspconfig[value] ~= nil) and (lspconfig[value].setup ~= nil) then
-    lspconfig[value].setup {
-      capabilities = capabilities
-    }
-  end
-end
-
 --------------------------------------------------------------------------------------
 
 -- thanks to https://github.com/LunarVim/Neovim-from-scratch
@@ -458,5 +462,5 @@ else
   print("Unable to local treesitter config.")
 end
 
-vim.opt.background = 'dark'
-vim.cmd.colorscheme('absent-contrast')
+vim.opt.background = 'light'
+vim.cmd.colorscheme('github_light_high_contrast')
