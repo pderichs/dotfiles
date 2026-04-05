@@ -119,3 +119,8 @@
 ;;             (define-key evil-normal-state-map "gd" #'lsp-find-definition)
 ;;             (define-key evil-normal-state-map "U" #'lsp-find-references)
 ;;             ))
+
+;; enable jj escape 
+(after! evil-escape
+  (evil-escape-mode +1)
+  (setq evil-escape-key-sequence "jj"))
