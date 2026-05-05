@@ -2,7 +2,7 @@
 
 My dotfiles. 
 
-A Rakefile is used to create the relevant symlinks in the HOME folder.
+A bash script is used to create the relevant symlinks in the HOME folder.
 
 # Prerequisites
 
@@ -11,7 +11,7 @@ A Rakefile is used to create the relevant symlinks in the HOME folder.
 System setup for Debian:
 
 ```bash
-sudo apt install -y build-essential libssl-dev libreadline-dev zlib1g-dev libyaml-dev libffi-dev
+sudo apt install -y adduser ansible autoconf automake baobab bash bash-completion bind9-dnsutils bind9-host blueman bluez brave-browser breeze-cursor-theme bsdutils build-essential busybox bzip2 ca-certificates calibre catfish clamav clang clang-format clang-tidy cmake cppcheck cron curl delta diffutils direnv dkms dmidecode dmz-cursor-theme doc-debian docker-buildx-plugin docker-ce docker-ce-cli docker-compose-plugin dosfstools dpkg dpkg-dev e2fsprogs fastfetch fd-find fdisk fdupes file findutils fish fortune-mod fzf g++ gcc geogebra gettext-base gimp git git-delta gnome-shell-extension-appindicator gnome-shell-extension-prefs gopls gpg-agent grep htop hx ifupdown imagemagick img2pdf inkscape inxi keepassxc keyboard-configuration keychain keyd kitty lazarus less libcairo2-dev libgccjit-14-dev libgif-dev libgl1-mesa-dev libgmp-dev libgmp10  libgnutls28-dev libgpm-dev libgtk-3-dev libharfbuzz-dev libjansson-dev libjansson4 libjpeg-dev libjpeg62-turbo-dev libk5crypto3 liblocale-gettext-perl liblzma5 libm17n-dev libmagickwand-dev libncurses-dev libncursesw6 libotf-dev libpcre2-8-0 libpng-dev libqt5svg5-dev libqt5test5t64 libqt5websockets5-dev libqt6test6 libreadline-dev libreadline8t64 librsvg2-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libselinux1-dev libsemanage-common libsqlite3-dev libss2 libssl-dev libssl3t64 libsystemd-dev libsystemd-shared libsystemd0 libtext-charwidth-perl libtext-iconv-perl libtext-wrapi18n-perl libtiff-dev libtinfo6 libtirpc-common libtirpc3t64 libtree-sitter-dev libudev1 libunistring5 libuuid1 libvterm-dev libwebp-dev libwxgtk3.2-dev libx11-dev libxaw7-dev libxcb-cursor0 libxi-dev libxml2-dev libxrandr-dev libxtables12 libxxhash0 libyaml-dev libzstd1 linux-headers-amd64 linux-sysctl-defaults locales logrotate logsave lsb-release lsof mailutils make man-db manpages markdown mate-desktop-environment-extras mawk maxima mc media-types mesa-common-dev mise mount nano ncurses-base ncurses-bin ncurses-term netbase netcat-traditional nftables ninja-build nvidia-driver octave openssh-client openssh-server openssl openssl-provider-legacy os-prober pandoc passwd pciutils pdfarranger peek perl perl-base pkg-config procps  qpdf qt5-qmake qt6-base-dev qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools qtbase5-dev qtbase5-dev-tools qtbase5-private-dev qtchooser qtdeclarative5-dev qtmultimedia5-dev quilt ranger readline-common reportbug ripgrep rmlint rsync sbcl sed sensible-utils sharutils shellcheck shim-signed simple-scan simplescreenrecorder sqlite3 sqv steam:i386 systemd systemd-cryptsetup systemd-sysv systemd-timesyncd sysvinit-utils tar task-cinnamon-desktop task-desktop task-german task-german-desktop task-ssh-server task-xfce-desktop tasksel texinfo texlive texstudio thunderbird tidy timeshift tmux tor traceroute tzdata ucf udev usbutils util-linux util-linux-extra veracrypt vim vim-common vim-tiny vlc wamerican wget whiptail wireless-tools wpasupplicant wtmpdb wxmaxima xaw3dg-dev xcursor-themes xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin xorg-dev xserver-xorg-video-nouveau xz-utils zlib1g zlib1g-dev zoom zoxide zsh zstd ocrmypdf tesseract-ocr tesseract-ocr-deu libffi-dev
 ```
 
 ## Mac OS
@@ -22,24 +22,16 @@ brew install mise
 
 # Installation
 
-Install ruby (and rake):
-
 ```bash
 mise install
 ```
 
-Make sure rake is functional:
-
-```bash
-rake --version
-```
-
 ## Dry Run
 
-Perform a dry run of the rake task to see what will be updated in your HOME folder:
+Perform a dry run of the installation to see what will be updated in your HOME folder:
 
 ```bash
-DRY_RUN=1 rake
+./setup --dry-run
 ```
 
 Examine the output carefully.
@@ -47,7 +39,7 @@ Examine the output carefully.
 ## Install dot files
 
 ```bash
-rake
+./setup
 ```
 
 # General notes

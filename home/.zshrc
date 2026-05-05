@@ -57,4 +57,3 @@ eval "$(mise activate zsh)"
 
 # bun completions
 [ -s "/home/pderichs/.bun/_bun" ] && source "/home/pderichs/.bun/_bun"
-

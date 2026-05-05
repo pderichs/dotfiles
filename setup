@@ -1,0 +1,238 @@
+#!/usr/bin/env bash
+# install.sh — Symlink dotfiles from ./home/ into $HOME.
+#
+# Behavior:
+#   - Each file under ./home/ becomes a symlink at the matching $HOME path.
+#   - Intermediate directories are mirrored with mkdir -p (not symlinked),
+#     so different tools can keep their config files in their own dirs
+#     without colliding.
+#   - EXCEPTION: a directory containing a __LINK_FOLDER__ marker file is
+#     symlinked as a whole; its contents are skipped during the walk.
+#     Useful for config trees managed end-to-end by a single tool
+#     (e.g. .vim, .ssh).
+#   - Pre-existing real files (non-symlinks) at a destination are left
+#     alone with a warning, so user-edited targets are never clobbered.
+#
+# Usage:
+#   ./install.sh             interactive, asks for "YES!" confirmation
+#   ./install.sh --dry-run   show what would happen, make no changes
+#   ./install.sh --help      show this usage
+
+set -euo pipefail
+
+# --- Configuration ----------------------------------------------------------
+
+# Resolve the directory containing this script, regardless of cwd or whether
+# the script was invoked through a symlink. This lets the user run
+# `./install.sh` or `~/dotfiles/install.sh` and get the same behavior.
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+readonly SCRIPT_DIR
+readonly SOURCE_PATH="${SCRIPT_DIR}/home"
+
+DRY_RUN=0
+
+# --- Argument parsing -------------------------------------------------------
+
+usage() {
+    cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+
+Symlink dotfiles from ${SOURCE_PATH} into \$HOME.
+
+Options:
+  -n, --dry-run    Show what would be done, but make no changes
+  -h, --help       Show this help and exit
+EOF
+}
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        -n|--dry-run) DRY_RUN=1 ;;
+        -h|--help)    usage; exit 0 ;;
+        *)            printf 'Unknown option: %s\n' "$1" >&2; usage >&2; exit 2 ;;
+    esac
+    shift
+done
+
+# --- Output helpers ---------------------------------------------------------
+
+# Use ANSI colors only when stdout is a TTY; piping to a file or pager
+# should produce clean text.
+if [ -t 1 ]; then
+    readonly RED=$'\033[31m'
+    readonly GREEN=$'\033[32m'
+    readonly YELLOW=$'\033[33m'
+    readonly RESET=$'\033[0m'
+else
+    readonly RED='' GREEN='' YELLOW='' RESET=''
+fi
+
+red()    { printf '%s%s%s\n' "$RED"    "$1" "$RESET"; }
+green()  { printf '%s%s%s\n' "$GREEN"  "$1" "$RESET"; }
+yellow() { printf '%s%s%s\n' "$YELLOW" "$1" "$RESET"; }
+
+# --- Confirmation -----------------------------------------------------------
+
+# Prompt the user before touching $HOME. In dry-run mode this is a no-op
+# beyond a friendly notice.
+confirm() {
+    if [ "$DRY_RUN" = "1" ]; then
+        yellow "DRY RUN mode – no changes will be made."
+        return 0
+    fi
+
+    red "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    red "!                                                                   !"
+    red "! CAUTION: This will create symlinks and modify your home directory !"
+    red "!                                                                   !"
+    red "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+
+    local answer
+    read -r -p "Type 'YES!' to continue, anything else to cancel: " answer
+    if [ "$answer" != "YES!" ]; then
+        echo "Aborted."
+        exit 1
+    fi
+}
+
+# --- Path mapping -----------------------------------------------------------
+
+# Map a source path inside ./home/ to the corresponding $HOME path.
+# Example: ./home/.config/foo -> $HOME/.config/foo
+dest_for() {
+    local rel="${1#"${SOURCE_PATH}/"}"
+    printf '%s/%s' "$HOME" "$rel"
+}
+
+# --- Linking primitives -----------------------------------------------------
+
+# Create a symlink from $src -> $dest, replacing any existing symlink.
+#
+# We delete an existing symlink first because `ln -sf` would otherwise
+# create the new link *inside* it when the old one points to a directory
+# (a classic ln gotcha).
+create_link() {
+    local src="$1" dest="$2"
+
+    if [ "$DRY_RUN" = "1" ]; then
+        yellow "DRY RUN: Would create link $src -> $dest"
+        return 0
+    fi
+
+    if [ -L "$dest" ]; then
+        rm -f "$dest"
+    fi
+
+    if ln -sf "$src" "$dest"; then
+        green "Created link $dest"
+    else
+        red "Error! Link $dest could not be created"
+    fi
+}
+
+# Link a single source path into $HOME, but refuse to clobber an existing
+# real file (anything that isn't a symlink). User-edited targets stay safe.
+link_file() {
+    local src="$1"
+    local dest
+    dest="$(dest_for "$src")"
+
+    if [ -e "$dest" ] && [ ! -L "$dest" ]; then
+        yellow "WARNING: $dest is an existing file (no symlink). Skipping."
+        return 0
+    fi
+
+    create_link "$src" "$dest"
+}
+
+# Create an intermediate directory at the destination if it doesn't exist.
+setup_folder() {
+    local src="$1"
+    local dest
+    dest="$(dest_for "$src")"
+
+    if [ -d "$dest" ]; then
+        return 0
+    fi
+
+    if [ "$DRY_RUN" = "1" ]; then
+        yellow "DRY RUN: Would create folder $dest"
+        return 0
+    fi
+
+    if mkdir -p "$dest"; then
+        green "Created folder $dest"
+    else
+        red "Error! Folder $dest could not be created"
+    fi
+}
+
+# --- Link-folder detection --------------------------------------------------
+
+# A directory whose contents should be symlinked as a whole is marked by
+# a __LINK_FOLDER__ file inside it. We pre-collect those parent folders
+# so the main walk can quickly tell whether a path lives inside one (and
+# therefore should be skipped — its parent is handled as a single link).
+declare -a LINK_FOLDERS=()
+
+collect_link_folders() {
+    local d
+    while IFS= read -r d; do
+        LINK_FOLDERS+=("$d")
+    done < <(find "$SOURCE_PATH" -type f -name '__LINK_FOLDER__' -printf '%h\n')
+}
+
+is_inside_link_folder() {
+    local path="$1" lf
+    for lf in "${LINK_FOLDERS[@]}"; do
+        case "$path" in
+            "$lf"/*) return 0 ;;
+        esac
+    done
+    return 1
+}
+
+# --- Main walk --------------------------------------------------------------
+
+main() {
+    if [ ! -d "$SOURCE_PATH" ]; then
+        red "Error: source directory $SOURCE_PATH does not exist."
+        exit 1
+    fi
+
+    confirm
+    collect_link_folders
+
+    echo "Creating folders and links..."
+
+    # find -mindepth 1 skips $SOURCE_PATH itself; -print0 + `read -d ''`
+    # handles paths containing whitespace correctly; find naturally
+    # includes dotfiles (no extra flag needed).
+    local src
+    while IFS= read -r -d '' src; do
+        # The marker file itself is metadata, never a link target.
+        if [ "$(basename "$src")" = "__LINK_FOLDER__" ]; then
+            continue
+        fi
+
+        if [ -d "$src" ]; then
+            if [ -f "$src/__LINK_FOLDER__" ]; then
+                # Whole-folder link: symlink the directory itself.
+                link_file "$src"
+            elif ! is_inside_link_folder "$src"; then
+                # Plain directory: mirror it at the destination.
+                setup_folder "$src"
+            fi
+            # else: directory nested inside an already-linked folder — skip.
+        elif [ -f "$src" ]; then
+            if ! is_inside_link_folder "$src"; then
+                link_file "$src"
+            fi
+            # else: file nested inside an already-linked folder — skip.
+        fi
+    done < <(find "$SOURCE_PATH" -mindepth 1 -print0)
+
+    echo "Done."
+}
+
+main

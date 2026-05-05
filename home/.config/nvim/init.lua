@@ -462,5 +462,5 @@ else
   print("Unable to local treesitter config.")
 end
 
-vim.opt.background = 'light'
-vim.cmd.colorscheme('github_light_high_contrast')
+vim.opt.background = 'dark'
+vim.cmd.colorscheme('absent-contrast')
