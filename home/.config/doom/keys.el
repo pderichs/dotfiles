@@ -78,7 +78,7 @@
 (define-key evil-normal-state-map "U" #'pd/lookup-references)
 (define-key evil-visual-state-map "U" #'pd/lookup-references) ;; overrides uppercase
 (define-key evil-normal-state-map (kbd "<f9>") #'consult-recent-file)
-(define-key evil-normal-state-map (kbd "<f10>") #'pd/open-today-todo-file)
+(define-key evil-normal-state-map (kbd "<f10>") #'org-roam-dailies-goto-today)
 (define-key evil-normal-state-map (kbd "<f11>") #'consult-bookmark)
 (define-key evil-normal-state-map (kbd "C-j") #'evil-forward-paragraph)
 (define-key evil-normal-state-map (kbd "C-k") #'evil-backward-paragraph)
