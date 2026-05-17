@@ -22,3 +22,6 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# mise
+export PATH="$HOME/.local/share/mise/shims:$PATH"
