@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Example template for starttmux.local — copy to ~/bin/starttmux.local
+# (outside this repo) and edit for your machine. starttmux will source it
+# automatically if it exists.
+#
+# Why this exists:
+#   starttmux is checked into dotfiles and shared across machines, but you
+#   often want machine-specific windows or commands (work projects, an
+#   experimental editor, etc.) that shouldn't be committed. starttmux looks
+#   for a sibling file named `starttmux.local` and sources it just before
+#   selecting the main window.
+#
+# Available context when this script runs:
+#   - $session is set to the tmux session name (see starttmux).
+#   - The current shell is the one running starttmux, so any `exit` or
+#     `set -e` here affects the parent. Keep it simple.
+#
+# Example: add a third window that opens a project and starts a tool.
+#
+# # Only add the window if the env var that configures it is set,
+# # otherwise warn and skip rather than firing a malformed command.
+# if [ -n "${MY_PROJECT_SESSION:-}" ]; then
+#   tmux new-window -t $session:3 -n myproject
+#   tmux send-keys "cd ~/source/myproject; some-tool -s \"$MY_PROJECT_SESSION\"" C-m
+# else
+#   echo "starttmux.local: MY_PROJECT_SESSION not set; skipping myproject window." >&2
+# fi

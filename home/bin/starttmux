@@ -19,6 +19,14 @@ tmux send-keys "nvim" C-m
 
 tmux new-window -t $session:2 -n terminal
 
+# Source local, machine-specific extensions if present.
+# Lives next to the invoked script (e.g. ~/bin/starttmux.local), not in the repo.
+# See starttmux.local.example for a template.
+local_script="$(dirname -- "$0")/starttmux.local"
+if [ -f "$local_script" ]; then
+  . "$local_script"
+fi
+
 # return to main vim window
 tmux select-window -t $session:1
 
