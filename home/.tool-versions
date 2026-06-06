@@ -6,6 +6,6 @@ nim      2.2.10
 python   3.14.4
 zig      0.15.2
 rust     stable
-golang   1.26.2
+golang   1.26.4
 gradle   9.5.1
 opencode latest
