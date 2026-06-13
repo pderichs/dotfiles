@@ -1,7 +1,6 @@
 ;;; roam.el -*- lexical-binding: t; -*-
 
-(use-package org-roam
-  :ensure t
+(use-package! org-roam
   :custom
   (org-roam-directory (file-truename "~/roam"))
   ;;(org-roam-db-location "~/roam/org-roam.db")

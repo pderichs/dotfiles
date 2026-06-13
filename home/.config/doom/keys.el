@@ -28,7 +28,7 @@
 (map! :leader :desc "Search for a file in a specific folder" "]" #'pd/search-file-in-folder) ;; English keyboard
 (map! :leader :desc "Search for a file in a specific folder" "ä" #'pd/search-file-in-folder)
 (map! :leader :desc "Delete current buffer" "kk" #'kill-current-buffer)
-(map! :leader :desc "Compiles current project by calling make in root folder" "cc" (lambda () (interactive) (pd/compile-from-vc-root-folder "make -k")))
+;;(map! :leader :desc "Compiles current project by calling make in root folder" "cc" (lambda () (interactive) (pd/compile-from-vc-root-folder "make -k")))
 (map! :leader :desc "Calling run make target in vc root folder" "cr" (lambda () (interactive) (pd/compile-from-vc-root-folder "make run")))
 (map! :leader :desc "Calling debug make target in vc root folder" "cg" (lambda () (interactive) (pd/compile-from-vc-root-folder "make debug")))
 (map! :leader :desc "Calling unittests make target in vc root folder" "cu" (lambda () (interactive) (pd/compile-from-vc-root-folder "make unittests")))
@@ -120,7 +120,3 @@
 ;;             (define-key evil-normal-state-map "U" #'lsp-find-references)
 ;;             ))
 
-;; enable jj escape 
-(after! evil-escape
-  (evil-escape-mode +1)
-  (setq evil-escape-key-sequence "jj"))

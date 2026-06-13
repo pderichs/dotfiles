@@ -7,7 +7,7 @@
 
 ;; The `nimsuggest-path' will be set to the value of
 ;; (executable-find "nimsuggest"), automatically.
-(setq nimsuggest-path (concat (getenv "HOME") ".asdf/shims/nimsuggest"))
+;;(setq nimsuggest-path (concat (getenv "HOME") "/.asdf/shims/nimsuggest"))
 
 (defun my--init-nim-mode ()
   "Local init function for `nim-mode'."

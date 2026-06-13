@@ -9,7 +9,7 @@
 ;;(setq +doom-dashboard-menu-sections (cl-subseq +doom-dashboard-menu-sections 0 2))
 ;; TODO possible fixable by (after! dashboard...)
  
-(setq fancy-splash-image (concat doom-private-dir "splash/emacs-e-logo.png"))
+(setq fancy-splash-image (concat doom-user-dir "splash/emacs-e-logo.png"))
 
 ;; Display a fortune message in emacs startup screen
 (when (executable-find "fortune")

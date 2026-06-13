@@ -144,14 +144,14 @@
     (newline)
     (newline)
     (insert "#endif")
-    (previous-line)))
+    (forward-line -1)))
 
 (defun pd/cpp-insert-cout ()
   "Inserts a std::cout output"
   (interactive)
   (insert "std::cout << << std::endl;")
   (newline)
-  (previous-line)
+  (forward-line -1)
   (evil-first-non-blank-of-visual-line)
   (forward-evil-word 4))
 
@@ -252,13 +252,17 @@ for copy constructor and assignment operator."
   (newline))
 
 (defun pd/lookup-definition-and-center-cursor ()
-  "Calls lookup logic and centers the cursor afterwards"
+  "Jump to the definition of the symbol at point.
+Recentering after the jump is handled globally by the
+`xref-after-jump-hook' setup in config.el, so it also works for
+asynchronous backends (e.g. LSP)."
   (interactive)
-  (+lookup/definition (thing-at-point 'word 'no-properties))
-  (call-interactively (key-binding (kbd "zz"))))
+  (+lookup/definition (thing-at-point 'symbol 'no-properties)))
 
 (defun pd/lookup-references ()
-  "Calls lookup logic and centers the cursor afterwards"
+  "Find references to the symbol at point.
+Recentering after the jump is handled globally by the
+`xref-after-jump-hook' setup in config.el."
   (interactive)
   (+lookup/references (thing-at-point 'symbol 'no-properties)))
 
@@ -269,10 +273,13 @@ for copy constructor and assignment operator."
   (map! :leader :desc "Find other file" "of" #'lsp-clangd-find-other-file))
 
 (defun pd/insert-mode-indicator ()
-  "Inserts a mode spec at the current line"
+  "Inserts a mode spec at the current line and selects the MODE
+placeholder so it can be replaced immediately."
   (interactive)
   (insert "-*- mode: MODE -*-")
-  (call-interactively (key-binding (kbd "FMviw"))))
+  (when (search-backward "MODE" (line-beginning-position) t)
+    (evil-visual-char)
+    (forward-char (1- (length "MODE")))))
 
 (defun pd/git-update-commit ()
   "Creates a fast update commit for the current repository."

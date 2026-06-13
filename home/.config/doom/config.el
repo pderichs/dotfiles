@@ -79,12 +79,12 @@
 
 ;; Special settings for C/C++
 (add-hook 'c-mode-hook 'pd/setup-c-cpp-mode)
-(add-hook 'cpp-mode-hook 'pd/setup-c-cpp-mode)
+(add-hook 'c++-mode-hook 'pd/setup-c-cpp-mode)
 
 ;; Set docsets according to file type
 (add-hook 'c-mode-hook
           (lambda () (setq zeal-at-point-docset '("c" "cpp"))))
-(add-hook 'cpp-mode-hook
+(add-hook 'c++-mode-hook
           (lambda () (setq zeal-at-point-docset '("c" "cpp"))))
 (add-hook 'html-mode-hook
           (lambda () (setq zeal-at-point-docset "html")))
@@ -95,6 +95,12 @@
 (add-hook 'go-mode-hook
           (lambda () (setq zeal-at-point-docset "go")))
 ;; TODO Add more
+
+;; Recenter the cursor after any xref jump (go-to-definition,
+;; find-references, etc.). Doing this via the hook instead of recentering
+;; manually after the lookup means it also works for asynchronous backends
+;; (e.g. LSP), because it only fires once the jump has actually landed.
+(add-hook 'xref-after-jump-hook #'recenter)
 
 ;; Enable back button mode
 (back-button-mode 1)

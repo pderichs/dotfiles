@@ -1,3 +1,4 @@
 ;;; debug.el -*- lexical-binding: t; -*-
 
-(require 'dap-cpptools)
+(after! dap-mode
+  (require 'dap-cpptools))
