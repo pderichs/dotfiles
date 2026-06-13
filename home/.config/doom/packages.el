@@ -87,3 +87,8 @@
 (package! ellama)
 (package! multi-vterm)
 (package! magit-delta)
+
+(package! evil-textobj-tree-sitter
+  :recipe (:host github
+           :repo "meain/evil-textobj-tree-sitter"
+           :files (:defaults "queries" "treesit-queries")))

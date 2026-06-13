@@ -123,6 +123,8 @@
 ;; (global-tree-sitter-mode)
 ;; (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 
+(load! "evil-textobjects-tree-sitter.el")
+
 ;; This file sets the environment specific variables
 ;;   - user-full-name
 ;;   - user-mail-address
