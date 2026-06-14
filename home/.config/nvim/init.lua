@@ -243,7 +243,6 @@ local status_ok, lazy = pcall(require, "lazy")
 if status_ok then
   lazy.setup({
     'folke/which-key.nvim',
-    'aymericbeaumet/vim-symlink',
     'nvim-lua/plenary.nvim',
     'terrortylor/nvim-comment',
     {
@@ -461,6 +460,47 @@ if status_ok then
 else
   print("Unable to local treesitter config.")
 end
+
+-- Write to symlink goal instead of overwriting
+local group = vim.api.nvim_create_augroup("FollowSymlink", { clear = true })
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  group = group,
+  callback = function(args)
+    local buf = args.buf
+    -- vim.notify("[symlink] BufReadPost gefeuert für buf " .. buf, vim.log.levels.INFO)
+
+    if vim.bo[buf].buftype ~= "" then
+      -- vim.notify("[symlink] Abbruch: buftype = '" .. vim.bo[buf].buftype .. "'", vim.log.levels.WARN)
+      return
+    end
+
+    local name = vim.api.nvim_buf_get_name(buf)
+    if name == "" then
+      -- vim.notify("[symlink] Abbruch: leerer Buffer-Name", vim.log.levels.WARN)
+      return
+    end
+    if name:match("^%w+://") then
+      -- vim.notify("[symlink] Abbruch: Pseudopfad " .. name, vim.log.levels.WARN)
+      return
+    end
+
+    local resolved = vim.fn.resolve(name)
+    -- vim.notify("[symlink] name     = " .. name, vim.log.levels.INFO)
+    -- vim.notify("[symlink] resolved = " .. resolved, vim.log.levels.INFO)
+
+    if resolved == name then
+      -- vim.notify("[symlink] Abbruch: kein Symlink (resolved == name)", vim.log.levels.WARN)
+      return
+    end
+
+    vim.api.nvim_buf_set_name(buf, resolved)
+    vim.api.nvim_buf_call(buf, function()
+      vim.cmd("silent! edit!")
+    end)
+    -- vim.notify("[symlink] umbenannt auf " .. resolved, vim.log.levels.INFO)
+  end,
+})
 
 vim.opt.background = 'light'
 vim.cmd.colorscheme('blue')
