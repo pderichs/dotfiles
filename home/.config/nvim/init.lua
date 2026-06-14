@@ -461,7 +461,7 @@ else
   print("Unable to local treesitter config.")
 end
 
--- Write to symlink goal instead of overwriting
+-- Handle symlinks correctly
 local group = vim.api.nvim_create_augroup("FollowSymlink", { clear = true })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
